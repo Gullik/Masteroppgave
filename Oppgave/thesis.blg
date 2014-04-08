@@ -1,9 +1,19 @@
-[0] Config.pm:327> INFO - This is Biber 2.3
-[0] Config.pm:330> INFO - Logfile is 'thesis.blg'
-[23] biber:287> INFO - === Fri Oct 21, 2016, 15:18:54
-[38] Biber.pm:346> INFO - Reading 'thesis.bcf'
-[94] Biber.pm:689> INFO - Found 0 citekeys in bib section 0
-[94] Utils.pm:147> WARN - The file 'thesis.bcf' does not contain any citations!
-[98] bbl.pm:505> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[98] bbl.pm:596> INFO - Output to thesis.bbl
-[100] Biber.pm:107> INFO - WARNINGS: 1
+[0] Config.pm:318> INFO - This is Biber 1.8
+[0] Config.pm:321> INFO - Logfile is 'thesis.blg'
+[38] biber:275> INFO - === sÃ¸. okt. 23, 2016, 22:58:07
+[39] Biber.pm:333> INFO - Reading 'thesis.bcf'
+[75] Biber.pm:630> INFO - Found 37 citekeys in bib section 0
+[85] Biber.pm:3053> INFO - Processing section 0
+[95] Biber.pm:3190> INFO - Looking for bibtex format file 'bibs/bibliography.bib' for section 0
+[100] bibtex.pm:933> INFO - Decoding LaTeX character macros into UTF-8
+[109] bibtex.pm:808> INFO - Found BibTeX data source 'bibs/bibliography.bib'
+[111] Utils.pm:169> WARN - Duplicate entry key: 'lapenta_particle_????' in file 'bibs/bibliography.bib', skipping ...
+[143] Utils.pm:169> WARN - I didn't find a database entry for 'documentation' (section 0)
+[143] Utils.pm:169> WARN - I didn't find a database entry for 'Press1987' (section 0)
+[143] Utils.pm:169> WARN - I didn't find a database entry for 'Kacem2012' (section 0)
+[221] Biber.pm:2939> INFO - Overriding locale 'en_US.UTF-8' default tailoring 'variable = shifted' with 'variable = non-ignorable'
+[221] Biber.pm:2945> INFO - Sorting 'entry' list 'nyt' keys
+[222] Biber.pm:2949> INFO - No sort tailoring available for locale 'en_US.UTF-8'
+[288] bbl.pm:482> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[294] bbl.pm:555> INFO - Output to thesis.bbl
+[294] Biber.pm:105> INFO - WARNINGS: 4

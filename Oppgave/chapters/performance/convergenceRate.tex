@@ -1,0 +1,19 @@
+\subsection{Convergence Rate}
+	As an iterative solver a multigrid solver will gradually approach a solution,
+	reducing the residual further each run. In this subsection we will measure the convergence
+	rate, defined in similar way as in \citet{zhukov_parallel_2014},
+	%
+	\begin{equation}
+		p = \left(\frac{r_m}{r_0}\right)^{1/m}
+	\end{equation}
+	%
+	where \(r_m, r_0\) are the \(2\)-norm of a the residual after \(m\) multigrid runs
+ 	and the inital residual. We presume that each run of the multigrid solver will
+	remove a proportion of the remaining residual.
+	The tests are done on a \(128^3\) grid on a sinusoidal
+	problem, and the smoothers run for an equal number of runs on each level.
+	%
+	\large{(Table of convergence rate numbers)}
+	%
+	\citeauthor{zhukov_parallel_2014} found convergence rates of \(p \approx 0.15\) and \(p \approx 0.17\)
+	using a multigrid solver with a Chebyshev algorithm to smooth.
