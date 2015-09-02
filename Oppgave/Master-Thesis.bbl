@@ -1,0 +1,46 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist{entry}{nyt}
+    \entry{Lapenta}{article}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=6d313683703a74c98f714d0f325a7bb8}{Lapenta}{L\bibinitperiod}{Giovanni}{G\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=6d313683703a74c98f714d0f325a7bb8}{Lapenta}{L\bibinitperiod}{Giovanni}{G\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{6d313683703a74c98f714d0f325a7bb8}
+      \strng{fullhash}{6d313683703a74c98f714d0f325a7bb8}
+      \field{sortinit}{L}
+      \field{labelyear}{nodate}
+      \field{labeltitle}{{Particle In Cell Methods}}
+      \field{journaltitle}{Perswww.Kuleuven.Be}
+      \field{title}{{Particle In Cell Methods}}
+      \verb{file}
+      \verb :home/gullik/Documents/Masteroppgave/boker/PIC\_Lapenta.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb https://perswww.kuleuven.be/~u0052182/pic/book.pdf
+      \endverb
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+

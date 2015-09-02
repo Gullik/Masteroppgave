@@ -1,0 +1,31 @@
+Lx [m] 0.50
+Ly [m] 0.50
+Lz [m] 0.50
+ngx number of grid x dir 65
+ngy number of grid y dir 65
+ngz number of grid z dir 65
+dt   7E-10
+tmax 6.73E-5
+number density of real part 5E12
+number of sim part 5000000
+electron charge to mass -1.7585E11
+electron Debye length [m] 9.76E-03
+electron drift vel in Mach [Cs] 0.0
+ion charge numbers (real particle) 1
+ion charge to mass 3.52E08
+ion drift vel in Mach numbers [Cs] 0.0
+Tel/Tion 4
+Beam vel in Mach [Cs] 0.0
+number of beam part 2
+PROBe phi initial, final, step [V] -0.01 / +0.01 / 0.05
+Bound potential [V] 0.0
+tolerance for poisson solver 0.5E-05
+tolerance for floating potential(conducting dust) 0.0009375
+PHOTONS flux 0.0E20
+PHOTONS angle (degrees)  45
+PHOTONS energy (eV) 2.94
+DIAGNOSTICS no of intervals 2
+start from one and average 1 3000
+6001   6000
+350001 5000
+41 10

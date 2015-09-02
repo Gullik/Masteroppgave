@@ -1,0 +1,81 @@
+% arara: pdflatex
+% !arara: biber
+% !arara: pdflatex
+% How to run: 
+% 1) pdflatex "filename".tex
+% 2) biber "filename"
+% 3) pdflatex "filename".tex
+% 4) pdflatex "filename".tex
+
+
+\documentclass[x11names,twoside,english]{uiofysmaster}
+% \documentclass[x11names]{article}
+\usepackage{tikz}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Tikz settings
+\usetikzlibrary{shapes,arrows,chains}
+% =================================================
+% Set up a few colours
+\colorlet{lcfree}{Green3}
+\colorlet{lcnorm}{Blue3}
+\colorlet{lccong}{Red3}
+% -------------------------------------------------
+% Set up a new layer for the debugging marks, and make sure it is on
+% top
+\pgfdeclarelayer{marx}
+\pgfsetlayers{main,marx}
+% A macro for marking coordinates (specific to the coordinate naming
+% scheme used here). Swap the following 2 definitions to deactivate
+% marks.
+\providecommand{\cmark}[2][]{%
+  \begin{pgfonlayer}{marx}
+    \node [nmark] at (c#2#1) {#2};
+  \end{pgfonlayer}{marx}
+  } 
+\providecommand{\cmark}[2][]{\relax} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %% references
+\usepackage[style=authoryear,
+            bibstyle=authoryear,
+            backend=biber,
+            % refsection=chapter,
+            maxbibnames=99,
+            maxnames=2,
+            firstinits=true,
+            uniquename=init,
+            natbib=true,
+            dashed=false]{biblatex}
+
+\addbibresource{bibs/bibliography.bib}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%\bibliography{references}
+
+\author{Gullik Vetvik Killie}
+\title{Placeholder Title}
+\date{June 2012}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Document starts here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+	
+
+% \maketitle
+% \input{abstract}
+
+\appendix
+\chapter{Full Multi Grid Method}
+\input{chapters/fmg-method}
+
+\cite{Lapenta}
+
+\printbibliography
+
+\end{document}
