@@ -1,0 +1,9 @@
+[0] Config.pm:318> INFO - This is Biber 1.8
+[0] Config.pm:321> INFO - Logfile is 'methods.blg'
+[37] biber:275> INFO - === to. sep.  3, 2015, 12:36:26
+[37] Biber.pm:333> INFO - Reading 'methods.bcf'
+[79] Biber.pm:630> INFO - Found 2 citekeys in bib section 0
+[88] Biber.pm:3053> INFO - Processing section 0
+[97] Biber.pm:3190> INFO - Looking for bibtex format file 'bibs/bibliography.bib' for section 0
+[160] Utils.pm:185> ERROR - Cannot find 'bibs/bibliography.bib'!
+[160] Biber.pm:109> INFO - ERRORS: 1

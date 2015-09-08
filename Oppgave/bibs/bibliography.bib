@@ -1,3 +1,116 @@
+@article{Martin1997,
+abstract = {The large number of processing elements in current parallel
+systems necessitates the development of more comprehensive and realistic
+tools for the scalability analysis of algorithms on those architectures.
+This paper presents a simple analytical tool with which to study the
+scalability of parallel algorithm-architecture combinations. Our
+practical method studies separately execution time, efficiency, and
+memory usage in the accuracy-critical scaling model, where the problem
+size-input data set size-increases with the number of processors, which
+is the relevant one in many situations. The paper defines quantitative
+and qualitative measurements of the scalability and derives important
+relationships between execution time and efficiency. For example,
+results show that the best way to scale the system (to deteriorate as
+little as possible the properties of the system) is by maintaining
+constant execution time. These analytical results are verified with one
+candidate application for massive parallel computers: the full multigrid
+method. We study the scalability of a general d-dimensional full
+multigrid method on an r-dimensional mesh of processors. The analytical
+expressions are verified through experimental results obtained by
+implementing the full multigrid method on a Transputer-based machine and
+on the CRAY T3D},
+author = {Martin, Ignacio and Tirado, Francisco},
+doi = {10.1109/71.595573},
+file = {:home/gullik/Documents/Masteroppgave/boker/Martin\_1997.pdf:pdf},
+issn = {10459219},
+journal = {IEEE Transactions on Parallel and Distributed Systems},
+keywords = {Multigrid methods,Parallel computation,Performance metrics,Scalability of parallel systems,Scientific computing},
+number = {6},
+pages = {562--573},
+title = {{Relationships between efficiency and execution time of full multigrid methods on parallel computers}},
+volume = {8},
+year = {1997}
+}
+@article{Pearson2012,
+abstract = {Optimal control problems with partial differential equations as constraints play an important role in many applications. The inclusion of bound constraints for the state variable poses a significant challenge for optimization methods. Our focus here is on the incorporation of the constraints via the Moreau-Yosida regularization technique. This method has been studied recently and has proven to be advantageous compared to other approaches. In this paper we develop robust preconditioners for the efficient solution of the Newton steps associated with solving the Moreau-Yosida regularized problem. Numerical results illustrate the efficiency of our approach.},
+author = {Pearson, John W. and Stoll, Martin and Wathen, a. J.},
+doi = {10.1002/nla},
+file = {:home/gullik/Documents/Masteroppgave/boker/Thekale\_et\_al-2010-Numerical\_Linear\_Algebra\_with\_Applications.pdf:pdf},
+issn = {10705325},
+keywords = {Numerical analysis},
+number = {February},
+pages = {199--210},
+title = {{Preconditioners for state constrained optimal control problems with Moreau-Yosida penalty function (Note\_wrong\_title\_and\_info)}},
+url = {http://eprints.maths.ox.ac.uk/1499/},
+year = {2012}
+}
+@article{Tezduyar2008,
+abstract = {We present an overview of how the arterial fluid mechanics problems can be modeled with the stabilized space–time fluid–structure interaction (SSTFSI) technique developed by the Team for Advanced Flow Simulation and Modeling (TAFSM). The SSTFSI technique includes the enhancements introduced recently by the TAFSM to increase the scope, accuracy, robustness and efficiency of this class of techniques. The SSTFSI technique is supplemented with a number of special techniques developed for arterial fluid mechanics modeling. These include a recipe for pre-FSI computations that improve the convergence of the FSI computations, using an estimated zero-pressure arterial geometry, and the sequentially coupled arterial FSI (SCAFSI) technique. The recipe for pre-FSI computations is based on the assumption that the arterial deformation during a cardiac cycle is driven mostly by the blood pressure. The SCAFSI technique, which was introduced as an approximate FSI approach in arterial fluid mechanics, is also based on that assumption. The need for an estimated zero-pressure arterial geometry is based on recognizing that the patient-specific image-based geometries correspond to time-averaged blood pressure values. In our arterial fluid mechanics modeling the arterial walls can be represented with the membrane or continuum elements, both of which are geometrically nonlinear, and the continuum element is made of hyperelastic (Fung) material. Test computations are presented for cerebral and abdominal aortic aneurysms, where the arterial geometries used in the computations are close approximations to the patient-specific image-based data.},
+author = {Tezduyar, Tayfun E and Sathe, Sunil and Schwaab, Matthew and Conklin, Brian S},
+doi = {10.1002/fld},
+file = {:home/gullik/Documents/Masteroppgave/boker/Brethes\_2004.pdf:pdf},
+journal = {International Journal for Numerical Methods in Fluids},
+keywords = {cardiovascular fluid mechanics,cerebral aneurysms,elastic material,fluid,hyper,space,structure interactions,time methods},
+number = {October 2007},
+pages = {601--629},
+title = {{Arterial fluid mechanics modeling with the stabilized space – time fluid – structure interaction technique}},
+year = {2008}
+}
+@inproceedings{Hartmanis,
+author = {Hartmanis, J and Leeuwen, J Van},
+booktitle = {High Performance and Computing},
+file = {:home/gullik/Documents/Masteroppgave/boker/High\_perf\_Comp.pdf:pdf},
+isbn = {3540675531},
+title = {{High Performance and Computing}}
+}
+@article{Kacem2012,
+abstract = {Streamers dynamics are characterized by the fast propagation of ionized shock waves at the nanosecond scale under very sharp space charge variations. The streamer dynamics modelling needs the solution of charged particle transport equations coupled to the elliptic Poisson's equation. The latter has to be solved at each time step of the streamers evolution in order to follow the propagation of the resulting space charge electric field. In the present paper, a full multi grid (FMG) and a multi grid (MG) methods have been adapted to solve Poisson's equation for streamer discharge simulations between asymmetric electrodes. The validity of the FMG method for the computation of the potential field is first shown by performing direct comparisons with analytic solution of the Laplacian potential in the case of a point-to-plane geometry. The efficiency of the method is also compared with the classical successive over relaxation method (SOR) and MUltifrontal massively parallel solver (MUMPS). MG method is then applied in the case of the simulation of positive streamer propagation and its efficiency is evaluated from comparisons to SOR and MUMPS methods in the chosen point-to-plane configuration. Very good agreements are obtained between the three methods for all electro-hydrodynamics characteristics of the streamer during its propagation in the inter-electrode gap. However in the case of MG method, the computational time to solve the Poisson's equation is at least 2 times faster in our simulation conditions. ?? 2011 Elsevier Inc.},
+author = {Kacem, S. and Eichwald, O. and Ducasse, O. and Renon, N. and Yousfi, M. and Charrada, K.},
+doi = {10.1016/j.jcp.2011.08.003},
+file = {:home/gullik/Documents/Masteroppgave/boker/Kacem\_2012.pdf:pdf},
+isbn = {0021-9991},
+issn = {00219991},
+journal = {Journal of Computational Physics},
+keywords = {Elliptic equation solver,Full multi-grid method,Plasma discharge,Streamer simulation},
+number = {2},
+pages = {251--261},
+publisher = {Elsevier Inc.},
+title = {{Full multi grid method for electric field computation in point-to-plane streamer discharge in air at atmospheric pressure}},
+url = {http://dx.doi.org/10.1016/j.jcp.2011.08.003},
+volume = {231},
+year = {2012}
+}
+@article{Diskin2001,
+abstract = {This paper studies a novel multigrid approach to the solution for a second-order upwind-biased discretization of the convection equation in two dimensions. This approach is based on semi-coarsening and well-balanced explicit correction terms, added to coarse-grid operators to maintain on coarse grids the same cross-characteristic interaction as on the target (fine) grid. Multicolor relaxation schemes are used on all the levels, allowing a very efficient parallel implementation. The results of the smoothing analysis and numerical tests can be summarized as follows: (1) The residual asymptotic convergence rate is about 3 per cycle, which far surpasses the theoretical limit (4/3) predicted for standard multigrid algorithms with full-coarsening. (2) The full multigrid (FMG) algorithm with two V(0,2) cycles on the target grid and just one V(0,2) cycle on all the coarse grids always provides an approximate solution with the algebraic error less than the discretization error. (3) A novel algorithm for deriving a discrete solution approximating the true continuous solution with a relative accuracy given in advance is developed. The computational complexity of this algorithm is (nearly) optimal (comparable with the complexity of the FMG algorithm applied to solve the problem on the optimally spaced target grid). ?? 2001 Elsevier Science Inc. All rights reserved.},
+author = {Diskin, Boris},
+doi = {10.1016/S0096-3003(00)00073-4},
+file = {:home/gullik/Documents/Masteroppgave/boker/B\_Diskin\_2001.pdf:pdf},
+issn = {00963003},
+journal = {Applied Mathematics and Computation},
+keywords = {Characteristic components,Convection operator,Multigrid methods,Semi-coarsening,Textbook multigrid efficiency,Upwind-biased discretization},
+number = {3},
+pages = {343--379},
+title = {{Efficient multigrid methods for solving upwind-biased discretizations of the convection equation}},
+volume = {123},
+year = {2001}
+}
+@article{Chow2006,
+abstract = {This paper surveys the techniques that are necessary for constructing computationally effi- cient parallel multigrid solvers. Both geometric and algebraic methods are considered. We first cover the sources of parallelism, including traditional spatial partitioning and more novel addi- tive multilevel methods. We then cover the parallelism issues that must be addressed: parallel smoothing and coarsening, operator complexity, and parallelization of the coarsest grid solve.},
+author = {Chow, Edmond and Falgout, Robert D and Hu, Jonathan J and Tuminaro, Raymond S and Yang, Ulrike Meier},
+file = {:home/gullik/Documents/Masteroppgave/boker/Survey\_par\_MGSolvers.pdf:pdf},
+journal = {Parallel Processing for Scientific Computing},
+pages = {179--195},
+title = {{A Survey of Parallelization Techniques for Multigrid Solvers}},
+url = {http://books.google.com/books?hl=en\&amp;lr=\&amp;id=AWpK2nkpifcC\&amp;oi=fnd\&amp;pg=PA179\&amp;dq=A+Survey+of+Parallelization+Techniques+for+Multigrid+Solvers\&amp;ots=oFmixPekds\&amp;sig=XLZ-P0p8q97Tp8JeggZT3rbqd8A},
+year = {2006}
+}
+@article{Baiardi2000,
+author = {Baiardi, Fabrizio and Chiti, Sarah and Mori, Paolo and Ricci, Laura},
+file = {:home/gullik/Documents/Masteroppgave/boker/chp\%3A10.1007\%2F3-540-45492-6\_8.pdf:pdf},
+pages = {71--80},
+title = {{Parallelization of Irregular Problems Based on Hierarchical Domain Representation}},
+year = {2000}
+}
 @article{Lapenta,
 author = {Lapenta, Giovanni},
 file = {:home/gullik/Documents/Masteroppgave/boker/PIC\_Lapenta.pdf:pdf},
