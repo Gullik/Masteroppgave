@@ -1,0 +1,2432 @@
+\begin{theindex}
+
+  \item {accel}
+    \subitem {funct.\+h}, \hyperpage{82}
+  \item {addint}
+    \subitem {fmg.\+c}, \hyperpage{70}
+    \subitem {fmg\+\_\+\+P.\+c}, \hyperpage{72}
+  \item {alllost}
+    \subitem {const.\+h}, \hyperpage{27}
+  \item {allpart}
+    \subitem {const.\+h}, \hyperpage{27}
+  \item {ap}
+    \subitem {const.\+h}, \hyperpage{27}
+  \item {area}
+    \subitem {dtriangle}, \hyperpage{9}
+  \item {average}
+    \subitem {const.\+h}, \hyperpage{27}
+  \item {average\+\_\+current}
+    \subitem {dustg.\+c}, \hyperpage{67}
+    \subitem {funct.\+h}, \hyperpage{82}
+
+  \indexspace
+
+  \item {B\+O\+U\+N\+D}
+    \subitem {const.\+h}, \hyperpage{24}
+  \item {B\+U\+C\+K\+E\+T\+S\+I\+Z\+E}
+    \subitem {const.\+h}, \hyperpage{24}
+  \item {bcnt}
+    \subitem {d\+\_\+particle}, \hyperpage{7}
+  \item {bdens}
+    \subitem {const.\+h}, \hyperpage{27}
+  \item {beam}
+    \subitem {const.\+h}, \hyperpage{24}
+  \item {Bf}
+    \subitem {const.\+h}, \hyperpage{27}
+  \item {Bf\+M\+A\+X}
+    \subitem {const.\+h}, \hyperpage{27}
+  \item {bp}
+    \subitem {const.\+h}, \hyperpage{27}
+
+  \indexspace
+
+  \item {c0}
+    \subitem {const.\+h}, \hyperpage{27}
+  \item {c1}
+    \subitem {const.\+h}, \hyperpage{28}
+  \item {c2}
+    \subitem {const.\+h}, \hyperpage{28}
+  \item {c3}
+    \subitem {const.\+h}, \hyperpage{28}
+  \item {c4}
+    \subitem {const.\+h}, \hyperpage{28}
+  \item {c5}
+    \subitem {const.\+h}, \hyperpage{28}
+  \item {C\+O\+N\+V\+T\+E\+S\+T}
+    \subitem {const.\+h}, \hyperpage{24}
+  \item {C\+R\+O\+S\+S\+F\+A\+C\+T\+O\+R}
+    \subitem {const.\+h}, \hyperpage{24}
+  \item {calculate\+\_\+flux}
+    \subitem {flux.\+c}, \hyperpage{69}
+    \subitem {funct.\+h}, \hyperpage{82}
+  \item {calculate\+\_\+staticparameters}
+    \subitem {dustg.\+c}, \hyperpage{67}
+    \subitem {funct.\+h}, \hyperpage{82}
+  \item {ccorner}
+    \subitem {const.\+h}, \hyperpage{28}
+  \item {cellvolume}
+    \subitem {const.\+h}, \hyperpage{28}
+  \item {charge}
+    \subitem {const.\+h}, \hyperpage{28}
+  \item {chargeandnorm}
+    \subitem {const.\+h}, \hyperpage{28}
+  \item {chargeoncond}
+    \subitem {dustg.\+c}, \hyperpage{67}
+    \subitem {funct.\+h}, \hyperpage{82}
+  \item {checkcolcrossing}
+    \subitem {funct.\+h}, \hyperpage{82}
+    \subitem {grid.\+c}, \hyperpage{92}
+  \item {checkcond}
+    \subitem {dustg.\+c}, \hyperpage{67}
+    \subitem {funct.\+h}, \hyperpage{82}
+  \item {checkpointcrossing}
+    \subitem {funct.\+h}, \hyperpage{83}
+    \subitem {grid.\+c}, \hyperpage{92}
+  \item {cleargrid}
+    \subitem {funct.\+h}, \hyperpage{83}
+    \subitem {grid.\+c}, \hyperpage{92}
+  \item {cleargrid2}
+    \subitem {funct.\+h}, \hyperpage{83}
+    \subitem {grid.\+c}, \hyperpage{92}
+  \item {clockend}
+    \subitem {const.\+h}, \hyperpage{28}
+  \item {clockstart}
+    \subitem {const.\+h}, \hyperpage{28}
+  \item {collide}
+    \subitem {collisions.\+c}, \hyperpage{13}
+    \subitem {collisions\+\_\+constant.\+c}, \hyperpage{14}
+    \subitem {funct.\+h}, \hyperpage{83}
+  \item {collisions}
+    \subitem {collisions.\+c}, \hyperpage{13}
+    \subitem {collisions\+\_\+constant.\+c}, \hyperpage{14}
+    \subitem {funct.\+h}, \hyperpage{83}
+  \item {collisions.\+c}
+    \subitem {collide}, \hyperpage{13}
+    \subitem {collisions}, \hyperpage{13}
+    \subitem {collisions\+\_\+init}, \hyperpage{13}
+    \subitem {findsigma}, \hyperpage{13}
+  \item {collisions\+\_\+constant.\+c}
+    \subitem {collide}, \hyperpage{14}
+    \subitem {collisions}, \hyperpage{14}
+    \subitem {collisions\+\_\+init}, \hyperpage{14}
+    \subitem {findsigma}, \hyperpage{14}
+  \item {collisions\+\_\+init}
+    \subitem {collisions.\+c}, \hyperpage{13}
+    \subitem {collisions\+\_\+constant.\+c}, \hyperpage{14}
+    \subitem {funct.\+h}, \hyperpage{83}
+  \item {colltypes}
+    \subitem {const.\+h}, \hyperpage{28}
+  \item {cond\+\_\+present}
+    \subitem {const.\+h}, \hyperpage{29}
+  \item {condsq}, \hyperpage{5}
+    \subitem {const.\+h}, \hyperpage{26}
+    \subitem {in1}, \hyperpage{5}
+    \subitem {in2}, \hyperpage{5}
+    \subitem {in3}, \hyperpage{5}
+    \subitem {in4}, \hyperpage{5}
+    \subitem {x1}, \hyperpage{6}
+    \subitem {x2}, \hyperpage{6}
+    \subitem {x3}, \hyperpage{6}
+    \subitem {x4}, \hyperpage{6}
+    \subitem {y1}, \hyperpage{6}
+    \subitem {y2}, \hyperpage{6}
+    \subitem {y3}, \hyperpage{6}
+    \subitem {y4}, \hyperpage{6}
+  \item {condsquares}
+    \subitem {dustg.\+c}, \hyperpage{67}
+    \subitem {funct.\+h}, \hyperpage{83}
+  \item {const.\+h}
+    \subitem {alllost}, \hyperpage{27}
+    \subitem {allpart}, \hyperpage{27}
+    \subitem {ap}, \hyperpage{27}
+    \subitem {average}, \hyperpage{27}
+    \subitem {B\+O\+U\+N\+D}, \hyperpage{24}
+    \subitem {B\+U\+C\+K\+E\+T\+S\+I\+Z\+E}, \hyperpage{24}
+    \subitem {bdens}, \hyperpage{27}
+    \subitem {beam}, \hyperpage{24}
+    \subitem {Bf}, \hyperpage{27}
+    \subitem {Bf\+M\+A\+X}, \hyperpage{27}
+    \subitem {bp}, \hyperpage{27}
+    \subitem {c0}, \hyperpage{27}
+    \subitem {c1}, \hyperpage{28}
+    \subitem {c2}, \hyperpage{28}
+    \subitem {c3}, \hyperpage{28}
+    \subitem {c4}, \hyperpage{28}
+    \subitem {c5}, \hyperpage{28}
+    \subitem {C\+O\+N\+V\+T\+E\+S\+T}, \hyperpage{24}
+    \subitem {C\+R\+O\+S\+S\+F\+A\+C\+T\+O\+R}, \hyperpage{24}
+    \subitem {ccorner}, \hyperpage{28}
+    \subitem {cellvolume}, \hyperpage{28}
+    \subitem {charge}, \hyperpage{28}
+    \subitem {chargeandnorm}, \hyperpage{28}
+    \subitem {clockend}, \hyperpage{28}
+    \subitem {clockstart}, \hyperpage{28}
+    \subitem {colltypes}, \hyperpage{28}
+    \subitem {cond\+\_\+present}, \hyperpage{29}
+    \subitem {condsq}, \hyperpage{26}
+    \subitem {convergence}, \hyperpage{29}
+    \subitem {csq}, \hyperpage{29}
+    \subitem {curr}, \hyperpage{29}
+    \subitem {curr\+\_\+av}, \hyperpage{29}
+    \subitem {current}, \hyperpage{29}
+    \subitem {D\+\_\+\+C\+O\+N\+D}, \hyperpage{24}
+    \subitem {D\+\_\+\+I\+N\+S\+U}, \hyperpage{24}
+    \subitem {d\+\_\+globallist}, \hyperpage{29}
+    \subitem {d\+\_\+locallist}, \hyperpage{29}
+    \subitem {d\+\_\+localmax}, \hyperpage{29}
+    \subitem {d\+\_\+particle}, \hyperpage{26}
+    \subitem {d\+\_\+rho}, \hyperpage{26}
+    \subitem {D\+I\+M}, \hyperpage{24}
+    \subitem {d\+V}, \hyperpage{38}
+    \subitem {d\+Vdt}, \hyperpage{38}
+    \subitem {daa}, \hyperpage{29}
+    \subitem {daa1x}, \hyperpage{29}
+    \subitem {daa1y}, \hyperpage{29}
+    \subitem {dbb}, \hyperpage{30}
+    \subitem {dbb1x}, \hyperpage{30}
+    \subitem {dbb1y}, \hyperpage{30}
+    \subitem {dcc}, \hyperpage{30}
+    \subitem {dcc1x}, \hyperpage{30}
+    \subitem {dcc1y}, \hyperpage{30}
+    \subitem {ddelta}, \hyperpage{30}
+    \subitem {ddelta2}, \hyperpage{30}
+    \subitem {debye}, \hyperpage{30}
+    \subitem {debyetotal}, \hyperpage{30}
+    \subitem {dens}, \hyperpage{30}
+    \subitem {dens\+\_\+err}, \hyperpage{30}
+    \subitem {dhist}, \hyperpage{31}
+    \subitem {diagint}, \hyperpage{31}
+    \subitem {diagint\+\_\+av}, \hyperpage{31}
+    \subitem {diagint\+\_\+st}, \hyperpage{31}
+    \subitem {dmass}, \hyperpage{31}
+    \subitem {dmass\+\_\+centr\+\_\+x}, \hyperpage{31}
+    \subitem {dmass\+\_\+centr\+\_\+y}, \hyperpage{31}
+    \subitem {dmass\+\_\+centr\+\_\+z}, \hyperpage{31}
+    \subitem {dmom\+I}, \hyperpage{31}
+    \subitem {dmove}, \hyperpage{31}
+    \subitem {dnumber}, \hyperpage{31}
+    \subitem {dpart}, \hyperpage{31}
+    \subitem {dpartlast}, \hyperpage{32}
+    \subitem {dpartmax}, \hyperpage{32}
+    \subitem {dpartq}, \hyperpage{32}
+    \subitem {dphifl}, \hyperpage{32}
+    \subitem {dr2v2}, \hyperpage{32}
+    \subitem {dradius}, \hyperpage{32}
+    \subitem {dradiusdx}, \hyperpage{32}
+    \subitem {drag\+\_\+direct\+\_\+x}, \hyperpage{32}
+    \subitem {drag\+\_\+direct\+\_\+y}, \hyperpage{32}
+    \subitem {drag\+\_\+direct\+\_\+z}, \hyperpage{32}
+    \subitem {drag\+\_\+elect\+\_\+x}, \hyperpage{32}
+    \subitem {drag\+\_\+elect\+\_\+y}, \hyperpage{32}
+    \subitem {drag\+\_\+elect\+\_\+z}, \hyperpage{33}
+    \subitem {drho}, \hyperpage{33}
+    \subitem {drholast}, \hyperpage{33}
+    \subitem {drot\+\_\+x\+\_\+y1}, \hyperpage{33}
+    \subitem {drot\+\_\+x\+\_\+y2}, \hyperpage{33}
+    \subitem {drot\+\_\+x\+\_\+z1}, \hyperpage{33}
+    \subitem {drot\+\_\+x\+\_\+z2}, \hyperpage{33}
+    \subitem {drot\+\_\+y\+\_\+x1}, \hyperpage{33}
+    \subitem {drot\+\_\+y\+\_\+x2}, \hyperpage{33}
+    \subitem {drot\+\_\+y\+\_\+z1}, \hyperpage{33}
+    \subitem {drot\+\_\+y\+\_\+z2}, \hyperpage{33}
+    \subitem {drot\+\_\+z\+\_\+x1}, \hyperpage{33}
+    \subitem {drot\+\_\+z\+\_\+x2}, \hyperpage{34}
+    \subitem {drot\+\_\+z\+\_\+y1}, \hyperpage{34}
+    \subitem {drot\+\_\+z\+\_\+y2}, \hyperpage{34}
+    \subitem {dshape}, \hyperpage{34}
+    \subitem {dt}, \hyperpage{34}
+    \subitem {dtdx}, \hyperpage{34}
+    \subitem {dtdy}, \hyperpage{34}
+    \subitem {dtdz}, \hyperpage{34}
+    \subitem {dtrian}, \hyperpage{34}
+    \subitem {dtriangle}, \hyperpage{26}
+    \subitem {dtype}, \hyperpage{34}
+    \subitem {dust\+\_\+time}, \hyperpage{34}
+    \subitem {dusta}, \hyperpage{34}
+    \subitem {dustaccx}, \hyperpage{35}
+    \subitem {dustaccy}, \hyperpage{35}
+    \subitem {dustaccz}, \hyperpage{35}
+    \subitem {dustb}, \hyperpage{35}
+    \subitem {dustbdy}, \hyperpage{35}
+    \subitem {dustcharge}, \hyperpage{35}
+    \subitem {dustcx}, \hyperpage{35}
+    \subitem {dustcxdx}, \hyperpage{35}
+    \subitem {dustcy}, \hyperpage{35}
+    \subitem {dustcydx}, \hyperpage{35}
+    \subitem {dustcz}, \hyperpage{35}
+    \subitem {dustczdx}, \hyperpage{35}
+    \subitem {duste}, \hyperpage{36}
+    \subitem {dustmove}, \hyperpage{36}
+    \subitem {dustomega}, \hyperpage{36}
+    \subitem {dustpcx}, \hyperpage{36}
+    \subitem {dustpcy}, \hyperpage{36}
+    \subitem {dustpcz}, \hyperpage{36}
+    \subitem {dustq}, \hyperpage{36}
+    \subitem {dustrho}, \hyperpage{36}
+    \subitem {dustshape}, \hyperpage{36}
+    \subitem {dustshapet}, \hyperpage{36}
+    \subitem {dustv}, \hyperpage{36}
+    \subitem {dustvx}, \hyperpage{36}
+    \subitem {dustvxc}, \hyperpage{37}
+    \subitem {dustvy}, \hyperpage{37}
+    \subitem {dustvyc}, \hyperpage{37}
+    \subitem {dustvz}, \hyperpage{37}
+    \subitem {dustvzc}, \hyperpage{37}
+    \subitem {dustworkfunct}, \hyperpage{37}
+    \subitem {dustx}, \hyperpage{37}
+    \subitem {dustxdx}, \hyperpage{37}
+    \subitem {dustxdxold}, \hyperpage{37}
+    \subitem {dustxnormv}, \hyperpage{37}
+    \subitem {dusty}, \hyperpage{37}
+    \subitem {dustydy}, \hyperpage{37}
+    \subitem {dustydyold}, \hyperpage{38}
+    \subitem {dustynormv}, \hyperpage{38}
+    \subitem {dustz}, \hyperpage{38}
+    \subitem {dustzdz}, \hyperpage{38}
+    \subitem {dustzdzold}, \hyperpage{38}
+    \subitem {dx}, \hyperpage{38}
+    \subitem {dxdt}, \hyperpage{38}
+    \subitem {dxdy}, \hyperpage{38}
+    \subitem {dxdydt}, \hyperpage{38}
+    \subitem {dxdz}, \hyperpage{38}
+    \subitem {dy}, \hyperpage{39}
+    \subitem {dydt}, \hyperpage{39}
+    \subitem {dz}, \hyperpage{39}
+    \subitem {dzdt}, \hyperpage{39}
+    \subitem {E\+P\+S0}, \hyperpage{24}
+    \subitem {eavvel}, \hyperpage{39}
+    \subitem {edens}, \hyperpage{39}
+    \subitem {efx}, \hyperpage{39}
+    \subitem {efy}, \hyperpage{39}
+    \subitem {efz}, \hyperpage{39}
+    \subitem {eke}, \hyperpage{39}
+    \subitem {eke\+\_\+time}, \hyperpage{39}
+    \subitem {electron}, \hyperpage{24}
+    \subitem {elrot\+\_\+x\+\_\+y1}, \hyperpage{39}
+    \subitem {elrot\+\_\+x\+\_\+y2}, \hyperpage{40}
+    \subitem {elrot\+\_\+x\+\_\+z1}, \hyperpage{40}
+    \subitem {elrot\+\_\+x\+\_\+z2}, \hyperpage{40}
+    \subitem {elrot\+\_\+y\+\_\+x1}, \hyperpage{40}
+    \subitem {elrot\+\_\+y\+\_\+x2}, \hyperpage{40}
+    \subitem {elrot\+\_\+y\+\_\+z1}, \hyperpage{40}
+    \subitem {elrot\+\_\+y\+\_\+z2}, \hyperpage{40}
+    \subitem {elrot\+\_\+z\+\_\+x1}, \hyperpage{40}
+    \subitem {elrot\+\_\+z\+\_\+x2}, \hyperpage{40}
+    \subitem {elrot\+\_\+z\+\_\+y1}, \hyperpage{40}
+    \subitem {elrot\+\_\+z\+\_\+y2}, \hyperpage{40}
+    \subitem {epe}, \hyperpage{40}
+    \subitem {epe\+\_\+time}, \hyperpage{41}
+    \subitem {evxphs}, \hyperpage{41}
+    \subitem {extrapart}, \hyperpage{41}
+    \subitem {flux}, \hyperpage{41}
+    \subitem {fluxrest}, \hyperpage{41}
+    \subitem {fmg\+\_\+mingridx}, \hyperpage{41}
+    \subitem {fmg\+\_\+mingridy}, \hyperpage{41}
+    \subitem {fmg\+\_\+mingridz}, \hyperpage{41}
+    \subitem {fmg\+\_\+ng}, \hyperpage{41}
+    \subitem {fmg\+\_\+nnx}, \hyperpage{41}
+    \subitem {fmg\+\_\+nny}, \hyperpage{41}
+    \subitem {fmg\+\_\+nnz}, \hyperpage{41}
+    \subitem {force\+\_\+chk}, \hyperpage{42}
+    \subitem {fp}, \hyperpage{42}
+    \subitem {fp2}, \hyperpage{42}
+    \subitem {frho}, \hyperpage{42}
+    \subitem {Fs}, \hyperpage{42}
+    \subitem {Fs\+\_\+nodust}, \hyperpage{42}
+    \subitem {Fs\+By}, \hyperpage{42}
+    \subitem {Fs\+Bz}, \hyperpage{42}
+    \subitem {Fs\+Ey}, \hyperpage{42}
+    \subitem {Fs\+Ez}, \hyperpage{42}
+    \subitem {Fs\+M\+A\+X}, \hyperpage{42}
+    \subitem {G\+O\+N\+E}, \hyperpage{24}
+    \subitem {Gx}, \hyperpage{42}
+    \subitem {Gy}, \hyperpage{43}
+    \subitem {Gz}, \hyperpage{43}
+    \subitem {history}, \hyperpage{43}
+    \subitem {iavvel}, \hyperpage{43}
+    \subitem {idens}, \hyperpage{43}
+    \subitem {ike}, \hyperpage{43}
+    \subitem {ike\+\_\+time}, \hyperpage{43}
+    \subitem {ion}, \hyperpage{24}
+    \subitem {ipe}, \hyperpage{43}
+    \subitem {ipe\+\_\+time}, \hyperpage{43}
+    \subitem {ires}, \hyperpage{43}
+    \subitem {irho}, \hyperpage{43}
+    \subitem {irhs}, \hyperpage{43}
+    \subitem {iu}, \hyperpage{44}
+    \subitem {ivxphs}, \hyperpage{44}
+    \subitem {K\+E}, \hyperpage{44}
+    \subitem {K\+E\+\_\+off}, \hyperpage{44}
+    \subitem {K\+E\+M\+A\+X}, \hyperpage{44}
+    \subitem {L\+I\+S\+T\+\_\+\+S\+I\+Z\+E}, \hyperpage{24}
+    \subitem {llb}, \hyperpage{44}
+    \subitem {lldx}, \hyperpage{44}
+    \subitem {lldy}, \hyperpage{44}
+    \subitem {lldz}, \hyperpage{44}
+    \subitem {llmesh}, \hyperpage{44}
+    \subitem {llngx}, \hyperpage{44}
+    \subitem {llngy}, \hyperpage{44}
+    \subitem {llngz}, \hyperpage{45}
+    \subitem {llsize}, \hyperpage{45}
+    \subitem {lostlist}, \hyperpage{45}
+    \subitem {lostpart}, \hyperpage{45}
+    \subitem {lut}, \hyperpage{45}
+    \subitem {lv0}, \hyperpage{45}
+    \subitem {Lx}, \hyperpage{45}
+    \subitem {Lx\+\_\+\+M\+A\+X}, \hyperpage{25}
+    \subitem {Ly}, \hyperpage{45}
+    \subitem {Ly\+\_\+\+M\+A\+X}, \hyperpage{25}
+    \subitem {Lz}, \hyperpage{45}
+    \subitem {Lz\+\_\+\+M\+A\+X}, \hyperpage{25}
+    \subitem {lzet}, \hyperpage{45}
+    \subitem {mass}, \hyperpage{45}
+    \subitem {Mass\+\_\+0}, \hyperpage{25}
+    \subitem {Mass\+\_\+1}, \hyperpage{25}
+    \subitem {massneutrals}, \hyperpage{45}
+    \subitem {maxx}, \hyperpage{46}
+    \subitem {maxy}, \hyperpage{46}
+    \subitem {minx}, \hyperpage{46}
+    \subitem {miny}, \hyperpage{46}
+    \subitem {mpicheck}, \hyperpage{46}
+    \subitem {N\+C\+Y\+C\+L\+E\+S}, \hyperpage{25}
+    \subitem {N\+G\+M\+A\+X}, \hyperpage{25}
+    \subitem {N\+O\+F}, \hyperpage{25}
+    \subitem {N\+O\+R\+M\+A\+L}, \hyperpage{25}
+    \subitem {N\+P\+A\+R\+T\+\_\+\+M\+A\+X}, \hyperpage{26}
+    \subitem {N\+P\+O\+S\+T}, \hyperpage{26}
+    \subitem {N\+P\+R\+E}, \hyperpage{26}
+    \subitem {ncorners}, \hyperpage{46}
+    \subitem {ndensity}, \hyperpage{46}
+    \subitem {newprobe}, \hyperpage{46}
+    \subitem {ngx}, \hyperpage{46}
+    \subitem {ngx\+\_\+\+M\+A\+X}, \hyperpage{25}
+    \subitem {ngy}, \hyperpage{46}
+    \subitem {ngy\+\_\+\+M\+A\+X}, \hyperpage{25}
+    \subitem {ngz}, \hyperpage{46}
+    \subitem {ngz\+\_\+\+M\+A\+X}, \hyperpage{25}
+    \subitem {noofdusts}, \hyperpage{46}
+    \subitem {nooftriangles}, \hyperpage{47}
+    \subitem {norm\+Efield}, \hyperpage{47}
+    \subitem {norm\+P\+E}, \hyperpage{47}
+    \subitem {norm\+P\+P}, \hyperpage{47}
+    \subitem {normalcharge}, \hyperpage{47}
+    \subitem {normcharge}, \hyperpage{47}
+    \subitem {normdens}, \hyperpage{47}
+    \subitem {normmass}, \hyperpage{47}
+    \subitem {normpot}, \hyperpage{47}
+    \subitem {normqdens}, \hyperpage{47}
+    \subitem {normqm}, \hyperpage{47}
+    \subitem {normtime}, \hyperpage{47}
+    \subitem {normvel}, \hyperpage{48}
+    \subitem {normx}, \hyperpage{48}
+    \subitem {npart}, \hyperpage{48}
+    \subitem {npartinit}, \hyperpage{48}
+    \subitem {nullcoll}, \hyperpage{48}
+    \subitem {nullcollfreq}, \hyperpage{48}
+    \subitem {nullcollrest}, \hyperpage{48}
+    \subitem {numberofprints}, \hyperpage{48}
+    \subitem {numtasks}, \hyperpage{48}
+    \subitem {omegap}, \hyperpage{48}
+    \subitem {orthvec}, \hyperpage{48}
+    \subitem {orthvecseg}, \hyperpage{48}
+    \subitem {P\+E}, \hyperpage{49}
+    \subitem {P\+E\+M\+A\+X}, \hyperpage{49}
+    \subitem {P\+E\+M\+A\+Xhalf}, \hyperpage{49}
+    \subitem {P\+Etotal}, \hyperpage{49}
+    \subitem {P\+Etotal\+M\+A\+X}, \hyperpage{49}
+    \subitem {P\+O\+T\+P\+O\+T\+S}, \hyperpage{26}
+    \subitem {P\+R\+O\+B\+E}, \hyperpage{26}
+    \subitem {P\+R\+S\+E\+G}, \hyperpage{26}
+    \subitem {particle}, \hyperpage{27}
+    \subitem {particlesno}, \hyperpage{49}
+    \subitem {pdens}, \hyperpage{49}
+    \subitem {pdens\+\_\+off}, \hyperpage{49}
+    \subitem {pdens\+M\+A\+X}, \hyperpage{49}
+    \subitem {pe}, \hyperpage{49}
+    \subitem {pe\+\_\+time}, \hyperpage{49}
+    \subitem {ph\+\_\+a}, \hyperpage{49}
+    \subitem {ph\+\_\+angle}, \hyperpage{50}
+    \subitem {ph\+\_\+angle\+\_\+rad}, \hyperpage{50}
+    \subitem {ph\+\_\+bmax}, \hyperpage{50}
+    \subitem {ph\+\_\+bmin}, \hyperpage{50}
+    \subitem {ph\+\_\+cosangle}, \hyperpage{50}
+    \subitem {ph\+\_\+energy}, \hyperpage{50}
+    \subitem {ph\+\_\+flux}, \hyperpage{50}
+    \subitem {ph\+\_\+fluxprdt}, \hyperpage{50}
+    \subitem {ph\+\_\+length}, \hyperpage{50}
+    \subitem {ph\+\_\+sinangle}, \hyperpage{50}
+    \subitem {ph\+\_\+vert}, \hyperpage{50}
+    \subitem {ph\+\_\+xmax}, \hyperpage{50}
+    \subitem {ph\+\_\+xmin}, \hyperpage{51}
+    \subitem {phi}, \hyperpage{51}
+    \subitem {phi\+\_\+nodust}, \hyperpage{51}
+    \subitem {phi\+M\+A\+X}, \hyperpage{51}
+    \subitem {phiav}, \hyperpage{51}
+    \subitem {phiav\+M\+A\+X}, \hyperpage{51}
+    \subitem {photons}, \hyperpage{51}
+    \subitem {pi}, \hyperpage{51}
+    \subitem {pot2\+D}, \hyperpage{51}
+    \subitem {pot2\+Dav}, \hyperpage{51}
+    \subitem {pot2\+Dclr}, \hyperpage{51}
+    \subitem {potclr}, \hyperpage{51}
+    \subitem {potconv}, \hyperpage{52}
+    \subitem {potconv\+M\+A\+X}, \hyperpage{52}
+    \subitem {potdistr}, \hyperpage{52}
+    \subitem {potdistrarray}, \hyperpage{52}
+    \subitem {potdistrmax}, \hyperpage{52}
+    \subitem {potdistrmin}, \hyperpage{52}
+    \subitem {poten}, \hyperpage{52}
+    \subitem {primerootbucket}, \hyperpage{52}
+    \subitem {primerootno}, \hyperpage{52}
+    \subitem {probe\+\_\+version}, \hyperpage{52}
+    \subitem {probes1}, \hyperpage{52}
+    \subitem {probes11}, \hyperpage{52}
+    \subitem {probes12}, \hyperpage{53}
+    \subitem {probes13}, \hyperpage{53}
+    \subitem {probes14}, \hyperpage{53}
+    \subitem {probes15}, \hyperpage{53}
+    \subitem {probes16}, \hyperpage{53}
+    \subitem {probes17}, \hyperpage{53}
+    \subitem {probes18}, \hyperpage{53}
+    \subitem {probes19}, \hyperpage{53}
+    \subitem {probes2}, \hyperpage{53}
+    \subitem {probes21}, \hyperpage{53}
+    \subitem {probes22}, \hyperpage{53}
+    \subitem {probes23}, \hyperpage{53}
+    \subitem {probes24}, \hyperpage{54}
+    \subitem {probes25}, \hyperpage{54}
+    \subitem {probes26}, \hyperpage{54}
+    \subitem {probes27}, \hyperpage{54}
+    \subitem {probes28}, \hyperpage{54}
+    \subitem {probes29}, \hyperpage{54}
+    \subitem {probes3}, \hyperpage{54}
+    \subitem {probes31}, \hyperpage{54}
+    \subitem {probes32}, \hyperpage{54}
+    \subitem {probes33}, \hyperpage{54}
+    \subitem {probes34}, \hyperpage{54}
+    \subitem {probes35}, \hyperpage{54}
+    \subitem {probes36}, \hyperpage{55}
+    \subitem {probes37}, \hyperpage{55}
+    \subitem {probes38}, \hyperpage{55}
+    \subitem {probes39}, \hyperpage{55}
+    \subitem {probesegments}, \hyperpage{55}
+    \subitem {probex}, \hyperpage{55}
+    \subitem {probexmax}, \hyperpage{55}
+    \subitem {probexmin}, \hyperpage{55}
+    \subitem {probey}, \hyperpage{55}
+    \subitem {probeymax}, \hyperpage{55}
+    \subitem {probeymin}, \hyperpage{55}
+    \subitem {ptemp11}, \hyperpage{55}
+    \subitem {ptemp12}, \hyperpage{56}
+    \subitem {ptemp13}, \hyperpage{56}
+    \subitem {ptemp14}, \hyperpage{56}
+    \subitem {ptemp15}, \hyperpage{56}
+    \subitem {ptemp16}, \hyperpage{56}
+    \subitem {ptemp17}, \hyperpage{56}
+    \subitem {ptemp18}, \hyperpage{56}
+    \subitem {ptemp19}, \hyperpage{56}
+    \subitem {ptemp21}, \hyperpage{56}
+    \subitem {ptemp22}, \hyperpage{56}
+    \subitem {ptemp23}, \hyperpage{56}
+    \subitem {ptemp24}, \hyperpage{56}
+    \subitem {ptemp25}, \hyperpage{57}
+    \subitem {ptemp26}, \hyperpage{57}
+    \subitem {ptemp27}, \hyperpage{57}
+    \subitem {ptemp28}, \hyperpage{57}
+    \subitem {ptemp29}, \hyperpage{57}
+    \subitem {ptemp31}, \hyperpage{57}
+    \subitem {ptemp32}, \hyperpage{57}
+    \subitem {ptemp33}, \hyperpage{57}
+    \subitem {ptemp34}, \hyperpage{57}
+    \subitem {ptemp35}, \hyperpage{57}
+    \subitem {ptemp36}, \hyperpage{57}
+    \subitem {ptemp37}, \hyperpage{57}
+    \subitem {ptemp38}, \hyperpage{58}
+    \subitem {ptemp39}, \hyperpage{58}
+    \subitem {Q}, \hyperpage{26}
+    \subitem {qdens}, \hyperpage{58}
+    \subitem {qdens\+M\+A\+X}, \hyperpage{58}
+    \subitem {qm}, \hyperpage{58}
+    \subitem {r\+K\+E}, \hyperpage{59}
+    \subitem {rank}, \hyperpage{58}
+    \subitem {ratio}, \hyperpage{58}
+    \subitem {rcurr\+\_\+av}, \hyperpage{58}
+    \subitem {rdpart}, \hyperpage{58}
+    \subitem {rdpartq}, \hyperpage{58}
+    \subitem {rdrho}, \hyperpage{58}
+    \subitem {rdrholast}, \hyperpage{58}
+    \subitem {rho}, \hyperpage{59}
+    \subitem {rho\+M\+A\+X}, \hyperpage{59}
+    \subitem {rho\+M\+A\+Xhalf}, \hyperpage{59}
+    \subitem {rlb}, \hyperpage{59}
+    \subitem {rpdens}, \hyperpage{59}
+    \subitem {rrho}, \hyperpage{59}
+    \subitem {rv0}, \hyperpage{59}
+    \subitem {rvdriftx}, \hyperpage{59}
+    \subitem {rvxvec}, \hyperpage{59}
+    \subitem {rvyvec}, \hyperpage{59}
+    \subitem {rvzvec}, \hyperpage{59}
+    \subitem {rzet}, \hyperpage{60}
+    \subitem {S}, \hyperpage{26}
+    \subitem {sigma}, \hyperpage{60}
+    \subitem {spec}, \hyperpage{60}
+    \subitem {species}, \hyperpage{27}
+    \subitem {sqrt\+\_\+pi}, \hyperpage{60}
+    \subitem {sqrt\+\_\+two}, \hyperpage{60}
+    \subitem {sqrt\+\_\+twopi}, \hyperpage{60}
+    \subitem {superfast}, \hyperpage{60}
+    \subitem {T\+O\+L\+E\+R\+A\+N\+C\+E}, \hyperpage{61}
+    \subitem {takecut}, \hyperpage{60}
+    \subitem {tempx}, \hyperpage{60}
+    \subitem {tempy}, \hyperpage{60}
+    \subitem {tempz}, \hyperpage{60}
+    \subitem {testowy}, \hyperpage{60}
+    \subitem {ti2te}, \hyperpage{61}
+    \subitem {timeelapsed}, \hyperpage{61}
+    \subitem {timeending}, \hyperpage{61}
+    \subitem {timerprobes}, \hyperpage{61}
+    \subitem {timestart}, \hyperpage{61}
+    \subitem {tmax}, \hyperpage{61}
+    \subitem {tmp\+\_\+dpart}, \hyperpage{61}
+    \subitem {tolfloating}, \hyperpage{61}
+    \subitem {tordrho}, \hyperpage{61}
+    \subitem {totalflux}, \hyperpage{61}
+    \subitem {unitvec}, \hyperpage{61}
+    \subitem {unitvecseg}, \hyperpage{62}
+    \subitem {Vbound}, \hyperpage{62}
+    \subitem {vdriftx}, \hyperpage{62}
+    \subitem {vectorst}, \hyperpage{27}
+    \subitem {vertp}, \hyperpage{62}
+    \subitem {vipcorner}, \hyperpage{62}
+    \subitem {vmean}, \hyperpage{62}
+    \subitem {Vpr}, \hyperpage{62}
+    \subitem {Vpr\+\_\+begin}, \hyperpage{62}
+    \subitem {Vpr\+\_\+end}, \hyperpage{62}
+    \subitem {Vpr\+\_\+step}, \hyperpage{62}
+    \subitem {vthneutr}, \hyperpage{62}
+    \subitem {vthx}, \hyperpage{62}
+    \subitem {vthy}, \hyperpage{63}
+    \subitem {vthz}, \hyperpage{63}
+    \subitem {vxvec}, \hyperpage{63}
+    \subitem {vyvec}, \hyperpage{63}
+    \subitem {vzvec}, \hyperpage{63}
+    \subitem {weight}, \hyperpage{63}
+    \subitem {x1p}, \hyperpage{63}
+  \item {convergence}
+    \subitem {const.\+h}, \hyperpage{29}
+  \item {convert}
+    \subitem {funct.\+h}, \hyperpage{83}
+    \subitem {input.\+c}, \hyperpage{94}
+  \item {convert\+\_\+matrix}
+    \subitem {nrutil.\+c}, \hyperpage{75}
+    \subitem {nrutil.\+h}, \hyperpage{79}
+  \item {copy}
+    \subitem {fmg.\+c}, \hyperpage{70}
+    \subitem {fmg\+\_\+\+P.\+c}, \hyperpage{72}
+  \item {copy0}
+    \subitem {fmg.\+c}, \hyperpage{70}
+    \subitem {fmg\+\_\+\+P.\+c}, \hyperpage{72}
+  \item {copyfinal}
+    \subitem {fmg.\+c}, \hyperpage{70}
+    \subitem {fmg\+\_\+\+P.\+c}, \hyperpage{72}
+  \item {create\+\_\+currentarrays}
+    \subitem {funct.\+h}, \hyperpage{83}
+    \subitem {grid.\+c}, \hyperpage{92}
+  \item {create\+\_\+linkedlist}
+    \subitem {funct.\+h}, \hyperpage{83}
+  \item {csq}
+    \subitem {const.\+h}, \hyperpage{29}
+  \item {cumf}
+    \subitem {flux.\+c}, \hyperpage{69}
+    \subitem {funct.\+h}, \hyperpage{83}
+  \item {cumfprim}
+    \subitem {flux.\+c}, \hyperpage{69}
+    \subitem {funct.\+h}, \hyperpage{83}
+  \item {curr}
+    \subitem {const.\+h}, \hyperpage{29}
+  \item {curr\+\_\+av}
+    \subitem {const.\+h}, \hyperpage{29}
+  \item {current}
+    \subitem {const.\+h}, \hyperpage{29}
+  \item {cvector}
+    \subitem {nrutil.\+c}, \hyperpage{75}
+    \subitem {nrutil.\+h}, \hyperpage{79}
+
+  \indexspace
+
+  \item {d3tensor}
+    \subitem {nrutil.\+c}, \hyperpage{75}
+  \item {D\+\_\+\+C\+O\+N\+D}
+    \subitem {const.\+h}, \hyperpage{24}
+  \item {D\+\_\+\+I\+N\+S\+U}
+    \subitem {const.\+h}, \hyperpage{24}
+  \item {d\+\_\+centreofmass\+\_\+and\+\_\+mom\+I}
+    \subitem {dustg.\+c}, \hyperpage{67}
+    \subitem {funct.\+h}, \hyperpage{84}
+  \item {d\+\_\+globallist}
+    \subitem {const.\+h}, \hyperpage{29}
+  \item {d\+\_\+locallist}
+    \subitem {const.\+h}, \hyperpage{29}
+  \item {d\+\_\+localmax}
+    \subitem {const.\+h}, \hyperpage{29}
+  \item {d\+\_\+move}
+    \subitem {dustg.\+c}, \hyperpage{67}
+    \subitem {funct.\+h}, \hyperpage{84}
+  \item {d\+\_\+particle}, \hyperpage{6}
+    \subitem {bcnt}, \hyperpage{7}
+    \subitem {const.\+h}, \hyperpage{26}
+    \subitem {ecnt}, \hyperpage{7}
+    \subitem {icnt}, \hyperpage{7}
+    \subitem {q}, \hyperpage{7}
+    \subitem {spec}, \hyperpage{7}
+    \subitem {x}, \hyperpage{7}
+    \subitem {y}, \hyperpage{7}
+    \subitem {z}, \hyperpage{7}
+  \item {d\+\_\+polygon}
+    \subitem {funct.\+h}, \hyperpage{84}
+  \item {d\+\_\+rho}, \hyperpage{7}
+    \subitem {const.\+h}, \hyperpage{26}
+    \subitem {rho}, \hyperpage{8}
+    \subitem {rho\+\_\+av}, \hyperpage{8}
+    \subitem {x}, \hyperpage{8}
+    \subitem {y}, \hyperpage{8}
+  \item {D\+I\+M}
+    \subitem {const.\+h}, \hyperpage{24}
+  \item {D\+M\+A\+X}
+    \subitem {nrutil.\+h}, \hyperpage{78}
+  \item {D\+M\+I\+N}
+    \subitem {nrutil.\+h}, \hyperpage{78}
+  \item {D\+S\+Q\+R}
+    \subitem {nrutil.\+h}, \hyperpage{78}
+  \item {d\+V}
+    \subitem {const.\+h}, \hyperpage{38}
+  \item {d\+Vdt}
+    \subitem {const.\+h}, \hyperpage{38}
+  \item {daa}
+    \subitem {const.\+h}, \hyperpage{29}
+  \item {daa1x}
+    \subitem {const.\+h}, \hyperpage{29}
+  \item {daa1y}
+    \subitem {const.\+h}, \hyperpage{29}
+  \item {dbb}
+    \subitem {const.\+h}, \hyperpage{30}
+  \item {dbb1x}
+    \subitem {const.\+h}, \hyperpage{30}
+  \item {dbb1y}
+    \subitem {const.\+h}, \hyperpage{30}
+  \item {dcc}
+    \subitem {const.\+h}, \hyperpage{30}
+  \item {dcc1x}
+    \subitem {const.\+h}, \hyperpage{30}
+  \item {dcc1y}
+    \subitem {const.\+h}, \hyperpage{30}
+  \item {ddelta}
+    \subitem {const.\+h}, \hyperpage{30}
+  \item {ddelta2}
+    \subitem {const.\+h}, \hyperpage{30}
+  \item {debye}
+    \subitem {const.\+h}, \hyperpage{30}
+  \item {debyetotal}
+    \subitem {const.\+h}, \hyperpage{30}
+  \item {dens}
+    \subitem {const.\+h}, \hyperpage{30}
+  \item {dens\+\_\+err}
+    \subitem {const.\+h}, \hyperpage{30}
+  \item {dhist}
+    \subitem {const.\+h}, \hyperpage{31}
+  \item {diagint}
+    \subitem {const.\+h}, \hyperpage{31}
+  \item {diagint\+\_\+av}
+    \subitem {const.\+h}, \hyperpage{31}
+  \item {diagint\+\_\+st}
+    \subitem {const.\+h}, \hyperpage{31}
+  \item {diagn.\+c}
+    \subitem {diagn\+\_\+close}, \hyperpage{64}
+    \subitem {diagn\+\_\+open}, \hyperpage{64}
+    \subitem {pot\+\_\+probes}, \hyperpage{64}
+    \subitem {pot\+\_\+probes\+\_\+init}, \hyperpage{64}
+    \subitem {print\+\_\+avpvel}, \hyperpage{64}
+    \subitem {print\+\_\+current}, \hyperpage{64}
+    \subitem {print\+K\+E}, \hyperpage{65}
+    \subitem {print\+K\+Eall}, \hyperpage{65}
+    \subitem {print\+P\+E}, \hyperpage{65}
+    \subitem {print\+P\+Etotal}, \hyperpage{65}
+    \subitem {printavpotential}, \hyperpage{64}
+    \subitem {printconvpot}, \hyperpage{64}
+    \subitem {printdensity}, \hyperpage{64}
+    \subitem {printdth}, \hyperpage{65}
+    \subitem {printdustcharge}, \hyperpage{65}
+    \subitem {printdustchargetime}, \hyperpage{65}
+    \subitem {printdustshape}, \hyperpage{65}
+    \subitem {printdustshapetime}, \hyperpage{65}
+    \subitem {printefield}, \hyperpage{65}
+    \subitem {printgrid}, \hyperpage{65}
+    \subitem {printnewprobe}, \hyperpage{65}
+    \subitem {printpotdistribution}, \hyperpage{66}
+    \subitem {printpotential}, \hyperpage{66}
+    \subitem {printqdensity}, \hyperpage{66}
+    \subitem {printscale}, \hyperpage{66}
+  \item {diagn\+\_\+close}
+    \subitem {diagn.\+c}, \hyperpage{64}
+    \subitem {funct.\+h}, \hyperpage{84}
+  \item {diagn\+\_\+open}
+    \subitem {diagn.\+c}, \hyperpage{64}
+    \subitem {funct.\+h}, \hyperpage{84}
+  \item {dmass}
+    \subitem {const.\+h}, \hyperpage{31}
+  \item {dmass\+\_\+centr\+\_\+x}
+    \subitem {const.\+h}, \hyperpage{31}
+  \item {dmass\+\_\+centr\+\_\+y}
+    \subitem {const.\+h}, \hyperpage{31}
+  \item {dmass\+\_\+centr\+\_\+z}
+    \subitem {const.\+h}, \hyperpage{31}
+  \item {dmatrix}
+    \subitem {nrutil.\+c}, \hyperpage{75}
+    \subitem {nrutil.\+h}, \hyperpage{79}
+  \item {dmom\+I}
+    \subitem {const.\+h}, \hyperpage{31}
+  \item {dmove}
+    \subitem {const.\+h}, \hyperpage{31}
+  \item {dnumber}
+    \subitem {const.\+h}, \hyperpage{31}
+  \item {dpart}
+    \subitem {const.\+h}, \hyperpage{31}
+  \item {dpartlast}
+    \subitem {const.\+h}, \hyperpage{32}
+  \item {dpartmax}
+    \subitem {const.\+h}, \hyperpage{32}
+  \item {dpartq}
+    \subitem {const.\+h}, \hyperpage{32}
+  \item {dphifl}
+    \subitem {const.\+h}, \hyperpage{32}
+  \item {dr2v2}
+    \subitem {const.\+h}, \hyperpage{32}
+  \item {dradius}
+    \subitem {const.\+h}, \hyperpage{32}
+  \item {dradiusdx}
+    \subitem {const.\+h}, \hyperpage{32}
+  \item {drag\+\_\+direct\+\_\+x}
+    \subitem {const.\+h}, \hyperpage{32}
+  \item {drag\+\_\+direct\+\_\+y}
+    \subitem {const.\+h}, \hyperpage{32}
+  \item {drag\+\_\+direct\+\_\+z}
+    \subitem {const.\+h}, \hyperpage{32}
+  \item {drag\+\_\+elect\+\_\+x}
+    \subitem {const.\+h}, \hyperpage{32}
+  \item {drag\+\_\+elect\+\_\+y}
+    \subitem {const.\+h}, \hyperpage{32}
+  \item {drag\+\_\+elect\+\_\+z}
+    \subitem {const.\+h}, \hyperpage{33}
+  \item {drag\+\_\+force\+\_\+direct}
+    \subitem {dustg.\+c}, \hyperpage{67}
+    \subitem {funct.\+h}, \hyperpage{84}
+  \item {drag\+\_\+force\+\_\+electric}
+    \subitem {dustg.\+c}, \hyperpage{67}
+    \subitem {funct.\+h}, \hyperpage{84}
+  \item {drho}
+    \subitem {const.\+h}, \hyperpage{33}
+  \item {drholast}
+    \subitem {const.\+h}, \hyperpage{33}
+  \item {drot\+\_\+x\+\_\+y1}
+    \subitem {const.\+h}, \hyperpage{33}
+  \item {drot\+\_\+x\+\_\+y2}
+    \subitem {const.\+h}, \hyperpage{33}
+  \item {drot\+\_\+x\+\_\+z1}
+    \subitem {const.\+h}, \hyperpage{33}
+  \item {drot\+\_\+x\+\_\+z2}
+    \subitem {const.\+h}, \hyperpage{33}
+  \item {drot\+\_\+y\+\_\+x1}
+    \subitem {const.\+h}, \hyperpage{33}
+  \item {drot\+\_\+y\+\_\+x2}
+    \subitem {const.\+h}, \hyperpage{33}
+  \item {drot\+\_\+y\+\_\+z1}
+    \subitem {const.\+h}, \hyperpage{33}
+  \item {drot\+\_\+y\+\_\+z2}
+    \subitem {const.\+h}, \hyperpage{33}
+  \item {drot\+\_\+z\+\_\+x1}
+    \subitem {const.\+h}, \hyperpage{33}
+  \item {drot\+\_\+z\+\_\+x2}
+    \subitem {const.\+h}, \hyperpage{34}
+  \item {drot\+\_\+z\+\_\+y1}
+    \subitem {const.\+h}, \hyperpage{34}
+  \item {drot\+\_\+z\+\_\+y2}
+    \subitem {const.\+h}, \hyperpage{34}
+  \item {dshape}
+    \subitem {const.\+h}, \hyperpage{34}
+  \item {dt}
+    \subitem {const.\+h}, \hyperpage{34}
+  \item {dtdx}
+    \subitem {const.\+h}, \hyperpage{34}
+  \item {dtdy}
+    \subitem {const.\+h}, \hyperpage{34}
+  \item {dtdz}
+    \subitem {const.\+h}, \hyperpage{34}
+  \item {dtrian}
+    \subitem {const.\+h}, \hyperpage{34}
+  \item {dtriangle}, \hyperpage{8}
+    \subitem {area}, \hyperpage{9}
+    \subitem {const.\+h}, \hyperpage{26}
+    \subitem {mass}, \hyperpage{9}
+    \subitem {pt1}, \hyperpage{9}
+    \subitem {pt2}, \hyperpage{9}
+    \subitem {pt3}, \hyperpage{9}
+    \subitem {tcx}, \hyperpage{9}
+    \subitem {tcy}, \hyperpage{9}
+  \item {dtype}
+    \subitem {const.\+h}, \hyperpage{34}
+  \item {dump}
+    \subitem {funct.\+h}, \hyperpage{84}
+    \subitem {restart.\+c}, \hyperpage{95}
+  \item {dust\+\_\+time}
+    \subitem {const.\+h}, \hyperpage{34}
+  \item {dusta}
+    \subitem {const.\+h}, \hyperpage{34}
+  \item {dustaccx}
+    \subitem {const.\+h}, \hyperpage{35}
+  \item {dustaccy}
+    \subitem {const.\+h}, \hyperpage{35}
+  \item {dustaccz}
+    \subitem {const.\+h}, \hyperpage{35}
+  \item {dustarea}
+    \subitem {dustg.\+c}, \hyperpage{67}
+    \subitem {funct.\+h}, \hyperpage{84}
+  \item {dustb}
+    \subitem {const.\+h}, \hyperpage{35}
+  \item {dustbdy}
+    \subitem {const.\+h}, \hyperpage{35}
+  \item {dustcharge}
+    \subitem {const.\+h}, \hyperpage{35}
+  \item {dustcx}
+    \subitem {const.\+h}, \hyperpage{35}
+  \item {dustcxdx}
+    \subitem {const.\+h}, \hyperpage{35}
+  \item {dustcy}
+    \subitem {const.\+h}, \hyperpage{35}
+  \item {dustcydx}
+    \subitem {const.\+h}, \hyperpage{35}
+  \item {dustcz}
+    \subitem {const.\+h}, \hyperpage{35}
+  \item {dustczdx}
+    \subitem {const.\+h}, \hyperpage{35}
+  \item {duste}
+    \subitem {const.\+h}, \hyperpage{36}
+  \item {dustg.\+c}
+    \subitem {average\+\_\+current}, \hyperpage{67}
+    \subitem {calculate\+\_\+staticparameters}, \hyperpage{67}
+    \subitem {chargeoncond}, \hyperpage{67}
+    \subitem {checkcond}, \hyperpage{67}
+    \subitem {condsquares}, \hyperpage{67}
+    \subitem {d\+\_\+centreofmass\+\_\+and\+\_\+mom\+I}, \hyperpage{67}
+    \subitem {d\+\_\+move}, \hyperpage{67}
+    \subitem {drag\+\_\+force\+\_\+direct}, \hyperpage{67}
+    \subitem {drag\+\_\+force\+\_\+electric}, \hyperpage{67}
+    \subitem {dustarea}, \hyperpage{67}
+    \subitem {finddustvolume}, \hyperpage{67}
+    \subitem {memorydpart}, \hyperpage{67}
+    \subitem {memoryduststatic}, \hyperpage{68}
+    \subitem {ortnormvec}, \hyperpage{68}
+    \subitem {printdragforce}, \hyperpage{68}
+    \subitem {redistribute}, \hyperpage{68}
+    \subitem {signof}, \hyperpage{68}
+    \subitem {smaller\+\_\+same\+\_\+sign}, \hyperpage{68}
+    \subitem {virtpart}, \hyperpage{68}
+    \subitem {weightingdust1}, \hyperpage{68}
+  \item {dustmove}
+    \subitem {const.\+h}, \hyperpage{36}
+  \item {dustomega}
+    \subitem {const.\+h}, \hyperpage{36}
+  \item {dustpcx}
+    \subitem {const.\+h}, \hyperpage{36}
+  \item {dustpcy}
+    \subitem {const.\+h}, \hyperpage{36}
+  \item {dustpcz}
+    \subitem {const.\+h}, \hyperpage{36}
+  \item {dustq}
+    \subitem {const.\+h}, \hyperpage{36}
+  \item {dustrho}
+    \subitem {const.\+h}, \hyperpage{36}
+  \item {dustshape}
+    \subitem {const.\+h}, \hyperpage{36}
+  \item {dustshapet}
+    \subitem {const.\+h}, \hyperpage{36}
+  \item {dustv}
+    \subitem {const.\+h}, \hyperpage{36}
+  \item {dustvx}
+    \subitem {const.\+h}, \hyperpage{36}
+  \item {dustvxc}
+    \subitem {const.\+h}, \hyperpage{37}
+  \item {dustvy}
+    \subitem {const.\+h}, \hyperpage{37}
+  \item {dustvyc}
+    \subitem {const.\+h}, \hyperpage{37}
+  \item {dustvz}
+    \subitem {const.\+h}, \hyperpage{37}
+  \item {dustvzc}
+    \subitem {const.\+h}, \hyperpage{37}
+  \item {dustworkfunct}
+    \subitem {const.\+h}, \hyperpage{37}
+  \item {dustx}
+    \subitem {const.\+h}, \hyperpage{37}
+  \item {dustxdx}
+    \subitem {const.\+h}, \hyperpage{37}
+  \item {dustxdxold}
+    \subitem {const.\+h}, \hyperpage{37}
+  \item {dustxnormv}
+    \subitem {const.\+h}, \hyperpage{37}
+  \item {dusty}
+    \subitem {const.\+h}, \hyperpage{37}
+  \item {dustydy}
+    \subitem {const.\+h}, \hyperpage{37}
+  \item {dustydyold}
+    \subitem {const.\+h}, \hyperpage{38}
+  \item {dustynormv}
+    \subitem {const.\+h}, \hyperpage{38}
+  \item {dustz}
+    \subitem {const.\+h}, \hyperpage{38}
+  \item {dustzdz}
+    \subitem {const.\+h}, \hyperpage{38}
+  \item {dustzdzold}
+    \subitem {const.\+h}, \hyperpage{38}
+  \item {dvecmem}
+    \subitem {funct.\+h}, \hyperpage{84}
+    \subitem {shortcuts.\+c}, \hyperpage{96}
+  \item {dvector}
+    \subitem {nrutil.\+c}, \hyperpage{75}
+    \subitem {nrutil.\+h}, \hyperpage{79}
+  \item {dx}
+    \subitem {const.\+h}, \hyperpage{38}
+  \item {dxdt}
+    \subitem {const.\+h}, \hyperpage{38}
+  \item {dxdy}
+    \subitem {const.\+h}, \hyperpage{38}
+  \item {dxdydt}
+    \subitem {const.\+h}, \hyperpage{38}
+  \item {dxdz}
+    \subitem {const.\+h}, \hyperpage{38}
+  \item {dy}
+    \subitem {const.\+h}, \hyperpage{39}
+  \item {dydt}
+    \subitem {const.\+h}, \hyperpage{39}
+  \item {dz}
+    \subitem {const.\+h}, \hyperpage{39}
+  \item {dzdt}
+    \subitem {const.\+h}, \hyperpage{39}
+
+  \indexspace
+
+  \item {E\+P\+S0}
+    \subitem {const.\+h}, \hyperpage{24}
+  \item {eavvel}
+    \subitem {const.\+h}, \hyperpage{39}
+  \item {ecnt}
+    \subitem {d\+\_\+particle}, \hyperpage{7}
+  \item {edens}
+    \subitem {const.\+h}, \hyperpage{39}
+  \item {efx}
+    \subitem {const.\+h}, \hyperpage{39}
+  \item {efy}
+    \subitem {const.\+h}, \hyperpage{39}
+  \item {efz}
+    \subitem {const.\+h}, \hyperpage{39}
+  \item {eke}
+    \subitem {const.\+h}, \hyperpage{39}
+  \item {eke\+\_\+time}
+    \subitem {const.\+h}, \hyperpage{39}
+  \item {electric\+\_\+field}
+    \subitem {funct.\+h}, \hyperpage{84}
+    \subitem {gauss.\+c}, \hyperpage{91}
+  \item {electron}
+    \subitem {const.\+h}, \hyperpage{24}
+  \item {elrot\+\_\+x\+\_\+y1}
+    \subitem {const.\+h}, \hyperpage{39}
+  \item {elrot\+\_\+x\+\_\+y2}
+    \subitem {const.\+h}, \hyperpage{40}
+  \item {elrot\+\_\+x\+\_\+z1}
+    \subitem {const.\+h}, \hyperpage{40}
+  \item {elrot\+\_\+x\+\_\+z2}
+    \subitem {const.\+h}, \hyperpage{40}
+  \item {elrot\+\_\+y\+\_\+x1}
+    \subitem {const.\+h}, \hyperpage{40}
+  \item {elrot\+\_\+y\+\_\+x2}
+    \subitem {const.\+h}, \hyperpage{40}
+  \item {elrot\+\_\+y\+\_\+z1}
+    \subitem {const.\+h}, \hyperpage{40}
+  \item {elrot\+\_\+y\+\_\+z2}
+    \subitem {const.\+h}, \hyperpage{40}
+  \item {elrot\+\_\+z\+\_\+x1}
+    \subitem {const.\+h}, \hyperpage{40}
+  \item {elrot\+\_\+z\+\_\+x2}
+    \subitem {const.\+h}, \hyperpage{40}
+  \item {elrot\+\_\+z\+\_\+y1}
+    \subitem {const.\+h}, \hyperpage{40}
+  \item {elrot\+\_\+z\+\_\+y2}
+    \subitem {const.\+h}, \hyperpage{40}
+  \item {epe}
+    \subitem {const.\+h}, \hyperpage{40}
+  \item {epe\+\_\+time}
+    \subitem {const.\+h}, \hyperpage{41}
+  \item {erfcc}
+    \subitem {flux.\+c}, \hyperpage{69}
+    \subitem {funct.\+h}, \hyperpage{84}
+  \item {evxphs}
+    \subitem {const.\+h}, \hyperpage{41}
+  \item {extrapart}
+    \subitem {const.\+h}, \hyperpage{41}
+
+  \indexspace
+
+  \item {f3tensor}
+    \subitem {nrutil.\+c}, \hyperpage{75}
+    \subitem {nrutil.\+h}, \hyperpage{79}
+  \item {F\+M\+A\+X}
+    \subitem {nrutil.\+h}, \hyperpage{78}
+  \item {F\+M\+I\+N}
+    \subitem {nrutil.\+h}, \hyperpage{78}
+  \item {F\+R\+E\+E\+\_\+\+A\+R\+G}
+    \subitem {nrutil.\+c}, \hyperpage{74}
+  \item {F\+R\+E\+E\+\_\+\+A\+R\+G\+G}
+    \subitem {shortcuts.\+c}, \hyperpage{96}
+  \item {fill0}
+    \subitem {fmg.\+c}, \hyperpage{70}
+    \subitem {fmg\+\_\+\+P.\+c}, \hyperpage{73}
+  \item {findabv}
+    \subitem {funct.\+h}, \hyperpage{85}
+    \subitem {grid.\+c}, \hyperpage{93}
+  \item {finddustvolume}
+    \subitem {dustg.\+c}, \hyperpage{67}
+    \subitem {funct.\+h}, \hyperpage{85}
+  \item {findnewpotentials}
+    \subitem {funct.\+h}, \hyperpage{85}
+  \item {findsigma}
+    \subitem {collisions.\+c}, \hyperpage{13}
+    \subitem {collisions\+\_\+constant.\+c}, \hyperpage{14}
+    \subitem {funct.\+h}, \hyperpage{85}
+  \item {flux}
+    \subitem {const.\+h}, \hyperpage{41}
+  \item {flux.\+c}
+    \subitem {calculate\+\_\+flux}, \hyperpage{69}
+    \subitem {cumf}, \hyperpage{69}
+    \subitem {cumfprim}, \hyperpage{69}
+    \subitem {erfcc}, \hyperpage{69}
+    \subitem {init\+\_\+newpart}, \hyperpage{69}
+    \subitem {zet1}, \hyperpage{69}
+  \item {fluxrest}
+    \subitem {const.\+h}, \hyperpage{41}
+  \item {fmg.\+c}
+    \subitem {addint}, \hyperpage{70}
+    \subitem {copy}, \hyperpage{70}
+    \subitem {copy0}, \hyperpage{70}
+    \subitem {copyfinal}, \hyperpage{70}
+    \subitem {fill0}, \hyperpage{70}
+    \subitem {interp}, \hyperpage{70}
+    \subitem {ix}, \hyperpage{70}
+    \subitem {mglin}, \hyperpage{71}
+    \subitem {mglin\+\_\+destroy}, \hyperpage{71}
+    \subitem {mglin\+\_\+init}, \hyperpage{71}
+    \subitem {N\+P\+O\+S\+T}, \hyperpage{70}
+    \subitem {N\+P\+R\+E}, \hyperpage{70}
+    \subitem {N\+R\+A\+N\+S\+I}, \hyperpage{70}
+    \subitem {relax}, \hyperpage{71}
+    \subitem {resid}, \hyperpage{71}
+    \subitem {rstrct}, \hyperpage{71}
+    \subitem {rstrct0}, \hyperpage{71}
+    \subitem {slvsml}, \hyperpage{71}
+    \subitem {slvsml2}, \hyperpage{71}
+  \item {fmg\+\_\+\+P.\+c}
+    \subitem {addint}, \hyperpage{72}
+    \subitem {copy}, \hyperpage{72}
+    \subitem {copy0}, \hyperpage{72}
+    \subitem {copyfinal}, \hyperpage{72}
+    \subitem {fill0}, \hyperpage{73}
+    \subitem {interp}, \hyperpage{73}
+    \subitem {ix}, \hyperpage{73}
+    \subitem {mglin}, \hyperpage{73}
+    \subitem {mglin\+\_\+destroy}, \hyperpage{73}
+    \subitem {mglin\+\_\+init}, \hyperpage{73}
+    \subitem {N\+P\+O\+S\+T}, \hyperpage{72}
+    \subitem {N\+P\+R\+E}, \hyperpage{72}
+    \subitem {N\+R\+A\+N\+S\+I}, \hyperpage{72}
+    \subitem {relax}, \hyperpage{73}
+    \subitem {resid}, \hyperpage{73}
+    \subitem {rstrct}, \hyperpage{73}
+    \subitem {rstrct0}, \hyperpage{73}
+    \subitem {slvsml}, \hyperpage{73}
+    \subitem {slvsml2}, \hyperpage{73}
+  \item {fmg\+\_\+mingridx}
+    \subitem {const.\+h}, \hyperpage{41}
+  \item {fmg\+\_\+mingridy}
+    \subitem {const.\+h}, \hyperpage{41}
+  \item {fmg\+\_\+mingridz}
+    \subitem {const.\+h}, \hyperpage{41}
+  \item {fmg\+\_\+ng}
+    \subitem {const.\+h}, \hyperpage{41}
+  \item {fmg\+\_\+nnx}
+    \subitem {const.\+h}, \hyperpage{41}
+  \item {fmg\+\_\+nny}
+    \subitem {const.\+h}, \hyperpage{41}
+  \item {fmg\+\_\+nnz}
+    \subitem {const.\+h}, \hyperpage{41}
+  \item {force\+\_\+chk}
+    \subitem {const.\+h}, \hyperpage{42}
+  \item {fp}
+    \subitem {const.\+h}, \hyperpage{42}
+  \item {fp2}
+    \subitem {const.\+h}, \hyperpage{42}
+  \item {free\+\_\+convert\+\_\+matrix}
+    \subitem {nrutil.\+c}, \hyperpage{75}
+    \subitem {nrutil.\+h}, \hyperpage{79}
+  \item {free\+\_\+cvector}
+    \subitem {nrutil.\+c}, \hyperpage{75}
+    \subitem {nrutil.\+h}, \hyperpage{79}
+  \item {free\+\_\+d3tensor}
+    \subitem {nrutil.\+c}, \hyperpage{75}
+  \item {free\+\_\+dmatrix}
+    \subitem {nrutil.\+c}, \hyperpage{75}
+    \subitem {nrutil.\+h}, \hyperpage{79}
+  \item {free\+\_\+dvecmem}
+    \subitem {funct.\+h}, \hyperpage{85}
+    \subitem {shortcuts.\+c}, \hyperpage{96}
+  \item {free\+\_\+dvector}
+    \subitem {nrutil.\+c}, \hyperpage{75}
+    \subitem {nrutil.\+h}, \hyperpage{79}
+  \item {free\+\_\+f3tensor}
+    \subitem {nrutil.\+c}, \hyperpage{75}
+    \subitem {nrutil.\+h}, \hyperpage{79}
+  \item {free\+\_\+imatrix}
+    \subitem {nrutil.\+c}, \hyperpage{75}
+    \subitem {nrutil.\+h}, \hyperpage{79}
+  \item {free\+\_\+ivecmem}
+    \subitem {funct.\+h}, \hyperpage{85}
+    \subitem {shortcuts.\+c}, \hyperpage{96}
+  \item {free\+\_\+ivector}
+    \subitem {nrutil.\+c}, \hyperpage{76}
+    \subitem {nrutil.\+h}, \hyperpage{79}
+  \item {free\+\_\+lvector}
+    \subitem {nrutil.\+c}, \hyperpage{76}
+    \subitem {nrutil.\+h}, \hyperpage{79}
+  \item {free\+\_\+matrix}
+    \subitem {nrutil.\+c}, \hyperpage{76}
+    \subitem {nrutil.\+h}, \hyperpage{79}
+  \item {free\+\_\+submatrix}
+    \subitem {nrutil.\+c}, \hyperpage{76}
+    \subitem {nrutil.\+h}, \hyperpage{80}
+  \item {free\+\_\+vector}
+    \subitem {nrutil.\+c}, \hyperpage{76}
+    \subitem {nrutil.\+h}, \hyperpage{80}
+  \item {frho}
+    \subitem {const.\+h}, \hyperpage{42}
+  \item {Fs}
+    \subitem {const.\+h}, \hyperpage{42}
+  \item {Fs\+\_\+nodust}
+    \subitem {const.\+h}, \hyperpage{42}
+  \item {Fs\+By}
+    \subitem {const.\+h}, \hyperpage{42}
+  \item {Fs\+Bz}
+    \subitem {const.\+h}, \hyperpage{42}
+  \item {Fs\+Ey}
+    \subitem {const.\+h}, \hyperpage{42}
+  \item {Fs\+Ez}
+    \subitem {const.\+h}, \hyperpage{42}
+  \item {Fs\+M\+A\+X}
+    \subitem {const.\+h}, \hyperpage{42}
+  \item {funct.\+h}
+    \subitem {accel}, \hyperpage{82}
+    \subitem {average\+\_\+current}, \hyperpage{82}
+    \subitem {calculate\+\_\+flux}, \hyperpage{82}
+    \subitem {calculate\+\_\+staticparameters}, \hyperpage{82}
+    \subitem {chargeoncond}, \hyperpage{82}
+    \subitem {checkcolcrossing}, \hyperpage{82}
+    \subitem {checkcond}, \hyperpage{82}
+    \subitem {checkpointcrossing}, \hyperpage{83}
+    \subitem {cleargrid}, \hyperpage{83}
+    \subitem {cleargrid2}, \hyperpage{83}
+    \subitem {collide}, \hyperpage{83}
+    \subitem {collisions}, \hyperpage{83}
+    \subitem {collisions\+\_\+init}, \hyperpage{83}
+    \subitem {condsquares}, \hyperpage{83}
+    \subitem {convert}, \hyperpage{83}
+    \subitem {create\+\_\+currentarrays}, \hyperpage{83}
+    \subitem {create\+\_\+linkedlist}, \hyperpage{83}
+    \subitem {cumf}, \hyperpage{83}
+    \subitem {cumfprim}, \hyperpage{83}
+    \subitem {d\+\_\+centreofmass\+\_\+and\+\_\+mom\+I}, \hyperpage{84}
+    \subitem {d\+\_\+move}, \hyperpage{84}
+    \subitem {d\+\_\+polygon}, \hyperpage{84}
+    \subitem {diagn\+\_\+close}, \hyperpage{84}
+    \subitem {diagn\+\_\+open}, \hyperpage{84}
+    \subitem {drag\+\_\+force\+\_\+direct}, \hyperpage{84}
+    \subitem {drag\+\_\+force\+\_\+electric}, \hyperpage{84}
+    \subitem {dump}, \hyperpage{84}
+    \subitem {dustarea}, \hyperpage{84}
+    \subitem {dvecmem}, \hyperpage{84}
+    \subitem {electric\+\_\+field}, \hyperpage{84}
+    \subitem {erfcc}, \hyperpage{84}
+    \subitem {findabv}, \hyperpage{85}
+    \subitem {finddustvolume}, \hyperpage{85}
+    \subitem {findnewpotentials}, \hyperpage{85}
+    \subitem {findsigma}, \hyperpage{85}
+    \subitem {free\+\_\+dvecmem}, \hyperpage{85}
+    \subitem {free\+\_\+ivecmem}, \hyperpage{85}
+    \subitem {gauss\+\_\+seidel}, \hyperpage{85}
+    \subitem {gen\+\_\+bgnd}, \hyperpage{85}
+    \subitem {gen\+\_\+boundaries}, \hyperpage{85}
+    \subitem {gen\+\_\+dust3\+D}, \hyperpage{85}
+    \subitem {gen\+\_\+probe}, \hyperpage{85}
+    \subitem {init\+\_\+newpart}, \hyperpage{85}
+    \subitem {init\+\_\+primeroot}, \hyperpage{85}
+    \subitem {initpartcheck}, \hyperpage{85}
+    \subitem {initpartcheck\+\_\+restart}, \hyperpage{86}
+    \subitem {ivecmem}, \hyperpage{86}
+    \subitem {ix}, \hyperpage{86}
+    \subitem {markgriddust}, \hyperpage{86}
+    \subitem {maxw\+\_\+dist}, \hyperpage{86}
+    \subitem {memorydpart}, \hyperpage{86}
+    \subitem {memorydust1\+\_\+3\+D}, \hyperpage{86}
+    \subitem {memorydust2\+\_\+3\+D}, \hyperpage{86}
+    \subitem {memoryduststatic}, \hyperpage{86}
+    \subitem {memorygrid}, \hyperpage{86}
+    \subitem {memorygridfree}, \hyperpage{86}
+    \subitem {mglin}, \hyperpage{86}
+    \subitem {mglin\+\_\+destroy}, \hyperpage{87}
+    \subitem {mglin\+\_\+init}, \hyperpage{87}
+    \subitem {move}, \hyperpage{87}
+    \subitem {my\+\_\+file\+\_\+open}, \hyperpage{87}
+    \subitem {new\+\_\+probe\+\_\+potential}, \hyperpage{87}
+    \subitem {newparticles}, \hyperpage{87}
+    \subitem {nnrerror}, \hyperpage{87}
+    \subitem {normalize}, \hyperpage{87}
+    \subitem {ortnormvec}, \hyperpage{87}
+    \subitem {photoelectriceffect}, \hyperpage{87}
+    \subitem {photonflux}, \hyperpage{87}
+    \subitem {points\+\_\+on\+\_\+sphere}, \hyperpage{87}
+    \subitem {pot\+\_\+probes}, \hyperpage{87}
+    \subitem {pot\+\_\+probes\+\_\+init}, \hyperpage{88}
+    \subitem {primeroot}, \hyperpage{88}
+    \subitem {print\+\_\+avpvel}, \hyperpage{88}
+    \subitem {print\+\_\+current}, \hyperpage{88}
+    \subitem {print\+K\+E}, \hyperpage{89}
+    \subitem {print\+K\+Eall}, \hyperpage{89}
+    \subitem {print\+P\+E}, \hyperpage{89}
+    \subitem {print\+P\+Etotal}, \hyperpage{89}
+    \subitem {printall}, \hyperpage{88}
+    \subitem {printavpotential}, \hyperpage{88}
+    \subitem {printconvpot}, \hyperpage{88}
+    \subitem {printdensity}, \hyperpage{88}
+    \subitem {printdragforce}, \hyperpage{88}
+    \subitem {printdth}, \hyperpage{88}
+    \subitem {printdustcharge}, \hyperpage{88}
+    \subitem {printdustchargetime}, \hyperpage{88}
+    \subitem {printdustshape}, \hyperpage{88}
+    \subitem {printdustshapetime}, \hyperpage{89}
+    \subitem {printefield}, \hyperpage{89}
+    \subitem {printgrid}, \hyperpage{89}
+    \subitem {printpotcut}, \hyperpage{89}
+    \subitem {printpotdistribution}, \hyperpage{89}
+    \subitem {printpotential}, \hyperpage{89}
+    \subitem {printqdensity}, \hyperpage{89}
+    \subitem {printscale}, \hyperpage{89}
+    \subitem {prog\+\_\+restart}, \hyperpage{89}
+    \subitem {readdata}, \hyperpage{90}
+    \subitem {redistribute}, \hyperpage{90}
+    \subitem {shift\+\_\+while\+\_\+restarting}, \hyperpage{90}
+    \subitem {signof}, \hyperpage{90}
+    \subitem {smaller\+\_\+same\+\_\+sign}, \hyperpage{90}
+    \subitem {start\+Bfield}, \hyperpage{90}
+    \subitem {virtpart}, \hyperpage{90}
+    \subitem {weighting1}, \hyperpage{90}
+    \subitem {weightingdust1}, \hyperpage{90}
+    \subitem {zet1}, \hyperpage{90}
+
+  \indexspace
+
+  \item {G\+O\+N\+E}
+    \subitem {const.\+h}, \hyperpage{24}
+  \item {gauss.\+c}
+    \subitem {electric\+\_\+field}, \hyperpage{91}
+  \item {gauss\+\_\+seidel}
+    \subitem {funct.\+h}, \hyperpage{85}
+  \item {gen\+\_\+bgnd}
+    \subitem {funct.\+h}, \hyperpage{85}
+    \subitem {generate.\+c}, \hyperpage{91}
+  \item {gen\+\_\+boundaries}
+    \subitem {funct.\+h}, \hyperpage{85}
+    \subitem {grid.\+c}, \hyperpage{93}
+  \item {gen\+\_\+dust3\+D}
+    \subitem {funct.\+h}, \hyperpage{85}
+    \subitem {grid.\+c}, \hyperpage{93}
+  \item {gen\+\_\+probe}
+    \subitem {funct.\+h}, \hyperpage{85}
+  \item {generate.\+c}
+    \subitem {gen\+\_\+bgnd}, \hyperpage{91}
+    \subitem {init\+\_\+primeroot}, \hyperpage{91}
+    \subitem {initpartcheck}, \hyperpage{91}
+    \subitem {initpartcheck\+\_\+restart}, \hyperpage{91}
+    \subitem {newparticles}, \hyperpage{91}
+    \subitem {primeroot}, \hyperpage{91}
+  \item {grid.\+c}
+    \subitem {checkcolcrossing}, \hyperpage{92}
+    \subitem {checkpointcrossing}, \hyperpage{92}
+    \subitem {cleargrid}, \hyperpage{92}
+    \subitem {cleargrid2}, \hyperpage{92}
+    \subitem {create\+\_\+currentarrays}, \hyperpage{92}
+    \subitem {findabv}, \hyperpage{93}
+    \subitem {gen\+\_\+boundaries}, \hyperpage{93}
+    \subitem {gen\+\_\+dust3\+D}, \hyperpage{93}
+    \subitem {markgriddust}, \hyperpage{93}
+    \subitem {memorydust1\+\_\+3\+D}, \hyperpage{93}
+    \subitem {memorydust2\+\_\+3\+D}, \hyperpage{93}
+    \subitem {memorygrid}, \hyperpage{93}
+    \subitem {memorygridfree}, \hyperpage{93}
+    \subitem {new\+\_\+probe\+\_\+potential}, \hyperpage{93}
+    \subitem {normalize}, \hyperpage{93}
+    \subitem {start\+Bfield}, \hyperpage{93}
+    \subitem {weighting1}, \hyperpage{93}
+  \item {Gx}
+    \subitem {const.\+h}, \hyperpage{42}
+  \item {Gy}
+    \subitem {const.\+h}, \hyperpage{43}
+  \item {Gz}
+    \subitem {const.\+h}, \hyperpage{43}
+
+  \indexspace
+
+  \item {history}
+    \subitem {const.\+h}, \hyperpage{43}
+
+  \indexspace
+
+  \item {I\+M\+A\+X}
+    \subitem {nrutil.\+h}, \hyperpage{78}
+  \item {I\+M\+I\+N}
+    \subitem {nrutil.\+h}, \hyperpage{78}
+  \item {iavvel}
+    \subitem {const.\+h}, \hyperpage{43}
+  \item {icnt}
+    \subitem {d\+\_\+particle}, \hyperpage{7}
+  \item {idens}
+    \subitem {const.\+h}, \hyperpage{43}
+  \item {ike}
+    \subitem {const.\+h}, \hyperpage{43}
+  \item {ike\+\_\+time}
+    \subitem {const.\+h}, \hyperpage{43}
+  \item {imatrix}
+    \subitem {nrutil.\+c}, \hyperpage{76}
+    \subitem {nrutil.\+h}, \hyperpage{80}
+  \item {in1}
+    \subitem {condsq}, \hyperpage{5}
+  \item {in2}
+    \subitem {condsq}, \hyperpage{5}
+  \item {in3}
+    \subitem {condsq}, \hyperpage{5}
+  \item {in4}
+    \subitem {condsq}, \hyperpage{5}
+  \item {init\+\_\+newpart}
+    \subitem {flux.\+c}, \hyperpage{69}
+    \subitem {funct.\+h}, \hyperpage{85}
+  \item {init\+\_\+primeroot}
+    \subitem {funct.\+h}, \hyperpage{85}
+    \subitem {generate.\+c}, \hyperpage{91}
+  \item {initpartcheck}
+    \subitem {funct.\+h}, \hyperpage{85}
+    \subitem {generate.\+c}, \hyperpage{91}
+  \item {initpartcheck\+\_\+restart}
+    \subitem {funct.\+h}, \hyperpage{86}
+    \subitem {generate.\+c}, \hyperpage{91}
+  \item {input.\+c}
+    \subitem {convert}, \hyperpage{94}
+    \subitem {readdata}, \hyperpage{94}
+  \item {interp}
+    \subitem {fmg.\+c}, \hyperpage{70}
+    \subitem {fmg\+\_\+\+P.\+c}, \hyperpage{73}
+  \item {ion}
+    \subitem {const.\+h}, \hyperpage{24}
+  \item {ipe}
+    \subitem {const.\+h}, \hyperpage{43}
+  \item {ipe\+\_\+time}
+    \subitem {const.\+h}, \hyperpage{43}
+  \item {ires}
+    \subitem {const.\+h}, \hyperpage{43}
+  \item {irho}
+    \subitem {const.\+h}, \hyperpage{43}
+  \item {irhs}
+    \subitem {const.\+h}, \hyperpage{43}
+  \item {iu}
+    \subitem {const.\+h}, \hyperpage{44}
+  \item {ivecmem}
+    \subitem {funct.\+h}, \hyperpage{86}
+    \subitem {shortcuts.\+c}, \hyperpage{96}
+  \item {ivector}
+    \subitem {nrutil.\+c}, \hyperpage{76}
+    \subitem {nrutil.\+h}, \hyperpage{80}
+  \item {ivxphs}
+    \subitem {const.\+h}, \hyperpage{44}
+  \item {ix}
+    \subitem {fmg.\+c}, \hyperpage{70}
+    \subitem {fmg\+\_\+\+P.\+c}, \hyperpage{73}
+    \subitem {funct.\+h}, \hyperpage{86}
+    \subitem {shortcuts.\+c}, \hyperpage{96}
+
+  \indexspace
+
+  \item {K\+E}
+    \subitem {const.\+h}, \hyperpage{44}
+  \item {K\+E\+\_\+off}
+    \subitem {const.\+h}, \hyperpage{44}
+  \item {K\+E\+M\+A\+X}
+    \subitem {const.\+h}, \hyperpage{44}
+  \item {kenergy}
+    \subitem {particle}, \hyperpage{10}
+
+  \indexspace
+
+  \item {L\+I\+S\+T\+\_\+\+S\+I\+Z\+E}
+    \subitem {const.\+h}, \hyperpage{24}
+  \item {L\+M\+A\+X}
+    \subitem {nrutil.\+h}, \hyperpage{78}
+  \item {L\+M\+I\+N}
+    \subitem {nrutil.\+h}, \hyperpage{79}
+  \item {llb}
+    \subitem {const.\+h}, \hyperpage{44}
+  \item {lldx}
+    \subitem {const.\+h}, \hyperpage{44}
+  \item {lldy}
+    \subitem {const.\+h}, \hyperpage{44}
+  \item {lldz}
+    \subitem {const.\+h}, \hyperpage{44}
+  \item {llmesh}
+    \subitem {const.\+h}, \hyperpage{44}
+  \item {llnext}
+    \subitem {particle}, \hyperpage{10}
+  \item {llngx}
+    \subitem {const.\+h}, \hyperpage{44}
+  \item {llngy}
+    \subitem {const.\+h}, \hyperpage{44}
+  \item {llngz}
+    \subitem {const.\+h}, \hyperpage{45}
+  \item {llsize}
+    \subitem {const.\+h}, \hyperpage{45}
+  \item {lostlist}
+    \subitem {const.\+h}, \hyperpage{45}
+  \item {lostpart}
+    \subitem {const.\+h}, \hyperpage{45}
+  \item {lut}
+    \subitem {const.\+h}, \hyperpage{45}
+  \item {lv0}
+    \subitem {const.\+h}, \hyperpage{45}
+  \item {lvector}
+    \subitem {nrutil.\+c}, \hyperpage{76}
+    \subitem {nrutil.\+h}, \hyperpage{80}
+  \item {Lx}
+    \subitem {const.\+h}, \hyperpage{45}
+  \item {Lx\+\_\+\+M\+A\+X}
+    \subitem {const.\+h}, \hyperpage{25}
+  \item {Ly}
+    \subitem {const.\+h}, \hyperpage{45}
+  \item {Ly\+\_\+\+M\+A\+X}
+    \subitem {const.\+h}, \hyperpage{25}
+  \item {Lz}
+    \subitem {const.\+h}, \hyperpage{45}
+  \item {Lz\+\_\+\+M\+A\+X}
+    \subitem {const.\+h}, \hyperpage{25}
+  \item {lzet}
+    \subitem {const.\+h}, \hyperpage{45}
+
+  \indexspace
+
+  \item {main}
+    \subitem {main.\+c}, \hyperpage{94}
+  \item {main.\+c}
+    \subitem {main}, \hyperpage{94}
+  \item {markgriddust}
+    \subitem {funct.\+h}, \hyperpage{86}
+    \subitem {grid.\+c}, \hyperpage{93}
+  \item {mass}
+    \subitem {const.\+h}, \hyperpage{45}
+    \subitem {dtriangle}, \hyperpage{9}
+  \item {Mass\+\_\+0}
+    \subitem {const.\+h}, \hyperpage{25}
+  \item {Mass\+\_\+1}
+    \subitem {const.\+h}, \hyperpage{25}
+  \item {massneutrals}
+    \subitem {const.\+h}, \hyperpage{45}
+  \item {matrix}
+    \subitem {nrutil.\+c}, \hyperpage{76}
+    \subitem {nrutil.\+h}, \hyperpage{80}
+  \item {maxw\+\_\+dist}
+    \subitem {funct.\+h}, \hyperpage{86}
+  \item {maxx}
+    \subitem {const.\+h}, \hyperpage{46}
+  \item {maxy}
+    \subitem {const.\+h}, \hyperpage{46}
+  \item {memorydpart}
+    \subitem {dustg.\+c}, \hyperpage{67}
+    \subitem {funct.\+h}, \hyperpage{86}
+  \item {memorydust1\+\_\+3\+D}
+    \subitem {funct.\+h}, \hyperpage{86}
+    \subitem {grid.\+c}, \hyperpage{93}
+  \item {memorydust2\+\_\+3\+D}
+    \subitem {funct.\+h}, \hyperpage{86}
+    \subitem {grid.\+c}, \hyperpage{93}
+  \item {memoryduststatic}
+    \subitem {dustg.\+c}, \hyperpage{68}
+    \subitem {funct.\+h}, \hyperpage{86}
+  \item {memorygrid}
+    \subitem {funct.\+h}, \hyperpage{86}
+    \subitem {grid.\+c}, \hyperpage{93}
+  \item {memorygridfree}
+    \subitem {funct.\+h}, \hyperpage{86}
+    \subitem {grid.\+c}, \hyperpage{93}
+  \item {mglin}
+    \subitem {fmg.\+c}, \hyperpage{71}
+    \subitem {fmg\+\_\+\+P.\+c}, \hyperpage{73}
+    \subitem {funct.\+h}, \hyperpage{86}
+  \item {mglin\+\_\+destroy}
+    \subitem {fmg.\+c}, \hyperpage{71}
+    \subitem {fmg\+\_\+\+P.\+c}, \hyperpage{73}
+    \subitem {funct.\+h}, \hyperpage{87}
+  \item {mglin\+\_\+init}
+    \subitem {fmg.\+c}, \hyperpage{71}
+    \subitem {fmg\+\_\+\+P.\+c}, \hyperpage{73}
+    \subitem {funct.\+h}, \hyperpage{87}
+  \item {minx}
+    \subitem {const.\+h}, \hyperpage{46}
+  \item {miny}
+    \subitem {const.\+h}, \hyperpage{46}
+  \item {move}
+    \subitem {funct.\+h}, \hyperpage{87}
+  \item {mpicheck}
+    \subitem {const.\+h}, \hyperpage{46}
+  \item {my\+\_\+file\+\_\+open}
+    \subitem {funct.\+h}, \hyperpage{87}
+    \subitem {shortcuts.\+c}, \hyperpage{96}
+
+  \indexspace
+
+  \item {N\+C\+Y\+C\+L\+E\+S}
+    \subitem {const.\+h}, \hyperpage{25}
+  \item {N\+G\+M\+A\+X}
+    \subitem {const.\+h}, \hyperpage{25}
+  \item {N\+O\+F}
+    \subitem {const.\+h}, \hyperpage{25}
+  \item {N\+O\+R\+M\+A\+L}
+    \subitem {const.\+h}, \hyperpage{25}
+  \item {N\+P\+A\+R\+T\+\_\+\+M\+A\+X}
+    \subitem {const.\+h}, \hyperpage{26}
+  \item {N\+P\+O\+S\+T}
+    \subitem {const.\+h}, \hyperpage{26}
+    \subitem {fmg.\+c}, \hyperpage{70}
+    \subitem {fmg\+\_\+\+P.\+c}, \hyperpage{72}
+  \item {N\+P\+R\+E}
+    \subitem {const.\+h}, \hyperpage{26}
+    \subitem {fmg.\+c}, \hyperpage{70}
+    \subitem {fmg\+\_\+\+P.\+c}, \hyperpage{72}
+  \item {N\+R\+\_\+\+E\+N\+D}
+    \subitem {nrutil.\+c}, \hyperpage{74}
+  \item {N\+R\+\_\+\+E\+N\+D\+D}
+    \subitem {shortcuts.\+c}, \hyperpage{96}
+  \item {N\+R\+A\+N\+S\+I}
+    \subitem {fmg.\+c}, \hyperpage{70}
+    \subitem {fmg\+\_\+\+P.\+c}, \hyperpage{72}
+  \item {ncorners}
+    \subitem {const.\+h}, \hyperpage{46}
+  \item {ndensity}
+    \subitem {const.\+h}, \hyperpage{46}
+  \item {new\+\_\+probe\+\_\+potential}
+    \subitem {funct.\+h}, \hyperpage{87}
+    \subitem {grid.\+c}, \hyperpage{93}
+  \item {newparticles}
+    \subitem {funct.\+h}, \hyperpage{87}
+    \subitem {generate.\+c}, \hyperpage{91}
+  \item {newprobe}
+    \subitem {const.\+h}, \hyperpage{46}
+  \item {ngx}
+    \subitem {const.\+h}, \hyperpage{46}
+  \item {ngx\+\_\+\+M\+A\+X}
+    \subitem {const.\+h}, \hyperpage{25}
+  \item {ngy}
+    \subitem {const.\+h}, \hyperpage{46}
+  \item {ngy\+\_\+\+M\+A\+X}
+    \subitem {const.\+h}, \hyperpage{25}
+  \item {ngz}
+    \subitem {const.\+h}, \hyperpage{46}
+  \item {ngz\+\_\+\+M\+A\+X}
+    \subitem {const.\+h}, \hyperpage{25}
+  \item {nnrerror}
+    \subitem {funct.\+h}, \hyperpage{87}
+  \item {noofdusts}
+    \subitem {const.\+h}, \hyperpage{46}
+  \item {nooftriangles}
+    \subitem {const.\+h}, \hyperpage{47}
+  \item {norm\+Efield}
+    \subitem {const.\+h}, \hyperpage{47}
+  \item {norm\+P\+E}
+    \subitem {const.\+h}, \hyperpage{47}
+  \item {norm\+P\+P}
+    \subitem {const.\+h}, \hyperpage{47}
+  \item {normalcharge}
+    \subitem {const.\+h}, \hyperpage{47}
+  \item {normalize}
+    \subitem {funct.\+h}, \hyperpage{87}
+    \subitem {grid.\+c}, \hyperpage{93}
+  \item {normcharge}
+    \subitem {const.\+h}, \hyperpage{47}
+  \item {normdens}
+    \subitem {const.\+h}, \hyperpage{47}
+  \item {normmass}
+    \subitem {const.\+h}, \hyperpage{47}
+  \item {normpot}
+    \subitem {const.\+h}, \hyperpage{47}
+  \item {normqdens}
+    \subitem {const.\+h}, \hyperpage{47}
+  \item {normqm}
+    \subitem {const.\+h}, \hyperpage{47}
+  \item {normtime}
+    \subitem {const.\+h}, \hyperpage{47}
+  \item {normvel}
+    \subitem {const.\+h}, \hyperpage{48}
+  \item {normx}
+    \subitem {const.\+h}, \hyperpage{48}
+  \item {npart}
+    \subitem {const.\+h}, \hyperpage{48}
+  \item {npartinit}
+    \subitem {const.\+h}, \hyperpage{48}
+  \item {nrerror}
+    \subitem {nrutil.\+c}, \hyperpage{76}
+    \subitem {nrutil.\+h}, \hyperpage{80}
+  \item {nrutil.\+c}
+    \subitem {convert\+\_\+matrix}, \hyperpage{75}
+    \subitem {cvector}, \hyperpage{75}
+    \subitem {d3tensor}, \hyperpage{75}
+    \subitem {dmatrix}, \hyperpage{75}
+    \subitem {dvector}, \hyperpage{75}
+    \subitem {f3tensor}, \hyperpage{75}
+    \subitem {F\+R\+E\+E\+\_\+\+A\+R\+G}, \hyperpage{74}
+    \subitem {free\+\_\+convert\+\_\+matrix}, \hyperpage{75}
+    \subitem {free\+\_\+cvector}, \hyperpage{75}
+    \subitem {free\+\_\+d3tensor}, \hyperpage{75}
+    \subitem {free\+\_\+dmatrix}, \hyperpage{75}
+    \subitem {free\+\_\+dvector}, \hyperpage{75}
+    \subitem {free\+\_\+f3tensor}, \hyperpage{75}
+    \subitem {free\+\_\+imatrix}, \hyperpage{75}
+    \subitem {free\+\_\+ivector}, \hyperpage{76}
+    \subitem {free\+\_\+lvector}, \hyperpage{76}
+    \subitem {free\+\_\+matrix}, \hyperpage{76}
+    \subitem {free\+\_\+submatrix}, \hyperpage{76}
+    \subitem {free\+\_\+vector}, \hyperpage{76}
+    \subitem {imatrix}, \hyperpage{76}
+    \subitem {ivector}, \hyperpage{76}
+    \subitem {lvector}, \hyperpage{76}
+    \subitem {matrix}, \hyperpage{76}
+    \subitem {N\+R\+\_\+\+E\+N\+D}, \hyperpage{74}
+    \subitem {nrerror}, \hyperpage{76}
+    \subitem {submatrix}, \hyperpage{76}
+    \subitem {vector}, \hyperpage{76}
+  \item {nrutil.\+h}
+    \subitem {convert\+\_\+matrix}, \hyperpage{79}
+    \subitem {cvector}, \hyperpage{79}
+    \subitem {D\+M\+A\+X}, \hyperpage{78}
+    \subitem {D\+M\+I\+N}, \hyperpage{78}
+    \subitem {D\+S\+Q\+R}, \hyperpage{78}
+    \subitem {dmatrix}, \hyperpage{79}
+    \subitem {dvector}, \hyperpage{79}
+    \subitem {f3tensor}, \hyperpage{79}
+    \subitem {F\+M\+A\+X}, \hyperpage{78}
+    \subitem {F\+M\+I\+N}, \hyperpage{78}
+    \subitem {free\+\_\+convert\+\_\+matrix}, \hyperpage{79}
+    \subitem {free\+\_\+cvector}, \hyperpage{79}
+    \subitem {free\+\_\+dmatrix}, \hyperpage{79}
+    \subitem {free\+\_\+dvector}, \hyperpage{79}
+    \subitem {free\+\_\+f3tensor}, \hyperpage{79}
+    \subitem {free\+\_\+imatrix}, \hyperpage{79}
+    \subitem {free\+\_\+ivector}, \hyperpage{79}
+    \subitem {free\+\_\+lvector}, \hyperpage{79}
+    \subitem {free\+\_\+matrix}, \hyperpage{79}
+    \subitem {free\+\_\+submatrix}, \hyperpage{80}
+    \subitem {free\+\_\+vector}, \hyperpage{80}
+    \subitem {I\+M\+A\+X}, \hyperpage{78}
+    \subitem {I\+M\+I\+N}, \hyperpage{78}
+    \subitem {imatrix}, \hyperpage{80}
+    \subitem {ivector}, \hyperpage{80}
+    \subitem {L\+M\+A\+X}, \hyperpage{78}
+    \subitem {L\+M\+I\+N}, \hyperpage{79}
+    \subitem {lvector}, \hyperpage{80}
+    \subitem {matrix}, \hyperpage{80}
+    \subitem {nrerror}, \hyperpage{80}
+    \subitem {S\+I\+G\+N}, \hyperpage{79}
+    \subitem {S\+Q\+R}, \hyperpage{79}
+    \subitem {submatrix}, \hyperpage{80}
+    \subitem {vector}, \hyperpage{80}
+  \item {nullcoll}
+    \subitem {const.\+h}, \hyperpage{48}
+  \item {nullcollfreq}
+    \subitem {const.\+h}, \hyperpage{48}
+  \item {nullcollrest}
+    \subitem {const.\+h}, \hyperpage{48}
+  \item {numberofprints}
+    \subitem {const.\+h}, \hyperpage{48}
+  \item {numtasks}
+    \subitem {const.\+h}, \hyperpage{48}
+
+  \indexspace
+
+  \item {omegap}
+    \subitem {const.\+h}, \hyperpage{48}
+  \item {orthvec}
+    \subitem {const.\+h}, \hyperpage{48}
+  \item {orthvecseg}
+    \subitem {const.\+h}, \hyperpage{48}
+  \item {ortnormvec}
+    \subitem {dustg.\+c}, \hyperpage{68}
+    \subitem {funct.\+h}, \hyperpage{87}
+
+  \indexspace
+
+  \item {P\+E}
+    \subitem {const.\+h}, \hyperpage{49}
+  \item {P\+E\+M\+A\+X}
+    \subitem {const.\+h}, \hyperpage{49}
+  \item {P\+E\+M\+A\+Xhalf}
+    \subitem {const.\+h}, \hyperpage{49}
+  \item {P\+Etotal}
+    \subitem {const.\+h}, \hyperpage{49}
+  \item {P\+Etotal\+M\+A\+X}
+    \subitem {const.\+h}, \hyperpage{49}
+  \item {P\+O\+T\+P\+O\+T\+S}
+    \subitem {const.\+h}, \hyperpage{26}
+  \item {P\+R\+O\+B\+E}
+    \subitem {const.\+h}, \hyperpage{26}
+  \item {P\+R\+S\+E\+G}
+    \subitem {const.\+h}, \hyperpage{26}
+  \item {part}
+    \subitem {species}, \hyperpage{11}
+  \item {particle}, \hyperpage{9}
+    \subitem {const.\+h}, \hyperpage{27}
+    \subitem {kenergy}, \hyperpage{10}
+    \subitem {llnext}, \hyperpage{10}
+    \subitem {vx}, \hyperpage{10}
+    \subitem {vy}, \hyperpage{10}
+    \subitem {vz}, \hyperpage{10}
+    \subitem {x}, \hyperpage{10}
+    \subitem {y}, \hyperpage{10}
+    \subitem {z}, \hyperpage{10}
+  \item {particlesno}
+    \subitem {const.\+h}, \hyperpage{49}
+  \item {pdens}
+    \subitem {const.\+h}, \hyperpage{49}
+  \item {pdens\+\_\+off}
+    \subitem {const.\+h}, \hyperpage{49}
+  \item {pdens\+M\+A\+X}
+    \subitem {const.\+h}, \hyperpage{49}
+  \item {pe}
+    \subitem {const.\+h}, \hyperpage{49}
+  \item {pe\+\_\+time}
+    \subitem {const.\+h}, \hyperpage{49}
+  \item {ph\+\_\+a}
+    \subitem {const.\+h}, \hyperpage{49}
+  \item {ph\+\_\+angle}
+    \subitem {const.\+h}, \hyperpage{50}
+  \item {ph\+\_\+angle\+\_\+rad}
+    \subitem {const.\+h}, \hyperpage{50}
+  \item {ph\+\_\+bmax}
+    \subitem {const.\+h}, \hyperpage{50}
+  \item {ph\+\_\+bmin}
+    \subitem {const.\+h}, \hyperpage{50}
+  \item {ph\+\_\+cosangle}
+    \subitem {const.\+h}, \hyperpage{50}
+  \item {ph\+\_\+energy}
+    \subitem {const.\+h}, \hyperpage{50}
+  \item {ph\+\_\+flux}
+    \subitem {const.\+h}, \hyperpage{50}
+  \item {ph\+\_\+fluxprdt}
+    \subitem {const.\+h}, \hyperpage{50}
+  \item {ph\+\_\+length}
+    \subitem {const.\+h}, \hyperpage{50}
+  \item {ph\+\_\+sinangle}
+    \subitem {const.\+h}, \hyperpage{50}
+  \item {ph\+\_\+vert}
+    \subitem {const.\+h}, \hyperpage{50}
+  \item {ph\+\_\+xmax}
+    \subitem {const.\+h}, \hyperpage{50}
+  \item {ph\+\_\+xmin}
+    \subitem {const.\+h}, \hyperpage{51}
+  \item {phi}
+    \subitem {const.\+h}, \hyperpage{51}
+  \item {phi\+\_\+nodust}
+    \subitem {const.\+h}, \hyperpage{51}
+  \item {phi\+M\+A\+X}
+    \subitem {const.\+h}, \hyperpage{51}
+  \item {phiav}
+    \subitem {const.\+h}, \hyperpage{51}
+  \item {phiav\+M\+A\+X}
+    \subitem {const.\+h}, \hyperpage{51}
+  \item {photoelectriceffect}
+    \subitem {funct.\+h}, \hyperpage{87}
+    \subitem {photons.\+c}, \hyperpage{95}
+  \item {photonflux}
+    \subitem {funct.\+h}, \hyperpage{87}
+    \subitem {photons.\+c}, \hyperpage{95}
+  \item {photons}
+    \subitem {const.\+h}, \hyperpage{51}
+  \item {photons.\+c}
+    \subitem {photoelectriceffect}, \hyperpage{95}
+    \subitem {photonflux}, \hyperpage{95}
+  \item {pi}
+    \subitem {const.\+h}, \hyperpage{51}
+  \item {points\+\_\+on\+\_\+sphere}
+    \subitem {funct.\+h}, \hyperpage{87}
+    \subitem {spherical.\+c}, \hyperpage{97}
+  \item {pot2\+D}
+    \subitem {const.\+h}, \hyperpage{51}
+  \item {pot2\+Dav}
+    \subitem {const.\+h}, \hyperpage{51}
+  \item {pot2\+Dclr}
+    \subitem {const.\+h}, \hyperpage{51}
+  \item {pot\+\_\+probes}
+    \subitem {diagn.\+c}, \hyperpage{64}
+    \subitem {funct.\+h}, \hyperpage{87}
+  \item {pot\+\_\+probes\+\_\+init}
+    \subitem {diagn.\+c}, \hyperpage{64}
+    \subitem {funct.\+h}, \hyperpage{88}
+  \item {potclr}
+    \subitem {const.\+h}, \hyperpage{51}
+  \item {potconv}
+    \subitem {const.\+h}, \hyperpage{52}
+  \item {potconv\+M\+A\+X}
+    \subitem {const.\+h}, \hyperpage{52}
+  \item {potdistr}
+    \subitem {const.\+h}, \hyperpage{52}
+  \item {potdistrarray}
+    \subitem {const.\+h}, \hyperpage{52}
+  \item {potdistrmax}
+    \subitem {const.\+h}, \hyperpage{52}
+  \item {potdistrmin}
+    \subitem {const.\+h}, \hyperpage{52}
+  \item {poten}
+    \subitem {const.\+h}, \hyperpage{52}
+  \item {primeroot}
+    \subitem {funct.\+h}, \hyperpage{88}
+    \subitem {generate.\+c}, \hyperpage{91}
+  \item {primerootbucket}
+    \subitem {const.\+h}, \hyperpage{52}
+  \item {primerootno}
+    \subitem {const.\+h}, \hyperpage{52}
+  \item {print\+\_\+avpvel}
+    \subitem {diagn.\+c}, \hyperpage{64}
+    \subitem {funct.\+h}, \hyperpage{88}
+  \item {print\+\_\+current}
+    \subitem {diagn.\+c}, \hyperpage{64}
+    \subitem {funct.\+h}, \hyperpage{88}
+  \item {print\+K\+E}
+    \subitem {diagn.\+c}, \hyperpage{65}
+    \subitem {funct.\+h}, \hyperpage{89}
+  \item {print\+K\+Eall}
+    \subitem {diagn.\+c}, \hyperpage{65}
+    \subitem {funct.\+h}, \hyperpage{89}
+  \item {print\+P\+E}
+    \subitem {diagn.\+c}, \hyperpage{65}
+    \subitem {funct.\+h}, \hyperpage{89}
+  \item {print\+P\+Etotal}
+    \subitem {diagn.\+c}, \hyperpage{65}
+    \subitem {funct.\+h}, \hyperpage{89}
+  \item {printall}
+    \subitem {funct.\+h}, \hyperpage{88}
+  \item {printavpotential}
+    \subitem {diagn.\+c}, \hyperpage{64}
+    \subitem {funct.\+h}, \hyperpage{88}
+  \item {printconvpot}
+    \subitem {diagn.\+c}, \hyperpage{64}
+    \subitem {funct.\+h}, \hyperpage{88}
+  \item {printdensity}
+    \subitem {diagn.\+c}, \hyperpage{64}
+    \subitem {funct.\+h}, \hyperpage{88}
+  \item {printdragforce}
+    \subitem {dustg.\+c}, \hyperpage{68}
+    \subitem {funct.\+h}, \hyperpage{88}
+  \item {printdth}
+    \subitem {diagn.\+c}, \hyperpage{65}
+    \subitem {funct.\+h}, \hyperpage{88}
+  \item {printdustcharge}
+    \subitem {diagn.\+c}, \hyperpage{65}
+    \subitem {funct.\+h}, \hyperpage{88}
+  \item {printdustchargetime}
+    \subitem {diagn.\+c}, \hyperpage{65}
+    \subitem {funct.\+h}, \hyperpage{88}
+  \item {printdustshape}
+    \subitem {diagn.\+c}, \hyperpage{65}
+    \subitem {funct.\+h}, \hyperpage{88}
+  \item {printdustshapetime}
+    \subitem {diagn.\+c}, \hyperpage{65}
+    \subitem {funct.\+h}, \hyperpage{89}
+  \item {printefield}
+    \subitem {diagn.\+c}, \hyperpage{65}
+    \subitem {funct.\+h}, \hyperpage{89}
+  \item {printgrid}
+    \subitem {diagn.\+c}, \hyperpage{65}
+    \subitem {funct.\+h}, \hyperpage{89}
+  \item {printnewprobe}
+    \subitem {diagn.\+c}, \hyperpage{65}
+  \item {printpotcut}
+    \subitem {funct.\+h}, \hyperpage{89}
+  \item {printpotdistribution}
+    \subitem {diagn.\+c}, \hyperpage{66}
+    \subitem {funct.\+h}, \hyperpage{89}
+  \item {printpotential}
+    \subitem {diagn.\+c}, \hyperpage{66}
+    \subitem {funct.\+h}, \hyperpage{89}
+  \item {printqdensity}
+    \subitem {diagn.\+c}, \hyperpage{66}
+    \subitem {funct.\+h}, \hyperpage{89}
+  \item {printscale}
+    \subitem {diagn.\+c}, \hyperpage{66}
+    \subitem {funct.\+h}, \hyperpage{89}
+  \item {probe\+\_\+version}
+    \subitem {const.\+h}, \hyperpage{52}
+  \item {probes1}
+    \subitem {const.\+h}, \hyperpage{52}
+  \item {probes11}
+    \subitem {const.\+h}, \hyperpage{52}
+  \item {probes12}
+    \subitem {const.\+h}, \hyperpage{53}
+  \item {probes13}
+    \subitem {const.\+h}, \hyperpage{53}
+  \item {probes14}
+    \subitem {const.\+h}, \hyperpage{53}
+  \item {probes15}
+    \subitem {const.\+h}, \hyperpage{53}
+  \item {probes16}
+    \subitem {const.\+h}, \hyperpage{53}
+  \item {probes17}
+    \subitem {const.\+h}, \hyperpage{53}
+  \item {probes18}
+    \subitem {const.\+h}, \hyperpage{53}
+  \item {probes19}
+    \subitem {const.\+h}, \hyperpage{53}
+  \item {probes2}
+    \subitem {const.\+h}, \hyperpage{53}
+  \item {probes21}
+    \subitem {const.\+h}, \hyperpage{53}
+  \item {probes22}
+    \subitem {const.\+h}, \hyperpage{53}
+  \item {probes23}
+    \subitem {const.\+h}, \hyperpage{53}
+  \item {probes24}
+    \subitem {const.\+h}, \hyperpage{54}
+  \item {probes25}
+    \subitem {const.\+h}, \hyperpage{54}
+  \item {probes26}
+    \subitem {const.\+h}, \hyperpage{54}
+  \item {probes27}
+    \subitem {const.\+h}, \hyperpage{54}
+  \item {probes28}
+    \subitem {const.\+h}, \hyperpage{54}
+  \item {probes29}
+    \subitem {const.\+h}, \hyperpage{54}
+  \item {probes3}
+    \subitem {const.\+h}, \hyperpage{54}
+  \item {probes31}
+    \subitem {const.\+h}, \hyperpage{54}
+  \item {probes32}
+    \subitem {const.\+h}, \hyperpage{54}
+  \item {probes33}
+    \subitem {const.\+h}, \hyperpage{54}
+  \item {probes34}
+    \subitem {const.\+h}, \hyperpage{54}
+  \item {probes35}
+    \subitem {const.\+h}, \hyperpage{54}
+  \item {probes36}
+    \subitem {const.\+h}, \hyperpage{55}
+  \item {probes37}
+    \subitem {const.\+h}, \hyperpage{55}
+  \item {probes38}
+    \subitem {const.\+h}, \hyperpage{55}
+  \item {probes39}
+    \subitem {const.\+h}, \hyperpage{55}
+  \item {probesegments}
+    \subitem {const.\+h}, \hyperpage{55}
+  \item {probex}
+    \subitem {const.\+h}, \hyperpage{55}
+  \item {probexmax}
+    \subitem {const.\+h}, \hyperpage{55}
+  \item {probexmin}
+    \subitem {const.\+h}, \hyperpage{55}
+  \item {probey}
+    \subitem {const.\+h}, \hyperpage{55}
+  \item {probeymax}
+    \subitem {const.\+h}, \hyperpage{55}
+  \item {probeymin}
+    \subitem {const.\+h}, \hyperpage{55}
+  \item {prog\+\_\+restart}
+    \subitem {funct.\+h}, \hyperpage{89}
+    \subitem {restart.\+c}, \hyperpage{95}
+  \item {pt1}
+    \subitem {dtriangle}, \hyperpage{9}
+  \item {pt2}
+    \subitem {dtriangle}, \hyperpage{9}
+  \item {pt3}
+    \subitem {dtriangle}, \hyperpage{9}
+  \item {ptemp11}
+    \subitem {const.\+h}, \hyperpage{55}
+  \item {ptemp12}
+    \subitem {const.\+h}, \hyperpage{56}
+  \item {ptemp13}
+    \subitem {const.\+h}, \hyperpage{56}
+  \item {ptemp14}
+    \subitem {const.\+h}, \hyperpage{56}
+  \item {ptemp15}
+    \subitem {const.\+h}, \hyperpage{56}
+  \item {ptemp16}
+    \subitem {const.\+h}, \hyperpage{56}
+  \item {ptemp17}
+    \subitem {const.\+h}, \hyperpage{56}
+  \item {ptemp18}
+    \subitem {const.\+h}, \hyperpage{56}
+  \item {ptemp19}
+    \subitem {const.\+h}, \hyperpage{56}
+  \item {ptemp21}
+    \subitem {const.\+h}, \hyperpage{56}
+  \item {ptemp22}
+    \subitem {const.\+h}, \hyperpage{56}
+  \item {ptemp23}
+    \subitem {const.\+h}, \hyperpage{56}
+  \item {ptemp24}
+    \subitem {const.\+h}, \hyperpage{56}
+  \item {ptemp25}
+    \subitem {const.\+h}, \hyperpage{57}
+  \item {ptemp26}
+    \subitem {const.\+h}, \hyperpage{57}
+  \item {ptemp27}
+    \subitem {const.\+h}, \hyperpage{57}
+  \item {ptemp28}
+    \subitem {const.\+h}, \hyperpage{57}
+  \item {ptemp29}
+    \subitem {const.\+h}, \hyperpage{57}
+  \item {ptemp31}
+    \subitem {const.\+h}, \hyperpage{57}
+  \item {ptemp32}
+    \subitem {const.\+h}, \hyperpage{57}
+  \item {ptemp33}
+    \subitem {const.\+h}, \hyperpage{57}
+  \item {ptemp34}
+    \subitem {const.\+h}, \hyperpage{57}
+  \item {ptemp35}
+    \subitem {const.\+h}, \hyperpage{57}
+  \item {ptemp36}
+    \subitem {const.\+h}, \hyperpage{57}
+  \item {ptemp37}
+    \subitem {const.\+h}, \hyperpage{57}
+  \item {ptemp38}
+    \subitem {const.\+h}, \hyperpage{58}
+  \item {ptemp39}
+    \subitem {const.\+h}, \hyperpage{58}
+
+  \indexspace
+
+  \item {Q}
+    \subitem {const.\+h}, \hyperpage{26}
+  \item {q}
+    \subitem {d\+\_\+particle}, \hyperpage{7}
+  \item {qdens}
+    \subitem {const.\+h}, \hyperpage{58}
+  \item {qdens\+M\+A\+X}
+    \subitem {const.\+h}, \hyperpage{58}
+  \item {qm}
+    \subitem {const.\+h}, \hyperpage{58}
+
+  \indexspace
+
+  \item {r\+K\+E}
+    \subitem {const.\+h}, \hyperpage{59}
+  \item {rank}
+    \subitem {const.\+h}, \hyperpage{58}
+  \item {ratio}
+    \subitem {const.\+h}, \hyperpage{58}
+  \item {rcurr\+\_\+av}
+    \subitem {const.\+h}, \hyperpage{58}
+  \item {rdpart}
+    \subitem {const.\+h}, \hyperpage{58}
+  \item {rdpartq}
+    \subitem {const.\+h}, \hyperpage{58}
+  \item {rdrho}
+    \subitem {const.\+h}, \hyperpage{58}
+  \item {rdrholast}
+    \subitem {const.\+h}, \hyperpage{58}
+  \item {readdata}
+    \subitem {funct.\+h}, \hyperpage{90}
+    \subitem {input.\+c}, \hyperpage{94}
+  \item {redistribute}
+    \subitem {dustg.\+c}, \hyperpage{68}
+    \subitem {funct.\+h}, \hyperpage{90}
+  \item {relax}
+    \subitem {fmg.\+c}, \hyperpage{71}
+    \subitem {fmg\+\_\+\+P.\+c}, \hyperpage{73}
+  \item {resid}
+    \subitem {fmg.\+c}, \hyperpage{71}
+    \subitem {fmg\+\_\+\+P.\+c}, \hyperpage{73}
+  \item {restart.\+c}
+    \subitem {dump}, \hyperpage{95}
+    \subitem {prog\+\_\+restart}, \hyperpage{95}
+    \subitem {shift\+\_\+while\+\_\+restarting}, \hyperpage{95}
+  \item {rho}
+    \subitem {const.\+h}, \hyperpage{59}
+    \subitem {d\+\_\+rho}, \hyperpage{8}
+  \item {rho\+\_\+av}
+    \subitem {d\+\_\+rho}, \hyperpage{8}
+  \item {rho\+M\+A\+X}
+    \subitem {const.\+h}, \hyperpage{59}
+  \item {rho\+M\+A\+Xhalf}
+    \subitem {const.\+h}, \hyperpage{59}
+  \item {rlb}
+    \subitem {const.\+h}, \hyperpage{59}
+  \item {rpdens}
+    \subitem {const.\+h}, \hyperpage{59}
+  \item {rrho}
+    \subitem {const.\+h}, \hyperpage{59}
+  \item {rstrct}
+    \subitem {fmg.\+c}, \hyperpage{71}
+    \subitem {fmg\+\_\+\+P.\+c}, \hyperpage{73}
+  \item {rstrct0}
+    \subitem {fmg.\+c}, \hyperpage{71}
+    \subitem {fmg\+\_\+\+P.\+c}, \hyperpage{73}
+  \item {rv0}
+    \subitem {const.\+h}, \hyperpage{59}
+  \item {rvdriftx}
+    \subitem {const.\+h}, \hyperpage{59}
+  \item {rvxvec}
+    \subitem {const.\+h}, \hyperpage{59}
+  \item {rvyvec}
+    \subitem {const.\+h}, \hyperpage{59}
+  \item {rvzvec}
+    \subitem {const.\+h}, \hyperpage{59}
+  \item {rzet}
+    \subitem {const.\+h}, \hyperpage{60}
+
+  \indexspace
+
+  \item {S}
+    \subitem {const.\+h}, \hyperpage{26}
+  \item {S\+I\+G\+N}
+    \subitem {nrutil.\+h}, \hyperpage{79}
+  \item {S\+Q\+R}
+    \subitem {nrutil.\+h}, \hyperpage{79}
+  \item {shift\+\_\+while\+\_\+restarting}
+    \subitem {funct.\+h}, \hyperpage{90}
+    \subitem {restart.\+c}, \hyperpage{95}
+  \item {shortcuts.\+c}
+    \subitem {dvecmem}, \hyperpage{96}
+    \subitem {F\+R\+E\+E\+\_\+\+A\+R\+G\+G}, \hyperpage{96}
+    \subitem {free\+\_\+dvecmem}, \hyperpage{96}
+    \subitem {free\+\_\+ivecmem}, \hyperpage{96}
+    \subitem {ivecmem}, \hyperpage{96}
+    \subitem {ix}, \hyperpage{96}
+    \subitem {my\+\_\+file\+\_\+open}, \hyperpage{96}
+    \subitem {N\+R\+\_\+\+E\+N\+D\+D}, \hyperpage{96}
+  \item {sigma}
+    \subitem {const.\+h}, \hyperpage{60}
+  \item {signof}
+    \subitem {dustg.\+c}, \hyperpage{68}
+    \subitem {funct.\+h}, \hyperpage{90}
+  \item {slvsml}
+    \subitem {fmg.\+c}, \hyperpage{71}
+    \subitem {fmg\+\_\+\+P.\+c}, \hyperpage{73}
+  \item {slvsml2}
+    \subitem {fmg.\+c}, \hyperpage{71}
+    \subitem {fmg\+\_\+\+P.\+c}, \hyperpage{73}
+  \item {smaller\+\_\+same\+\_\+sign}
+    \subitem {dustg.\+c}, \hyperpage{68}
+    \subitem {funct.\+h}, \hyperpage{90}
+  \item {spec}
+    \subitem {const.\+h}, \hyperpage{60}
+    \subitem {d\+\_\+particle}, \hyperpage{7}
+  \item {species}, \hyperpage{10}
+    \subitem {const.\+h}, \hyperpage{27}
+    \subitem {part}, \hyperpage{11}
+  \item {spherical.\+c}
+    \subitem {points\+\_\+on\+\_\+sphere}, \hyperpage{97}
+  \item {sqrt\+\_\+pi}
+    \subitem {const.\+h}, \hyperpage{60}
+  \item {sqrt\+\_\+two}
+    \subitem {const.\+h}, \hyperpage{60}
+  \item {sqrt\+\_\+twopi}
+    \subitem {const.\+h}, \hyperpage{60}
+  \item {src/accel.\+c}, \hyperpage{13}
+  \item {src/collisions.\+c}, \hyperpage{13}
+  \item {src/collisions\+\_\+constant.\+c}, \hyperpage{14}
+  \item {src/const.\+h}, \hyperpage{14}
+  \item {src/diagn.\+c}, \hyperpage{63}
+  \item {src/dustg.\+c}, \hyperpage{66}
+  \item {src/flux.\+c}, \hyperpage{68}
+  \item {src/fmg/fmg.\+c}, \hyperpage{69}
+  \item {src/fmg/fmg\+\_\+\+P.\+c}, \hyperpage{71}
+  \item {src/fmg/nrutil.\+c}, \hyperpage{74}
+  \item {src/fmg/nrutil.\+h}, \hyperpage{77}
+  \item {src/funct.\+h}, \hyperpage{80}
+  \item {src/gauss.\+c}, \hyperpage{90}
+  \item {src/generate.\+c}, \hyperpage{91}
+  \item {src/grid.\+c}, \hyperpage{92}
+  \item {src/input.\+c}, \hyperpage{94}
+  \item {src/main.\+c}, \hyperpage{94}
+  \item {src/photons.\+c}, \hyperpage{94}
+  \item {src/restart.\+c}, \hyperpage{95}
+  \item {src/shortcuts.\+c}, \hyperpage{95}
+  \item {src/spherical.\+c}, \hyperpage{97}
+  \item {start\+Bfield}
+    \subitem {funct.\+h}, \hyperpage{90}
+    \subitem {grid.\+c}, \hyperpage{93}
+  \item {submatrix}
+    \subitem {nrutil.\+c}, \hyperpage{76}
+    \subitem {nrutil.\+h}, \hyperpage{80}
+  \item {superfast}
+    \subitem {const.\+h}, \hyperpage{60}
+
+  \indexspace
+
+  \item {T\+O\+L\+E\+R\+A\+N\+C\+E}
+    \subitem {const.\+h}, \hyperpage{61}
+  \item {takecut}
+    \subitem {const.\+h}, \hyperpage{60}
+  \item {tcx}
+    \subitem {dtriangle}, \hyperpage{9}
+  \item {tcy}
+    \subitem {dtriangle}, \hyperpage{9}
+  \item {tempx}
+    \subitem {const.\+h}, \hyperpage{60}
+  \item {tempy}
+    \subitem {const.\+h}, \hyperpage{60}
+  \item {tempz}
+    \subitem {const.\+h}, \hyperpage{60}
+  \item {testowy}
+    \subitem {const.\+h}, \hyperpage{60}
+  \item {ti2te}
+    \subitem {const.\+h}, \hyperpage{61}
+  \item {timeelapsed}
+    \subitem {const.\+h}, \hyperpage{61}
+  \item {timeending}
+    \subitem {const.\+h}, \hyperpage{61}
+  \item {timerprobes}
+    \subitem {const.\+h}, \hyperpage{61}
+  \item {timestart}
+    \subitem {const.\+h}, \hyperpage{61}
+  \item {tmax}
+    \subitem {const.\+h}, \hyperpage{61}
+  \item {tmp\+\_\+dpart}
+    \subitem {const.\+h}, \hyperpage{61}
+  \item {tolfloating}
+    \subitem {const.\+h}, \hyperpage{61}
+  \item {tordrho}
+    \subitem {const.\+h}, \hyperpage{61}
+  \item {totalflux}
+    \subitem {const.\+h}, \hyperpage{61}
+
+  \indexspace
+
+  \item {unitvec}
+    \subitem {const.\+h}, \hyperpage{61}
+  \item {unitvecseg}
+    \subitem {const.\+h}, \hyperpage{62}
+
+  \indexspace
+
+  \item {Vbound}
+    \subitem {const.\+h}, \hyperpage{62}
+  \item {vdriftx}
+    \subitem {const.\+h}, \hyperpage{62}
+  \item {vector}
+    \subitem {nrutil.\+c}, \hyperpage{76}
+    \subitem {nrutil.\+h}, \hyperpage{80}
+  \item {vectorst}, \hyperpage{11}
+    \subitem {const.\+h}, \hyperpage{27}
+    \subitem {x}, \hyperpage{11}
+    \subitem {y}, \hyperpage{11}
+  \item {vertp}
+    \subitem {const.\+h}, \hyperpage{62}
+  \item {vipcorner}
+    \subitem {const.\+h}, \hyperpage{62}
+  \item {virtpart}
+    \subitem {dustg.\+c}, \hyperpage{68}
+    \subitem {funct.\+h}, \hyperpage{90}
+  \item {vmean}
+    \subitem {const.\+h}, \hyperpage{62}
+  \item {Vpr}
+    \subitem {const.\+h}, \hyperpage{62}
+  \item {Vpr\+\_\+begin}
+    \subitem {const.\+h}, \hyperpage{62}
+  \item {Vpr\+\_\+end}
+    \subitem {const.\+h}, \hyperpage{62}
+  \item {Vpr\+\_\+step}
+    \subitem {const.\+h}, \hyperpage{62}
+  \item {vthneutr}
+    \subitem {const.\+h}, \hyperpage{62}
+  \item {vthx}
+    \subitem {const.\+h}, \hyperpage{62}
+  \item {vthy}
+    \subitem {const.\+h}, \hyperpage{63}
+  \item {vthz}
+    \subitem {const.\+h}, \hyperpage{63}
+  \item {vx}
+    \subitem {particle}, \hyperpage{10}
+  \item {vxvec}
+    \subitem {const.\+h}, \hyperpage{63}
+  \item {vy}
+    \subitem {particle}, \hyperpage{10}
+  \item {vyvec}
+    \subitem {const.\+h}, \hyperpage{63}
+  \item {vz}
+    \subitem {particle}, \hyperpage{10}
+  \item {vzvec}
+    \subitem {const.\+h}, \hyperpage{63}
+
+  \indexspace
+
+  \item {weight}
+    \subitem {const.\+h}, \hyperpage{63}
+  \item {weighting1}
+    \subitem {funct.\+h}, \hyperpage{90}
+    \subitem {grid.\+c}, \hyperpage{93}
+  \item {weightingdust1}
+    \subitem {dustg.\+c}, \hyperpage{68}
+    \subitem {funct.\+h}, \hyperpage{90}
+
+  \indexspace
+
+  \item {x}
+    \subitem {d\+\_\+particle}, \hyperpage{7}
+    \subitem {d\+\_\+rho}, \hyperpage{8}
+    \subitem {particle}, \hyperpage{10}
+    \subitem {vectorst}, \hyperpage{11}
+  \item {x1}
+    \subitem {condsq}, \hyperpage{6}
+  \item {x1p}
+    \subitem {const.\+h}, \hyperpage{63}
+  \item {x2}
+    \subitem {condsq}, \hyperpage{6}
+  \item {x3}
+    \subitem {condsq}, \hyperpage{6}
+  \item {x4}
+    \subitem {condsq}, \hyperpage{6}
+
+  \indexspace
+
+  \item {y}
+    \subitem {d\+\_\+particle}, \hyperpage{7}
+    \subitem {d\+\_\+rho}, \hyperpage{8}
+    \subitem {particle}, \hyperpage{10}
+    \subitem {vectorst}, \hyperpage{11}
+  \item {y1}
+    \subitem {condsq}, \hyperpage{6}
+  \item {y2}
+    \subitem {condsq}, \hyperpage{6}
+  \item {y3}
+    \subitem {condsq}, \hyperpage{6}
+  \item {y4}
+    \subitem {condsq}, \hyperpage{6}
+
+  \indexspace
+
+  \item {z}
+    \subitem {d\+\_\+particle}, \hyperpage{7}
+    \subitem {particle}, \hyperpage{10}
+  \item {zet1}
+    \subitem {flux.\+c}, \hyperpage{69}
+    \subitem {funct.\+h}, \hyperpage{90}
+
+\end{theindex}

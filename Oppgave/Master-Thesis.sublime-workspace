@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"grav",
+				"grav_pot"
+			],
+			[
+				"gra",
+				"grav_pot"
+			],
+			[
+				"force",
+				"forceRK4"
+			],
+			[
+				"initi",
+				"initial_velocity"
+			],
+			[
 				"v2",
 				"v2_para"
 			],
@@ -22,10 +38,6 @@
 			[
 				"position",
 				"positions"
-			],
-			[
-				"force",
-				"force_z"
 			],
 			[
 				"xl",
@@ -502,71 +514,16 @@
 			[
 				"Hel",
 				"HeliumSimpleAnalytical"
-			],
-			[
-				"total",
-				"totalEnergy"
-			],
-			[
-				"for",
-				"forceplot"
-			],
-			[
-				"velo",
-				"velocityPlots"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"contents": "\\documentclass[x11names,twoside,english]{uiofysmaster}\n% \\documentclass[x11names]{article}\n\\usepackage{tikz}\n\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n%Tikz settings\n\\usetikzlibrary{shapes,arrows,chains}\n% =================================================\n% Set up a few colours\n\\colorlet{lcfree}{Green3}\n\\colorlet{lcnorm}{Blue3}\n\\colorlet{lccong}{Red3}\n% -------------------------------------------------\n% Set up a new layer for the debugging marks, and make sure it is on\n% top\n\\pgfdeclarelayer{marx}\n\\pgfsetlayers{main,marx}\n% A macro for marking coordinates (specific to the coordinate naming\n% scheme used here). Swap the following 2 definitions to deactivate\n% marks.\n\\providecommand{\\cmark}[2][]{%\n  \\begin{pgfonlayer}{marx}\n    \\node [nmark] at (c#2#1) {#2};\n  \\end{pgfonlayer}{marx}\n  } \n\\providecommand{\\cmark}[2][]{\\relax} \n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n\n\n%\\bibliography{references}\n\n\\author{Gullik Vetvik Killie}\n\\title{Placeholder Title}\n\\date{June 2012}\n\n\\begin{document}\n	\n\n% \\maketitle\n\\input{abstract}\n\n\\appendix\n\\chapter{Full Multi Grid Method}\n\\input{chapters/fmg-method}\n\n% \\chapter{Parallelization}\n% \\input{chapters/para}\n\n\n\n\n\n\n\n\n\\end{document}",
-			"file": "Master-Thesis.tex",
-			"file_size": 1236,
-			"file_write_time": 130856106029344739,
+			"file": "/home/gullik/Documents/Masteroppgave/code/multigrid/src/makefile",
 			"settings":
 			{
-				"buffer_size": 1232,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "chapters/fmg-method.tex",
-			"settings":
-			{
-				"buffer_size": 5373,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/gullik/Documents/CompPhys2_office306/Report/Report_3/sections/appendix.tex",
-			"settings":
-			{
-				"buffer_size": 13204,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/home/gullik/Documents/CompPhys2_office306/Report/Report_3/Project_3.tex",
-			"settings":
-			{
-				"buffer_size": 5682,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/Exercise_9/source/stability.py",
-			"settings":
-			{
-				"buffer_size": 6758,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/Exercise_9/report/Report_9.tex",
-			"settings":
-			{
-				"buffer_size": 10535,
+				"buffer_size": 168,
 				"line_ending": "Unix"
 			}
 		}
@@ -650,13 +607,27 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/home/gullik/Documents/Masteroppgave/Oppgave"
+	],
 	"file_history":
 	[
+		"/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/Exercise_6/report/Report_6.tex",
+		"/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/Exercise_9/report/Report_9.tex",
+		"/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/Exercise_3/source/dipfield_rk4.py",
+		"/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/Exercise_9/source/stability.py",
+		"/home/gullik/Documents/Masteroppgave/Oppgave/Master-Thesis.tex",
+		"/home/gullik/Documents/Masteroppgave/Oppgave/chapters/methods.tex",
+		"/home/gullik/Documents/Masteroppgave/code/source_periodic/src/fmg/fmg_P.c",
+		"/home/gullik/Documents/CompPhys2_office306/Report/Report_3/Project_3.tex",
+		"/home/gullik/Documents/Masteroppgave/code/source_periodic/src/main.c",
+		"/home/gullik/Documents/CompPhys2_office306/Report/Report_3/sections/appendix.tex",
+		"/home/gullik/Documents/Masteroppgave/Oppgave/Master-Thesis.sublime-project",
 		"/home/gullik/Documents/Masteroppgave/Oppgave/chapters/fmg-method.tex",
 		"/home/gullik/Documents/CompPhys2_office306/Report/Report_3/sections/extras.tex",
 		"/home/gullik/Documents/CompPhys2_office306/Report/Report_3/sections/atoms.tex",
 		"/home/gullik/Documents/CompPhys2_office306/Report/Report_3/sections/helium_atom.tex",
-		"/home/gullik/Documents/CompPhys2_office306/Report/Report_3/Project_3.tex",
 		"/home/gullik/Documents/CompPhys2_office306/Report/Report_3/sections/monte_carlo.tex",
 		"/home/gullik/Documents/Masteroppgave/Oppgave/chapters/para.tex",
 		"/home/gullik/Documents/Masteroppgave/Oppgave/master-thesis.tex",
@@ -665,18 +636,14 @@
 		"/home/gullik/Documents/Masteroppgave/Oppgave/Main/Master-Thesis.tex",
 		"/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/Exercise_3/source/dipoleField_rewritten.py",
 		"/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/Exercise_3/report/Report_3.tex",
-		"/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/Exercise_3/source/dipfield_rk4.py",
 		"/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/Exercise_9/source/derivatives.py",
 		"/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/notes/status_update.tex",
 		"/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/notes/comments.tex",
-		"/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/Exercise_9/source/stability.py",
-		"/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/Exercise_9/report/Report_9.tex",
 		"/home/gullik/Documents/CompPhys2_office306/sympyMath/localEnergyAnalytic.py",
 		"/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/Exercise_8/source/dispersion.py",
 		"/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/Exercise_8/report/Report_8.tex",
 		"/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/Exercise_6/source/convection.py",
 		"/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/Exercise_9/source/dispersion.py",
-		"/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/Exercise_6/report/Report_6.tex",
 		"/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/Exercise_5/source/potential_grid.py",
 		"/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/Exercise_5/report/Report_5.tex",
 		"/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/Exercise_4/report/Report_4.tex",
@@ -714,7 +681,6 @@
 		"/home/gullik/Documents/CompPhys2_office306/Report/Report_3/project_3.sublime-project",
 		"/home/gullik/Documents/CompPhys2_office306/Report/Report_3/bibliography.bib",
 		"/home/gullik/Documents/CompPhys2_office306/Report/Report_3/sections/density_plots.tex",
-		"/home/gullik/Documents/CompPhys2_office306/Report/Report_3/sections/appendix.tex",
 		"/home/gullik/Documents/CompPhys2_office306/Report/Report_3/sections/temp_delete.tex",
 		"/home/gullik/Documents/FYS4460/molecular-dynamics-2/python_framework/mdconfig.py",
 		"/home/gullik/Documents/FYS4460/molecular-dynamics-2/python_framework/python_plots.py",
@@ -774,12 +740,7 @@
 		"/home/gullik/Documents/CompPhys2_office306/Report/project1_2015.tex",
 		"/home/gullik/Documents/Safetycopy/CompPhys2_office306/Report/project1_2015.tex",
 		"/home/gullik/Documents/Fys4460/MD_project/python/plots.py",
-		"/home/gullik/Documents/CompPhys2_office306/source/plotter.py",
-		"/home/gullik/Downloads/Glider_Hydrography.tex",
-		"/home/gullik/Downloads/results.tex",
-		"/home/gullik/Documents/INF5620-Gullik/wave_project/Report/Report_Project_1_Gullik.tex",
-		"/home/gullik/Documents/INF5620-Gullik/default_project/Report/project_2.tex",
-		"/home/gullik/Documents/compPhys2Gullik/Report/project1_2015.tex"
+		"/home/gullik/Documents/CompPhys2_office306/source/plotter.py"
 	],
 	"find":
 	{
@@ -875,183 +836,37 @@
 			[
 				{
 					"buffer": 0,
-					"file": "Master-Thesis.tex",
+					"file": "/home/gullik/Documents/Masteroppgave/code/multigrid/src/makefile",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1232,
+						"buffer_size": 168,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1084,
-								1084
+								168,
+								168
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 357.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "chapters/fmg-method.tex",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5373,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3212,
-								3212
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 765.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/home/gullik/Documents/CompPhys2_office306/Report/Report_3/sections/appendix.tex",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 13204,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								867,
-								867
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/home/gullik/Documents/CompPhys2_office306/Report/Report_3/Project_3.tex",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5682,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1263,
-								1263
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 808.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 4,
-					"file": "/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/Exercise_9/source/stability.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6758,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3154,
-								3154
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2193.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/Exercise_9/report/Report_9.tex",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 10535,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								9067,
-								9067
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3587.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1083,7 +898,7 @@
 		"cols":
 		[
 			0.0,
-			0.565104166667,
+			0.515104166667,
 			1.0
 		],
 		"rows":
@@ -1147,7 +962,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 217.0,
+	"side_bar_width": 120.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

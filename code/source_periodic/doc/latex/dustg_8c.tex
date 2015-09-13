@@ -1,0 +1,283 @@
+\hypertarget{dustg_8c}{}\section{src/dustg.c File Reference}
+\label{dustg_8c}\index{src/dustg.\+c@{src/dustg.\+c}}
+{\ttfamily \#include \char`\"{}const.\+h\char`\"{}}\\*
+Include dependency graph for dustg.\+c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{dustg_8c_ac7157bfe5fff3a246364e0a51ed81097}{d\+\_\+move} (int t)
+\item 
+void \hyperlink{dustg_8c_a2f6949026414ac2f24403238d4a94f5f}{calculate\+\_\+staticparameters} (int arc, char $\ast$arv\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{dustg_8c_ac3ad4b52bbaa3fbf5170b120b7663df7}{memorydpart} (int no, int dmax)
+\item 
+void \hyperlink{dustg_8c_a39dd03cfad7ab31061eec648f7f38cf5}{memoryduststatic} (int no)
+\item 
+void \hyperlink{dustg_8c_a7dcbf2e0e58d5b8cd87f8981701c8e31}{d\+\_\+centreofmass\+\_\+and\+\_\+mom\+I} ()
+\item 
+void \hyperlink{dustg_8c_a99c772d7a1393522ce048147a3af857c}{redistribute} (double coeff)
+\item 
+void \hyperlink{dustg_8c_ab72da332f4d1014925f15044c3131f24}{weightingdust1} (int ko)
+\item 
+void \hyperlink{dustg_8c_a2ff6a4f74c2f68f5c1ee0bad1fdcd327}{checkcond} (void)
+\item 
+void \hyperlink{dustg_8c_a84e54183797d57f3f7ec98df1e6145de}{chargeoncond} (int i)
+\item 
+void \hyperlink{dustg_8c_a1ddfcf6e467cfea66a772c04470dbeee}{virtpart} (void)
+\item 
+void \hyperlink{dustg_8c_aa45a877c89e421728be18bcc4ec0b673}{ortnormvec} (void)
+\item 
+void \hyperlink{dustg_8c_a8db17ec67eb5c013797762a1d8280d7d}{condsquares} (void)
+\item 
+double \hyperlink{dustg_8c_ab11368f47cf64c0b078ac97c341c65f2}{finddustvolume} (int arc, char $\ast$arv\mbox{[}$\,$\mbox{]})
+\item 
+double \hyperlink{dustg_8c_ad30df1615587621dd0ff4b8be6cc1644}{dustarea} (int arc, char $\ast$arv\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{dustg_8c_a0e4ff25c087bc3bd56e91e2804b15549}{average\+\_\+current} (void)
+\item 
+void \hyperlink{dustg_8c_a5df76e6734186fd73e4b7e9b813c3845}{drag\+\_\+force\+\_\+direct} (double partvxnew, double partvynew, double partvznew, int particlespecie, int dno, double partxhit, double partyhit, double partzhit)
+\item 
+void \hyperlink{dustg_8c_a268a63eabdfca52e3a3db486399b0a22}{drag\+\_\+force\+\_\+electric} (void)
+\item 
+void \hyperlink{dustg_8c_a1aa5c245914f78c22e0d536d65c8d4c8}{printdragforce} (int timestep)
+\item 
+int \hyperlink{dustg_8c_a81604339423f3643f1b2c724af660c5d}{signof} (int a)
+\item 
+double \hyperlink{dustg_8c_a1902bf2148e1d29f989e3f5840b36892}{smaller\+\_\+same\+\_\+sign} (double a, double b)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{dustg_8c_a0e4ff25c087bc3bd56e91e2804b15549}{}\index{dustg.\+c@{dustg.\+c}!average\+\_\+current@{average\+\_\+current}}
+\index{average\+\_\+current@{average\+\_\+current}!dustg.\+c@{dustg.\+c}}
+\subsubsection[{average\+\_\+current(void)}]{\setlength{\rightskip}{0pt plus 5cm}void average\+\_\+current (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{dustg_8c_a0e4ff25c087bc3bd56e91e2804b15549}
+
+
+Definition at line 1276 of file dustg.\+c.
+
+\hypertarget{dustg_8c_a2f6949026414ac2f24403238d4a94f5f}{}\index{dustg.\+c@{dustg.\+c}!calculate\+\_\+staticparameters@{calculate\+\_\+staticparameters}}
+\index{calculate\+\_\+staticparameters@{calculate\+\_\+staticparameters}!dustg.\+c@{dustg.\+c}}
+\subsubsection[{calculate\+\_\+staticparameters(int arc, char $\ast$arv[])}]{\setlength{\rightskip}{0pt plus 5cm}void calculate\+\_\+staticparameters (
+\begin{DoxyParamCaption}
+\item[{int}]{arc, }
+\item[{char $\ast$}]{arv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{dustg_8c_a2f6949026414ac2f24403238d4a94f5f}
+
+
+Definition at line 262 of file dustg.\+c.
+
+\hypertarget{dustg_8c_a84e54183797d57f3f7ec98df1e6145de}{}\index{dustg.\+c@{dustg.\+c}!chargeoncond@{chargeoncond}}
+\index{chargeoncond@{chargeoncond}!dustg.\+c@{dustg.\+c}}
+\subsubsection[{chargeoncond(int i)}]{\setlength{\rightskip}{0pt plus 5cm}void chargeoncond (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}\label{dustg_8c_a84e54183797d57f3f7ec98df1e6145de}
+
+
+Definition at line 614 of file dustg.\+c.
+
+\hypertarget{dustg_8c_a2ff6a4f74c2f68f5c1ee0bad1fdcd327}{}\index{dustg.\+c@{dustg.\+c}!checkcond@{checkcond}}
+\index{checkcond@{checkcond}!dustg.\+c@{dustg.\+c}}
+\subsubsection[{checkcond(void)}]{\setlength{\rightskip}{0pt plus 5cm}void checkcond (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{dustg_8c_a2ff6a4f74c2f68f5c1ee0bad1fdcd327}
+
+
+Definition at line 539 of file dustg.\+c.
+
+\hypertarget{dustg_8c_a8db17ec67eb5c013797762a1d8280d7d}{}\index{dustg.\+c@{dustg.\+c}!condsquares@{condsquares}}
+\index{condsquares@{condsquares}!dustg.\+c@{dustg.\+c}}
+\subsubsection[{condsquares(void)}]{\setlength{\rightskip}{0pt plus 5cm}void condsquares (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{dustg_8c_a8db17ec67eb5c013797762a1d8280d7d}
+
+
+Definition at line 961 of file dustg.\+c.
+
+\hypertarget{dustg_8c_a7dcbf2e0e58d5b8cd87f8981701c8e31}{}\index{dustg.\+c@{dustg.\+c}!d\+\_\+centreofmass\+\_\+and\+\_\+mom\+I@{d\+\_\+centreofmass\+\_\+and\+\_\+mom\+I}}
+\index{d\+\_\+centreofmass\+\_\+and\+\_\+mom\+I@{d\+\_\+centreofmass\+\_\+and\+\_\+mom\+I}!dustg.\+c@{dustg.\+c}}
+\subsubsection[{d\+\_\+centreofmass\+\_\+and\+\_\+mom\+I()}]{\setlength{\rightskip}{0pt plus 5cm}void d\+\_\+centreofmass\+\_\+and\+\_\+mom\+I (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{dustg_8c_a7dcbf2e0e58d5b8cd87f8981701c8e31}
+
+
+Definition at line 351 of file dustg.\+c.
+
+\hypertarget{dustg_8c_ac7157bfe5fff3a246364e0a51ed81097}{}\index{dustg.\+c@{dustg.\+c}!d\+\_\+move@{d\+\_\+move}}
+\index{d\+\_\+move@{d\+\_\+move}!dustg.\+c@{dustg.\+c}}
+\subsubsection[{d\+\_\+move(int t)}]{\setlength{\rightskip}{0pt plus 5cm}void d\+\_\+move (
+\begin{DoxyParamCaption}
+\item[{int}]{t}
+\end{DoxyParamCaption}
+)}\label{dustg_8c_ac7157bfe5fff3a246364e0a51ed81097}
+tempy=sinphi$\ast$(csq\mbox{[}i\mbox{]}\mbox{[}j\mbox{]}.x2-\/dmass\+\_\+centr\+\_\+x\mbox{[}i\mbox{]})+cosphi$\ast$(csq\mbox{[}i\mbox{]}\mbox{[}j\mbox{]}.y2-\/dmass\+\_\+centr\+\_\+y\mbox{[}i\mbox{]}); 
+
+Definition at line 9 of file dustg.\+c.
+
+\hypertarget{dustg_8c_a5df76e6734186fd73e4b7e9b813c3845}{}\index{dustg.\+c@{dustg.\+c}!drag\+\_\+force\+\_\+direct@{drag\+\_\+force\+\_\+direct}}
+\index{drag\+\_\+force\+\_\+direct@{drag\+\_\+force\+\_\+direct}!dustg.\+c@{dustg.\+c}}
+\subsubsection[{drag\+\_\+force\+\_\+direct(double partvxnew, double partvynew, double partvznew, int particlespecie, int dno, double partxhit, double partyhit, double partzhit)}]{\setlength{\rightskip}{0pt plus 5cm}void drag\+\_\+force\+\_\+direct (
+\begin{DoxyParamCaption}
+\item[{double}]{partvxnew, }
+\item[{double}]{partvynew, }
+\item[{double}]{partvznew, }
+\item[{int}]{particlespecie, }
+\item[{int}]{dno, }
+\item[{double}]{partxhit, }
+\item[{double}]{partyhit, }
+\item[{double}]{partzhit}
+\end{DoxyParamCaption}
+)}\label{dustg_8c_a5df76e6734186fd73e4b7e9b813c3845}
+
+
+Definition at line 1288 of file dustg.\+c.
+
+\hypertarget{dustg_8c_a268a63eabdfca52e3a3db486399b0a22}{}\index{dustg.\+c@{dustg.\+c}!drag\+\_\+force\+\_\+electric@{drag\+\_\+force\+\_\+electric}}
+\index{drag\+\_\+force\+\_\+electric@{drag\+\_\+force\+\_\+electric}!dustg.\+c@{dustg.\+c}}
+\subsubsection[{drag\+\_\+force\+\_\+electric(void)}]{\setlength{\rightskip}{0pt plus 5cm}void drag\+\_\+force\+\_\+electric (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{dustg_8c_a268a63eabdfca52e3a3db486399b0a22}
+
+
+Definition at line 1399 of file dustg.\+c.
+
+\hypertarget{dustg_8c_ad30df1615587621dd0ff4b8be6cc1644}{}\index{dustg.\+c@{dustg.\+c}!dustarea@{dustarea}}
+\index{dustarea@{dustarea}!dustg.\+c@{dustg.\+c}}
+\subsubsection[{dustarea(int arc, char $\ast$arv[])}]{\setlength{\rightskip}{0pt plus 5cm}double dustarea (
+\begin{DoxyParamCaption}
+\item[{int}]{arc, }
+\item[{char $\ast$}]{arv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{dustg_8c_ad30df1615587621dd0ff4b8be6cc1644}
+
+
+Definition at line 1183 of file dustg.\+c.
+
+\hypertarget{dustg_8c_ab11368f47cf64c0b078ac97c341c65f2}{}\index{dustg.\+c@{dustg.\+c}!finddustvolume@{finddustvolume}}
+\index{finddustvolume@{finddustvolume}!dustg.\+c@{dustg.\+c}}
+\subsubsection[{finddustvolume(int arc, char $\ast$arv[])}]{\setlength{\rightskip}{0pt plus 5cm}double finddustvolume (
+\begin{DoxyParamCaption}
+\item[{int}]{arc, }
+\item[{char $\ast$}]{arv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{dustg_8c_ab11368f47cf64c0b078ac97c341c65f2}
+
+
+Definition at line 1078 of file dustg.\+c.
+
+\hypertarget{dustg_8c_ac3ad4b52bbaa3fbf5170b120b7663df7}{}\index{dustg.\+c@{dustg.\+c}!memorydpart@{memorydpart}}
+\index{memorydpart@{memorydpart}!dustg.\+c@{dustg.\+c}}
+\subsubsection[{memorydpart(int no, int dmax)}]{\setlength{\rightskip}{0pt plus 5cm}void memorydpart (
+\begin{DoxyParamCaption}
+\item[{int}]{no, }
+\item[{int}]{dmax}
+\end{DoxyParamCaption}
+)}\label{dustg_8c_ac3ad4b52bbaa3fbf5170b120b7663df7}
+
+
+Definition at line 287 of file dustg.\+c.
+
+\hypertarget{dustg_8c_a39dd03cfad7ab31061eec648f7f38cf5}{}\index{dustg.\+c@{dustg.\+c}!memoryduststatic@{memoryduststatic}}
+\index{memoryduststatic@{memoryduststatic}!dustg.\+c@{dustg.\+c}}
+\subsubsection[{memoryduststatic(int no)}]{\setlength{\rightskip}{0pt plus 5cm}void memoryduststatic (
+\begin{DoxyParamCaption}
+\item[{int}]{no}
+\end{DoxyParamCaption}
+)}\label{dustg_8c_a39dd03cfad7ab31061eec648f7f38cf5}
+
+
+Definition at line 314 of file dustg.\+c.
+
+\hypertarget{dustg_8c_aa45a877c89e421728be18bcc4ec0b673}{}\index{dustg.\+c@{dustg.\+c}!ortnormvec@{ortnormvec}}
+\index{ortnormvec@{ortnormvec}!dustg.\+c@{dustg.\+c}}
+\subsubsection[{ortnormvec(void)}]{\setlength{\rightskip}{0pt plus 5cm}void ortnormvec (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{dustg_8c_aa45a877c89e421728be18bcc4ec0b673}
+
+
+Definition at line 890 of file dustg.\+c.
+
+\hypertarget{dustg_8c_a1aa5c245914f78c22e0d536d65c8d4c8}{}\index{dustg.\+c@{dustg.\+c}!printdragforce@{printdragforce}}
+\index{printdragforce@{printdragforce}!dustg.\+c@{dustg.\+c}}
+\subsubsection[{printdragforce(int timestep)}]{\setlength{\rightskip}{0pt plus 5cm}void printdragforce (
+\begin{DoxyParamCaption}
+\item[{int}]{timestep}
+\end{DoxyParamCaption}
+)}\label{dustg_8c_a1aa5c245914f78c22e0d536d65c8d4c8}
+
+
+Definition at line 1544 of file dustg.\+c.
+
+\hypertarget{dustg_8c_a99c772d7a1393522ce048147a3af857c}{}\index{dustg.\+c@{dustg.\+c}!redistribute@{redistribute}}
+\index{redistribute@{redistribute}!dustg.\+c@{dustg.\+c}}
+\subsubsection[{redistribute(double coeff)}]{\setlength{\rightskip}{0pt plus 5cm}void redistribute (
+\begin{DoxyParamCaption}
+\item[{double}]{coeff}
+\end{DoxyParamCaption}
+)}\label{dustg_8c_a99c772d7a1393522ce048147a3af857c}
+
+
+Definition at line 399 of file dustg.\+c.
+
+\hypertarget{dustg_8c_a81604339423f3643f1b2c724af660c5d}{}\index{dustg.\+c@{dustg.\+c}!signof@{signof}}
+\index{signof@{signof}!dustg.\+c@{dustg.\+c}}
+\subsubsection[{signof(int a)}]{\setlength{\rightskip}{0pt plus 5cm}int signof (
+\begin{DoxyParamCaption}
+\item[{int}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{dustg_8c_a81604339423f3643f1b2c724af660c5d}
+
+
+Definition at line 1724 of file dustg.\+c.
+
+\hypertarget{dustg_8c_a1902bf2148e1d29f989e3f5840b36892}{}\index{dustg.\+c@{dustg.\+c}!smaller\+\_\+same\+\_\+sign@{smaller\+\_\+same\+\_\+sign}}
+\index{smaller\+\_\+same\+\_\+sign@{smaller\+\_\+same\+\_\+sign}!dustg.\+c@{dustg.\+c}}
+\subsubsection[{smaller\+\_\+same\+\_\+sign(double a, double b)}]{\setlength{\rightskip}{0pt plus 5cm}double smaller\+\_\+same\+\_\+sign (
+\begin{DoxyParamCaption}
+\item[{double}]{a, }
+\item[{double}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{dustg_8c_a1902bf2148e1d29f989e3f5840b36892}
+
+
+Definition at line 1730 of file dustg.\+c.
+
+\hypertarget{dustg_8c_a1ddfcf6e467cfea66a772c04470dbeee}{}\index{dustg.\+c@{dustg.\+c}!virtpart@{virtpart}}
+\index{virtpart@{virtpart}!dustg.\+c@{dustg.\+c}}
+\subsubsection[{virtpart(void)}]{\setlength{\rightskip}{0pt plus 5cm}void virtpart (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{dustg_8c_a1ddfcf6e467cfea66a772c04470dbeee}
+
+
+Definition at line 725 of file dustg.\+c.
+
+\hypertarget{dustg_8c_ab72da332f4d1014925f15044c3131f24}{}\index{dustg.\+c@{dustg.\+c}!weightingdust1@{weightingdust1}}
+\index{weightingdust1@{weightingdust1}!dustg.\+c@{dustg.\+c}}
+\subsubsection[{weightingdust1(int ko)}]{\setlength{\rightskip}{0pt plus 5cm}void weightingdust1 (
+\begin{DoxyParamCaption}
+\item[{int}]{ko}
+\end{DoxyParamCaption}
+)}\label{dustg_8c_ab72da332f4d1014925f15044c3131f24}
+
+
+Definition at line 438 of file dustg.\+c.
+

@@ -39,6 +39,7 @@ int main(int argc, char *argv[])
     
     if(rank==0)
         printf("DiP3D, Dust in Plasma 3D simulation\n Author: Wojciech J. Miloch\n");
+
     
 #ifdef EPRO
     if(rank==0)

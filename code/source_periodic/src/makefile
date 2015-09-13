@@ -8,7 +8,7 @@ FILE_EXT =
 ##
 EXEC=   dust$(FILE_EXT)
 ##
-CC = gcc
+CC = mpicc
 ##
 ##
 CFLAGS= -DINSU $(CFLAGS_TRI) -Wall -DBEAM -DPERIODIC 

@@ -3,6 +3,7 @@
 *.o
 boker/
 *~
+*.dat
 *.pro.user.*
 *.aux
 *.log

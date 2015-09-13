@@ -1,0 +1,52 @@
+\hypertarget{accel_8c}{}\section{src/accel.c File Reference}
+\label{accel_8c}\index{src/accel.\+c@{src/accel.\+c}}
+{\ttfamily \#include \char`\"{}const.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+Include dependency graph for accel.\+c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{accel_8c_a1ac3018070b63a01fbdf95564da2a437}{accel} (float factor)
+\item 
+void \hyperlink{accel_8c_ad19dae576fe22167cda112619092926b}{move} (int t)
+\item 
+void \hyperlink{accel_8c_a818e607d1334ea20aa6d04a59a1bf385}{create\+\_\+linkedlist} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{accel_8c_a1ac3018070b63a01fbdf95564da2a437}{}\index{accel.\+c@{accel.\+c}!accel@{accel}}
+\index{accel@{accel}!accel.\+c@{accel.\+c}}
+\subsubsection[{accel(float factor)}]{\setlength{\rightskip}{0pt plus 5cm}void accel (
+\begin{DoxyParamCaption}
+\item[{float}]{factor}
+\end{DoxyParamCaption}
+)}\label{accel_8c_a1ac3018070b63a01fbdf95564da2a437}
+
+
+Definition at line 9 of file accel.\+c.
+
+\hypertarget{accel_8c_a818e607d1334ea20aa6d04a59a1bf385}{}\index{accel.\+c@{accel.\+c}!create\+\_\+linkedlist@{create\+\_\+linkedlist}}
+\index{create\+\_\+linkedlist@{create\+\_\+linkedlist}!accel.\+c@{accel.\+c}}
+\subsubsection[{create\+\_\+linkedlist(void)}]{\setlength{\rightskip}{0pt plus 5cm}void create\+\_\+linkedlist (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{accel_8c_a818e607d1334ea20aa6d04a59a1bf385}
+
+
+Definition at line 991 of file accel.\+c.
+
+\hypertarget{accel_8c_ad19dae576fe22167cda112619092926b}{}\index{accel.\+c@{accel.\+c}!move@{move}}
+\index{move@{move}!accel.\+c@{accel.\+c}}
+\subsubsection[{move(int t)}]{\setlength{\rightskip}{0pt plus 5cm}void move (
+\begin{DoxyParamCaption}
+\item[{int}]{t}
+\end{DoxyParamCaption}
+)}\label{accel_8c_ad19dae576fe22167cda112619092926b}
+
+
+Definition at line 108 of file accel.\+c.
+

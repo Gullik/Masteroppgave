@@ -1,0 +1,415 @@
+\hypertarget{nrutil_8h}{}\section{src/fmg/nrutil.h File Reference}
+\label{nrutil_8h}\index{src/fmg/nrutil.\+h@{src/fmg/nrutil.\+h}}
+This graph shows which files directly or indirectly include this file\+:
+% FIG 0
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{nrutil_8h_ad41630f833e920c1ffa34722f45a8e77}{S\+Q\+R}(a)~((sqrarg=(a)) == 0.\+0 ? 0.\+0 \+: sqrarg$\ast$sqrarg)
+\item 
+\#define \hyperlink{nrutil_8h_aa3c80caa06171d7fad9ab72cb3c9cd5b}{D\+S\+Q\+R}(a)~((dsqrarg=(a)) == 0.\+0 ? 0.\+0 \+: dsqrarg$\ast$dsqrarg)
+\item 
+\#define \hyperlink{nrutil_8h_a336369f90a614345170f9eb3d4ef59e6}{D\+M\+A\+X}(a,  b)
+\item 
+\#define \hyperlink{nrutil_8h_af9a0a96e48b21c87d05acd4ed5117ba0}{D\+M\+I\+N}(a,  b)
+\item 
+\#define \hyperlink{nrutil_8h_a985ff4ce447bced94342e89ab3766fdd}{F\+M\+A\+X}(a,  b)
+\item 
+\#define \hyperlink{nrutil_8h_a96d33612b97a4dbaa45052d1142f69ca}{F\+M\+I\+N}(a,  b)
+\item 
+\#define \hyperlink{nrutil_8h_acea1f32165d3034e41a22470cc0c3ad1}{L\+M\+A\+X}(a,  b)
+\item 
+\#define \hyperlink{nrutil_8h_aa19c6821633f6747a79c3aee4f027970}{L\+M\+I\+N}(a,  b)
+\item 
+\#define \hyperlink{nrutil_8h_a5fa731650836f73d97141100b6c989fa}{I\+M\+A\+X}(a,  b)
+\item 
+\#define \hyperlink{nrutil_8h_a0442ffe293297c8d849f3fc6d36ac86b}{I\+M\+I\+N}(a,  b)
+\item 
+\#define \hyperlink{nrutil_8h_ac89d5f8a358eb8a1abdcd0fcef134f1a}{S\+I\+G\+N}(a,  b)~((b) $>$= 0.\+0 ? fabs(a) \+: -\/fabs(a))
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{nrutil_8h_a691a7a03830bd353822a99a584f1c25b}{nrerror} ()
+\item 
+float $\ast$ \hyperlink{nrutil_8h_a748bb2e237b53a2c171b1a5c992315cb}{vector} ()
+\item 
+float $\ast$$\ast$ \hyperlink{nrutil_8h_a1439ec198f585178ef09d7f9643d573e}{matrix} ()
+\item 
+float $\ast$$\ast$ \hyperlink{nrutil_8h_a28aed7eb700fcb89ff29129803de1514}{submatrix} ()
+\item 
+float $\ast$$\ast$ \hyperlink{nrutil_8h_a146ffbdf08f24b44617796c6a30a9534}{convert\+\_\+matrix} ()
+\item 
+float $\ast$$\ast$$\ast$ \hyperlink{nrutil_8h_aff7364aa3e691a981811d68f1917ae95}{f3tensor} ()
+\item 
+double $\ast$ \hyperlink{nrutil_8h_a7b00349fe06d03fb4b91e6e195ef7ed7}{dvector} ()
+\item 
+double $\ast$$\ast$ \hyperlink{nrutil_8h_a67d40f26a5164305246446b113b52a2c}{dmatrix} ()
+\item 
+int $\ast$ \hyperlink{nrutil_8h_ad1d6c875ff429888b51dd1155f0311ad}{ivector} ()
+\item 
+int $\ast$$\ast$ \hyperlink{nrutil_8h_aff15791bfe1607f45dc5db96f7ea0046}{imatrix} ()
+\item 
+unsigned char $\ast$ \hyperlink{nrutil_8h_a745b3fe9e22cacf200fa97a7f8b00df0}{cvector} ()
+\item 
+unsigned long $\ast$ \hyperlink{nrutil_8h_a16cdf86cd17eb2ff23b063828a45cf53}{lvector} ()
+\item 
+void \hyperlink{nrutil_8h_a5066045ba37763696caaadc39c0b5915}{free\+\_\+vector} ()
+\item 
+void \hyperlink{nrutil_8h_a10fca775aabf8343e70d640b9be3ef2c}{free\+\_\+dvector} ()
+\item 
+void \hyperlink{nrutil_8h_aec497cf3ee03156d8eb083e2643bf096}{free\+\_\+ivector} ()
+\item 
+void \hyperlink{nrutil_8h_a633c44f262572b72cc8bbcc5f7a85a70}{free\+\_\+cvector} ()
+\item 
+void \hyperlink{nrutil_8h_abe5207fc00789fab316230931c96feed}{free\+\_\+lvector} ()
+\item 
+void \hyperlink{nrutil_8h_a62b2610b5a961711871c51d1d94bb0d1}{free\+\_\+matrix} ()
+\item 
+void \hyperlink{nrutil_8h_a2100f84828dbed79b7182a6e69427721}{free\+\_\+submatrix} ()
+\item 
+void \hyperlink{nrutil_8h_ac1c485dc9c56d2d112a6ee27d33ac268}{free\+\_\+convert\+\_\+matrix} ()
+\item 
+void \hyperlink{nrutil_8h_a7dba0eb0d262a43b5f48318adadfa2db}{free\+\_\+dmatrix} ()
+\item 
+void \hyperlink{nrutil_8h_ad6301fa2e3fcd68ead4ad0068d366063}{free\+\_\+imatrix} ()
+\item 
+void \hyperlink{nrutil_8h_af629d5e1d6fd153a6017809f0e2e9a84}{free\+\_\+f3tensor} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{nrutil_8h_a336369f90a614345170f9eb3d4ef59e6}{}\index{nrutil.\+h@{nrutil.\+h}!D\+M\+A\+X@{D\+M\+A\+X}}
+\index{D\+M\+A\+X@{D\+M\+A\+X}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{D\+M\+A\+X}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+M\+A\+X(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_a336369f90a614345170f9eb3d4ef59e6}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+(dmaxarg1=(a),dmaxarg2=(b),(dmaxarg1) > (dmaxarg2) ?\(\backslash\)
+        (dmaxarg1) : (dmaxarg2))
+\end{DoxyCode}
+
+
+Definition at line 11 of file nrutil.\+h.
+
+\hypertarget{nrutil_8h_af9a0a96e48b21c87d05acd4ed5117ba0}{}\index{nrutil.\+h@{nrutil.\+h}!D\+M\+I\+N@{D\+M\+I\+N}}
+\index{D\+M\+I\+N@{D\+M\+I\+N}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{D\+M\+I\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+M\+I\+N(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_af9a0a96e48b21c87d05acd4ed5117ba0}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+(dminarg1=(a),dminarg2=(b),(dminarg1) < (dminarg2) ?\(\backslash\)
+        (dminarg1) : (dminarg2))
+\end{DoxyCode}
+
+
+Definition at line 15 of file nrutil.\+h.
+
+\hypertarget{nrutil_8h_aa3c80caa06171d7fad9ab72cb3c9cd5b}{}\index{nrutil.\+h@{nrutil.\+h}!D\+S\+Q\+R@{D\+S\+Q\+R}}
+\index{D\+S\+Q\+R@{D\+S\+Q\+R}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{D\+S\+Q\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+S\+Q\+R(
+\begin{DoxyParamCaption}
+\item[{}]{a}
+\end{DoxyParamCaption}
+)~((dsqrarg=(a)) == 0.\+0 ? 0.\+0 \+: dsqrarg$\ast$dsqrarg)}\label{nrutil_8h_aa3c80caa06171d7fad9ab72cb3c9cd5b}
+
+
+Definition at line 8 of file nrutil.\+h.
+
+\hypertarget{nrutil_8h_a985ff4ce447bced94342e89ab3766fdd}{}\index{nrutil.\+h@{nrutil.\+h}!F\+M\+A\+X@{F\+M\+A\+X}}
+\index{F\+M\+A\+X@{F\+M\+A\+X}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{F\+M\+A\+X}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+M\+A\+X(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_a985ff4ce447bced94342e89ab3766fdd}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+(maxarg1=(a),maxarg2=(b),(maxarg1) > (maxarg2) ?\(\backslash\)
+        (maxarg1) : (maxarg2))
+\end{DoxyCode}
+
+
+Definition at line 19 of file nrutil.\+h.
+
+\hypertarget{nrutil_8h_a96d33612b97a4dbaa45052d1142f69ca}{}\index{nrutil.\+h@{nrutil.\+h}!F\+M\+I\+N@{F\+M\+I\+N}}
+\index{F\+M\+I\+N@{F\+M\+I\+N}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{F\+M\+I\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+M\+I\+N(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_a96d33612b97a4dbaa45052d1142f69ca}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+(minarg1=(a),minarg2=(b),(minarg1) < (minarg2) ?\(\backslash\)
+        (minarg1) : (minarg2))
+\end{DoxyCode}
+
+
+Definition at line 23 of file nrutil.\+h.
+
+\hypertarget{nrutil_8h_a5fa731650836f73d97141100b6c989fa}{}\index{nrutil.\+h@{nrutil.\+h}!I\+M\+A\+X@{I\+M\+A\+X}}
+\index{I\+M\+A\+X@{I\+M\+A\+X}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{I\+M\+A\+X}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+M\+A\+X(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_a5fa731650836f73d97141100b6c989fa}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+(imaxarg1=(a),imaxarg2=(b),(imaxarg1) > (imaxarg2) ?\(\backslash\)
+        (imaxarg1) : (imaxarg2))
+\end{DoxyCode}
+
+
+Definition at line 35 of file nrutil.\+h.
+
+\hypertarget{nrutil_8h_a0442ffe293297c8d849f3fc6d36ac86b}{}\index{nrutil.\+h@{nrutil.\+h}!I\+M\+I\+N@{I\+M\+I\+N}}
+\index{I\+M\+I\+N@{I\+M\+I\+N}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{I\+M\+I\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+M\+I\+N(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_a0442ffe293297c8d849f3fc6d36ac86b}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+(iminarg1=(a),iminarg2=(b),(iminarg1) < (iminarg2) ?\(\backslash\)
+        (iminarg1) : (iminarg2))
+\end{DoxyCode}
+
+
+Definition at line 39 of file nrutil.\+h.
+
+\hypertarget{nrutil_8h_acea1f32165d3034e41a22470cc0c3ad1}{}\index{nrutil.\+h@{nrutil.\+h}!L\+M\+A\+X@{L\+M\+A\+X}}
+\index{L\+M\+A\+X@{L\+M\+A\+X}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{L\+M\+A\+X}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+M\+A\+X(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_acea1f32165d3034e41a22470cc0c3ad1}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+(lmaxarg1=(a),lmaxarg2=(b),(lmaxarg1) > (lmaxarg2) ?\(\backslash\)
+        (lmaxarg1) : (lmaxarg2))
+\end{DoxyCode}
+
+
+Definition at line 27 of file nrutil.\+h.
+
+\hypertarget{nrutil_8h_aa19c6821633f6747a79c3aee4f027970}{}\index{nrutil.\+h@{nrutil.\+h}!L\+M\+I\+N@{L\+M\+I\+N}}
+\index{L\+M\+I\+N@{L\+M\+I\+N}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{L\+M\+I\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+M\+I\+N(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_aa19c6821633f6747a79c3aee4f027970}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+(lminarg1=(a),lminarg2=(b),(lminarg1) < (lminarg2) ?\(\backslash\)
+        (lminarg1) : (lminarg2))
+\end{DoxyCode}
+
+
+Definition at line 31 of file nrutil.\+h.
+
+\hypertarget{nrutil_8h_ac89d5f8a358eb8a1abdcd0fcef134f1a}{}\index{nrutil.\+h@{nrutil.\+h}!S\+I\+G\+N@{S\+I\+G\+N}}
+\index{S\+I\+G\+N@{S\+I\+G\+N}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{S\+I\+G\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+I\+G\+N(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)~((b) $>$= 0.\+0 ? fabs(a) \+: -\/fabs(a))}\label{nrutil_8h_ac89d5f8a358eb8a1abdcd0fcef134f1a}
+
+
+Definition at line 42 of file nrutil.\+h.
+
+\hypertarget{nrutil_8h_ad41630f833e920c1ffa34722f45a8e77}{}\index{nrutil.\+h@{nrutil.\+h}!S\+Q\+R@{S\+Q\+R}}
+\index{S\+Q\+R@{S\+Q\+R}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{S\+Q\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+Q\+R(
+\begin{DoxyParamCaption}
+\item[{}]{a}
+\end{DoxyParamCaption}
+)~((sqrarg=(a)) == 0.\+0 ? 0.\+0 \+: sqrarg$\ast$sqrarg)}\label{nrutil_8h_ad41630f833e920c1ffa34722f45a8e77}
+
+
+Definition at line 5 of file nrutil.\+h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{nrutil_8h_a146ffbdf08f24b44617796c6a30a9534}{}\index{nrutil.\+h@{nrutil.\+h}!convert\+\_\+matrix@{convert\+\_\+matrix}}
+\index{convert\+\_\+matrix@{convert\+\_\+matrix}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{convert\+\_\+matrix()}]{\setlength{\rightskip}{0pt plus 5cm}float$\ast$$\ast$ convert\+\_\+matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_a146ffbdf08f24b44617796c6a30a9534}
+\hypertarget{nrutil_8h_a745b3fe9e22cacf200fa97a7f8b00df0}{}\index{nrutil.\+h@{nrutil.\+h}!cvector@{cvector}}
+\index{cvector@{cvector}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{cvector()}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char$\ast$ cvector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_a745b3fe9e22cacf200fa97a7f8b00df0}
+\hypertarget{nrutil_8h_a67d40f26a5164305246446b113b52a2c}{}\index{nrutil.\+h@{nrutil.\+h}!dmatrix@{dmatrix}}
+\index{dmatrix@{dmatrix}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{dmatrix()}]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$$\ast$ dmatrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_a67d40f26a5164305246446b113b52a2c}
+\hypertarget{nrutil_8h_a7b00349fe06d03fb4b91e6e195ef7ed7}{}\index{nrutil.\+h@{nrutil.\+h}!dvector@{dvector}}
+\index{dvector@{dvector}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{dvector()}]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ dvector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_a7b00349fe06d03fb4b91e6e195ef7ed7}
+\hypertarget{nrutil_8h_aff7364aa3e691a981811d68f1917ae95}{}\index{nrutil.\+h@{nrutil.\+h}!f3tensor@{f3tensor}}
+\index{f3tensor@{f3tensor}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{f3tensor()}]{\setlength{\rightskip}{0pt plus 5cm}float$\ast$$\ast$$\ast$ f3tensor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_aff7364aa3e691a981811d68f1917ae95}
+\hypertarget{nrutil_8h_ac1c485dc9c56d2d112a6ee27d33ac268}{}\index{nrutil.\+h@{nrutil.\+h}!free\+\_\+convert\+\_\+matrix@{free\+\_\+convert\+\_\+matrix}}
+\index{free\+\_\+convert\+\_\+matrix@{free\+\_\+convert\+\_\+matrix}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{free\+\_\+convert\+\_\+matrix()}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+convert\+\_\+matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_ac1c485dc9c56d2d112a6ee27d33ac268}
+\hypertarget{nrutil_8h_a633c44f262572b72cc8bbcc5f7a85a70}{}\index{nrutil.\+h@{nrutil.\+h}!free\+\_\+cvector@{free\+\_\+cvector}}
+\index{free\+\_\+cvector@{free\+\_\+cvector}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{free\+\_\+cvector()}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+cvector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_a633c44f262572b72cc8bbcc5f7a85a70}
+\hypertarget{nrutil_8h_a7dba0eb0d262a43b5f48318adadfa2db}{}\index{nrutil.\+h@{nrutil.\+h}!free\+\_\+dmatrix@{free\+\_\+dmatrix}}
+\index{free\+\_\+dmatrix@{free\+\_\+dmatrix}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{free\+\_\+dmatrix()}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+dmatrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_a7dba0eb0d262a43b5f48318adadfa2db}
+\hypertarget{nrutil_8h_a10fca775aabf8343e70d640b9be3ef2c}{}\index{nrutil.\+h@{nrutil.\+h}!free\+\_\+dvector@{free\+\_\+dvector}}
+\index{free\+\_\+dvector@{free\+\_\+dvector}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{free\+\_\+dvector()}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+dvector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_a10fca775aabf8343e70d640b9be3ef2c}
+\hypertarget{nrutil_8h_af629d5e1d6fd153a6017809f0e2e9a84}{}\index{nrutil.\+h@{nrutil.\+h}!free\+\_\+f3tensor@{free\+\_\+f3tensor}}
+\index{free\+\_\+f3tensor@{free\+\_\+f3tensor}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{free\+\_\+f3tensor()}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+f3tensor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_af629d5e1d6fd153a6017809f0e2e9a84}
+\hypertarget{nrutil_8h_ad6301fa2e3fcd68ead4ad0068d366063}{}\index{nrutil.\+h@{nrutil.\+h}!free\+\_\+imatrix@{free\+\_\+imatrix}}
+\index{free\+\_\+imatrix@{free\+\_\+imatrix}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{free\+\_\+imatrix()}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+imatrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_ad6301fa2e3fcd68ead4ad0068d366063}
+\hypertarget{nrutil_8h_aec497cf3ee03156d8eb083e2643bf096}{}\index{nrutil.\+h@{nrutil.\+h}!free\+\_\+ivector@{free\+\_\+ivector}}
+\index{free\+\_\+ivector@{free\+\_\+ivector}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{free\+\_\+ivector()}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+ivector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_aec497cf3ee03156d8eb083e2643bf096}
+\hypertarget{nrutil_8h_abe5207fc00789fab316230931c96feed}{}\index{nrutil.\+h@{nrutil.\+h}!free\+\_\+lvector@{free\+\_\+lvector}}
+\index{free\+\_\+lvector@{free\+\_\+lvector}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{free\+\_\+lvector()}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+lvector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_abe5207fc00789fab316230931c96feed}
+\hypertarget{nrutil_8h_a62b2610b5a961711871c51d1d94bb0d1}{}\index{nrutil.\+h@{nrutil.\+h}!free\+\_\+matrix@{free\+\_\+matrix}}
+\index{free\+\_\+matrix@{free\+\_\+matrix}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{free\+\_\+matrix()}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_a62b2610b5a961711871c51d1d94bb0d1}
+\hypertarget{nrutil_8h_a2100f84828dbed79b7182a6e69427721}{}\index{nrutil.\+h@{nrutil.\+h}!free\+\_\+submatrix@{free\+\_\+submatrix}}
+\index{free\+\_\+submatrix@{free\+\_\+submatrix}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{free\+\_\+submatrix()}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+submatrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_a2100f84828dbed79b7182a6e69427721}
+\hypertarget{nrutil_8h_a5066045ba37763696caaadc39c0b5915}{}\index{nrutil.\+h@{nrutil.\+h}!free\+\_\+vector@{free\+\_\+vector}}
+\index{free\+\_\+vector@{free\+\_\+vector}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{free\+\_\+vector()}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+vector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_a5066045ba37763696caaadc39c0b5915}
+\hypertarget{nrutil_8h_aff15791bfe1607f45dc5db96f7ea0046}{}\index{nrutil.\+h@{nrutil.\+h}!imatrix@{imatrix}}
+\index{imatrix@{imatrix}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{imatrix()}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$$\ast$ imatrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_aff15791bfe1607f45dc5db96f7ea0046}
+\hypertarget{nrutil_8h_ad1d6c875ff429888b51dd1155f0311ad}{}\index{nrutil.\+h@{nrutil.\+h}!ivector@{ivector}}
+\index{ivector@{ivector}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{ivector()}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ ivector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_ad1d6c875ff429888b51dd1155f0311ad}
+\hypertarget{nrutil_8h_a16cdf86cd17eb2ff23b063828a45cf53}{}\index{nrutil.\+h@{nrutil.\+h}!lvector@{lvector}}
+\index{lvector@{lvector}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{lvector()}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long$\ast$ lvector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_a16cdf86cd17eb2ff23b063828a45cf53}
+\hypertarget{nrutil_8h_a1439ec198f585178ef09d7f9643d573e}{}\index{nrutil.\+h@{nrutil.\+h}!matrix@{matrix}}
+\index{matrix@{matrix}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{matrix()}]{\setlength{\rightskip}{0pt plus 5cm}float$\ast$$\ast$ matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_a1439ec198f585178ef09d7f9643d573e}
+\hypertarget{nrutil_8h_a691a7a03830bd353822a99a584f1c25b}{}\index{nrutil.\+h@{nrutil.\+h}!nrerror@{nrerror}}
+\index{nrerror@{nrerror}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{nrerror()}]{\setlength{\rightskip}{0pt plus 5cm}void nrerror (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_a691a7a03830bd353822a99a584f1c25b}
+\hypertarget{nrutil_8h_a28aed7eb700fcb89ff29129803de1514}{}\index{nrutil.\+h@{nrutil.\+h}!submatrix@{submatrix}}
+\index{submatrix@{submatrix}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{submatrix()}]{\setlength{\rightskip}{0pt plus 5cm}float$\ast$$\ast$ submatrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_a28aed7eb700fcb89ff29129803de1514}
+\hypertarget{nrutil_8h_a748bb2e237b53a2c171b1a5c992315cb}{}\index{nrutil.\+h@{nrutil.\+h}!vector@{vector}}
+\index{vector@{vector}!nrutil.\+h@{nrutil.\+h}}
+\subsubsection[{vector()}]{\setlength{\rightskip}{0pt plus 5cm}float$\ast$ vector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrutil_8h_a748bb2e237b53a2c171b1a5c992315cb}

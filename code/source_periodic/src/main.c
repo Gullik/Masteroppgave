@@ -10,24 +10,24 @@ int main(int argc, char *argv[])
 {
     /*****************INITIALIZATIONS********************/
     /*checking simulation time*/
-
+    
     clockstart=clock();
     (void) time(&timestart);
-
-
+    
+    
     // t is the time step
     long int t,t_init=0,timeend;
-
+    
     int printing=1;
     int iterationmax, iteration;
     int ii; //dust numbers
     double condcheck;
     double cup,cdown,cstep;
-
+    
     if(rank==0)
         history=my_file_open("./data/history.dat", "a");
-
-
+    
+    
     /*Initialize MPI*/
     numtasks=1;
     rank=0;
@@ -36,14 +36,16 @@ int main(int argc, char *argv[])
     MPI_Comm_size(MPI_COMM_WORLD, &numtasks); //no of processesors
     MPI_Comm_rank(MPI_COMM_WORLD, &rank); //numbers of processes
 #endif
-
+    
     if(rank==0)
         printf("DiP3D, Dust in Plasma 3D simulation\n Author: Wojciech J. Miloch\n");
 
+    exit(0);
+    
 #ifdef EPRO
     if(rank==0)
         printf("Program is in the mode for a biased probe\n\n");
-
+    
 #ifdef CHAR
     if(rank==0)
     {
@@ -54,47 +56,47 @@ int main(int argc, char *argv[])
 #endif
     if(rank==0)
         printf("Program is in the mode for an insulator/conductor type dust particles\n\n");
-
+    
 #ifdef BEAM
     if(rank==0)
         printf("!!!There is an additional ion beam!!!\n !!!Check if you use the proper input file!!!\n");
 #endif  
-
+    
     /*************************INPUT ********************/
     if(rank==0)
         convert(); //input.c - convert input file
-
+    
 #ifdef MPI
     MPI_Barrier(MPI_COMM_WORLD); //wait until the file is converted
 #endif
     readdata(argc, argv); //input.c - read input param,setvariables
     printf("Rank %d, Initialization: I read the input data, now proceed with the flux calculation\n", rank);
     calculate_flux(); //flux.c - calcul. flux via boundaries on nodes 1,2,3..
-
+    
     /*************************GENERATE ********************/
     memorygrid(); //grid.c - allocate memory for the grid
     normalize(); //grid.c - normalize and find norm factors
-
+    
     //  if(photons) //NO PHOTONS YET , simple mode
     //   photonflux();
     gen_boundaries(); //grid.c - generate boundaries
-
+    
     init_primeroot(rank/(numtasks*1.0));
 #ifndef RESTART  
     //IMPORTANT!!!!!
     //not used at the moment -> we are in the test phase
     gen_dust3D(argc, argv);
     printf("rank %d finished generating dust \n", rank);
-
+    
 #else
     t_init=prog_restart(); //change time for starting and initialize!
     printf("finisherd restarting at rank %d", rank);
 #endif
-
+    
 #ifdef MPI
     MPI_Barrier(MPI_COMM_WORLD);
 #endif
-
+    
     init_newpart(); //flux.c -initialise param. for particle injection
     diagn_open(); //diagn.c - open files for diagnostics
     pot_probes_init();
@@ -102,7 +104,7 @@ int main(int argc, char *argv[])
     collisions_init();
     if(rank==0)
         mglin_init(ngx,ngy,ngz); //initialize field solver
-
+    
     //for each probe potential do the following
 #ifdef EPRO
     for(Vpr=Vpr_begin; Vpr<=Vpr_end; Vpr+=Vpr_step)
@@ -111,10 +113,10 @@ int main(int argc, char *argv[])
         for(ii=0; ii<noofdusts; ii++)
             dphifl[ii]=Vpr; //put potential on dusts/probes
 #endif
-
+        
         //CHECK IF THERE ARE CONDUCTING DUSTS
         iterationmax=1;
-
+        
         if(cond_present)
         {
             printf("CONDUCTING OBJECTS ARE PRESENT BUT THE PROGRAM IS NOT READY FOR THIS CHALLANGE!\n");
@@ -140,7 +142,7 @@ int main(int argc, char *argv[])
                 dphifl[ii]=cdown+cstep;
             //  Vpr=cdown+cstep;
         }
-
+        
         for(iteration=0; iteration<iterationmax; iteration++)
         {
             printf("I will make %d whole cycles\n", iterationmax);
@@ -150,12 +152,12 @@ int main(int argc, char *argv[])
                 printing=1;
                 printf("Diagnostics will be printed in this cycle\n");
             }
-
+            
             if((numtasks>1 && rank!=0)||(numtasks==1 && rank==0))
 #ifndef RESTART
                 //3D starts from here
-
-
+                
+                
                 gen_bgnd(); // generate.c - generate background on nodes > 0 if there are, else on rank0
             //it is done soso Box Muller twice...
             printf("\n\n Finished gen_bgnd()\n");
@@ -167,7 +169,7 @@ int main(int argc, char *argv[])
             cleargrid(); //grid.c -cleargrid,new poten. on probe
             weighting1(); //grid.c - linear weightning
             weightingdust1(1);
-
+            
             //		  	printf("parameters irho ngrid %E\n", irho[6][1][1][1]);
 #ifdef MPI
             MPI_Barrier(MPI_COMM_WORLD);
@@ -197,10 +199,10 @@ int main(int argc, char *argv[])
                 accel(-0.5); //accel2.c - find vel for t=-0.5dt"
             //	FOR EPRO AND COND, FURTHER ITERATONS AND T_INIT=0
 #endif
-
-
+            
+            
             /***********  MAIN LOOP *****************/
-
+            
             for(t=t_init; t<=timeend; t++) /*MAIN LOOP*/
             {
                 if(rank==0)
@@ -209,13 +211,13 @@ int main(int argc, char *argv[])
                     pot_probes(t);
                     printf("Rank %d, after pot_probes\n", rank);
                 }
-
+                
                 /************DIAGNOSTICS****************/
                 printf("before printgrid\n");
 #ifndef CHAR
                 if(printing==1)
                     printgrid(t); //diagn.c - print grid quantities
-
+                
 #endif
                 printf("after printgrid\n");
                 // printf("here\n");
@@ -224,24 +226,24 @@ int main(int argc, char *argv[])
                     printdustchargetime(dust_time, t, weight);
                     printf("Rank %d after printdustchargetime\n", rank);
                     //    printdustshapetime(t);
-
+                    
                     //  printdth(dhist,t);
                     //printf("IN MAIN.c printdth\n");
                 }
-
+                
                 printf("entering dmove rank %d\n", rank);
                 /**********MOVE -> TRAJECTORIES************/
                 // d_move(t);  //DUST MUST BE MOVED ON ALL ??? hmm... different nodes make it more difficult
                 //	printf("dii %d %E\n", 41, dpart[0][41].q);
                 //	getchar();
-
+                
                 //printf("in markgriddust \n");
                 // markgriddust();
                 printf("entering move rank %d\n", rank);
                 //printf("\n\n\nMAIN: in diagnostics 2\n");
-
+                
                 //PP part and MPI
-
+                
                 int dno;
 #ifdef MPI
                 printf("rank %d arrived in accel\n", rank);
@@ -255,7 +257,7 @@ int main(int argc, char *argv[])
                         //printf("check1 before move rank %d dpart %E\n", rank, dpart[0][4].q);
                         MPI_Reduce(&dpart[dno][ii].q,&dpartq[dno][ii],1,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
                     }
-
+                
                 MPI_Barrier(MPI_COMM_WORLD);
                 for(dno=0; dno<noofdusts; dno++)
                     for(ii=0; ii<dpartlast[dno]; ii++)
@@ -263,14 +265,14 @@ int main(int argc, char *argv[])
                 //	printf("check before move rank %d dpartq %E\n", rank, dpartq[0][4]);
                 MPI_Barrier(MPI_COMM_WORLD);
 #endif
-
+                
 #ifndef MPI	
                 //assign the charge to the dust
                 for(dno=0; dno<noofdusts; dno++)
                     for(ii=0; ii<dpartlast[dno]; ii++)
                         dpartq[dno][ii]=dpart[dno][ii].q;
 #endif	
-
+                
                 if((numtasks>1 && rank!=0)||(numtasks==1 && rank==0))
                 {
                     move(t); //accel3.c accel and move part.
@@ -293,7 +295,7 @@ int main(int argc, char *argv[])
                 printf("after electric\n");
                 printdragforce(t);
                 printf("after printing drag\n");
-
+                
                 //	 printf("MAIN: main check\n");
 #ifdef MPI 
                 MPI_Barrier(MPI_COMM_WORLD);
@@ -301,7 +303,7 @@ int main(int argc, char *argv[])
 #endif
                 /***************DIAGNOSTICS 2 *********************/
 #ifndef CHAR
-
+                
                 if((printing==1) && ((t % average) == 0))
                     printKEall(t);
 #endif
@@ -328,7 +330,7 @@ int main(int argc, char *argv[])
                 printf("MAIN: new particles & weighting\n");
                 /*************NEW PARTICLES & WEIGHTING******************/
                 //  init_primeroot(0);
-
+                
                 if((numtasks>1 && rank!=0)||(numtasks==1 && rank==0))
 #ifndef PERIODIC	
                     newparticles(t); //generate.c - inject new part. 3D
@@ -336,21 +338,21 @@ int main(int argc, char *argv[])
 #else
                     printf("periodic: no new particles generated");
 #endif
-
+                
                 cleargrid(); //grid.c
                 weighting1(); //grid.c - linear weightning
                 weightingdust1(1);
-
+                
                 printf("MAIN: weighted all particles\n");
                 if(t==95000)
                 {
                     dump(t);
-
+                    
                     //exit(1);
                 }
                 if(t==10)
                     ;//	    exit(1);
-
+                
                 /****************FIELDS**************/
 #ifdef MPI
                 MPI_Barrier(MPI_COMM_WORLD);
@@ -367,7 +369,7 @@ int main(int argc, char *argv[])
 #endif
                     printf("MAIN: potential solved on rank %d\n", rank);
                     printpotdistribution(t);
-
+                    
                     electric_field(); //gauss.c
                 }
                 //MPI BROADCAST DATA
@@ -375,7 +377,7 @@ int main(int argc, char *argv[])
                 MPI_Bcast(Fs,FsMAX,MPI_DOUBLE,0,MPI_COMM_WORLD);
                 MPI_Barrier(MPI_COMM_WORLD);
 #endif	
-
+                
                 //	if(t==1000)
                 //{	/*
                 // 	 for(j=ngy-1; j>=0; j--)
@@ -388,33 +390,33 @@ int main(int argc, char *argv[])
                 //	printf("b Lx %E part i %E %E %E %E\n", Lx,spec[i].part[100].x, spec[i].part[100].y, spec[i].part[100].vx, spec[i].part[100].vy);
                 // i=1;
                 //printf("b Lx %E part i %E %E %E %E\n", Lx,spec[i].part[100].x, spec[i].part[100].y, spec[i].part[100].vx, spec[i].part[100].vy);
-
+                
                 //exit(1);
                 //}
                 //getchar();
-
+                
             }
             /**********************END MAIN CYCLE*********************/
-
+            
             //FIND NEW POTENTIALS ON DUST GRAINS and print current!!!
             cstep=cstep/2.0;
             //findnewpotentials(cstep,1000,curr);
         }
-
+        
 #ifdef EPRO
     }
 #endif
-
-
+    
+    
     /***********end main cycle for conductors*********/
-
+    
     /************************FINALIZE***********************/
     if(rank==0)
         mglin_destroy();
-
+    
     diagn_close(); //close diagnostics
     memorygridfree(); //free memory
-
+    
     int ti;
     ti=0;
     printf("rank %d FLUX for %d:\n c0 %E \n c1 %E c2 %E c3 %E c4 %E c5 %E\n", rank, ti, 1.0*c0[ti], 1.0*c1[ti], 1.0*c2[ti], 1.0*c3[ti], 1.0*c4[ti], 1.0*c5[ti]);

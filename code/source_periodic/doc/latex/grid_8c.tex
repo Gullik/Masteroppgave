@@ -1,0 +1,237 @@
+\hypertarget{grid_8c}{}\section{src/grid.c File Reference}
+\label{grid_8c}\index{src/grid.\+c@{src/grid.\+c}}
+{\ttfamily \#include \char`\"{}const.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+Include dependency graph for grid.\+c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{grid_8c_a59d0cc9df7cfb85e7cd0aa1fc1c08f37}{memorygrid} (void)
+\item 
+void \hyperlink{grid_8c_a78620e3a9305255b190e4c0760845cc0}{memorygridfree} (void)
+\item 
+void \hyperlink{grid_8c_a234768c06deae880d841da8ad7769390}{start\+Bfield} ()
+\item 
+void \hyperlink{grid_8c_a52f1b912adcadedf17631e01d414a422}{cleargrid} ()
+\item 
+void \hyperlink{grid_8c_a26a4f77d7a7b9d39cd2bc99c9dad0888}{cleargrid2} (void)
+\item 
+void \hyperlink{grid_8c_ab1abbd8b9df73a317b5d03f06224f706}{weighting1} (void)
+\item 
+void \hyperlink{grid_8c_a20f15b613ddba0cfb3254bcacb25faf8}{gen\+\_\+boundaries} (void)
+\item 
+void \hyperlink{grid_8c_a957c4adb46e8e657f8051349ac3cf7ef}{gen\+\_\+dust3\+D} (int arc, char $\ast$arv\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{grid_8c_aed2d9b566e4309438cc788449242bb85}{markgriddust} (void)
+\item 
+void \hyperlink{grid_8c_ac275a98b2a8f4d31d160a5edcce098b8}{checkcolcrossing} (int i)
+\item 
+int \hyperlink{grid_8c_a721fb4a53a11d3a9bdd7056ebdc553f2}{checkpointcrossing} (int i, int j)
+\item 
+void \hyperlink{grid_8c_a78853845ee610785625137e2060dbcc3}{findabv} (int i)
+\item 
+void \hyperlink{grid_8c_abfd2a5489045b5e1ac67a91d23fe2c90}{memorydust1\+\_\+3\+D} (int no)
+\item 
+void \hyperlink{grid_8c_ab98c72f9bb87d888b0699fa07ee48c88}{memorydust2\+\_\+3\+D} (int j, int nc)
+\item 
+void \hyperlink{grid_8c_a3ff734095278cdfe60ef355ac60c660e}{new\+\_\+probe\+\_\+potential} (double probepotential)
+\item 
+void \hyperlink{grid_8c_a7494eb6e7ee0d104f3a01dcceed8607a}{normalize} (void)
+\item 
+void \hyperlink{grid_8c_aa0741f6743d82b05465c287637fc3c00}{create\+\_\+currentarrays} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{grid_8c_ac275a98b2a8f4d31d160a5edcce098b8}{}\index{grid.\+c@{grid.\+c}!checkcolcrossing@{checkcolcrossing}}
+\index{checkcolcrossing@{checkcolcrossing}!grid.\+c@{grid.\+c}}
+\subsubsection[{checkcolcrossing(int i)}]{\setlength{\rightskip}{0pt plus 5cm}void checkcolcrossing (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}\label{grid_8c_ac275a98b2a8f4d31d160a5edcce098b8}
+
+
+Definition at line 668 of file grid.\+c.
+
+\hypertarget{grid_8c_a721fb4a53a11d3a9bdd7056ebdc553f2}{}\index{grid.\+c@{grid.\+c}!checkpointcrossing@{checkpointcrossing}}
+\index{checkpointcrossing@{checkpointcrossing}!grid.\+c@{grid.\+c}}
+\subsubsection[{checkpointcrossing(int i, int j)}]{\setlength{\rightskip}{0pt plus 5cm}int checkpointcrossing (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{j}
+\end{DoxyParamCaption}
+)}\label{grid_8c_a721fb4a53a11d3a9bdd7056ebdc553f2}
+
+
+Definition at line 726 of file grid.\+c.
+
+\hypertarget{grid_8c_a52f1b912adcadedf17631e01d414a422}{}\index{grid.\+c@{grid.\+c}!cleargrid@{cleargrid}}
+\index{cleargrid@{cleargrid}!grid.\+c@{grid.\+c}}
+\subsubsection[{cleargrid()}]{\setlength{\rightskip}{0pt plus 5cm}void cleargrid (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{grid_8c_a52f1b912adcadedf17631e01d414a422}
+
+
+Definition at line 151 of file grid.\+c.
+
+\hypertarget{grid_8c_a26a4f77d7a7b9d39cd2bc99c9dad0888}{}\index{grid.\+c@{grid.\+c}!cleargrid2@{cleargrid2}}
+\index{cleargrid2@{cleargrid2}!grid.\+c@{grid.\+c}}
+\subsubsection[{cleargrid2(void)}]{\setlength{\rightskip}{0pt plus 5cm}void cleargrid2 (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{grid_8c_a26a4f77d7a7b9d39cd2bc99c9dad0888}
+
+
+Definition at line 164 of file grid.\+c.
+
+\hypertarget{grid_8c_aa0741f6743d82b05465c287637fc3c00}{}\index{grid.\+c@{grid.\+c}!create\+\_\+currentarrays@{create\+\_\+currentarrays}}
+\index{create\+\_\+currentarrays@{create\+\_\+currentarrays}!grid.\+c@{grid.\+c}}
+\subsubsection[{create\+\_\+currentarrays(void)}]{\setlength{\rightskip}{0pt plus 5cm}void create\+\_\+currentarrays (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{grid_8c_aa0741f6743d82b05465c287637fc3c00}
+
+
+Definition at line 1114 of file grid.\+c.
+
+\hypertarget{grid_8c_a78853845ee610785625137e2060dbcc3}{}\index{grid.\+c@{grid.\+c}!findabv@{findabv}}
+\index{findabv@{findabv}!grid.\+c@{grid.\+c}}
+\subsubsection[{findabv(int i)}]{\setlength{\rightskip}{0pt plus 5cm}void findabv (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}\label{grid_8c_a78853845ee610785625137e2060dbcc3}
+
+
+Definition at line 800 of file grid.\+c.
+
+\hypertarget{grid_8c_a20f15b613ddba0cfb3254bcacb25faf8}{}\index{grid.\+c@{grid.\+c}!gen\+\_\+boundaries@{gen\+\_\+boundaries}}
+\index{gen\+\_\+boundaries@{gen\+\_\+boundaries}!grid.\+c@{grid.\+c}}
+\subsubsection[{gen\+\_\+boundaries(void)}]{\setlength{\rightskip}{0pt plus 5cm}void gen\+\_\+boundaries (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{grid_8c_a20f15b613ddba0cfb3254bcacb25faf8}
+
+
+Definition at line 299 of file grid.\+c.
+
+\hypertarget{grid_8c_a957c4adb46e8e657f8051349ac3cf7ef}{}\index{grid.\+c@{grid.\+c}!gen\+\_\+dust3\+D@{gen\+\_\+dust3\+D}}
+\index{gen\+\_\+dust3\+D@{gen\+\_\+dust3\+D}!grid.\+c@{grid.\+c}}
+\subsubsection[{gen\+\_\+dust3\+D(int arc, char $\ast$arv[])}]{\setlength{\rightskip}{0pt plus 5cm}void gen\+\_\+dust3\+D (
+\begin{DoxyParamCaption}
+\item[{int}]{arc, }
+\item[{char $\ast$}]{arv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{grid_8c_a957c4adb46e8e657f8051349ac3cf7ef}
+close the dust input file 
+
+Definition at line 340 of file grid.\+c.
+
+\hypertarget{grid_8c_aed2d9b566e4309438cc788449242bb85}{}\index{grid.\+c@{grid.\+c}!markgriddust@{markgriddust}}
+\index{markgriddust@{markgriddust}!grid.\+c@{grid.\+c}}
+\subsubsection[{markgriddust(void)}]{\setlength{\rightskip}{0pt plus 5cm}void markgriddust (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{grid_8c_aed2d9b566e4309438cc788449242bb85}
+pre pare lut for each column 
+
+Definition at line 541 of file grid.\+c.
+
+\hypertarget{grid_8c_abfd2a5489045b5e1ac67a91d23fe2c90}{}\index{grid.\+c@{grid.\+c}!memorydust1\+\_\+3\+D@{memorydust1\+\_\+3\+D}}
+\index{memorydust1\+\_\+3\+D@{memorydust1\+\_\+3\+D}!grid.\+c@{grid.\+c}}
+\subsubsection[{memorydust1\+\_\+3\+D(int no)}]{\setlength{\rightskip}{0pt plus 5cm}void memorydust1\+\_\+3\+D (
+\begin{DoxyParamCaption}
+\item[{int}]{no}
+\end{DoxyParamCaption}
+)}\label{grid_8c_abfd2a5489045b5e1ac67a91d23fe2c90}
+
+
+Definition at line 828 of file grid.\+c.
+
+\hypertarget{grid_8c_ab98c72f9bb87d888b0699fa07ee48c88}{}\index{grid.\+c@{grid.\+c}!memorydust2\+\_\+3\+D@{memorydust2\+\_\+3\+D}}
+\index{memorydust2\+\_\+3\+D@{memorydust2\+\_\+3\+D}!grid.\+c@{grid.\+c}}
+\subsubsection[{memorydust2\+\_\+3\+D(int j, int nc)}]{\setlength{\rightskip}{0pt plus 5cm}void memorydust2\+\_\+3\+D (
+\begin{DoxyParamCaption}
+\item[{int}]{j, }
+\item[{int}]{nc}
+\end{DoxyParamCaption}
+)}\label{grid_8c_ab98c72f9bb87d888b0699fa07ee48c88}
+
+
+Definition at line 968 of file grid.\+c.
+
+\hypertarget{grid_8c_a59d0cc9df7cfb85e7cd0aa1fc1c08f37}{}\index{grid.\+c@{grid.\+c}!memorygrid@{memorygrid}}
+\index{memorygrid@{memorygrid}!grid.\+c@{grid.\+c}}
+\subsubsection[{memorygrid(void)}]{\setlength{\rightskip}{0pt plus 5cm}void memorygrid (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{grid_8c_a59d0cc9df7cfb85e7cd0aa1fc1c08f37}
+
+
+Definition at line 12 of file grid.\+c.
+
+\hypertarget{grid_8c_a78620e3a9305255b190e4c0760845cc0}{}\index{grid.\+c@{grid.\+c}!memorygridfree@{memorygridfree}}
+\index{memorygridfree@{memorygridfree}!grid.\+c@{grid.\+c}}
+\subsubsection[{memorygridfree(void)}]{\setlength{\rightskip}{0pt plus 5cm}void memorygridfree (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{grid_8c_a78620e3a9305255b190e4c0760845cc0}
+
+
+Definition at line 113 of file grid.\+c.
+
+\hypertarget{grid_8c_a3ff734095278cdfe60ef355ac60c660e}{}\index{grid.\+c@{grid.\+c}!new\+\_\+probe\+\_\+potential@{new\+\_\+probe\+\_\+potential}}
+\index{new\+\_\+probe\+\_\+potential@{new\+\_\+probe\+\_\+potential}!grid.\+c@{grid.\+c}}
+\subsubsection[{new\+\_\+probe\+\_\+potential(double probepotential)}]{\setlength{\rightskip}{0pt plus 5cm}void new\+\_\+probe\+\_\+potential (
+\begin{DoxyParamCaption}
+\item[{double}]{probepotential}
+\end{DoxyParamCaption}
+)}\label{grid_8c_a3ff734095278cdfe60ef355ac60c660e}
+
+
+Definition at line 1009 of file grid.\+c.
+
+\hypertarget{grid_8c_a7494eb6e7ee0d104f3a01dcceed8607a}{}\index{grid.\+c@{grid.\+c}!normalize@{normalize}}
+\index{normalize@{normalize}!grid.\+c@{grid.\+c}}
+\subsubsection[{normalize(void)}]{\setlength{\rightskip}{0pt plus 5cm}void normalize (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{grid_8c_a7494eb6e7ee0d104f3a01dcceed8607a}
+
+
+Definition at line 1022 of file grid.\+c.
+
+\hypertarget{grid_8c_a234768c06deae880d841da8ad7769390}{}\index{grid.\+c@{grid.\+c}!start\+Bfield@{start\+Bfield}}
+\index{start\+Bfield@{start\+Bfield}!grid.\+c@{grid.\+c}}
+\subsubsection[{start\+Bfield()}]{\setlength{\rightskip}{0pt plus 5cm}void start\+Bfield (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{grid_8c_a234768c06deae880d841da8ad7769390}
+
+
+Definition at line 138 of file grid.\+c.
+
+\hypertarget{grid_8c_ab1abbd8b9df73a317b5d03f06224f706}{}\index{grid.\+c@{grid.\+c}!weighting1@{weighting1}}
+\index{weighting1@{weighting1}!grid.\+c@{grid.\+c}}
+\subsubsection[{weighting1(void)}]{\setlength{\rightskip}{0pt plus 5cm}void weighting1 (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{grid_8c_ab1abbd8b9df73a317b5d03f06224f706}
+
+
+Definition at line 181 of file grid.\+c.
+

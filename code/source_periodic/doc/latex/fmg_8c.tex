@@ -1,0 +1,307 @@
+\hypertarget{fmg_8c}{}\section{src/fmg/fmg.c File Reference}
+\label{fmg_8c}\index{src/fmg/fmg.\+c@{src/fmg/fmg.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}nrutil.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../const.\+h\char`\"{}}\\*
+Include dependency graph for fmg.\+c\+:
+% FIG 0
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{fmg_8c_ac35ec264c922c9b83f2b3d79cb8f5d93}{N\+R\+A\+N\+S\+I}
+\item 
+\#define \hyperlink{fmg_8c_af699a49d8b13c70b728e9b8e52cf022a}{N\+P\+R\+E}~2
+\item 
+\#define \hyperlink{fmg_8c_a78f0ef4f542d6b3a3b94df0c195bf86c}{N\+P\+O\+S\+T}~3
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{fmg_8c_a8fd5d465c37d9449d018f7ae4e87c1dd}{ix} (int off, int i, int j, int k)
+\item 
+void \hyperlink{fmg_8c_aed547de0b2bb68559f197ea808690602}{mglin\+\_\+init} (int nx, int ny, int nz)
+\item 
+void \hyperlink{fmg_8c_a13698e5e22751e10b3298ac9b1470790}{mglin\+\_\+destroy} ()
+\item 
+void \hyperlink{fmg_8c_ab063bff5317de4407ed38fa1bd619108}{mglin} (double $\ast$u, int ncycle)
+\item 
+void \hyperlink{fmg_8c_a3e4016bdfa76713503683f9c13a08ca8}{rstrct} (double $\ast$$\ast$$\ast$uc, double $\ast$$\ast$$\ast$uf, int ncx, int ncy, int ncz)
+\item 
+void \hyperlink{fmg_8c_aefa08fe4619d54e138f03b6fe8bb4291}{rstrct0} (double $\ast$$\ast$$\ast$uc, double $\ast$uf, int ncx, int ncy, int ncz)
+\item 
+void \hyperlink{fmg_8c_a7a575650714d786db1f0d643e0325500}{interp} (double $\ast$$\ast$$\ast$uf, double $\ast$$\ast$$\ast$uc, int nfx, int nfy, int nfz)
+\item 
+void \hyperlink{fmg_8c_a7ad2b849925588bb3a71f321e4ff593b}{addint} (double $\ast$$\ast$$\ast$uf, double $\ast$$\ast$$\ast$uc, double $\ast$$\ast$$\ast$res, int nfx, int nfy, int nfz)
+\item 
+void \hyperlink{fmg_8c_a5ada2dc13b0f52e77c59d8969e8b0cd0}{slvsml} (double $\ast$$\ast$$\ast$u, double $\ast$$\ast$$\ast$rhs)
+\item 
+void \hyperlink{fmg_8c_aa8aeb29a5d410b5e34ccd5dbe0c48b5d}{slvsml2} (double $\ast$$\ast$$\ast$u, double $\ast$$\ast$$\ast$rhs, int nx, int ny, int nz)
+\item 
+void \hyperlink{fmg_8c_a388d1cd335b858c7fbf5ecc648f7b9a3}{relax} (double $\ast$$\ast$$\ast$u, double $\ast$$\ast$$\ast$rhs, int nx, int ny, int nz)
+\item 
+void \hyperlink{fmg_8c_a4ae6bdf7fa6c69b6125085c61133ce13}{resid} (double $\ast$$\ast$$\ast$res, double $\ast$$\ast$$\ast$u, double $\ast$$\ast$$\ast$rhs, int nx, int ny, int nz)
+\item 
+void \hyperlink{fmg_8c_acfa35c89f3572ef47c2c45206ca97703}{copy} (double $\ast$$\ast$$\ast$aout, double $\ast$$\ast$$\ast$ain, int nx, int ny, int nz)
+\item 
+void \hyperlink{fmg_8c_a29e20a12d5c0fe55af2398482fca51b1}{copy0} (double $\ast$$\ast$$\ast$aout, double $\ast$ain, int nx, int ny, int nz)
+\item 
+void \hyperlink{fmg_8c_abd138ed4fd5b51a0738cd755ce851b5d}{copyfinal} (double $\ast$aout, double $\ast$$\ast$$\ast$ain, int nx, int ny, int nz)
+\item 
+void \hyperlink{fmg_8c_a284ceaa67b07556fe0b69977b862f5df}{fill0} (double $\ast$$\ast$$\ast$u, int nx, int ny, int nz)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{fmg_8c_a78f0ef4f542d6b3a3b94df0c195bf86c}{}\index{fmg.\+c@{fmg.\+c}!N\+P\+O\+S\+T@{N\+P\+O\+S\+T}}
+\index{N\+P\+O\+S\+T@{N\+P\+O\+S\+T}!fmg.\+c@{fmg.\+c}}
+\subsubsection[{N\+P\+O\+S\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+P\+O\+S\+T~3}\label{fmg_8c_a78f0ef4f542d6b3a3b94df0c195bf86c}
+
+
+Definition at line 12 of file fmg.\+c.
+
+\hypertarget{fmg_8c_af699a49d8b13c70b728e9b8e52cf022a}{}\index{fmg.\+c@{fmg.\+c}!N\+P\+R\+E@{N\+P\+R\+E}}
+\index{N\+P\+R\+E@{N\+P\+R\+E}!fmg.\+c@{fmg.\+c}}
+\subsubsection[{N\+P\+R\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+P\+R\+E~2}\label{fmg_8c_af699a49d8b13c70b728e9b8e52cf022a}
+
+
+Definition at line 11 of file fmg.\+c.
+
+\hypertarget{fmg_8c_ac35ec264c922c9b83f2b3d79cb8f5d93}{}\index{fmg.\+c@{fmg.\+c}!N\+R\+A\+N\+S\+I@{N\+R\+A\+N\+S\+I}}
+\index{N\+R\+A\+N\+S\+I@{N\+R\+A\+N\+S\+I}!fmg.\+c@{fmg.\+c}}
+\subsubsection[{N\+R\+A\+N\+S\+I}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+R\+A\+N\+S\+I}\label{fmg_8c_ac35ec264c922c9b83f2b3d79cb8f5d93}
+
+
+Definition at line 7 of file fmg.\+c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{fmg_8c_a7ad2b849925588bb3a71f321e4ff593b}{}\index{fmg.\+c@{fmg.\+c}!addint@{addint}}
+\index{addint@{addint}!fmg.\+c@{fmg.\+c}}
+\subsubsection[{addint(double $\ast$$\ast$$\ast$uf, double $\ast$$\ast$$\ast$uc, double $\ast$$\ast$$\ast$res, int nfx, int nfy, int nfz)}]{\setlength{\rightskip}{0pt plus 5cm}void addint (
+\begin{DoxyParamCaption}
+\item[{double $\ast$$\ast$$\ast$}]{uf, }
+\item[{double $\ast$$\ast$$\ast$}]{uc, }
+\item[{double $\ast$$\ast$$\ast$}]{res, }
+\item[{int}]{nfx, }
+\item[{int}]{nfy, }
+\item[{int}]{nfz}
+\end{DoxyParamCaption}
+)}\label{fmg_8c_a7ad2b849925588bb3a71f321e4ff593b}
+
+
+Definition at line 527 of file fmg.\+c.
+
+\hypertarget{fmg_8c_acfa35c89f3572ef47c2c45206ca97703}{}\index{fmg.\+c@{fmg.\+c}!copy@{copy}}
+\index{copy@{copy}!fmg.\+c@{fmg.\+c}}
+\subsubsection[{copy(double $\ast$$\ast$$\ast$aout, double $\ast$$\ast$$\ast$ain, int nx, int ny, int nz)}]{\setlength{\rightskip}{0pt plus 5cm}void copy (
+\begin{DoxyParamCaption}
+\item[{double $\ast$$\ast$$\ast$}]{aout, }
+\item[{double $\ast$$\ast$$\ast$}]{ain, }
+\item[{int}]{nx, }
+\item[{int}]{ny, }
+\item[{int}]{nz}
+\end{DoxyParamCaption}
+)}\label{fmg_8c_acfa35c89f3572ef47c2c45206ca97703}
+
+
+Definition at line 680 of file fmg.\+c.
+
+\hypertarget{fmg_8c_a29e20a12d5c0fe55af2398482fca51b1}{}\index{fmg.\+c@{fmg.\+c}!copy0@{copy0}}
+\index{copy0@{copy0}!fmg.\+c@{fmg.\+c}}
+\subsubsection[{copy0(double $\ast$$\ast$$\ast$aout, double $\ast$ain, int nx, int ny, int nz)}]{\setlength{\rightskip}{0pt plus 5cm}void copy0 (
+\begin{DoxyParamCaption}
+\item[{double $\ast$$\ast$$\ast$}]{aout, }
+\item[{double $\ast$}]{ain, }
+\item[{int}]{nx, }
+\item[{int}]{ny, }
+\item[{int}]{nz}
+\end{DoxyParamCaption}
+)}\label{fmg_8c_a29e20a12d5c0fe55af2398482fca51b1}
+
+
+Definition at line 700 of file fmg.\+c.
+
+\hypertarget{fmg_8c_abd138ed4fd5b51a0738cd755ce851b5d}{}\index{fmg.\+c@{fmg.\+c}!copyfinal@{copyfinal}}
+\index{copyfinal@{copyfinal}!fmg.\+c@{fmg.\+c}}
+\subsubsection[{copyfinal(double $\ast$aout, double $\ast$$\ast$$\ast$ain, int nx, int ny, int nz)}]{\setlength{\rightskip}{0pt plus 5cm}void copyfinal (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{aout, }
+\item[{double $\ast$$\ast$$\ast$}]{ain, }
+\item[{int}]{nx, }
+\item[{int}]{ny, }
+\item[{int}]{nz}
+\end{DoxyParamCaption}
+)}\label{fmg_8c_abd138ed4fd5b51a0738cd755ce851b5d}
+
+
+Definition at line 713 of file fmg.\+c.
+
+\hypertarget{fmg_8c_a284ceaa67b07556fe0b69977b862f5df}{}\index{fmg.\+c@{fmg.\+c}!fill0@{fill0}}
+\index{fill0@{fill0}!fmg.\+c@{fmg.\+c}}
+\subsubsection[{fill0(double $\ast$$\ast$$\ast$u, int nx, int ny, int nz)}]{\setlength{\rightskip}{0pt plus 5cm}void fill0 (
+\begin{DoxyParamCaption}
+\item[{double $\ast$$\ast$$\ast$}]{u, }
+\item[{int}]{nx, }
+\item[{int}]{ny, }
+\item[{int}]{nz}
+\end{DoxyParamCaption}
+)}\label{fmg_8c_a284ceaa67b07556fe0b69977b862f5df}
+
+
+Definition at line 723 of file fmg.\+c.
+
+\hypertarget{fmg_8c_a7a575650714d786db1f0d643e0325500}{}\index{fmg.\+c@{fmg.\+c}!interp@{interp}}
+\index{interp@{interp}!fmg.\+c@{fmg.\+c}}
+\subsubsection[{interp(double $\ast$$\ast$$\ast$uf, double $\ast$$\ast$$\ast$uc, int nfx, int nfy, int nfz)}]{\setlength{\rightskip}{0pt plus 5cm}void interp (
+\begin{DoxyParamCaption}
+\item[{double $\ast$$\ast$$\ast$}]{uf, }
+\item[{double $\ast$$\ast$$\ast$}]{uc, }
+\item[{int}]{nfx, }
+\item[{int}]{nfy, }
+\item[{int}]{nfz}
+\end{DoxyParamCaption}
+)}\label{fmg_8c_a7a575650714d786db1f0d643e0325500}
+
+
+Definition at line 479 of file fmg.\+c.
+
+\hypertarget{fmg_8c_a8fd5d465c37d9449d018f7ae4e87c1dd}{}\index{fmg.\+c@{fmg.\+c}!ix@{ix}}
+\index{ix@{ix}!fmg.\+c@{fmg.\+c}}
+\subsubsection[{ix(int off, int i, int j, int k)}]{\setlength{\rightskip}{0pt plus 5cm}int ix (
+\begin{DoxyParamCaption}
+\item[{int}]{off, }
+\item[{int}]{i, }
+\item[{int}]{j, }
+\item[{int}]{k}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{fmg_8c_a8fd5d465c37d9449d018f7ae4e87c1dd}
+
+
+Definition at line 62 of file shortcuts.\+c.
+
+\hypertarget{fmg_8c_ab063bff5317de4407ed38fa1bd619108}{}\index{fmg.\+c@{fmg.\+c}!mglin@{mglin}}
+\index{mglin@{mglin}!fmg.\+c@{fmg.\+c}}
+\subsubsection[{mglin(double $\ast$u, int ncycle)}]{\setlength{\rightskip}{0pt plus 5cm}void mglin (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{u, }
+\item[{int}]{ncycle}
+\end{DoxyParamCaption}
+)}\label{fmg_8c_ab063bff5317de4407ed38fa1bd619108}
+
+
+Definition at line 170 of file fmg.\+c.
+
+\hypertarget{fmg_8c_a13698e5e22751e10b3298ac9b1470790}{}\index{fmg.\+c@{fmg.\+c}!mglin\+\_\+destroy@{mglin\+\_\+destroy}}
+\index{mglin\+\_\+destroy@{mglin\+\_\+destroy}!fmg.\+c@{fmg.\+c}}
+\subsubsection[{mglin\+\_\+destroy()}]{\setlength{\rightskip}{0pt plus 5cm}void mglin\+\_\+destroy (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{fmg_8c_a13698e5e22751e10b3298ac9b1470790}
+
+
+Definition at line 151 of file fmg.\+c.
+
+\hypertarget{fmg_8c_aed547de0b2bb68559f197ea808690602}{}\index{fmg.\+c@{fmg.\+c}!mglin\+\_\+init@{mglin\+\_\+init}}
+\index{mglin\+\_\+init@{mglin\+\_\+init}!fmg.\+c@{fmg.\+c}}
+\subsubsection[{mglin\+\_\+init(int nx, int ny, int nz)}]{\setlength{\rightskip}{0pt plus 5cm}void mglin\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{int}]{nx, }
+\item[{int}]{ny, }
+\item[{int}]{nz}
+\end{DoxyParamCaption}
+)}\label{fmg_8c_aed547de0b2bb68559f197ea808690602}
+
+
+Definition at line 21 of file fmg.\+c.
+
+\hypertarget{fmg_8c_a388d1cd335b858c7fbf5ecc648f7b9a3}{}\index{fmg.\+c@{fmg.\+c}!relax@{relax}}
+\index{relax@{relax}!fmg.\+c@{fmg.\+c}}
+\subsubsection[{relax(double $\ast$$\ast$$\ast$u, double $\ast$$\ast$$\ast$rhs, int nx, int ny, int nz)}]{\setlength{\rightskip}{0pt plus 5cm}void relax (
+\begin{DoxyParamCaption}
+\item[{double $\ast$$\ast$$\ast$}]{u, }
+\item[{double $\ast$$\ast$$\ast$}]{rhs, }
+\item[{int}]{nx, }
+\item[{int}]{ny, }
+\item[{int}]{nz}
+\end{DoxyParamCaption}
+)}\label{fmg_8c_a388d1cd335b858c7fbf5ecc648f7b9a3}
+
+
+Definition at line 585 of file fmg.\+c.
+
+\hypertarget{fmg_8c_a4ae6bdf7fa6c69b6125085c61133ce13}{}\index{fmg.\+c@{fmg.\+c}!resid@{resid}}
+\index{resid@{resid}!fmg.\+c@{fmg.\+c}}
+\subsubsection[{resid(double $\ast$$\ast$$\ast$res, double $\ast$$\ast$$\ast$u, double $\ast$$\ast$$\ast$rhs, int nx, int ny, int nz)}]{\setlength{\rightskip}{0pt plus 5cm}void resid (
+\begin{DoxyParamCaption}
+\item[{double $\ast$$\ast$$\ast$}]{res, }
+\item[{double $\ast$$\ast$$\ast$}]{u, }
+\item[{double $\ast$$\ast$$\ast$}]{rhs, }
+\item[{int}]{nx, }
+\item[{int}]{ny, }
+\item[{int}]{nz}
+\end{DoxyParamCaption}
+)}\label{fmg_8c_a4ae6bdf7fa6c69b6125085c61133ce13}
+
+
+Definition at line 606 of file fmg.\+c.
+
+\hypertarget{fmg_8c_a3e4016bdfa76713503683f9c13a08ca8}{}\index{fmg.\+c@{fmg.\+c}!rstrct@{rstrct}}
+\index{rstrct@{rstrct}!fmg.\+c@{fmg.\+c}}
+\subsubsection[{rstrct(double $\ast$$\ast$$\ast$uc, double $\ast$$\ast$$\ast$uf, int ncx, int ncy, int ncz)}]{\setlength{\rightskip}{0pt plus 5cm}void rstrct (
+\begin{DoxyParamCaption}
+\item[{double $\ast$$\ast$$\ast$}]{uc, }
+\item[{double $\ast$$\ast$$\ast$}]{uf, }
+\item[{int}]{ncx, }
+\item[{int}]{ncy, }
+\item[{int}]{ncz}
+\end{DoxyParamCaption}
+)}\label{fmg_8c_a3e4016bdfa76713503683f9c13a08ca8}
+
+
+Definition at line 329 of file fmg.\+c.
+
+\hypertarget{fmg_8c_aefa08fe4619d54e138f03b6fe8bb4291}{}\index{fmg.\+c@{fmg.\+c}!rstrct0@{rstrct0}}
+\index{rstrct0@{rstrct0}!fmg.\+c@{fmg.\+c}}
+\subsubsection[{rstrct0(double $\ast$$\ast$$\ast$uc, double $\ast$uf, int ncx, int ncy, int ncz)}]{\setlength{\rightskip}{0pt plus 5cm}void rstrct0 (
+\begin{DoxyParamCaption}
+\item[{double $\ast$$\ast$$\ast$}]{uc, }
+\item[{double $\ast$}]{uf, }
+\item[{int}]{ncx, }
+\item[{int}]{ncy, }
+\item[{int}]{ncz}
+\end{DoxyParamCaption}
+)}\label{fmg_8c_aefa08fe4619d54e138f03b6fe8bb4291}
+
+
+Definition at line 396 of file fmg.\+c.
+
+\hypertarget{fmg_8c_a5ada2dc13b0f52e77c59d8969e8b0cd0}{}\index{fmg.\+c@{fmg.\+c}!slvsml@{slvsml}}
+\index{slvsml@{slvsml}!fmg.\+c@{fmg.\+c}}
+\subsubsection[{slvsml(double $\ast$$\ast$$\ast$u, double $\ast$$\ast$$\ast$rhs)}]{\setlength{\rightskip}{0pt plus 5cm}void slvsml (
+\begin{DoxyParamCaption}
+\item[{double $\ast$$\ast$$\ast$}]{u, }
+\item[{double $\ast$$\ast$$\ast$}]{rhs}
+\end{DoxyParamCaption}
+)}\label{fmg_8c_a5ada2dc13b0f52e77c59d8969e8b0cd0}
+
+
+Definition at line 540 of file fmg.\+c.
+
+\hypertarget{fmg_8c_aa8aeb29a5d410b5e34ccd5dbe0c48b5d}{}\index{fmg.\+c@{fmg.\+c}!slvsml2@{slvsml2}}
+\index{slvsml2@{slvsml2}!fmg.\+c@{fmg.\+c}}
+\subsubsection[{slvsml2(double $\ast$$\ast$$\ast$u, double $\ast$$\ast$$\ast$rhs, int nx, int ny, int nz)}]{\setlength{\rightskip}{0pt plus 5cm}void slvsml2 (
+\begin{DoxyParamCaption}
+\item[{double $\ast$$\ast$$\ast$}]{u, }
+\item[{double $\ast$$\ast$$\ast$}]{rhs, }
+\item[{int}]{nx, }
+\item[{int}]{ny, }
+\item[{int}]{nz}
+\end{DoxyParamCaption}
+)}\label{fmg_8c_aa8aeb29a5d410b5e34ccd5dbe0c48b5d}
+
+
+Definition at line 550 of file fmg.\+c.
+

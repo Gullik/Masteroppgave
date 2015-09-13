@@ -1,0 +1,42 @@
+digraph "src/funct.h"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="src/funct.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="src/const.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$const_8h.html"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="src/accel.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$accel_8c.html"];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="src/collisions.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$collisions_8c.html"];
+  Node2 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="src/collisions_constant.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$collisions__constant_8c.html"];
+  Node2 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="src/diagn.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$diagn_8c.html"];
+  Node2 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="src/dustg.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$dustg_8c.html"];
+  Node2 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="src/flux.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$flux_8c.html"];
+  Node2 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="src/fmg/fmg.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$fmg_8c.html"];
+  Node2 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="src/fmg/fmg_P.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$fmg__P_8c.html"];
+  Node2 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="src/gauss.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gauss_8c.html"];
+  Node2 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="src/generate.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$generate_8c.html"];
+  Node2 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="src/grid.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$grid_8c.html"];
+  Node2 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node14 [label="src/input.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$input_8c.html"];
+  Node2 -> Node15 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node15 [label="src/main.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8c.html"];
+  Node2 -> Node16 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node16 [label="src/photons.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$photons_8c.html"];
+  Node2 -> Node17 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node17 [label="src/restart.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$restart_8c.html"];
+  Node2 -> Node18 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node18 [label="src/shortcuts.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$shortcuts_8c.html"];
+  Node2 -> Node19 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node19 [label="src/spherical.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$spherical_8c.html"];
+}

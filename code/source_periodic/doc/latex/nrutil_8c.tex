@@ -1,0 +1,436 @@
+\hypertarget{nrutil_8c}{}\section{src/fmg/nrutil.c File Reference}
+\label{nrutil_8c}\index{src/fmg/nrutil.\+c@{src/fmg/nrutil.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+Include dependency graph for nrutil.\+c\+:
+% FIG 0
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{nrutil_8c_a71212bcd68ee44b80905c37c538cecff}{N\+R\+\_\+\+E\+N\+D}~1
+\item 
+\#define \hyperlink{nrutil_8c_ae6416b4cb6bfb8e50f7c4a083d2fb745}{F\+R\+E\+E\+\_\+\+A\+R\+G}~char$\ast$
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{nrutil_8c_a210a7b2c1614a1ab2a0c4ecfa230dcd7}{nrerror} (error\+\_\+text)
+\item 
+float $\ast$ \hyperlink{nrutil_8c_a3e3ccfdcdd496df99eaa29f65fe68b31}{vector} (long nl, long nh)
+\item 
+int $\ast$ \hyperlink{nrutil_8c_af5a03b82f69c4f141f5a96720fb293c3}{ivector} (long nl, long nh)
+\item 
+unsigned char $\ast$ \hyperlink{nrutil_8c_a3f10e6e63bd119cb6cb61abb156fa53a}{cvector} (long nl, long nh)
+\item 
+unsigned long $\ast$ \hyperlink{nrutil_8c_a4d1051336abaf9dbbecffd46c2a8505f}{lvector} (long nl, long nh)
+\item 
+double $\ast$ \hyperlink{nrutil_8c_a73f5f9ece0bd0ede1affa44e28c72081}{dvector} (long nl, long nh)
+\item 
+float $\ast$$\ast$ \hyperlink{nrutil_8c_af33352ef951ad67c72c9e0780890b3d2}{matrix} (long nrl, long nrh, long ncl, long nch)
+\item 
+double $\ast$$\ast$ \hyperlink{nrutil_8c_a37bd22e1a2bf0e8b3d8ba7e768fe0b98}{dmatrix} (long nrl, long nrh, long ncl, long nch)
+\item 
+int $\ast$$\ast$ \hyperlink{nrutil_8c_ac58ea1820e6ccae946de346c1d7fae1f}{imatrix} (long nrl, long nrh, long ncl, long nch)
+\item 
+float $\ast$$\ast$ \hyperlink{nrutil_8c_a753183c4ade1dee3bb0e35373f7b2d5d}{submatrix} (float $\ast$$\ast$a, long oldrl, long oldrh, long oldcl, long oldch, long newrl, long newcl)
+\item 
+float $\ast$$\ast$ \hyperlink{nrutil_8c_adef7fb5a3d0fff6c9b1f0bf38491e99f}{convert\+\_\+matrix} (float $\ast$a, long nrl, long nrh, long ncl, long nch)
+\item 
+float $\ast$$\ast$$\ast$ \hyperlink{nrutil_8c_a8fabbd3dd42334aeff3d6db80ed8e052}{f3tensor} (long nrl, long nrh, long ncl, long nch, long ndl, long ndh)
+\item 
+double $\ast$$\ast$$\ast$ \hyperlink{nrutil_8c_ad88b8251cbbc0f65cdfc0aaba4a500b2}{d3tensor} (long nrl, long nrh, long ncl, long nch, long ndl, long ndh)
+\item 
+void \hyperlink{nrutil_8c_a20dda755d44de7f39bdbb76ea7b17d9a}{free\+\_\+vector} (float $\ast$v, long nl, long nh)
+\item 
+void \hyperlink{nrutil_8c_a15d431001f2a68ce4669efe823266e7e}{free\+\_\+ivector} (int $\ast$v, long nl, long nh)
+\item 
+void \hyperlink{nrutil_8c_adcf016abc500425950a6ca3c21bb6224}{free\+\_\+cvector} (unsigned char $\ast$v, long nl, long nh)
+\item 
+void \hyperlink{nrutil_8c_a08a014ff137c0069b371cf6b2984d810}{free\+\_\+lvector} (unsigned long $\ast$v, long nl, long nh)
+\item 
+void \hyperlink{nrutil_8c_ac7ec1a76a4b8d3d8423246676977c919}{free\+\_\+dvector} (double $\ast$v, long nl, long nh)
+\item 
+void \hyperlink{nrutil_8c_aec421eaa4e92dd89ff8daf222c5b5262}{free\+\_\+matrix} (float $\ast$$\ast$m, long nrl, long nrh, long ncl, long nch)
+\item 
+void \hyperlink{nrutil_8c_a04fbc9bc53e6303830eb4338bc1f3259}{free\+\_\+dmatrix} (double $\ast$$\ast$m, long nrl, long nrh, long ncl, long nch)
+\item 
+void \hyperlink{nrutil_8c_aefc01b3e130f9ecc15c4a376ba987bae}{free\+\_\+imatrix} (int $\ast$$\ast$m, long nrl, long nrh, long ncl, long nch)
+\item 
+void \hyperlink{nrutil_8c_a728052a325cfdd8a027f67bc9decb744}{free\+\_\+submatrix} (float $\ast$$\ast$b, long nrl, long nrh, long ncl, long nch)
+\item 
+void \hyperlink{nrutil_8c_aafd94738617b68cbed628ce14b5b9305}{free\+\_\+convert\+\_\+matrix} (float $\ast$$\ast$b, long nrl, long nrh, long ncl, long nch)
+\item 
+void \hyperlink{nrutil_8c_a95bfa1c56b72183e377378323f578516}{free\+\_\+f3tensor} (float $\ast$$\ast$$\ast$t, long nrl, long nrh, long ncl, long nch, long ndl, long ndh)
+\item 
+void \hyperlink{nrutil_8c_a3f7487a525237c0d49824acf2e899f31}{free\+\_\+d3tensor} (double $\ast$$\ast$$\ast$t, long nrl, long nrh, long ncl, long nch, long ndl, long ndh)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{nrutil_8c_ae6416b4cb6bfb8e50f7c4a083d2fb745}{}\index{nrutil.\+c@{nrutil.\+c}!F\+R\+E\+E\+\_\+\+A\+R\+G@{F\+R\+E\+E\+\_\+\+A\+R\+G}}
+\index{F\+R\+E\+E\+\_\+\+A\+R\+G@{F\+R\+E\+E\+\_\+\+A\+R\+G}!nrutil.\+c@{nrutil.\+c}}
+\subsubsection[{F\+R\+E\+E\+\_\+\+A\+R\+G}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+R\+E\+E\+\_\+\+A\+R\+G~char$\ast$}\label{nrutil_8c_ae6416b4cb6bfb8e50f7c4a083d2fb745}
+
+
+Definition at line 343 of file nrutil.\+c.
+
+\hypertarget{nrutil_8c_a71212bcd68ee44b80905c37c538cecff}{}\index{nrutil.\+c@{nrutil.\+c}!N\+R\+\_\+\+E\+N\+D@{N\+R\+\_\+\+E\+N\+D}}
+\index{N\+R\+\_\+\+E\+N\+D@{N\+R\+\_\+\+E\+N\+D}!nrutil.\+c@{nrutil.\+c}}
+\subsubsection[{N\+R\+\_\+\+E\+N\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+R\+\_\+\+E\+N\+D~1}\label{nrutil_8c_a71212bcd68ee44b80905c37c538cecff}
+
+
+Definition at line 342 of file nrutil.\+c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{nrutil_8c_adef7fb5a3d0fff6c9b1f0bf38491e99f}{}\index{nrutil.\+c@{nrutil.\+c}!convert\+\_\+matrix@{convert\+\_\+matrix}}
+\index{convert\+\_\+matrix@{convert\+\_\+matrix}!nrutil.\+c@{nrutil.\+c}}
+\subsubsection[{convert\+\_\+matrix(float $\ast$a, long nrl, long nrh, long ncl, long nch)}]{\setlength{\rightskip}{0pt plus 5cm}float$\ast$$\ast$ convert\+\_\+matrix (
+\begin{DoxyParamCaption}
+\item[{float $\ast$}]{a, }
+\item[{long}]{nrl, }
+\item[{long}]{nrh, }
+\item[{long}]{ncl, }
+\item[{long}]{nch}
+\end{DoxyParamCaption}
+)}\label{nrutil_8c_adef7fb5a3d0fff6c9b1f0bf38491e99f}
+
+
+Definition at line 509 of file nrutil.\+c.
+
+\hypertarget{nrutil_8c_a3f10e6e63bd119cb6cb61abb156fa53a}{}\index{nrutil.\+c@{nrutil.\+c}!cvector@{cvector}}
+\index{cvector@{cvector}!nrutil.\+c@{nrutil.\+c}}
+\subsubsection[{cvector(long nl, long nh)}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char$\ast$ cvector (
+\begin{DoxyParamCaption}
+\item[{long}]{nl, }
+\item[{long}]{nh}
+\end{DoxyParamCaption}
+)}\label{nrutil_8c_a3f10e6e63bd119cb6cb61abb156fa53a}
+
+
+Definition at line 379 of file nrutil.\+c.
+
+\hypertarget{nrutil_8c_ad88b8251cbbc0f65cdfc0aaba4a500b2}{}\index{nrutil.\+c@{nrutil.\+c}!d3tensor@{d3tensor}}
+\index{d3tensor@{d3tensor}!nrutil.\+c@{nrutil.\+c}}
+\subsubsection[{d3tensor(long nrl, long nrh, long ncl, long nch, long ndl, long ndh)}]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$$\ast$$\ast$ d3tensor (
+\begin{DoxyParamCaption}
+\item[{long}]{nrl, }
+\item[{long}]{nrh, }
+\item[{long}]{ncl, }
+\item[{long}]{nch, }
+\item[{long}]{ndl, }
+\item[{long}]{ndh}
+\end{DoxyParamCaption}
+)}\label{nrutil_8c_ad88b8251cbbc0f65cdfc0aaba4a500b2}
+
+
+Definition at line 570 of file nrutil.\+c.
+
+\hypertarget{nrutil_8c_a37bd22e1a2bf0e8b3d8ba7e768fe0b98}{}\index{nrutil.\+c@{nrutil.\+c}!dmatrix@{dmatrix}}
+\index{dmatrix@{dmatrix}!nrutil.\+c@{nrutil.\+c}}
+\subsubsection[{dmatrix(long nrl, long nrh, long ncl, long nch)}]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$$\ast$ dmatrix (
+\begin{DoxyParamCaption}
+\item[{long}]{nrl, }
+\item[{long}]{nrh, }
+\item[{long}]{ncl, }
+\item[{long}]{nch}
+\end{DoxyParamCaption}
+)}\label{nrutil_8c_a37bd22e1a2bf0e8b3d8ba7e768fe0b98}
+
+
+Definition at line 437 of file nrutil.\+c.
+
+\hypertarget{nrutil_8c_a73f5f9ece0bd0ede1affa44e28c72081}{}\index{nrutil.\+c@{nrutil.\+c}!dvector@{dvector}}
+\index{dvector@{dvector}!nrutil.\+c@{nrutil.\+c}}
+\subsubsection[{dvector(long nl, long nh)}]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ dvector (
+\begin{DoxyParamCaption}
+\item[{long}]{nl, }
+\item[{long}]{nh}
+\end{DoxyParamCaption}
+)}\label{nrutil_8c_a73f5f9ece0bd0ede1affa44e28c72081}
+
+
+Definition at line 401 of file nrutil.\+c.
+
+\hypertarget{nrutil_8c_a8fabbd3dd42334aeff3d6db80ed8e052}{}\index{nrutil.\+c@{nrutil.\+c}!f3tensor@{f3tensor}}
+\index{f3tensor@{f3tensor}!nrutil.\+c@{nrutil.\+c}}
+\subsubsection[{f3tensor(long nrl, long nrh, long ncl, long nch, long ndl, long ndh)}]{\setlength{\rightskip}{0pt plus 5cm}float$\ast$$\ast$$\ast$ f3tensor (
+\begin{DoxyParamCaption}
+\item[{long}]{nrl, }
+\item[{long}]{nrh, }
+\item[{long}]{ncl, }
+\item[{long}]{nch, }
+\item[{long}]{ndl, }
+\item[{long}]{ndh}
+\end{DoxyParamCaption}
+)}\label{nrutil_8c_a8fabbd3dd42334aeff3d6db80ed8e052}
+
+
+Definition at line 533 of file nrutil.\+c.
+
+\hypertarget{nrutil_8c_aafd94738617b68cbed628ce14b5b9305}{}\index{nrutil.\+c@{nrutil.\+c}!free\+\_\+convert\+\_\+matrix@{free\+\_\+convert\+\_\+matrix}}
+\index{free\+\_\+convert\+\_\+matrix@{free\+\_\+convert\+\_\+matrix}!nrutil.\+c@{nrutil.\+c}}
+\subsubsection[{free\+\_\+convert\+\_\+matrix(float $\ast$$\ast$b, long nrl, long nrh, long ncl, long nch)}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+convert\+\_\+matrix (
+\begin{DoxyParamCaption}
+\item[{float $\ast$$\ast$}]{b, }
+\item[{long}]{nrl, }
+\item[{long}]{nrh, }
+\item[{long}]{ncl, }
+\item[{long}]{nch}
+\end{DoxyParamCaption}
+)}\label{nrutil_8c_aafd94738617b68cbed628ce14b5b9305}
+
+
+Definition at line 681 of file nrutil.\+c.
+
+\hypertarget{nrutil_8c_adcf016abc500425950a6ca3c21bb6224}{}\index{nrutil.\+c@{nrutil.\+c}!free\+\_\+cvector@{free\+\_\+cvector}}
+\index{free\+\_\+cvector@{free\+\_\+cvector}!nrutil.\+c@{nrutil.\+c}}
+\subsubsection[{free\+\_\+cvector(unsigned char $\ast$v, long nl, long nh)}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+cvector (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{v, }
+\item[{long}]{nl, }
+\item[{long}]{nh}
+\end{DoxyParamCaption}
+)}\label{nrutil_8c_adcf016abc500425950a6ca3c21bb6224}
+
+
+Definition at line 622 of file nrutil.\+c.
+
+\hypertarget{nrutil_8c_a3f7487a525237c0d49824acf2e899f31}{}\index{nrutil.\+c@{nrutil.\+c}!free\+\_\+d3tensor@{free\+\_\+d3tensor}}
+\index{free\+\_\+d3tensor@{free\+\_\+d3tensor}!nrutil.\+c@{nrutil.\+c}}
+\subsubsection[{free\+\_\+d3tensor(double $\ast$$\ast$$\ast$t, long nrl, long nrh, long ncl, long nch, long ndl, long ndh)}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+d3tensor (
+\begin{DoxyParamCaption}
+\item[{double $\ast$$\ast$$\ast$}]{t, }
+\item[{long}]{nrl, }
+\item[{long}]{nrh, }
+\item[{long}]{ncl, }
+\item[{long}]{nch, }
+\item[{long}]{ndl, }
+\item[{long}]{ndh}
+\end{DoxyParamCaption}
+)}\label{nrutil_8c_a3f7487a525237c0d49824acf2e899f31}
+
+
+Definition at line 699 of file nrutil.\+c.
+
+\hypertarget{nrutil_8c_a04fbc9bc53e6303830eb4338bc1f3259}{}\index{nrutil.\+c@{nrutil.\+c}!free\+\_\+dmatrix@{free\+\_\+dmatrix}}
+\index{free\+\_\+dmatrix@{free\+\_\+dmatrix}!nrutil.\+c@{nrutil.\+c}}
+\subsubsection[{free\+\_\+dmatrix(double $\ast$$\ast$m, long nrl, long nrh, long ncl, long nch)}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+dmatrix (
+\begin{DoxyParamCaption}
+\item[{double $\ast$$\ast$}]{m, }
+\item[{long}]{nrl, }
+\item[{long}]{nrh, }
+\item[{long}]{ncl, }
+\item[{long}]{nch}
+\end{DoxyParamCaption}
+)}\label{nrutil_8c_a04fbc9bc53e6303830eb4338bc1f3259}
+
+
+Definition at line 655 of file nrutil.\+c.
+
+\hypertarget{nrutil_8c_ac7ec1a76a4b8d3d8423246676977c919}{}\index{nrutil.\+c@{nrutil.\+c}!free\+\_\+dvector@{free\+\_\+dvector}}
+\index{free\+\_\+dvector@{free\+\_\+dvector}!nrutil.\+c@{nrutil.\+c}}
+\subsubsection[{free\+\_\+dvector(double $\ast$v, long nl, long nh)}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+dvector (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{v, }
+\item[{long}]{nl, }
+\item[{long}]{nh}
+\end{DoxyParamCaption}
+)}\label{nrutil_8c_ac7ec1a76a4b8d3d8423246676977c919}
+
+
+Definition at line 638 of file nrutil.\+c.
+
+\hypertarget{nrutil_8c_a95bfa1c56b72183e377378323f578516}{}\index{nrutil.\+c@{nrutil.\+c}!free\+\_\+f3tensor@{free\+\_\+f3tensor}}
+\index{free\+\_\+f3tensor@{free\+\_\+f3tensor}!nrutil.\+c@{nrutil.\+c}}
+\subsubsection[{free\+\_\+f3tensor(float $\ast$$\ast$$\ast$t, long nrl, long nrh, long ncl, long nch, long ndl, long ndh)}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+f3tensor (
+\begin{DoxyParamCaption}
+\item[{float $\ast$$\ast$$\ast$}]{t, }
+\item[{long}]{nrl, }
+\item[{long}]{nrh, }
+\item[{long}]{ncl, }
+\item[{long}]{nch, }
+\item[{long}]{ndl, }
+\item[{long}]{ndh}
+\end{DoxyParamCaption}
+)}\label{nrutil_8c_a95bfa1c56b72183e377378323f578516}
+
+
+Definition at line 689 of file nrutil.\+c.
+
+\hypertarget{nrutil_8c_aefc01b3e130f9ecc15c4a376ba987bae}{}\index{nrutil.\+c@{nrutil.\+c}!free\+\_\+imatrix@{free\+\_\+imatrix}}
+\index{free\+\_\+imatrix@{free\+\_\+imatrix}!nrutil.\+c@{nrutil.\+c}}
+\subsubsection[{free\+\_\+imatrix(int $\ast$$\ast$m, long nrl, long nrh, long ncl, long nch)}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+imatrix (
+\begin{DoxyParamCaption}
+\item[{int $\ast$$\ast$}]{m, }
+\item[{long}]{nrl, }
+\item[{long}]{nrh, }
+\item[{long}]{ncl, }
+\item[{long}]{nch}
+\end{DoxyParamCaption}
+)}\label{nrutil_8c_aefc01b3e130f9ecc15c4a376ba987bae}
+
+
+Definition at line 664 of file nrutil.\+c.
+
+\hypertarget{nrutil_8c_a15d431001f2a68ce4669efe823266e7e}{}\index{nrutil.\+c@{nrutil.\+c}!free\+\_\+ivector@{free\+\_\+ivector}}
+\index{free\+\_\+ivector@{free\+\_\+ivector}!nrutil.\+c@{nrutil.\+c}}
+\subsubsection[{free\+\_\+ivector(int $\ast$v, long nl, long nh)}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+ivector (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{v, }
+\item[{long}]{nl, }
+\item[{long}]{nh}
+\end{DoxyParamCaption}
+)}\label{nrutil_8c_a15d431001f2a68ce4669efe823266e7e}
+
+
+Definition at line 614 of file nrutil.\+c.
+
+\hypertarget{nrutil_8c_a08a014ff137c0069b371cf6b2984d810}{}\index{nrutil.\+c@{nrutil.\+c}!free\+\_\+lvector@{free\+\_\+lvector}}
+\index{free\+\_\+lvector@{free\+\_\+lvector}!nrutil.\+c@{nrutil.\+c}}
+\subsubsection[{free\+\_\+lvector(unsigned long $\ast$v, long nl, long nh)}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+lvector (
+\begin{DoxyParamCaption}
+\item[{unsigned long $\ast$}]{v, }
+\item[{long}]{nl, }
+\item[{long}]{nh}
+\end{DoxyParamCaption}
+)}\label{nrutil_8c_a08a014ff137c0069b371cf6b2984d810}
+
+
+Definition at line 630 of file nrutil.\+c.
+
+\hypertarget{nrutil_8c_aec421eaa4e92dd89ff8daf222c5b5262}{}\index{nrutil.\+c@{nrutil.\+c}!free\+\_\+matrix@{free\+\_\+matrix}}
+\index{free\+\_\+matrix@{free\+\_\+matrix}!nrutil.\+c@{nrutil.\+c}}
+\subsubsection[{free\+\_\+matrix(float $\ast$$\ast$m, long nrl, long nrh, long ncl, long nch)}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+matrix (
+\begin{DoxyParamCaption}
+\item[{float $\ast$$\ast$}]{m, }
+\item[{long}]{nrl, }
+\item[{long}]{nrh, }
+\item[{long}]{ncl, }
+\item[{long}]{nch}
+\end{DoxyParamCaption}
+)}\label{nrutil_8c_aec421eaa4e92dd89ff8daf222c5b5262}
+
+
+Definition at line 646 of file nrutil.\+c.
+
+\hypertarget{nrutil_8c_a728052a325cfdd8a027f67bc9decb744}{}\index{nrutil.\+c@{nrutil.\+c}!free\+\_\+submatrix@{free\+\_\+submatrix}}
+\index{free\+\_\+submatrix@{free\+\_\+submatrix}!nrutil.\+c@{nrutil.\+c}}
+\subsubsection[{free\+\_\+submatrix(float $\ast$$\ast$b, long nrl, long nrh, long ncl, long nch)}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+submatrix (
+\begin{DoxyParamCaption}
+\item[{float $\ast$$\ast$}]{b, }
+\item[{long}]{nrl, }
+\item[{long}]{nrh, }
+\item[{long}]{ncl, }
+\item[{long}]{nch}
+\end{DoxyParamCaption}
+)}\label{nrutil_8c_a728052a325cfdd8a027f67bc9decb744}
+
+
+Definition at line 673 of file nrutil.\+c.
+
+\hypertarget{nrutil_8c_a20dda755d44de7f39bdbb76ea7b17d9a}{}\index{nrutil.\+c@{nrutil.\+c}!free\+\_\+vector@{free\+\_\+vector}}
+\index{free\+\_\+vector@{free\+\_\+vector}!nrutil.\+c@{nrutil.\+c}}
+\subsubsection[{free\+\_\+vector(float $\ast$v, long nl, long nh)}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+vector (
+\begin{DoxyParamCaption}
+\item[{float $\ast$}]{v, }
+\item[{long}]{nl, }
+\item[{long}]{nh}
+\end{DoxyParamCaption}
+)}\label{nrutil_8c_a20dda755d44de7f39bdbb76ea7b17d9a}
+
+
+Definition at line 606 of file nrutil.\+c.
+
+\hypertarget{nrutil_8c_ac58ea1820e6ccae946de346c1d7fae1f}{}\index{nrutil.\+c@{nrutil.\+c}!imatrix@{imatrix}}
+\index{imatrix@{imatrix}!nrutil.\+c@{nrutil.\+c}}
+\subsubsection[{imatrix(long nrl, long nrh, long ncl, long nch)}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$$\ast$ imatrix (
+\begin{DoxyParamCaption}
+\item[{long}]{nrl, }
+\item[{long}]{nrh, }
+\item[{long}]{ncl, }
+\item[{long}]{nch}
+\end{DoxyParamCaption}
+)}\label{nrutil_8c_ac58ea1820e6ccae946de346c1d7fae1f}
+
+
+Definition at line 462 of file nrutil.\+c.
+
+\hypertarget{nrutil_8c_af5a03b82f69c4f141f5a96720fb293c3}{}\index{nrutil.\+c@{nrutil.\+c}!ivector@{ivector}}
+\index{ivector@{ivector}!nrutil.\+c@{nrutil.\+c}}
+\subsubsection[{ivector(long nl, long nh)}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ ivector (
+\begin{DoxyParamCaption}
+\item[{long}]{nl, }
+\item[{long}]{nh}
+\end{DoxyParamCaption}
+)}\label{nrutil_8c_af5a03b82f69c4f141f5a96720fb293c3}
+
+
+Definition at line 368 of file nrutil.\+c.
+
+\hypertarget{nrutil_8c_a4d1051336abaf9dbbecffd46c2a8505f}{}\index{nrutil.\+c@{nrutil.\+c}!lvector@{lvector}}
+\index{lvector@{lvector}!nrutil.\+c@{nrutil.\+c}}
+\subsubsection[{lvector(long nl, long nh)}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long$\ast$ lvector (
+\begin{DoxyParamCaption}
+\item[{long}]{nl, }
+\item[{long}]{nh}
+\end{DoxyParamCaption}
+)}\label{nrutil_8c_a4d1051336abaf9dbbecffd46c2a8505f}
+
+
+Definition at line 390 of file nrutil.\+c.
+
+\hypertarget{nrutil_8c_af33352ef951ad67c72c9e0780890b3d2}{}\index{nrutil.\+c@{nrutil.\+c}!matrix@{matrix}}
+\index{matrix@{matrix}!nrutil.\+c@{nrutil.\+c}}
+\subsubsection[{matrix(long nrl, long nrh, long ncl, long nch)}]{\setlength{\rightskip}{0pt plus 5cm}float$\ast$$\ast$ matrix (
+\begin{DoxyParamCaption}
+\item[{long}]{nrl, }
+\item[{long}]{nrh, }
+\item[{long}]{ncl, }
+\item[{long}]{nch}
+\end{DoxyParamCaption}
+)}\label{nrutil_8c_af33352ef951ad67c72c9e0780890b3d2}
+
+
+Definition at line 412 of file nrutil.\+c.
+
+\hypertarget{nrutil_8c_a210a7b2c1614a1ab2a0c4ecfa230dcd7}{}\index{nrutil.\+c@{nrutil.\+c}!nrerror@{nrerror}}
+\index{nrerror@{nrerror}!nrutil.\+c@{nrutil.\+c}}
+\subsubsection[{nrerror(error\+\_\+text)}]{\setlength{\rightskip}{0pt plus 5cm}void nrerror (
+\begin{DoxyParamCaption}
+\item[{error\+\_\+text}]{}
+\end{DoxyParamCaption}
+)}\label{nrutil_8c_a210a7b2c1614a1ab2a0c4ecfa230dcd7}
+
+
+Definition at line 345 of file nrutil.\+c.
+
+\hypertarget{nrutil_8c_a753183c4ade1dee3bb0e35373f7b2d5d}{}\index{nrutil.\+c@{nrutil.\+c}!submatrix@{submatrix}}
+\index{submatrix@{submatrix}!nrutil.\+c@{nrutil.\+c}}
+\subsubsection[{submatrix(float $\ast$$\ast$a, long oldrl, long oldrh, long oldcl, long oldch, long newrl, long newcl)}]{\setlength{\rightskip}{0pt plus 5cm}float$\ast$$\ast$ submatrix (
+\begin{DoxyParamCaption}
+\item[{float $\ast$$\ast$}]{a, }
+\item[{long}]{oldrl, }
+\item[{long}]{oldrh, }
+\item[{long}]{oldcl, }
+\item[{long}]{oldch, }
+\item[{long}]{newrl, }
+\item[{long}]{newcl}
+\end{DoxyParamCaption}
+)}\label{nrutil_8c_a753183c4ade1dee3bb0e35373f7b2d5d}
+
+
+Definition at line 488 of file nrutil.\+c.
+
+\hypertarget{nrutil_8c_a3e3ccfdcdd496df99eaa29f65fe68b31}{}\index{nrutil.\+c@{nrutil.\+c}!vector@{vector}}
+\index{vector@{vector}!nrutil.\+c@{nrutil.\+c}}
+\subsubsection[{vector(long nl, long nh)}]{\setlength{\rightskip}{0pt plus 5cm}float$\ast$ vector (
+\begin{DoxyParamCaption}
+\item[{long}]{nl, }
+\item[{long}]{nh}
+\end{DoxyParamCaption}
+)}\label{nrutil_8c_a3e3ccfdcdd496df99eaa29f65fe68b31}
+
+
+Definition at line 357 of file nrutil.\+c.
+
