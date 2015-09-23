@@ -9,7 +9,8 @@ SOURCES += \
     ../src/*.cpp \
     ../src/mg/*.c \
     ../src/mg/*.cpp \
-    ../src/mg/*.h
+    ../src/mg/*.h \
+    ../src/shortcut.c
 
 
 

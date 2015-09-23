@@ -27,7 +27,6 @@ int main(int argc, char *argv[])
     if(rank==0)
         history=my_file_open("./data/history.dat", "a");
     
-    
     /*Initialize MPI*/
     numtasks=1;
     rank=0;
@@ -40,7 +39,6 @@ int main(int argc, char *argv[])
     if(rank==0)
         printf("DiP3D, Dust in Plasma 3D simulation\n Author: Wojciech J. Miloch\n");
 
-    exit(0);
     
 #ifdef EPRO
     if(rank==0)
@@ -56,6 +54,8 @@ int main(int argc, char *argv[])
 #endif
     if(rank==0)
         printf("Program is in the mode for an insulator/conductor type dust particles\n\n");
+
+
     
 #ifdef BEAM
     if(rank==0)
@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
     /*************************INPUT ********************/
     if(rank==0)
         convert(); //input.c - convert input file
-    
+
 #ifdef MPI
     MPI_Barrier(MPI_COMM_WORLD); //wait until the file is converted
 #endif
@@ -104,6 +104,10 @@ int main(int argc, char *argv[])
     collisions_init();
     if(rank==0)
         mglin_init(ngx,ngy,ngz); //initialize field solver
+
+    if(rank==0)
+        printf(" grid lengths are %d", ngx);
+    exit(0);
     
     //for each probe potential do the following
 #ifdef EPRO
@@ -169,8 +173,11 @@ int main(int argc, char *argv[])
             cleargrid(); //grid.c -cleargrid,new poten. on probe
             weighting1(); //grid.c - linear weightning
             weightingdust1(1);
+
+            printf("\n Ending right before the MG linear is run \n");
+            exit(0);
             
-            //		  	printf("parameters irho ngrid %E\n", irho[6][1][1][1]);
+//            		  	printf("parameters irho ngrid %E\n", irho[6][1][1][1]);
 #ifdef MPI
             MPI_Barrier(MPI_COMM_WORLD);
             printf("rank %d reducing density\n", rank);
@@ -189,6 +196,10 @@ int main(int argc, char *argv[])
             if(rank==0)
                 timeend=(int)(tmax/dt);
             //MPI BROADCAST ELECTRIC FIELD DATA HERE
+            printf("\n Ending after the MG linear is run \n");
+            exit(0);
+
+
 #ifdef MPI
             MPI_Bcast(Fs,FsMAX,MPI_DOUBLE,0,MPI_COMM_WORLD);
             MPI_Bcast(&timeend,1,MPI_INT,0,MPI_COMM_WORLD);

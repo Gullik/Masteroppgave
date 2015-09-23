@@ -5,31 +5,33 @@
 ##      2015
 ##
 
-CC = gcc
+CC = mpicc
 EXEC = MGSOLVER
 
 CFLAGS_TRI=-UDEBUG -DSTANDALONE -UCLOCK\
 	   -I$(inclpath) -L/lib/pa1.1 -g -I.
-inclpath = ./mg
+
+DEPS = const.h nrutil.h funct.h
+
 
 LIBS = -lm
 
 OBJECTS= main.o \
-		./mg/hellofunc.o \
+		shortcut.o \
+		input.o \
+		dustg.o \
 		./mg/fmg_P.o \
+		./mg/nrutil.o \
+
+
 
 
 $(EXEC): $(OBJECTS)
-	$(CC) $(CFLAGS) -o $(EXEC) $(OBJECTS) -I.
+	$(CC) $(CFLAGS) -o $(EXEC) $(OBJECTS) $(LIBS)
 
-main.o: main.c const.h
-	$(CC) -c main.c
+%.o: %.c $(DEPS)
+	$(CC) -c %.c
 
-hellofunc.o: ./mg/hellofunc.c
-	$(CC) -c ./mg/hellofunc.c
-
-fmg_P.o:	./mg/fmg_P.c const.h
-		$(CC) -c $(CFLAGS) ./mg/fmg_P.c
 
 
 clean:
