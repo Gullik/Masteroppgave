@@ -11,7 +11,7 @@ EXEC=   dust$(FILE_EXT)
 CC = mpicc
 ##
 ##
-CFLAGS= -DINSU $(CFLAGS_TRI) -Wall -DBEAM -DPERIODIC 
+CFLAGS= -DINSU $(CFLAGS_TRI) -Wall -DBEAM -DPERIODIC -DMPI
 #-DMPI
 #-Wall 
 #-DMPI
@@ -120,6 +120,7 @@ spherical.o:	spherical.c const.h funct.h
 		$(CC) -c $(CFLAGS) spherical.c
 collisions_constant.o:	collisions_constant.c const.h funct.h
 		$(CC) -c $(CFLAGS) collisions_constant.c
+		
 #########TRIANGULATION
 #monotone.o:	$(inclpath)/monotone.c $(inclpath)/triangulate.h
 #		$(CC) -c $(CFLAGS_TRI) $(CFLAGS) $(inclpath)/monotone.c

@@ -9,29 +9,39 @@
  *
    Gullik Vetvik Killie, 2015*/
 
+
 #include "const.h"
 
 
 int main(int argc, char *argv[]) {
 
-    /*Initialize MPI*/
-    int numtasks=1;
-    int rank=0;
-#ifdef MPI
-    MPI_Init(&argc, &argv);
-    MPI_Comm_size(MPI_COMM_WORLD, &numtasks); //no of processesors
-    MPI_Comm_rank(MPI_COMM_WORLD, &rank); //numbers of processes
-#endif
-
-    if(rank==0)
-        printf("DiP3D, Running only MG-part \n");
-    if(rank==0)
-        convert();
 
 
-//    if(rank == 0)
-//        mglin_init();
+    //input.c
+    convert();                  //Reading input parameters
+    readdata(argc, argv);       //nGridPoints ->  ngx, ngy, ngz
 
+    //grid.c
+    memorygrid();               //Clearing memory for ***rho
+
+    //mg/fmg_P.c
+    mglin_init(ngx, ngy, ngz);  //
+
+    /***************Now I think I have what I need ********************/
+    /* Time to assign a potential field and try to use the MG solver  */
+    printf("# of grid points in each direction: %d \n ", ngx);
+
+    int nPoints = ngx*ngy*ngz;  //Number of grid points
+    int i;
+
+
+    rho = dvecmem(0, nPoints - 1 );
+
+    for(i = 0; i < nPoints ; i++)
+        rho[i] = 1;
+
+    /********* Let's try to us it **********/
+    mglin(rho, NCYCLES);
 
     return(0);
 }

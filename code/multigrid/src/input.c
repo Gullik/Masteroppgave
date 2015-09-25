@@ -9,6 +9,7 @@
 /*function converting the intput.txt file into program readable file*/  
 void convert(void)
 {
+
     FILE *open, *write;
     char l;
     open=my_file_open("input.txt", "r");
@@ -38,9 +39,9 @@ void readdata(int arc, char *arv[])
     double vxmax,vxmax1,vymax,vymax1,vzmax,vzmax1;
 
 
-    open=my_file_open("./src/newfile.dat", "r");
+    open=my_file_open("./newfile.dat", "r");
     if(rank==0)
-        write=my_file_open("./data/print.txt", "w");
+        write=my_file_open("../data/print.txt", "w");
 
     fscanf(open,"%lf", &Lx);
     if(rank==0)
@@ -60,6 +61,7 @@ void readdata(int arc, char *arv[])
         }
         exit(-1);
     }
+
     fscanf(open, "%d", &ngx);
     fscanf(open, "%d", &ngy);
     fscanf(open, "%d", &ngz);
@@ -68,6 +70,8 @@ void readdata(int arc, char *arv[])
 
     if(rank==0)
         fprintf(write,"Number of grid points:\n x direction: %d\n y direction: %d\n z direction: %d\n", ngx,ngy,ngz);
+
+
 
     if(ngx>ngx_MAX)
     {
@@ -124,6 +128,10 @@ void readdata(int arc, char *arv[])
     fscanf(open,"%lf", &vdriftx[1]);
     fscanf(open, "%lf", &ti2te);
     ti2te=1.0/ti2te;
+
+
+
+
 #ifdef BEAM
     /*reading ion beam*/
     fscanf(open, "%lf", &vdriftx[2]);
@@ -139,6 +147,8 @@ void readdata(int arc, char *arv[])
     fscanf(open,"%lf", &ph_flux);
     fscanf(open,"%lf", &ph_angle);
     fscanf(open,"%lf", &ph_energy);
+
+
     if(ph_flux != 0)
         photons=1;
     else
@@ -152,11 +162,13 @@ void readdata(int arc, char *arv[])
     {
         fscanf(open,"%d %d", &diagint_st[i], &diagint_av[i]);
         //temporary check in input.c
-        printf("%d\n",diagint_st[i]);
+//        printf("%d\n",diagint_st[i]);
     }
 
     /*set some parameters*/
     allpart=0;
+
+
 
     //DUST VOLUME
     dustvolume=finddustvolume(arc,arv)*dx*dy*dz;
@@ -248,6 +260,9 @@ void readdata(int arc, char *arv[])
     tempz[1]=mass[1]*vthz[1]*vthz[1];
     Npio=dens[1]*pow(debye[1],3)/ratio; //plasma parameter, sim part
 
+
+
+
     /************BEAM**************/
 #ifdef BEAM
     /*calculating and printing ion beam*/
@@ -298,7 +313,6 @@ void readdata(int arc, char *arv[])
 #endif
     /**************BEAM END**********/
 
-
     /*change for simulation particles and add all particles*/
     for(i=0; i<S; i++)
     {
@@ -347,6 +361,7 @@ void readdata(int arc, char *arv[])
         if(rank==0){
             printf("vdrift[%d]: %E and in Cs: %E\n", i,vdriftx[i],vdriftx[i]/Cs);
             printf("vxmax[%d]: dx/dt %E vs %E\n", i,dx/dt,vxmax);
+
         }
 
         if((dx/dt)<=(vxmax))
