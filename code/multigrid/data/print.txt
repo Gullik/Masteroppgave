@@ -1,0 +1,65 @@
+System dimension, Lx:	 0.500000 m
+System dimension, Ly:	 0.500000 m
+System dimension, Lz:	 0.500000 m
+Number of grid points:
+ x direction: 65
+ y direction: 65
+ z direction: 65
+Grid spacing dx:7.812500E-03 m
+Grid spacing dy:0.007812 m
+Grid spacing dz:7.812500E-03
+Time step dt:7.000000E-10  s 
+Time max:    6.730000E-05  s 
+
+
+INPUT PARAMETERS for electrons (3D system) 0
+Charge               	 -1.602189E-19 C
+Charge to mass ratio 	 -1.758500E+11 C/kg
+Mass                 	 9.111112E-31 kg
+Plasma frequency:    	 1.261372E+08 1/s
+Debye length:        	 9.760000E-03 m
+Thermal velocity x:  	 1.231099E+06 m/s
+Thermal velocity y:  	 1.231099E+06 m/s
+Thermal velocity z:  	 1.231099E+06 m/s
+Temperature x:       	 8.618742E+00 eV
+Temperature y:       	 8.618742E+00 eV
+Temperature z:       	 8.618742E+00 eV
+Drift vel. in x dir: 	 0.000000E+00 m/s (0.000000E+00 Cs)
+Density              	 5.000000E+12 1/m3
+Charge density       	 -8.010945E-07 1/m3
+Plasma number, Np:   	 3.718857E+01 
+No. of sim. particles	 5000000 
+Plasma/Simulation particles pr species:1.250000E+05
+
+
+INPUT PARAMETERS for ions (3D system) 1
+Charges              	 1.602189E-19 C 
+Charge to mass ratio 	 3.520000E+08 C/kg 
+Mass                 	 4.551673E-28 kg
+Plasma frequency:    	 5.643434E+06 1/s
+Debye length:        	 4.880000E-03 m
+Thermal velocity x:  	 2.753996E+04 m/s
+Thermal velocity y:  	 2.753996E+04 m/s
+Thermal velocity z:  	 2.753996E+04 m/s
+Temperature x:		 2.154685E+00 eV
+Temperature y:       	 2.154685E+00 eV
+Temperature z:       	 2.154685E+00 eV
+Drift vel. in x dir: 	 0.000000E+00 m/s (0.000000E+00 Cs) 
+Density              	 5.000000E+12 1/m3
+Charge density       	 8.010945E-07 1/m3
+Plasma number, Np:   	 4.648571E+00 
+No. of sim. particles	 5000000 
+Plasma/Simulation particles pr species:	1.250000E+05 
+
+Particles per cell 3.814697E+01
+
+Electrons per cell 1.907349E+01
+Floating potential -3.275143E+01
+Total debye length 4.364805E-03
+Plasma number, Np  3.326247E+00
+Cs (adiabatic ions) 6.555821E+04 [m/s]
+PROBE potential: initial:0.000000 V, final: 2.000000 V, step: -0.010000 V
+
+BOUNDARY potential: 0.010000 V
+TOLERANCE for Poisson's equation solver: 5.000000E-02
+Tolerance for the floating potential (conductor): 0.000000E+00
