@@ -31,6 +31,7 @@ int main(int argc, char *argv[])
     numtasks=1;
     rank=0;
 #ifdef MPI 
+	exit(0);
     MPI_Init(&argc, &argv);
     MPI_Comm_size(MPI_COMM_WORLD, &numtasks); //no of processesors
     MPI_Comm_rank(MPI_COMM_WORLD, &rank); //numbers of processes
@@ -66,13 +67,15 @@ int main(int argc, char *argv[])
     if(rank==0)
         convert(); //input.c - convert input file
 
+   
+
 #ifdef MPI
     MPI_Barrier(MPI_COMM_WORLD); //wait until the file is converted
 #endif
     readdata(argc, argv); //input.c - read input param,setvariables
     printf("Rank %d, Initialization: I read the input data, now proceed with the flux calculation\n", rank);
     calculate_flux(); //flux.c - calcul. flux via boundaries on nodes 1,2,3..
-    
+	   
     /*************************GENERATE ********************/
     memorygrid(); //grid.c - allocate memory for the grid
     normalize(); //grid.c - normalize and find norm factors
@@ -80,6 +83,8 @@ int main(int argc, char *argv[])
     //  if(photons) //NO PHOTONS YET , simple mode
     //   photonflux();
     gen_boundaries(); //grid.c - generate boundaries
+
+    
     
     init_primeroot(rank/(numtasks*1.0));
 #ifndef RESTART  
@@ -104,10 +109,8 @@ int main(int argc, char *argv[])
     collisions_init();
     if(rank==0)
         mglin_init(ngx,ngy,ngz); //initialize field solver
+	
 
-    if(rank==0)
-        printf(" grid lengths are %d", ngx);
-    exit(0);
     
     //for each probe potential do the following
 #ifdef EPRO
@@ -160,24 +163,29 @@ int main(int argc, char *argv[])
             if((numtasks>1 && rank!=0)||(numtasks==1 && rank==0))
 #ifndef RESTART
                 //3D starts from here
-                
-                
+      
                 gen_bgnd(); // generate.c - generate background on nodes > 0 if there are, else on rank0
             //it is done soso Box Muller twice...
-            printf("\n\n Finished gen_bgnd()\n");
+            printf("\n\n Finished gen_bgnd()\n");          
 #else
-                ;
+
             //GENERATE BACKGROUND FOR EPRO AND COND, FURTHER ITERATONS AND T_INIT=0
             //IF varialbe iterationmax is greater than 1
 #endif
+
+printf("rho %f \n", rho[110]);
+
             cleargrid(); //grid.c -cleargrid,new poten. on probe
             weighting1(); //grid.c - linear weightning
             weightingdust1(1);
+		
+	    //printf("parameters irho ngrid %E\n", irho[6][1][1][1]);
+printf("rho %f \n", rho[110]);
 
             printf("\n Ending right before the MG linear is run \n");
             exit(0);
             
-//            		  	printf("parameters irho ngrid %E\n", irho[6][1][1][1]);
+
 #ifdef MPI
             MPI_Barrier(MPI_COMM_WORLD);
             printf("rank %d reducing density\n", rank);
