@@ -25,3 +25,4 @@ boker/
 *.bcf
 *.xml
 *.latexmk
+*.autosave

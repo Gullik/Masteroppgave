@@ -8,11 +8,12 @@
 CC = mpicc
 EXEC = MGSOLVER
 
-CFLAGS_TRI=-UDEBUG -DSTANDALONE -UCLOCK\
-	   -I$(inclpath) -L/lib/pa1.1 -g -I.
+CFLAGS= -UDEBUG -DSTANDALONE -UCLOCK -DPERIODIC\
+## Flags
+# -DMPI 		~Must be switched on to use MPI properly
+
 
 DEPS = const.h nrutil.h funct.h
-
 
 LIBS = -lm
 
@@ -20,19 +21,16 @@ OBJECTS= main.o \
 		shortcut.o \
 		input.o \
 		dustg.o \
+		grid.o \
 		./mg/fmg_P.o \
 		./mg/nrutil.o \
-
-
 
 
 $(EXEC): $(OBJECTS)
 	$(CC) $(CFLAGS) -o $(EXEC) $(OBJECTS) $(LIBS)
 
 %.o: %.c $(DEPS)
-	$(CC) -c %.c
-
-
+	$(CC) -c $(CFLAGS) %.c
 
 clean:
 	rm -f *~ \#* $(MGOBJECTS) $(EXEC)

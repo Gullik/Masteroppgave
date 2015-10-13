@@ -107,7 +107,7 @@ void mglin_init(int nx, int ny, int nz)
 
         fmg_ng=ng;
     }
-    printf("mglin init (excluding ghost points): ng %d mingrid %d and %d and %d  nnx %d %d %d\n", fmg_ng, fmg_mingridx, fmg_mingridy, fmg_mingridz, fmg_nnx, fmg_nny, fmg_nnz);
+    printf("mglin init (excluding ghost points): #Grids %d minGrid %d %d %d  maxGrid %d %d %d\n", fmg_ng, fmg_mingridx, fmg_mingridy, fmg_mingridz, fmg_nnx, fmg_nny, fmg_nnz);
     if (fmg_ng > NGMAX) nrerror("increase NGMAX in mglin.");
 
     // allocate memory for grid arrays

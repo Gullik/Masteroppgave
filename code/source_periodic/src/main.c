@@ -30,17 +30,20 @@ int main(int argc, char *argv[])
     /*Initialize MPI*/
     numtasks=1;
     rank=0;
+<<<<<<< HEAD
 #ifdef MPI 
 	exit(0);
+=======
+#ifdef MPI
+>>>>>>> f975143a592d83f8ce49d958e45b731512a655c4
     MPI_Init(&argc, &argv);
     MPI_Comm_size(MPI_COMM_WORLD, &numtasks); //no of processesors
     MPI_Comm_rank(MPI_COMM_WORLD, &rank); //numbers of processes
 #endif
-    
+
     if(rank==0)
         printf("DiP3D, Dust in Plasma 3D simulation\n Author: Wojciech J. Miloch\n");
 
-    
 #ifdef EPRO
     if(rank==0)
         printf("Program is in the mode for a biased probe\n\n");
@@ -61,7 +64,7 @@ int main(int argc, char *argv[])
 #ifdef BEAM
     if(rank==0)
         printf("!!!There is an additional ion beam!!!\n !!!Check if you use the proper input file!!!\n");
-#endif  
+#endif
     
     /*************************INPUT ********************/
     if(rank==0)
