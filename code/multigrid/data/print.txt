@@ -2,12 +2,12 @@ System dimension, Lx:	 0.500000 m
 System dimension, Ly:	 0.500000 m
 System dimension, Lz:	 0.500000 m
 Number of grid points:
- x direction: 65
- y direction: 65
- z direction: 65
-Grid spacing dx:7.812500E-03 m
-Grid spacing dy:0.007812 m
-Grid spacing dz:7.812500E-03
+ x direction: 10
+ y direction: 10
+ z direction: 10
+Grid spacing dx:5.555556E-02 m
+Grid spacing dy:0.055556 m
+Grid spacing dz:5.555556E-02
 Time step dt:7.000000E-10  s 
 Time max:    6.730000E-05  s 
 
@@ -51,9 +51,9 @@ Plasma number, Np:   	 4.648571E+00
 No. of sim. particles	 5000000 
 Plasma/Simulation particles pr species:	1.250000E+05 
 
-Particles per cell 3.814697E+01
+Particles per cell 1.371742E+04
 
-Electrons per cell 1.907349E+01
+Electrons per cell 6.858711E+03
 Floating potential -3.275143E+01
 Total debye length 4.364805E-03
 Plasma number, Np  3.326247E+00

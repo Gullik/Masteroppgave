@@ -397,7 +397,14 @@ void mglin(double *u, int ncycle)
                 }
             }
         }
+        
         printf("finished the fmg solver and now copying final\n");
+        /*
+        printf("\n");
+        printf("The input is iu[nGrid][i][j][k] = iu[%d][%d][%d][%d]  \n",  j-1, zi, zj,zk );
+        printf("%E\t", iu[6][10][10][10]);
+        printf("ngrid is %d \n ", ngrid);
+        printf("\n \n");*/
         copyfinal(phi,iu[ngrid],fmg_nnx,fmg_nny,fmg_nnz);
     }
     else
@@ -1263,7 +1270,13 @@ void copy0(double ***aout, double *ain, int nx, int ny, int nz)
 /*3D*/
 void copyfinal(double *aout, double ***ain, int nx, int ny, int nz)
 {
+    /*  
+        This function takes the 3D matrix ***ain that represents the grid with ghost points
+        and nx, ny, nz which is the #grid points
+        It then shifts the matrix so that the ghost points are removed and return a single 
+        row vector *aout(ix(0,i,j,x)) representing the grid
 
+    */
     int i,j,k;
 
     for(i=0; i<ny+1; i++)

@@ -32,16 +32,35 @@ int main(int argc, char *argv[]) {
     printf("# of grid points in each direction: %d \n ", ngx);
 
     int nPoints = ngx*ngy*ngz;  //Number of grid points
-    int i;
+    int i, j, k;
 
 
     rho = dvecmem(0, nPoints - 1 );
 
     for(i = 0; i < nPoints ; i++)
-        rho[i] = 1;
+        rho[i] = 1.;
 
     /********* Let's try to us it **********/
     mglin(rho, NCYCLES);
+
+
+    FILE * write;
+    char const * data_path_test = "../testdata/hello.xyz";
+    write = my_file_open(data_path_test, "w");
+
+    fprintf(write , "5 \nElement \t x \t y \t z \n");
+
+    for( i = 0; i < ngx; i++)
+    {
+        for(j = 0; j < ngy ; j ++)
+        {
+            for( k = 0; k < ngy; k++)
+            {
+                fprintf( write , "A \t %f \t %f \t %f\n", i*dx, j*dy, k*dz );
+            }
+        }
+    }
+
 
     return(0);
 }

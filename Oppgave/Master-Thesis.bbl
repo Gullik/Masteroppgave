@@ -52,6 +52,52 @@
       \verb http://books.google.com/books?hl=en%5C&amp;lr=%5C&amp;id=AWpK2nkpifcC%5C&amp;oi=fnd%5C&amp;pg=PA179%5C&amp;dq=A+Survey+of+Parallelization+Techniques+for+Multigrid+Solvers%5C&amp;ots=oFmixPekds%5C&amp;sig=XLZ-P0p8q97Tp8JeggZT3rbqd8A
       \endverb
     \endentry
+    \entry{Kacem2012}{article}{}
+      \name{labelname}{6}{}{%
+        {{uniquename=0,hash=8c51448cd8f852c00295cabfd6d8e440}{Kacem}{K\bibinitperiod}{S.}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=7d0847d99ecae6f7a8f9041d50288db5}{Eichwald}{E\bibinitperiod}{O.}{O\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=81cb440f7766d2f46e2af25178d1e5e2}{Ducasse}{D\bibinitperiod}{O.}{O\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9308e3657e0f57851974ac833aa82a06}{Renon}{R\bibinitperiod}{N.}{N\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=8d3a56a0e6ef3bf2d02796f80af63f2d}{Yousfi}{Y\bibinitperiod}{M.}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=8cb68c61c9d52f8404a1047062d547af}{Charrada}{C\bibinitperiod}{K.}{K\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{6}{}{%
+        {{uniquename=0,hash=8c51448cd8f852c00295cabfd6d8e440}{Kacem}{K\bibinitperiod}{S.}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=7d0847d99ecae6f7a8f9041d50288db5}{Eichwald}{E\bibinitperiod}{O.}{O\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=81cb440f7766d2f46e2af25178d1e5e2}{Ducasse}{D\bibinitperiod}{O.}{O\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9308e3657e0f57851974ac833aa82a06}{Renon}{R\bibinitperiod}{N.}{N\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=8d3a56a0e6ef3bf2d02796f80af63f2d}{Yousfi}{Y\bibinitperiod}{M.}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=8cb68c61c9d52f8404a1047062d547af}{Charrada}{C\bibinitperiod}{K.}{K\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier Inc.}%
+      }
+      \strng{namehash}{73296115c95b9708adf6934dea6ebf44}
+      \strng{fullhash}{41a12a4c755c91de65318bb9ebf8fae3}
+      \field{sortinit}{K}
+      \field{labelyear}{2012}
+      \field{datelabelsource}{}
+      \field{labeltitle}{{Full multi grid method for electric field computation in point-to-plane streamer discharge in air at atmospheric pressure}}
+      \field{abstract}{Streamers dynamics are characterized by the fast propagation of ionized shock waves at the nanosecond scale under very sharp space charge variations. The streamer dynamics modelling needs the solution of charged particle transport equations coupled to the elliptic Poisson's equation. The latter has to be solved at each time step of the streamers evolution in order to follow the propagation of the resulting space charge electric field. In the present paper, a full multi grid (FMG) and a multi grid (MG) methods have been adapted to solve Poisson's equation for streamer discharge simulations between asymmetric electrodes. The validity of the FMG method for the computation of the potential field is first shown by performing direct comparisons with analytic solution of the Laplacian potential in the case of a point-to-plane geometry. The efficiency of the method is also compared with the classical successive over relaxation method (SOR) and MUltifrontal massively parallel solver (MUMPS). MG method is then applied in the case of the simulation of positive streamer propagation and its efficiency is evaluated from comparisons to SOR and MUMPS methods in the chosen point-to-plane configuration. Very good agreements are obtained between the three methods for all electro-hydrodynamics characteristics of the streamer during its propagation in the inter-electrode gap. However in the case of MG method, the computational time to solve the Poisson's equation is at least 2 times faster in our simulation conditions. ?? 2011 Elsevier Inc.}
+      \field{isbn}{0021-9991}
+      \field{issn}{00219991}
+      \field{journaltitle}{Journal of Computational Physics}
+      \field{number}{2}
+      \field{title}{{Full multi grid method for electric field computation in point-to-plane streamer discharge in air at atmospheric pressure}}
+      \field{volume}{231}
+      \field{year}{2012}
+      \field{pages}{251\bibrangedash 261}
+      \verb{doi}
+      \verb 10.1016/j.jcp.2011.08.003
+      \endverb
+      \verb{file}
+      \verb :home/gullik/Documents/Masteroppgave/boker/Kacem\_2012.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1016/j.jcp.2011.08.003
+      \endverb
+      \keyw{Elliptic equation solver,Full multi-grid method,Plasma discharge,Streamer simulation}
+    \endentry
     \entry{Press1987}{book}{}
       \name{labelname}{4}{}{%
         {{uniquename=0,hash=3a24973d43aed000f8618c4157e35117}{Press}{P\bibinitperiod}{William}{W\bibinitperiod}{}{}{}{}}%
@@ -88,6 +134,30 @@
       \endverb
       \verb{url}
       \verb http://www.jstor.org/stable/1269484?origin=crossref
+      \endverb
+    \endentry
+    \entry{Trottenberg2000}{article}{}
+      \name{labelname}{3}{}{%
+        {{uniquename=0,hash=80ed5cff1c831412b03d28fe4faa735d}{Trottenberg}{T\bibinitperiod}{U.}{U\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=8de8a43590030060eef37063b4a7f1e8}{Sch\"{u}ller}{S\bibinitperiod}{a.}{a\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d04dd7fe7c0fdf7003baff579454cbb0}{Oosterlee}{O\bibinitperiod}{C.\bibnamedelimi W.}{C\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{3}{}{%
+        {{uniquename=0,hash=80ed5cff1c831412b03d28fe4faa735d}{Trottenberg}{T\bibinitperiod}{U.}{U\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=8de8a43590030060eef37063b4a7f1e8}{Sch\"{u}ller}{S\bibinitperiod}{a.}{a\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d04dd7fe7c0fdf7003baff579454cbb0}{Oosterlee}{O\bibinitperiod}{C.\bibnamedelimi W.}{C\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{47a613d91918a0731fa87381562d1c21}
+      \strng{fullhash}{6692d807f6ebdc8c8a217d913ca5a79b}
+      \field{sortinit}{T}
+      \field{labelyear}{2000}
+      \field{datelabelsource}{}
+      \field{labeltitle}{{Multigrid methods}}
+      \field{title}{{Multigrid methods}}
+      \field{year}{2000}
+      \field{pages}{111\bibrangedash 118}
+      \verb{file}
+      \verb :home/gullik/Documents/Masteroppgave/boker/Parallel\_MG\_methods.pdf:pdf
       \endverb
     \endentry
   \endsortlist
