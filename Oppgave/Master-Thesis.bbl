@@ -19,6 +19,65 @@
 
 \refsection{0}
   \sortlist{entry}{nyt}
+    \entry{Adams2001}{article}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=b0f3a8680c749116c288af233b0b0554}{Adams}{A\bibinitperiod}{Mark\bibnamedelima F}{M\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=b0f3a8680c749116c288af233b0b0554}{Adams}{A\bibinitperiod}{Mark\bibnamedelima F}{M\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{b0f3a8680c749116c288af233b0b0554}
+      \strng{fullhash}{b0f3a8680c749116c288af233b0b0554}
+      \field{sortinit}{A}
+      \field{labelyear}{2001}
+      \field{datelabelsource}{}
+      \field{labeltitle}{{A Distributed Memory Unstructured Gauss-Seidel Algorithm for Multigrid Smoothers}}
+      \field{abstract}{Gauss-Seidel is a popular multigrid smoother as it is provably optimal on structured grids and exhibits superior performance on unstructured grids. Gauss-Seidel is not used to our knowledge on distributed memory machines as it is not obvious how to parallelize it effectively. We, among others, have found that Krylov solvers preconditioned with Jacobi, block Jacobi or overlapped Schwarz are effective on unstruc-tured problems. Gauss-Seidel does however have some attractive properties, namely: fast convergence, no global communication (ie, no dot products) and fewer flops per iteration as one can incorporate an initial guess naturally. This paper discusses an algorithm for parallelizing Gauss-Seidel for distributed memory computers for use as a multigrid smoother and compares its performance with preconditioned conjugate gradients on unstructured linear elasticity problems with up to 76 million degrees of freedom.}
+      \field{title}{{A Distributed Memory Unstructured Gauss-Seidel Algorithm for Multigrid Smoothers}}
+      \field{year}{2001}
+      \verb{file}
+      \verb :home/gullik/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Adams - 2001 - A Distributed Memory Unstructured Gauss-Seidel Algorithm for Multigrid Smoothers.pdf:pdf
+      \endverb
+      \keyw{algebraic multigrid,parallel Gauss-Seidel,parallel graph algorithms,unstructured multigrid}
+    \endentry
+    \entry{Arraras2015}{article}{}
+      \name{labelname}{4}{}{%
+        {{uniquename=0,hash=be2e5ec6f57bffcb80a719b7046f1f60}{Arraras}{A\bibinitperiod}{A.}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c8f18fea9e53b43df9c7387ae3db8264}{Gaspar}{G\bibinitperiod}{F.J.}{F\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b57162950198687a0dfa2c37518590a0}{Portero}{P\bibinitperiod}{L.}{L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=89883edd937ec7f77ccdd888ba88a940}{Rodrigo}{R\bibinitperiod}{C.}{C\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{4}{}{%
+        {{uniquename=0,hash=be2e5ec6f57bffcb80a719b7046f1f60}{Arraras}{A\bibinitperiod}{A.}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c8f18fea9e53b43df9c7387ae3db8264}{Gaspar}{G\bibinitperiod}{F.J.}{F\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b57162950198687a0dfa2c37518590a0}{Portero}{P\bibinitperiod}{L.}{L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=89883edd937ec7f77ccdd888ba88a940}{Rodrigo}{R\bibinitperiod}{C.}{C\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{c0cf2314a562913da2881fb7fe996b1f}
+      \strng{fullhash}{707101050735a336f71e79790dad83bb}
+      \field{sortinit}{A}
+      \field{labelyear}{2015}
+      \field{datelabelsource}{}
+      \field{labeltitle}{{Domain decomposition multigrid methods for nonlinear reaction diffusion problems}}
+      \field{abstract}{Abstract In this work, we propose efficient discretizations for nonlinear evolutionary reaction\x{fffd}\x{fffd}\x{fffd}diffusion problems on general two-dimensional domains. The spatial domain is discretized through an unstructured coarse triangulation, which is subsequently refined via regular triangular grids. Following the method of lines approach, we first consider a finite element spatial discretization, and then use a linearly implicit splitting time integrator related to a suitable decomposition of the triangulation nodes. Such a procedure provides a linear system per internal stage. The equations corresponding to those nodes lying strictly inside the elements of the coarse triangulation can be decoupled and solved in parallel using geometric multigrid techniques. The method is unconditionally stable and computationally efficient, since it avoids the need for Schwarz-type iteration procedures. In addition, it is formulated for triangular elements, thus yielding much flexibility in the discretization of complex geometries. To illustrate its practical utility, the algorithm is shown to reproduce the pattern-forming dynamics of the Schnakenberg model.}
+      \field{issn}{10075704}
+      \field{journaltitle}{Communications in Nonlinear Science and Numerical Simulation}
+      \field{number}{3}
+      \field{title}{{Domain decomposition multigrid methods for nonlinear reaction diffusion problems}}
+      \field{volume}{20}
+      \field{year}{2015}
+      \field{pages}{699\bibrangedash 710}
+      \verb{doi}
+      \verb 10.1016/j.cnsns.2014.06.044
+      \endverb
+      \verb{file}
+      \verb :home/gullik/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Arrar\'{a}s et al. - 2015 - Reprint of Domain decomposition multigrid methods for nonlinear reaction\^{a}\x{fffd}\x{fffd}\x{fffd}\x{fffd}\x{fffd}\x{fffd}diffusion problems.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://linkinghub.elsevier.com/retrieve/pii/S1007570414003074
+      \endverb
+      \keyw{domain decomposition,linearly implicit method}
+    \endentry
     \entry{Chow2006}{article}{}
       \name{labelname}{5}{}{%
         {{uniquename=0,hash=d393bf9ff9d79edf7a611fd295530eaa}{Chow}{C\bibinitperiod}{Edmond}{E\bibinitperiod}{}{}{}{}}%
@@ -136,18 +195,98 @@
       \verb http://www.jstor.org/stable/1269484?origin=crossref
       \endverb
     \endentry
+    \entry{Sandve2011}{article}{}
+      \name{labelname}{6}{}{%
+        {{uniquename=0,hash=1a98425898844b622e299721cf07e7ab}{Sandve}{S\bibinitperiod}{Martin}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=90f1dedcfc67751446115824c0aa77c8}{Hake}{H\bibinitperiod}{Alnaes\bibnamedelima Johan}{A\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9afae820ae401c1aeb5bfeab408a7331}{Kirby}{K\bibinitperiod}{Robert\bibnamedelima C}{R\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=0967083410282320ed5fab09db692cfc}{Langtangen}{L\bibinitperiod}{Hans\bibnamedelima Petter}{H\bibinitperiod\bibinitdelim P\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=bae2791f700c5805db2f0fda7977a949}{Logg}{L\bibinitperiod}{Anders}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a378b0f43f341dec17067b73e35422e1}{Wells}{W\bibinitperiod}{Garth\bibnamedelima N}{G\bibinitperiod\bibinitdelim N\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{6}{}{%
+        {{uniquename=0,hash=1a98425898844b622e299721cf07e7ab}{Sandve}{S\bibinitperiod}{Martin}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=90f1dedcfc67751446115824c0aa77c8}{Hake}{H\bibinitperiod}{Alnaes\bibnamedelima Johan}{A\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9afae820ae401c1aeb5bfeab408a7331}{Kirby}{K\bibinitperiod}{Robert\bibnamedelima C}{R\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=0967083410282320ed5fab09db692cfc}{Langtangen}{L\bibinitperiod}{Hans\bibnamedelima Petter}{H\bibinitperiod\bibinitdelim P\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=bae2791f700c5805db2f0fda7977a949}{Logg}{L\bibinitperiod}{Anders}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a378b0f43f341dec17067b73e35422e1}{Wells}{W\bibinitperiod}{Garth\bibnamedelima N}{G\bibinitperiod\bibinitdelim N\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{63d861975653d6d08a97135a3c6fd6e9}
+      \strng{fullhash}{43bb31b3af568366a9e178060ddde54a}
+      \field{sortinit}{S}
+      \field{labelyear}{2011}
+      \field{datelabelsource}{}
+      \field{labeltitle}{{The FEniCS Manual Excerpts from the FEniCS Book With contributions from}}
+      \field{title}{{The FEniCS Manual Excerpts from the FEniCS Book With contributions from}}
+      \field{year}{2011}
+      \verb{file}
+      \verb :home/gullik/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Sandve et al. - 2011 - The FEniCS Manual Excerpts from the FEniCS Book With contributions from.pdf:pdf
+      \endverb
+    \endentry
+    \entry{StUben2001}{article}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=5025a90c566cb05d2172169571d9785b}{{St\bibnamedelimb Uben}}{S\bibinitperiod}{K}{K\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=5025a90c566cb05d2172169571d9785b}{{St\bibnamedelimb Uben}}{S\bibinitperiod}{K}{K\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{5025a90c566cb05d2172169571d9785b}
+      \strng{fullhash}{5025a90c566cb05d2172169571d9785b}
+      \field{sortinit}{S}
+      \field{labelyear}{2001}
+      \field{datelabelsource}{}
+      \field{labeltitle}{{A review of algebraic multigrid}}
+      \field{abstract}{Since the early 1990s, there has been a strongly increasing demand for more eecient methods to solve large sparse, unstructured linear systems of equations. For practically relevant problem sizes, classical one-level methods had already reached their limits and new hierarchical algorithms had to be developed in order to allow an eecient solution of even larger problems. This paper gives a review of the \"{y}rst hierarchical and purely matrix-based approach, algebraic multigrid (AMG). AMG can directly be applied, for instance, to eeciently solve various types of elliptic partial diierential equations discretized on unstructured meshes, both in 2D and 3D. Since AMG does not make use of any geometric information, it is a " plug-in " solver which can even be applied to problems without any geometric background, provided that the underlying matrix has certain properties. c}
+      \field{journaltitle}{Journal of Computational and Applied Mathematics}
+      \field{title}{{A review of algebraic multigrid}}
+      \field{volume}{128}
+      \field{year}{2001}
+      \field{pages}{281\bibrangedash 309}
+      \verb{file}
+      \verb :home/gullik/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/St Uben - 2001 - A review of algebraic multigrid.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb www.elsevier.nl/locate/cam
+      \endverb
+      \keyw{Algebraic multigrid}
+    \endentry
+    \entry{Trottenberg}{book}{}
+      \name{labelname}{3}{uniquelist=2}{%
+        {{uniquename=0,hash=80ed5cff1c831412b03d28fe4faa735d}{Trottenberg}{T\bibinitperiod}{U.}{U\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d04dd7fe7c0fdf7003baff579454cbb0}{Oosterlee}{O\bibinitperiod}{C.\bibnamedelimi W.}{C\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=27e7210bd7a1442246e5917df541d83d}{Sch\"{u}ller}{S\bibinitperiod}{A.}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{3}{uniquelist=2}{%
+        {{uniquename=0,hash=80ed5cff1c831412b03d28fe4faa735d}{Trottenberg}{T\bibinitperiod}{U.}{U\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d04dd7fe7c0fdf7003baff579454cbb0}{Oosterlee}{O\bibinitperiod}{C.\bibnamedelimi W.}{C\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=27e7210bd7a1442246e5917df541d83d}{Sch\"{u}ller}{S\bibinitperiod}{A.}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{34c292cb5456be17ac3e22c79b22b73d}
+      \strng{fullhash}{9bc6ae33fc67b89b343f791de4c33707}
+      \field{sortinit}{T}
+      \field{labelyear}{2001}
+      \field{datelabelsource}{}
+      \field{labeltitle}{{Multigrid}}
+      \field{isbn}{012701070X}
+      \field{title}{{Multigrid}}
+      \field{year}{2001}
+      \verb{file}
+      \verb :home/gullik/Documents/Masteroppgave/boker/[Ulrich\_Trottenberg,\_Cornelius\_W.\_Oosterlee,\_Anton(BookZZ.org).pdf:pdf
+      \endverb
+    \endentry
     \entry{Trottenberg2000}{article}{}
-      \name{labelname}{3}{}{%
+      \name{labelname}{3}{uniquelist=2}{%
         {{uniquename=0,hash=80ed5cff1c831412b03d28fe4faa735d}{Trottenberg}{T\bibinitperiod}{U.}{U\bibinitperiod}{}{}{}{}}%
         {{uniquename=0,hash=8de8a43590030060eef37063b4a7f1e8}{Sch\"{u}ller}{S\bibinitperiod}{a.}{a\bibinitperiod}{}{}{}{}}%
         {{uniquename=0,hash=d04dd7fe7c0fdf7003baff579454cbb0}{Oosterlee}{O\bibinitperiod}{C.\bibnamedelimi W.}{C\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
       }
-      \name{author}{3}{}{%
+      \name{author}{3}{uniquelist=2}{%
         {{uniquename=0,hash=80ed5cff1c831412b03d28fe4faa735d}{Trottenberg}{T\bibinitperiod}{U.}{U\bibinitperiod}{}{}{}{}}%
         {{uniquename=0,hash=8de8a43590030060eef37063b4a7f1e8}{Sch\"{u}ller}{S\bibinitperiod}{a.}{a\bibinitperiod}{}{}{}{}}%
         {{uniquename=0,hash=d04dd7fe7c0fdf7003baff579454cbb0}{Oosterlee}{O\bibinitperiod}{C.\bibnamedelimi W.}{C\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
       }
-      \strng{namehash}{47a613d91918a0731fa87381562d1c21}
+      \strng{namehash}{2cfaccf60afc52aac3850d978dc466da}
       \strng{fullhash}{6692d807f6ebdc8c8a217d913ca5a79b}
       \field{sortinit}{T}
       \field{labelyear}{2000}

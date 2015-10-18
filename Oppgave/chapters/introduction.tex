@@ -28,3 +28,91 @@
 		\item Boundary conditions
 		\item What has been done in this thesis and what results was found.
 	\end{itemize}
+
+
+		\section{Particle in Cell}
+
+		\begin{figure}
+		\center
+		\begin{tikzpicture}[%
+		    >=triangle 60,              % Nice arrows; your taste may be different
+		    start chain=going below,    % General flow is top-to-bottom
+		    node distance=6mm and 45mm, % Global setup of box spacing
+		    every join/.style={norm},   % Default linetype for connecting boxes
+		    ]
+		% ------------------------------------------------- 
+		% A few box styles 
+		% <on chain> *and* <on grid> reduce the need for manual relative
+		% positioning of nodes
+		\tikzset{
+		  base/.style={draw, on chain, on grid, align=center, minimum height=4ex},
+		  proc/.style={base, rectangle, text width=10em},
+		  test/.style={base, diamond, aspect=2, text width=5em},
+		  term/.style={proc, rounded corners},
+		  % coord node style is used for placing corners of connecting lines
+		  coord/.style={coordinate, on chain, on grid, node distance=6mm and 45mm},
+		  % nmark node style is used for coordinate debugging marks
+		  nmark/.style={draw, cyan, circle, font={\sffamily\bfseries}},
+		  % -------------------------------------------------
+		  % Connector line styles for different parts of the diagram
+		  norm/.style={->, draw, lcnorm},
+		  free/.style={->, draw, lcfree},
+		  cong/.style={->, draw, lccong},
+		  it/.style={font={\small\itshape}}
+		}
+		% -------------------------------------------------
+		% Start by placing the nodes
+		\node[term, it] (move) {Move particles};
+		\node[coord] (center) {};
+		\node[term, it]	( MG ) {Solve Field};
+		\node[term, right =of center] (density) {Particle density onto grid};
+		\node[term, left =of center] () { Force to particles };
+		% \node[term, join] (split)      {Split into several threads for multi core};
+		% \node[term, join] (position)      {Suggest move};
+		% \node[term, join] (SD) { Compute/update \( |D| \) };
+		% \node[term, join ] (metro) {Compute Metropolis Ratio};
+		% \node[test, densely dotted , join ]	(test)	{\(R \ge r\)};
+		% \node[term]	(new_pos)	{\(\vb{r}^{old} = \vb{r}^{new}\)};
+		% \node[term, join ]	(energy)	{ Store \(E_L\) };
+		% \node[test, densely dotted ,join ]	(last)	{Last cycle?};
+		% \node[term]	(end)	{Collect samples};
+
+
+		% %Setting up the nodes on the side
+		% \node [term, right=of SD] (trialfunction) {Compute \( \psi_T(\vb{r}) \)};
+		% \node [term, left=of SD] (quantum) { Compute  Quantumforce};
+		% \node[term, left=of test] (old_pos) {Keep \(  \vb{r}^{old} \)};
+		% \node [coord, left=of new_pos] (c1)  {};    
+		% \node[coord, right=of last]	(around1){};
+		% \node[coord, right=of around1] (around2) {};
+		% \node[coord, right=of position]	(around3){};
+		% \node[coord, right=of around3]	(around4){};
+
+
+		% %Draw new links between boxes
+		% % \path (SD.south) to node [near start, xshift=1em] {$y$} (quantum);
+		% \draw [->,lcnorm] (SD.west) -- (quantum);
+		% \draw [->,lcnorm] (SD.east) -- (trialfunction);
+		% \draw [->, lcnorm] (quantum.south) -- (metro);
+		% \draw [->, lcnorm] (trialfunction.south) -- (metro);
+		% \draw [*->, lccong, , dotted] (test.west) -- (old_pos);
+		% 	\path (test.west) to node [ yshift = -1em] {no} (old_pos);
+		% \draw [*->, lcfree, dotted] (test.south) -- (new_pos);
+		% 	\path (test.south) to node [xshift = -1em]{yes} (new_pos);
+
+		% \draw [-, lcnorm] (old_pos.south) -- (c1);
+		% \draw [->, lcnorm] (c1.south) -- (energy);
+
+		% \draw[*-, lccong, dotted] (last.east) -- (around2);
+		% 	\path (last.east) to node [yshift = -1em] {no} (last);
+		% 	\draw[-, lccong, dotted] (around2.east) -- (around4);
+		% 	\draw[->, lccong, dotted] (around4) -- (position);
+
+		% \draw [*->, lcfree, dotted] (last.south) -- (end);
+		% 	\path (last.south) to node [xshift = -1em]{yes} (new_pos);
+
+
+		\end{tikzpicture}
+		\caption{Schematic overview of the PIC method}
+		\label{fig:schematic}
+	\end{figure}
