@@ -1,9 +1,9 @@
 Lx [m] 0.50
 Ly [m] 0.50
 Lz [m] 0.50
-ngx number of grid x dir 65
-ngy number of grid y dir 65
-ngz number of grid z dir 65
+ngx number of grid x dir 10
+ngy number of grid y dir 10
+ngz number of grid z dir 10
 dt   7E-10
 tmax 6.73E-5
 number density of real part 5E12

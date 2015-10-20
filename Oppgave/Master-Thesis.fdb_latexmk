@@ -1,11 +1,11 @@
 # Fdb version 3
-["biber Master-Thesis"] 1441285290 "Master-Thesis.bcf" "Master-Thesis.bbl" "Master-Thesis" 1441285291
-  "Master-Thesis.bcf" 1441285291 91638 4fe73dfaa0d731f2ebc190b0cbcd62a0 ""
-  "bibs/bibliography.bib" 1441274233 12564 cd8fa2675c0a113a5e07d886935cd5b8 ""
+["biber Master-Thesis"] 1444231416 "Master-Thesis.bcf" "Master-Thesis.bbl" "Master-Thesis" 1444397903
+  "Master-Thesis.bcf" 1444397903 91848 cfaf7bd1f9f6fbae0c45ec24fd455b25 ""
+  "bibs/bibliography.bib" 1444228522 15776 6ebc6149f8edf2c131c838802a033f90 ""
   (generated)
-  "Master-Thesis.bbl"
   "Master-Thesis.blg"
-["pdflatex"] 1441285290 "Master-Thesis.tex" "Master-Thesis.pdf" "Master-Thesis" 1441285291
+  "Master-Thesis.bbl"
+["pdflatex"] 1444397902 "Master-Thesis.tex" "Master-Thesis.pdf" "Master-Thesis" 1444397903
   "/home/gullik/texmf/tex/latex/uiofysmaster-master/commands.tex" 1401885299 1028 64365116f94014ecf9b9e75dce22fc78 ""
   "/home/gullik/texmf/tex/latex/uiofysmaster-master/iftex.sty" 1401885299 2560 68a7cdbd7a5424fa22f4176117a417e9 ""
   "/home/gullik/texmf/tex/latex/uiofysmaster-master/package-config/fancyhdr.tex" 1401885299 1281 dee02b88a24ed7deda8b3a88cfe0a45f ""
@@ -182,15 +182,21 @@
   "/usr/share/texmf/tex/latex/pgf/utilities/pgfrcs.sty" 1304191498 325 2bcd023400636339210573e2b3ee298b ""
   "/usr/share/texmf/tex/latex/xcolor/x11nam.def" 1339578534 9040 c0c860499be99a076792194b1d6525a1 ""
   "/usr/share/texmf/tex/latex/xcolor/xcolor.sty" 1339578534 55224 a43bab84e0ac5e6efcaf9a98bde73a94 ""
-  "Master-Thesis.aux" 1441285291 1965 5eaae321fa128ac509f116f0636a0c59 ""
-  "Master-Thesis.bbl" 1441285290 6163 e69ca08397d908892a4e87f7550668a8 "biber Master-Thesis"
-  "Master-Thesis.out" 1441285291 243 3807e2a60d32780a3dfdffca7f59b768 ""
-  "Master-Thesis.tex" 1441276846 2031 45f483612615c5b3072c7a9ab39a9d8c ""
-  "chapters/methods.tex" 1441285285 6472 80ff13bb06f1ac77e3ff40959e8dd609 ""
+  "Master-Thesis.aux" 1444397903 3423 7b251b67303fd81ccd89011e358800d0 ""
+  "Master-Thesis.bbl" 1444231416 11862 997d4002ba43501af05fa51ff9dc5f29 "biber Master-Thesis"
+  "Master-Thesis.out" 1444397903 461 e3c6cc0dbfacc2b47a6f2afbc6c8caad ""
+  "Master-Thesis.tex" 1444231414 2384 41ed4b736c1db30f58244d118850898a ""
+  "chapters/alt_methods.tex" 1441633031 6629 c4770eb09178328161c1e1b705143d57 ""
+  "chapters/method.tex" 1444231450 5124 37e8873ae94704dab962f535bb1b9448 ""
+  "chapters/verification.tex" 1444227479 46 8795bfddedafd9dfe8e27dedd065276b ""
   (generated)
-  "Master-Thesis.log"
-  "para.aux"
   "Master-Thesis.aux"
+  "chapters/results.aux"
   "chapters/para.aux"
-  "Master-Thesis.out"
   "Master-Thesis.pdf"
+  "chapters/introduction.aux"
+  "Master-Thesis.log"
+  "Master-Thesis.toc"
+  "chapters/method.aux"
+  "para.aux"
+  "Master-Thesis.out"
