@@ -520,13 +520,29 @@
 	"buffers":
 	[
 		{
-			"contents": "\n	\\section{Poisson Solvers}\n\n		In the Particle in Cell method, instead of calculating the forces directly between the particles, we first calculate the electric field from all the particles and then use that to calculate the individual force on the particles. From the particles we use a weighting scheme to obtain a charge density on a grid. Then we can use Poisson's equation \\cref{eq:poisson} to calculate the electric potential from the charge density, before computing the electric field from the potential. So we need an efficient Poisson solver.\n\n		\\begin{align}\n			\\nabla ^2 \\Phi &= -\\rho \\qquad \\text{in} \\qquad \\Omega \\label{eq:poisson}\n		\\end{align}\n\n		The problem also need boundary conditions in which we will focus on periodic, Dirichlet and Neumann boundary conditions.\n\n		\\subsection{Spectral Methods}\n			The spectral methods is based on Fourier transforms of the problem and solving the problem in it's spectral version, see \\cite{Shen1994} for an implementation of an spectral poisson solver. They are efficient solvers that can be less, but can be inaccurate for complex geometries.\n\n			When looking for a solution with a spectral method we first rewrite the functions as Fourier series, which for the three-dimensional Poisson equation would be\n\n			\\begin{align}\n				\\nabla^2 \\sum A_{j,k,l} e^{i(jx + ky + lz)} &= \\sum B_{j,k,l} e^{i(jx + ky + lz)}\n				\\intertext{From there we get a relation between the coefficients}\n				A_{j,k,l} &= -\\frac{B_{j,k,l}}{j^2 + k^2 + l^2}\n				\\intertext{Then we compute the Fourier transform of the right hand side obtaining the coefficients \\(B_{j,k,l}\\). We compute all the coefficients \\(A_{j,k,l}\\) from the relation between the coefficients. At last we perform a inverse Fourier transform of the left hand side obtaining the solution.}\n			\\end{align}\n\n\n\n		\\subsection{Finite Element Methods}\n\n			The finite element is a method to numerically solve a partial differential equations (PDE) first transforming the problem into a variational problem and then constructing a mesh and local trial functions, see \\cite{Sandve2011} for a more complete discussion.\n\n			To transform the PDE to a variational problem we first multiply the PDE by a test function \\(v\\), then it is integrated using integration by parts on the second order terms. Then the problem is separated into two parts, the bilinear form \\(a(u,v)\\) containing the unknown solution and the test function and the linear form \\(L(v)\\) containing only the test function.\n\n			\\begin{align}\n				a(u,v) = L(v)	\\qquad v\\epsilon \\hat{V}\n			\\end{align}\n\n			Next we construct discrete local function spaces of that we assume contain the trialfunctions and testfunctions. The function spaces often consists of locally defined functions that are \\(0\\) except in a close neighbourhood of a mesh point, so the resulting matrix to be solved is sparse and can be computed quickly. The matrix system is then solved by a suiting linear algebra algorithm, before the solution is put together.\n\n\n	\\section{Multigrid}\n		The multi grid, MG, method used to solve the Poisson equation and obtain the electric field is a widely used and highly efficient solver for elliptic equations, having a theoretical scaling of \\(\\order{N}\\) \\citep{Press1987}, where \\(N\\) is the grid points. Here I will go through the main theory and algorithm behind the method, as explained in more detail in \\citep{Press1987,Trottenberg2000} as well as go through some of possible algorithms to parallelize the method.\n\n		We want to solve a linear elliptic problem, \n			\\begin{align}\n				\\mathcal{L} u = f\n			\\end{align}\n		where \\(\\mathcal{L}\\) is a linear operator, \\(u\\) is the solution and \\(f\\) is a source term. In our specific case the operator is given by the laplacian, the source term is given by the charge density and we solve for the electric potential.\n\n		We discretize the equation onto a grid of size \\(q\\).\n		\\begin{align}\n			\\mathcal{L}_q u_q &= f_q \\label{eq:difference}\n		\\end{align}\n\n		Let the error, \\(v_q\\) be the difference between the exact solution and an approximate solution to the difference equation (\\ref{eq:difference}), \\( v_q = u_q - \\tilde{u}_q \\). Then we define the residual as what is left after using the approximate solution in the equation.\n\n		\\begin{align}\n			d_q &= \\mathcal{L}_q \\tilde{u}_q - f_q\n		\\end{align}\n\n		Since \\(\\mathcal{L}\\) is a linear operator the error satisfies the following relation\n\n		\\begin{align}\n			\\mathcal{L}_q v_q &= (\\mathcal{L}u_q - f_q) - (\\mathcal{L}\\tilde{u}_q  - f_q)\n			\\\\\n			\\mathcal{L}_q v_q &= - d_q \\label{eq:diff_MG}\n		\\end{align}\n\n		In the multigrid methods instead of solving the equation directly here, we set up a system nested coarser square grids, \\(\\mathfrak{T}_1 \\subset \\mathfrak{T}_2 \\subset \\cdots \\subset \\mathfrak{T}_\\ell\\), where \\(1\\) is the coarsest grid and \\(\\ell\\) is the finest. Then the main thought behind the methods is that instead of solving the problem directly on the initial grid, we use restriction, \\( \\mathcal{R} \\), and interpolation, \\( \\mathcal{P} \\), operators to change the problem between the different grid levels and solve them on there. (Fix previous sentence) Due to the fewer grid points the problem is faster to solver on the coarser grid levels than on the fine grid.\n\n		If we then apply a restriction operator on the residual we go down a level on the grids and the opposite for the interpolation operator.\n\n		\\begin{align}\n			\\mathcal{R} d_q = d_{q-1} \\qquad \\text{and} \\qquad \\mathcal{P} d_q = d_{q + 1}  \n		\\end{align}\n\n\n		\\subsection{Algorithm}\n			A sequential algorithm for a two grid V shaped algorithm, where the coarse grid and fine grid has respectively \\(q = 1,2\\).\n\n		\\begin{itemize}\n			\\item Initial approximation. \\(\\tilde{u}\\) \n			\\item for \\(i < \\) nCycles:\n				\\begin{itemize}\n					\\item Presmooth: \\(\\hat{u}_2 = S_{pre}(u)_2\\)\n					\\item Calculate defect: \\( d_2 = f_2 - \\mathcal{L}\\hat{u}_2\\)\n					\\item Restrict defect: \\( d_1 = Rd_2 \\)\n					\\item Initial guess: 	\\( \\tilde{u}_1 = 0 \\)\n					\\item Solve (G-S RB): 	\\( L_1 \\tilde{u}_1 = d_1 \\)\n					\\item Interpolate:		\\( \\tilde{u}_2 = I \\tilde{u}_1 \\)\n					\\item Add correction:	\\( u^{new}_2 = \\hat{u}_2 + \\tilde{u}_2 \\)\n				\\end{itemize}\n		\\end{itemize}\n\n		\\subsection{Smoothing: Gauss-Seidel}\n			Relaxation methods, such as Gauss-Seidel, work by looking for the setting up the equation as a diffusion equation, and then solve for the equilibrium solution.\n\n			So suppose we want to solve the elliptic equation\n			\\begin{align}\n				\\mathcal{L}u &= \\rho\n				\\intertext{Then we set it up as a diffusion equation}\n				\\pdv{u}{t} &= \\mathcal{L}u - \\rho\n				\\intertext{By starting with an initial guess for what \\(u\\) could be the equation will relax into the equilibrium solution \\(\\mathcal{L}u = \\rho\\). By using a Forward-Time-Centered-Space scheme to discretize, along with the largest stable timestep \\(\\Delta t = \\Delta^2 / 2^d\\) (Double check the factor.), we arrive at Jacobi's method, which is an averaging of the neighbors in addition to a contribution from the source term. By using the already updated values for in the calculation of the \\(u^{new}\\) we arrive at the method called Gauss-Seidel which for two dimensions is the following}\n				u^{n+1}_{i,j} &= \\frac{1}{4}\\left( u^n_{i+1,j} + u^{n +1}_{i-1,j} + u^{n}_{i, j+1} + u^{n+1}_{i,j-1}  \\right) - \\frac{\\Delta^2 \\rho_{i,j}}{4}\n			\\end{align}\n\n			To achieve a vectorization of the calculation of \\(u^{n+1}_{i,j}\\) we will use Red and Black ordering, first calculating the odd nodes and then the even nodes, so the method has the available information. \n\n\n\n\n	\\section{Parallelization}\n		For the parallelization of an algorithm there is two obvious issues that need to be addressed to ensure that the algorithm retains a high degree of parallelization; communication overhead and load imbalance \\citep{Trottenberg}. Communication overhead means the time the computational nodes spend communicating with each other, if that is longer than the actual time spent computing the speed of the algorithm will suffer, and load imbalance appears if some nodes need to do more work than others causing some nodes to stand idle.\n\n		Here we will focus on multigrid of a 3D cubic (to be expanded to rectangular cubes) grid, where each grid level has half the number of grid points. We will use grid partitioning to divide the domain, GS-RB (Gauss-Seidel Red-Black) as both a smoother and a coarse grid solver.\n\n		We need to investigate how the different steps: interpolation, restriction, smoothing and the coarse grid solver, in a MG method will handle parallelization.\n\n		\\subsection{Grid Partition}\n			\\label{sec:grid_partitioning}\n			There are several well explored options for how a multigrid method can be parallized, for example Domain Decomposition \\citep{Arraras2015}, Algebraic Multigrid \\citep{StUben2001}, see \\citet{Chow2006} for a survey of different techniques. Here we will focus on Geometric Multigrid (GMG) with grid partitioning used for the parallelization, as described in the books \\cite{Trottenberg2000,Trottenberg}.\n\n			With grid partitioning we divide the grid \\(\\mathcal{T}\\) into geometric subgrids, then we can let each processes handle one subgrid each, as we will see it can be useful when using the G-S RB smoothing to let the subgrids overlap 1 layer deep. since it on the edges of the subgrid it will need the adjacent node values.\n\n		\\subsection{Distributed and accumulated data}\n			During the parallel execution of the code there can be useful to keep track of the different data structures and what needs to be accumulated over all the computational nodes and what only needs to be distributed on the individual computational nodes. \n\n			\\begin{itemize}\n				\\item \\(u\\) solution (\\(\\Phi\\))\n				\\item \\(w\\) temporary correction\n				\\item \\(d\\) defect\n				\\item \\(f\\) source term (\\(\\rho\\)) \n				\\item \\(\\mathcal{L}\\) differential operator\n				\\item \\(\\mathcal{I}\\) interpolation operator\n				\\item \\(\\mathcal{R}\\) restriction operator\n				\\item \\( \\va{u}\\) Bold means accumulated vector\n				\\item \\( \\tilde{\\va{ u }} \\) is the temporary smoothed solution\n			\\end{itemize}\n\n			\\begin{itemize}\n				\\item Accumulated vectors:	\\(\\va{u}_q\\), \\( \\hat{\\va{u}}_q \\), \\(\\tilde{\\va{u}}_q\\), \\(\\hat{\\va{w}}_q\\) \\(\\va{w}_{q-1}\\), \\(\\va{I}\\),\\(\\va{R}\\)\n				\\item Distributed vectors:  \\( f_q \\), \\(d_q\\), \\(d_{q-1}\\)\n			\\end{itemize}\n			Algorithm: P is the number of processes\n			\\begin{itemize}\n				\\item If (q == 1): Solve: \\(\\sum_{s=1}^P\\mathcal{L}_{s,1} \\va{u}_1 = \\sum_{s=1}^Pf_{s,1}\\)\n				\\item else:\n					\\begin{itemize}\n						\\item Presmooth: \\( \\hat{\\va{u}}_q = \\mathcal{S}_{pre} \\va{u_q}\\)\n						\\item Compute defect: \\( d_q = f_q - \\mathcal{L}_q \\hat{\\va{u}}_q \\)\n						\\item Restrict defect: \\( d_{q -1} = \\mathcal{R} d_q \\)\n						\\item Initial guess:   \\( \\va{w}_{q-1} = 0 \\)\n						\\item Solve defect system: \\( \\va{w}_{q-1} = PMG(\\va{w}_{q-1}, d_{q -1} ) \\)\n						\\item Interpolate correction: \\( \\va{w}_q = \\mathcal{R} \\va{w}_{q-1} \\)\n						\\item Add correction:		\\( \\tilde{\\va{u}}_q = \\hat{\\va{u}}_q + \\va{w}_q \\)\n						\\item Post-smooth:			\\( \\va{u}_q = \\mathcal{S}_{post}\\)\n					\\end{itemize}\n			\\end{itemize}\n\n\n		\\subsection{Smoothing}\n			Will use G-S with R-B ordering, supposedly good parallel properties \\citep{Chow2006}. Follow algorithm I in \\cite{Adams2001} (alternatively try to implement the more complicated version)?\n\n			We have earlier divided the grid into subgrids, with overlap, as described in subsection \\ref{sec:grid_partitioning} and given each processor responsibility for a subgrid. Then do a a GS-RB method we start with an approximation of \\(u^{n}_{i,j}\\). Then we will obtain the next iteration by the following formula\n\n			\\begin{align}\n				u^{n+1}_{i,j} &= \\frac{1}{4}\\left( u^n_{i+1,j} + u^{n +1}_{i-1,j} + u^{n}_{i, j+1} + u^{n+1}_{i,j-1}  \\right) - \\frac{\\Delta^2 \\rho_{i,j}}{4}\n			\\end{align}\n\n			We can see that the for the inner subgrid we will have no problems since we have all the surrounding grid points. On the edges we will need the adjacent grid points that are kept in the other processors. To avoid the algorithm from asking neighboring subgrids for adjacent grid points each time it reaches a edge we instead update the entire neighboring column at the start. So we will have a 1-row overlap between the subgrids, that need to be updated for each iteration.\n\n\n		\\subsection{Restriction}\n			For the transfer down a grid level, to the coarser grid we will use a half weighting stencil. In two dimensions it will be the following\n\n			\\begin{align}\n				\\mathcal{R} &= \\frac{1}{8}\n				\\begin{bmatrix}\n					0 & 1 & 0\n					\\\\\n					1 & 4 & 1\n					\\\\\n					0 & 1 & 0\n				\\end{bmatrix}\n			\\end{align}\n\n			With the overlap of the subgrids we will have the necessary information to perform the restriction without needing communication between the processors \\citep{Trottenberg}.\n\n		\\subsection{Interpolation}\n			For the interpolation we will use bilinear interpolation:\n\n			\\begin{align}\n				\\mathcal{I} &= \\frac{1}{4}\n				\\begin{bmatrix}\n					1 & 2 & 1\n					\\\\\n					2 & 8 & 2\n					\\\\\n					1 & 2 & 1\n				\\end{bmatrix}\n			\\end{align}\n\n			Since the interpolation is always done after GS-RB iterations the the outer part overlapped part of the grid updated, and we can have all the necessary information.\n\n		\\subsection{Scaling}\n			\\subsubsection{Volume-Boundary effect}\n			While a sequential MG algorithm has a theoretical scaling of \\(\\order{N}\\) \\citep{Press1987}, where \\(N\\) is the number of grid points, an implementation will have a lower scaling efficiency due to interprocessor communication. We want a parallel algorithm that attains a high speedup with more added processors \\(P\\),  compared to sequential \\(1\\) processor algorithm. Let \\(T(P)\\) be the computational time needed for solving the problem on \\(P\\) processors. Then we define the speedup \\(S(P)\\) and the parallel efficiency \\(E(P)\\) as\n\n			\\begin{align}\n				S(P) = \\frac{T(1)}{T(P)} \\qquad E(P) = \\frac{S(P)}{P}\n			\\end{align} \n\n			A perfect parallel algorithm would the computational time would scale inversely with the number of processors, \\(T(P) \\propto 1/P\\) leading to \\( E(P) =1 \\). Due to the necessary interprocessor communication that is generally not achievable. The computational time of the algorithm is also important, if the algorithm is very slow but has good parallel efficiency it is often worse than a fast algorithm with a worse parallel efficiency.\n\n			The parallel efficiency of an algorithm is governed by the ratio between the time of communication and computation, \\(T_{comm}/T_{comp}\\). If there is no need for communication, like on \\(1\\) processor, the algorithm is perfectly parallel efficient. In our case the whole grid is diveded into several subgrids, which is assigned to different processors. In many cases the time used for computation is roughly scaling with the interior grid points, while the communication time is scaling with the boundaries of the subgrids. If a local solution method is used on a local problem it is only the grid points at the boundary that needs the information from grid points on the other processors. Since the edges has lower dimensionality than the inner grid points. So when the problem is is increasing the time for computation grows faster than the time for communication, and a parallel algorithm often has a higher parallel efficiency on a larger problem. This is called the Boundary-Volume effect.\n\n			\\subsubsection{Parallel complexity}\n				The complexities, as in needed computational work, of sequential and parallel MG cycles is calculated in \\cite{Trottenberg} and is shown in \\cref{tab:parallel_complexity}. In the table we can see that in the parallel case there is a substantial increase in the complexity in the case of \\(W\\) cycles compared to \\(V\\) cycles. In the sequential case the change in complexity when going to a \\(W\\) cycle is not dependent on the problem size, but it is in the parallel case. \n\n				\n			\\begin{table}\n				\\centering\n				\\begin{tabular}{ c  c c c}\n					& Cycle & Sequential & Parallel\n				  	\\\\  \\hline\n				  	MG & V & \\(\\order{N}\\) & \\(\\order{\\log N}\\)\n				  	\\\\ \n				  	& W & $\\order{N}$ & $\\order{\\sqrt{N}}$\n				  	\\\\ \\hline\n					FMG & V & $\\order{N}$ & $\\order{\\log^2 N}$\n					\\\\\n					& W & $\\order{N}$ & \\( \\order{\\sqrt{N} \\log{N}} \\)\n				\\end{tabular}\n				\\caption{The parallel complexities of sequential and parallel multigrid cycles}\n				\\label{tab:parallel_complexity}\n			\\end{table}\n\n\n			\n",
 			"file": "chapters/method.tex",
-			"file_size": 16451,
-			"file_write_time": 130898001137941394,
 			"settings":
 			{
 				"buffer_size": 16457,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "\n\\begin{table}\n	\\centering\n	\\begin{tabular}{c|c|c|}\n		& \\textbf{Singular/Total} & \\textbf{Per Node}\n		\\\\ \\hline\n		Value stored & \\(N^3\\) & \\(\\frac{N^3}{\\#P}\\) \n	\\end{tabular}\n	\\caption{Assuming that the grid is threedimensional and has \\(N_x=N_y=N_z=N\\) grid points in each direction. Contents of the grid structures as a total, and divided on each computational node.}\n\\end{table}\n\n\\tikzstyle{vertex}=[circle,fill=black!25,minimum size=25pt,inner sep=0pt]\n\\tikzstyle{ghost}=[circle,fill=blue!25,minimum size=25pt,inner sep=0pt]\n\n	\n	\\begin{figure}\n		\\centering\n		\\begin{tikzpicture}[scale=1.0, auto,swap]\n			\\foreach \\pos/\\name in 	{}\n	    	\\node[vertex] (\\name) at \\pos {$\\name$};\n	    	%Adding the ghost nodes along the edges\n	    	\\foreach \\pos/\\name in 	{{(0,0)/00},	{(1,0)/10}, 	{(2,0)/20},		{(3,0)/30},\n	    							 {(4,0)/40},	{(5,0)/50}, 	{(6,0)/60},		{(7,0)/70},\n	    							 {(8,0)/80}, 	{(9,0)/90}}\n		    \\node[ghost] (\\name) at \\pos {$\\name$};\n		    \\foreach \\pos/\\name in 	{{(0,0)/00},	{(0,1)/01}, 	{(0,2)/01},		{(0,3)/03},\n									{(0,4)/04},		{(0,5)/05}, 	{(0,6)/06},		{(0,7)/07},\n									{(0,8)/08}, 	{(0,9)/09}}\n		    \\node[ghost] (\\name) at \\pos {$\\name$};\n		    \\foreach \\pos/\\name in 	{{(0,9)/09},	{(1,9)/19}, 	{(2,9)/29},		{(3,9)/39},\n	    							 {(4,9)/49},	{(5,9)/59}, 	{(6,9)/69},		{(7,9)/79},\n	    							 {(8,9)/89}, 	{(9,9)/99}}\n		    \\node[ghost] (\\name) at \\pos {$\\name$};\n		    \\foreach \\pos/\\name in 	{{(9,0)/90},	{(9,1)/91}, 	{(9,2)/91},		{(9,3)/93},\n									{(9,4)/94},		{(9,5)/95}, 	{(9,6)/96},		{(9,7)/97},\n									{(9,8)/98}, 	{(9,9)/99}}\n		    \\node[ghost] (\\name) at \\pos {$\\name$};\n		    %The inner nodes\n		    \\foreach \\pos/\\name in 	{{(9,0)/90},	{(9,1)/91}, 	{(9,2)/91},		{(9,3)/93},\n									{(9,4)/94},		{(9,5)/95}, 	{(9,6)/96},		{(9,7)/97},\n									{(9,8)/98}, 	{(9,9)/99}}\n		    \\node[ghost] (\\name) at \\pos {$\\name$};\n	    \\end{tikzpicture}\n	    \\caption{Hello}\n    \\end{figure}\n\n	% \\begin{figure}\n	% 	\\begin{subfigure}{1\\textwidth}\n	% 		\\begin{subfigure}[b]{0.18\\textwidth}\n	% 		\\begin{tikzpicture}[scale=1.0, auto,swap]\n	%     		\\foreach \\pos/\\name in {{(2,0)/200}, 	{(2,1)/201},	{(2,2)/202},\n	%                             		{(1,0)/000}, 	{(1,1)/101}, 	{(1,2)/102},\n	%                             		{(0,0)/000}, 	{(0,1)/001},	{(0,2)/002}}\n	%         	\\node[vertex] (\\name) at \\pos {$\\name$};\n	%         \\end{tikzpicture}\n	%         \\caption*{j \\(= 0\\)}\n	%         \\end{subfigure}\n	%         \\qquad \\qquad\n	%         \\begin{subfigure}[b]{0.18\\textwidth}\n	% 		\\begin{tikzpicture}[scale=1.0, auto,swap]\n	%     		\\foreach \\pos/\\name in {{(2,0)/210}, 	{(2,1)/211},	{(2,2)/212},\n	%                             		{(1,0)/010}, 	{(1,1)/111}, 	{(1,2)/112},\n	%                             		{(0,0)/010}, 	{(0,1)/011},	{(0,2)/012}}\n	%         	\\node[vertex] (\\name) at \\pos {$\\name$};\n	%         \\end{tikzpicture}\n	%         \\caption*{j \\(= 1\\)}\n	%         \\end{subfigure}\n	%         \\qquad \\qquad\n	%         \\begin{subfigure}[b]{0.18\\textwidth}\n	% 		\\begin{tikzpicture}[scale=1.0, auto,swap]\n	%     		\\foreach \\pos/\\name in {{(2,0)/220}, 	{(2,1)/221},	{(2,2)/222},\n	%                             		{(1,0)/020}, 	{(1,1)/121}, 	{(1,2)/122},\n	%                             		{(0,0)/020}, 	{(0,1)/021},	{(0,2)/022}}\n	%         	\\node[vertex] (\\name) at \\pos {$\\name$};\n	%         \\end{tikzpicture}\n	%         \\caption*{j \\(= 2\\)}\n	%         \\end{subfigure}\n	%        	\\caption{All the neighbors in a \\(3\\cross 3\\) system divided up into three slices with j constant. The numbers are position in an ijk-grid.}\n	%        	\\label{fig:neighbor_grid}\n	% 	\\end{subfigure}\n	% 	\\begin{subfigure}{1\\textwidth}\n	% 		\\begin{subfigure}[b]{0.18\\textwidth}\n	% 		\\begin{tikzpicture}[scale=1.0, auto,swap]\n	%     		\\foreach \\pos/\\name in {{(0,2)/X}, 	{(1,2)/X},	{(2,2)/X},\n	%                             		{(0,1)/}, 	{(1,1)/}, 	{(2,1)/},\n	%                             		{(0,0)/*}, 	{(1,0)/*},	{(2,0)/*}}\n	%         	\\node[vertex] (\\name) at \\pos {$\\name$};\n	%         \\end{tikzpicture}\n	%         \\caption*{j \\(= 0\\)}\n	%         \\end{subfigure}\n	%         \\qquad \\qquad\n	%         \\begin{subfigure}[b]{0.18\\textwidth}\n	% 		\\begin{tikzpicture}[scale=1.0, auto,swap]\n	%     		\\foreach \\pos/\\name in {{(0,2)/X}, 	{(1,2)/X},	{(2,2)/X},\n	%                             		{(0,1)/}, 	{(1,1)/O}, 	{(2,1)/},\n	%                             		{(0,0)/*}, 	{(1,0)/*},	{(2,0)/*}}\n	%         	\\node[vertex] (\\name) at \\pos {$\\name$};\n	%         \\end{tikzpicture}\n	%         \\caption*{j \\(= 1\\)}\n	%         \\end{subfigure}\n	%         \\qquad \\qquad\n	%         \\begin{subfigure}[b]{0.18\\textwidth}\n	% 		\\begin{tikzpicture}[scale=1.0, auto,swap]\n	%     		\\foreach \\pos/\\name in {{(0,2)/X}, 	{(1,2)/X},	{(2,2)/X},\n	%                             		{(0,1)/}, 	{(1,1)/}, 	{(2,1)/},\n	%                             		{(0,0)/*}, 	{(1,0)/*},	{(2,0)/*}}\n	%         	\\node[vertex] (\\name) at \\pos {$\\name$};\n	%         \\end{tikzpicture}\n	%         \\caption*{j \\(= 2\\)}\n	%         \\end{subfigure}\n	%        	\\caption{Let the center cell interact with the top layer. 'X' represents a cell that the center cell, 'O' has interacted with. '*' represents a cell that will interact with the center cel, 'O' if it undergoes the same scheme as the center cell 'O'.}\n	%        	\\label{fig:top}\n	% 	\\end{subfigure}\n	% 	\\begin{subfigure}{1\\textwidth}\n	% 		\\begin{subfigure}[b]{0.18\\textwidth}\n	% 		\\begin{tikzpicture}[scale=1.0, auto,swap]\n	%     		\\foreach \\pos/\\name in {{(0,2)/X}, 	{(1,2)/X},	{(2,2)/X},\n	%                             		{(0,1)/*}, 	{(1,1)/}, 	{(2,1)/X},\n	%                             		{(0,0)/*}, 	{(1,0)/*},	{(2,0)/*}}\n	%         	\\node[vertex] (\\name) at \\pos {$\\name$};\n	%         \\end{tikzpicture}\n	%         \\caption*{j \\(= 0\\)}\n	%         \\end{subfigure}\n	%         \\qquad \\qquad\n	%         \\begin{subfigure}[b]{0.18\\textwidth}\n	% 		\\begin{tikzpicture}[scale=1.0, auto,swap]\n	%     		\\foreach \\pos/\\name in {{(0,2)/X}, 	{(1,2)/X},	{(2,2)/X},\n	%                             		{(0,1)/*}, 	{(1,1)/O}, 	{(2,1)/X},\n	%                             		{(0,0)/*}, 	{(1,0)/*},	{(2,0)/*}}\n	%         	\\node[vertex] (\\name) at \\pos {$\\name$};\n	%         \\end{tikzpicture}\n	%         \\caption*{j \\(= 1\\)}\n	%         \\end{subfigure}\n	%         \\qquad \\qquad\n	%         \\begin{subfigure}[b]{0.18\\textwidth}\n	% 		\\begin{tikzpicture}[scale=1.0, auto,swap]\n	%     		\\foreach \\pos/\\name in {{(0,2)/X}, 	{(1,2)/X},	{(2,2)/X},\n	%                             		{(0,1)/*}, 	{(1,1)/}, 	{(2,1)/X},\n	%                             		{(0,0)/*}, 	{(1,0)/*},	{(2,0)/*}}\n	%         	\\node[vertex] (\\name) at \\pos {$\\name$};\n	%         \\end{tikzpicture}\n	%         \\caption*{j \\(= 2\\)}\n	%         \\end{subfigure}\n	%        	\\caption{Then we let the center cell interact with the rest of the front, i-direction.}\n	%        	\\label{fig:front}\n	% 	\\end{subfigure}\n	% 	\\begin{subfigure}{1\\textwidth}\n	% 		\\begin{subfigure}[b]{0.18\\textwidth}\n	% 		\\begin{tikzpicture}[scale=1.0, auto,swap]\n	%     		\\foreach \\pos/\\name in {{(0,2)/X}, 	{(1,2)/X},	{(2,2)/X},\n	%                             		{(0,1)/*}, 	{(1,1)/X}, 	{(2,1)/X},\n	%                             		{(0,0)/*}, 	{(1,0)/*},	{(2,0)/*}}\n	%         	\\node[vertex] (\\name) at \\pos {$\\name$};\n	%         \\end{tikzpicture}\n	%         \\caption*{j \\(= 0\\)}\n	%         \\end{subfigure}\n	%         \\qquad \\qquad\n	%         \\begin{subfigure}[b]{0.18\\textwidth}\n	% 		\\begin{tikzpicture}[scale=1.0, auto,swap]\n	%     		\\foreach \\pos/\\name in {{(0,2)/X}, 	{(1,2)/X},	{(2,2)/X},\n	%                             		{(0,1)/*}, 	{(1,1)/O}, 	{(2,1)/X},\n	%                             		{(0,0)/*}, 	{(1,0)/*},	{(2,0)/*}}\n	%         	\\node[vertex] (\\name) at \\pos {$\\name$};\n	%         \\end{tikzpicture}\n	%         \\caption*{j \\(= 1\\)}\n	%         \\end{subfigure}\n	%         \\qquad \\qquad\n	%         \\begin{subfigure}[b]{0.18\\textwidth}\n	% 		\\begin{tikzpicture}[scale=1.0, auto,swap]\n	%     		\\foreach \\pos/\\name in {{(0,2)/X}, 	{(1,2)/X},	{(2,2)/X},\n	%                             		{(0,1)/*}, 	{(1,1)/*}, 	{(2,1)/X},\n	%                             		{(0,0)/*}, 	{(1,0)/*},	{(2,0)/*}}\n	%         	\\node[vertex] (\\name) at \\pos {$\\name$};\n	%         \\end{tikzpicture}\n	%         \\caption*{j \\(= 2\\)}\n	%         \\end{subfigure}\n	%        	\\caption{Then we let the center cell interact with side, j-direction and all the neighboring cells to cell \\(111\\) is interacted with, or interacts with cell \\(111\\) when all the cells are run trough.}\n	%        	\\label{fig:side}\n	% 	\\end{subfigure}\n	% 	\\caption{A schematic explanation of the algorithm to go through all the neighboring cells of a neighbor cell.}\n	% \\end{figure}",
+			"file": "chapters/grid_part.tex",
+			"file_size": 8378,
+			"file_write_time": 130906849537374503,
+			"settings":
+			{
+				"buffer_size": 8622,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/gullik/Documents/molecular-dynamics-fys3150/Report/Molecular_Dynamics_Report.tex",
+			"settings":
+			{
+				"buffer_size": 23479,
 				"line_ending": "Unix"
 			}
 		},
@@ -550,7 +566,7 @@
 			"file": "Master-Thesis.tex",
 			"settings":
 			{
-				"buffer_size": 2450,
+				"buffer_size": 2554,
 				"line_ending": "Unix"
 			}
 		},
@@ -876,7 +892,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -892,8 +908,8 @@
 						"selection":
 						[
 							[
-								15942,
-								15942
+								14470,
+								14470
 							]
 						],
 						"settings":
@@ -903,14 +919,71 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 4947.0,
+						"translation.y": 5100.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
+					"file": "chapters/grid_part.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8622,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1869,
+								1869
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/gullik/Documents/molecular-dynamics-fys3150/Report/Molecular_Dynamics_Report.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 23479,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								15723,
+								15723
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 5814.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
 					"file": "/home/gullik/Documents/CompPhys2_office306/Report/Report_3/sections/appendix.tex",
 					"semi_transient": false,
 					"settings":
@@ -932,14 +1005,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3825.0,
+						"translation.y": 3808.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 4,
 					"file": "chapters/introduction.tex",
 					"semi_transient": false,
 					"settings":
@@ -964,7 +1037,7 @@
 						"translation.y": 1428.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -974,20 +1047,20 @@
 			"sheets":
 			[
 				{
-					"buffer": 3,
+					"buffer": 5,
 					"file": "Master-Thesis.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2450,
+						"buffer_size": 2554,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2450,
-								2450
+								1564,
+								1564
 							]
 						],
 						"settings":
@@ -997,14 +1070,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1479.0,
+						"translation.y": 510.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 6,
 					"file": "chapters/alt_methods.tex",
 					"semi_transient": false,
 					"settings":
@@ -1016,8 +1089,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								3,
+								3
 							]
 						],
 						"settings":
@@ -1029,7 +1102,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1063,7 +1136,7 @@
 		"cols":
 		[
 			0.0,
-			0.639976275208,
+			0.58659549229,
 			1.0
 		],
 		"rows":
@@ -1119,7 +1192,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},
