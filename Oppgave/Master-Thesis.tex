@@ -15,12 +15,13 @@
 \usepackage{amssymb}
 \usepackage{ulem}
 \usepackage{cleveref}
+\usepackage{subfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Tikz settings
 \usetikzlibrary{shapes,arrows,chains}
 % =================================================
-% Set up a few colours
+% Set up a few colours      
 \colorlet{lcfree}{Green3}
 \colorlet{lcnorm}{Blue3}
 \colorlet{lccong}{Red3}
@@ -28,7 +29,7 @@
 % Set up a new layer for the debugging marks, and make sure it is on
 % top
 \pgfdeclarelayer{marx}
-\pgfsetlayers{main,marx}
+% \pgfsetlayers{main,marx}
 % A macro for marking coordinates (specific to the coordinate naming
 % scheme used here). Swap the following 2 definitions to deactivate
 % marks.
@@ -79,24 +80,25 @@
 % \chapter{Introduction}
 % \input{chapters/introduction}
 
-\chapter{Method}
-\input{chapters/method}
+% \chapter{Method}
+% \input{chapters/method}
 
 % \chapter{Results}
 % \input{chapters/results}
 
 % \chapter{Discussion}
-% % \input{chapters/discussion}
+% \input{chapters/discussion}
 
 % \chapter{Conclusions}
 % \input{chapters/conclusions}
 
 \appendix
-\chapter{Optional methods}
-\input{chapters/alt_methods}
+% \chapter{Optional methods}
+% \input{chapters/alt_methods}
 % \chapter{Verification and Testing}
 % \input{chapters/verification}
-
+\chapter{Grid Structs and Partitioning}
+\input{chapters/grid_part.tex}
 
 \printbibliography
 

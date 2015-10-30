@@ -357,6 +357,7 @@ struct d_rho
     double rho;
     double rho_av;
 };
+
 typedef struct d_rho d_rho;
 d_rho **drho;
 double *rdrho, *tordrho;

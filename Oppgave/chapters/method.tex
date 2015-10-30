@@ -9,31 +9,34 @@
 
 		The problem also need boundary conditions in which we will focus on periodic, Dirichlet and Neumann boundary conditions.
 
-		\subsection{Direct Solvers}
-
-
-		\subsection{Finite Difference Methods}
-
 		\subsection{Spectral Methods}
-			Numerical recipies
+			The spectral methods is based on Fourier transforms of the problem and solving the problem in it's spectral version, see \cite{Shen1994} for an implementation of an spectral poisson solver. They are efficient solvers that can be less, but can be inaccurate for complex geometries.
+
+			When looking for a solution with a spectral method we first rewrite the functions as Fourier series, which for the three-dimensional Poisson equation would be
+
+			\begin{align}
+				\nabla^2 \sum A_{j,k,l} e^{i(jx + ky + lz)} &= \sum B_{j,k,l} e^{i(jx + ky + lz)}
+				\intertext{From there we get a relation between the coefficients}
+				A_{j,k,l} &= -\frac{B_{j,k,l}}{j^2 + k^2 + l^2}
+				\intertext{Then we compute the Fourier transform of the right hand side obtaining the coefficients \(B_{j,k,l}\). We compute all the coefficients \(A_{j,k,l}\) from the relation between the coefficients. At last we perform a inverse Fourier transform of the left hand side obtaining the solution.}
+			\end{align}
+
+
 
 		\subsection{Finite Element Methods}
+
 			The finite element is a method to numerically solve a partial differential equations (PDE) first transforming the problem into a variational problem and then constructing a mesh and local trial functions, see \cite{Sandve2011} for a more complete discussion.
 
-			Variational formulation:
-			To transform the PDE to a variational problem the following we first multiply the PDE by a test function \(v\), then it is integrated using integration by parts on the second order terms. Then the problem is separated into two parts, the bilinear form \(a(u,v)\) containing the unknown solution and the test function and the linear form \(L(v)\) containing only the test function.
+			To transform the PDE to a variational problem we first multiply the PDE by a test function \(v\), then it is integrated using integration by parts on the second order terms. Then the problem is separated into two parts, the bilinear form \(a(u,v)\) containing the unknown solution and the test function and the linear form \(L(v)\) containing only the test function.
 
 			\begin{align}
 				a(u,v) = L(v)	\qquad v\epsilon \hat{V}
 			\end{align}
 
-			
+			Next we construct discrete local function spaces of that we assume contain the trialfunctions and testfunctions. The function spaces often consists of locally defined functions that are \(0\) except in a close neighbourhood of a mesh point, so the resulting matrix to be solved is sparse and can be computed quickly. The matrix system is then solved by a suiting linear algebra algorithm, before the solution is put together.
 
 
-
-	\section{Methods}
-
-	\section{MG-method}
+	\section{Multigrid}
 		The multi grid, MG, method used to solve the Poisson equation and obtain the electric field is a widely used and highly efficient solver for elliptic equations, having a theoretical scaling of \(\order{N}\) \citep{Press1987}, where \(N\) is the grid points. Here I will go through the main theory and algorithm behind the method, as explained in more detail in \citep{Press1987,Trottenberg2000} as well as go through some of possible algorithms to parallelize the method.
 
 		We want to solve a linear elliptic problem, 
@@ -179,7 +182,7 @@
 				\end{bmatrix}
 			\end{align}
 
-			With the overlap of the subgrids we will have the necessary information to perform the restriction without needing communication between the processors. \citep{Trottenberg}
+			With the overlap of the subgrids we will have the necessary information to perform the restriction without needing communication between the processors \citep{Trottenberg}.
 
 		\subsection{Interpolation}
 			For the interpolation we will use bilinear interpolation:
@@ -196,3 +199,39 @@
 			\end{align}
 
 			Since the interpolation is always done after GS-RB iterations the the outer part overlapped part of the grid updated, and we can have all the necessary information.
+
+		\subsection{Scaling}
+			\subsubsection{Volume-Boundary effect}
+			While a sequential MG algorithm has a theoretical scaling of \(\order{N}\) \citep{Press1987}, where \(N\) is the number of grid points, an implementation will have a lower scaling efficiency due to interprocessor communication. We want a parallel algorithm that attains a high speedup with more added processors \(P\),  compared to sequential \(1\) processor algorithm. Let \(T(P)\) be the computational time needed for solving the problem on \(P\) processors. Then we define the speedup \(S(P)\) and the parallel efficiency \(E(P)\) as
+
+			\begin{align}
+				S(P) = \frac{T(1)}{T(P)} \qquad E(P) = \frac{S(P)}{P}
+			\end{align} 
+
+			A perfect parallel algorithm would the computational time would scale inversely with the number of processors, \(T(P) \propto 1/P\) leading to \( E(P) =1 \). Due to the necessary interprocessor communication that is generally not achievable. The computational time of the algorithm is also important, if the algorithm is very slow but has good parallel efficiency it is often worse than a fast algorithm with a worse parallel efficiency.
+
+			The parallel efficiency of an algorithm is governed by the ratio between the time of communication and computation, \(T_{comm}/T_{comp}\). If there is no need for communication, like on \(1\) processor, the algorithm is perfectly parallel efficient. In our case the whole grid is diveded into several subgrids, which is assigned to different processors. In many cases the time used for computation is roughly scaling with the interior grid points, while the communication time is scaling with the boundaries of the subgrids. If a local solution method is used on a local problem it is only the grid points at the boundary that needs the information from grid points on the other processors. Since the edges has lower dimensionality than the inner grid points. So when the problem is is increasing the time for computation grows faster than the time for communication, and a parallel algorithm often has a higher parallel efficiency on a larger problem. This is called the Boundary-Volume effect.
+
+			\subsubsection{Parallel complexity}
+				The complexities, as in needed computational work, of sequential and parallel MG cycles is calculated in \cite{Trottenberg} and is shown in \cref{tab:parallel_complexity}. In the table we can see that in the parallel case there is a substantial increase in the complexity in the case of \(W\) cycles compared to \(V\) cycles. In the sequential case the change in complexity when going to a \(W\) cycle is not dependent on the problem size, but it is in the parallel case. 
+
+				
+			\begin{table}
+				\centering
+				\begin{tabular}{ c  c c c}
+					& Cycle & Sequential & Parallel
+				  	\\  \hline
+				  	MG & V & \(\order{N}\) & \(\order{\log N}\)
+				  	\\ 
+				  	& W & $\order{N}$ & $\order{\sqrt{N}}$
+				  	\\ \hline
+					FMG & V & $\order{N}$ & $\order{\log^2 N}$
+					\\
+					& W & $\order{N}$ & \( \order{\sqrt{N} \log{N}} \)
+				\end{tabular}
+				\caption{The parallel complexities of sequential and parallel multigrid cycles}
+				\label{tab:parallel_complexity}
+			\end{table}
+
+
+			
