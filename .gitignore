@@ -18,7 +18,6 @@ boker/
 *.out 
 *.syn*
 *.toc 
-*.pdf
 *.gnuplot
 *.gnuplot
 *.table
