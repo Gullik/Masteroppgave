@@ -523,7 +523,7 @@
 			"file": "/home/gullik/Documents/Masteroppgave/code/multigrid/src/makefile",
 			"settings":
 			{
-				"buffer_size": 168,
+				"buffer_size": 566,
 				"line_ending": "Unix"
 			}
 		}
@@ -840,15 +840,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 168,
+						"buffer_size": 566,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								168,
-								168
+								0,
+								0
 							]
 						],
 						"settings":
@@ -954,7 +954,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},

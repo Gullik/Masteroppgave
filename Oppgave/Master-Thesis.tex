@@ -12,12 +12,16 @@
 % \documentclass[x11names]{article}
 \usepackage{tikz}
 \usepackage{physics}
+\usepackage{amssymb}
+\usepackage{ulem}
+\usepackage{cleveref}
+% \usepackage{subfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Tikz settings
 \usetikzlibrary{shapes,arrows,chains}
 % =================================================
-% Set up a few colours
+% Set up a few colours      
 \colorlet{lcfree}{Green3}
 \colorlet{lcnorm}{Blue3}
 \colorlet{lccong}{Red3}
@@ -25,7 +29,7 @@
 % Set up a new layer for the debugging marks, and make sure it is on
 % top
 \pgfdeclarelayer{marx}
-\pgfsetlayers{main,marx}
+% \pgfsetlayers{main,marx}
 % A macro for marking coordinates (specific to the coordinate naming
 % scheme used here). Swap the following 2 definitions to deactivate
 % marks.
@@ -53,18 +57,25 @@
 \addbibresource{bibs/bibliography.bib}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 %\bibliography{references}
 
 \author{Gullik Vetvik Killie}
-\title{Plasmastuffs!!!!}
+\title{Plasmastuffs}
 \date{June 2015}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %	Document starts here
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
 \begin{document}
+
 
 % \maketitle
 % \input{chapters/abstract}
@@ -74,9 +85,8 @@
 % \chapter{Introduction}
 % \input{chapters/introduction}
 
-\chapter{Method}
-\input{chapters/method}
-
+% \chapter{Method}
+% \input{chapters/method}
 
 % \chapter{Results}
 % \input{chapters/results}
@@ -88,13 +98,16 @@
 % \input{chapters/conclusions}
 
 \appendix
-\chapter{Optional methods}
-\input{chapters/alt_methods}
+% \chapter{Optional methods}
+% \input{chapters/alt_methods}
+\chapter{Grid Structs and Partitioning}
+\input{chapters/grid_part.tex}
 \chapter{Verification and Testing}
 \input{chapters/verification}
-
 
 
 \printbibliography
 
 \end{document}
+
+

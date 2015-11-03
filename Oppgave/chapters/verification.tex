@@ -1,4 +1,3 @@
 
-	\begin{itemize}
-	\item hello
-	\end{itemize}
+The multigrid method has several different steps in the algorithm, as a developmental help and to ensure that the program works correctly during as many different conditions as possible we want to test the whole code, as well as the constituent parts where possible. The method is quite modular and several parts of it can be tested alone. The GS-RB, used for smoothing, can be independently tested, since on it's own it converges to a solution, just at a higher computational cost than the multigrid method. To test it we will use an initial density field with a length between the grid steps that results in an exact answer. The restriction and prolongation operators can also tested to a degree by checking that they preserve a constant grid through several grid level changes. 
+

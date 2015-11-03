@@ -43,6 +43,7 @@ int main(int argc, char *argv[]) {
     /********* Let's try to us it **********/
     mglin(rho, NCYCLES);
 
+    printf("Cycles %d \n", NCYCLES);
 
     FILE * write;
     char const * data_path_test = "../testdata/hello.xyz";

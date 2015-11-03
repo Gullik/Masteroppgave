@@ -1,3 +1,26 @@
+@article{Adams2001,
+abstract = {Gauss-Seidel is a popular multigrid smoother as it is provably optimal on structured grids and exhibits superior performance on unstructured grids. Gauss-Seidel is not used to our knowledge on distributed memory machines as it is not obvious how to parallelize it effectively. We, among others, have found that Krylov solvers preconditioned with Jacobi, block Jacobi or overlapped Schwarz are effective on unstruc-tured problems. Gauss-Seidel does however have some attractive properties, namely: fast convergence, no global communication (ie, no dot products) and fewer flops per iteration as one can incorporate an initial guess naturally. This paper discusses an algorithm for parallelizing Gauss-Seidel for distributed memory computers for use as a multigrid smoother and compares its performance with preconditioned conjugate gradients on unstructured linear elasticity problems with up to 76 million degrees of freedom.},
+author = {Adams, Mark F},
+file = {:home/gullik/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Adams - 2001 - A Distributed Memory Unstructured Gauss-Seidel Algorithm for Multigrid Smoothers.pdf:pdf},
+keywords = {algebraic multigrid,parallel Gauss-Seidel,parallel graph algorithms,unstructured multigrid},
+title = {{A Distributed Memory Unstructured Gauss-Seidel Algorithm for Multigrid Smoothers}},
+year = {2001}
+}
+@article{Arraras2015,
+abstract = {Abstract In this work, we propose efficient discretizations for nonlinear evolutionary reaction–diffusion problems on general two-dimensional domains. The spatial domain is discretized through an unstructured coarse triangulation, which is subsequently refined via regular triangular grids. Following the method of lines approach, we first consider a finite element spatial discretization, and then use a linearly implicit splitting time integrator related to a suitable decomposition of the triangulation nodes. Such a procedure provides a linear system per internal stage. The equations corresponding to those nodes lying strictly inside the elements of the coarse triangulation can be decoupled and solved in parallel using geometric multigrid techniques. The method is unconditionally stable and computationally efficient, since it avoids the need for Schwarz-type iteration procedures. In addition, it is formulated for triangular elements, thus yielding much flexibility in the discretization of complex geometries. To illustrate its practical utility, the algorithm is shown to reproduce the pattern-forming dynamics of the Schnakenberg model.},
+author = {Arraras, A. and Gaspar, F.J. and Portero, L. and Rodrigo, C.},
+doi = {10.1016/j.cnsns.2014.06.044},
+file = {:home/gullik/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Arrar\'{a}s et al. - 2015 - Reprint of Domain decomposition multigrid methods for nonlinear reaction\^{a}€“diffusion problems.pdf:pdf},
+issn = {10075704},
+journal = {Communications in Nonlinear Science and Numerical Simulation},
+keywords = {domain decomposition,linearly implicit method},
+number = {3},
+pages = {699--710},
+title = {{Domain decomposition multigrid methods for nonlinear reaction diffusion problems}},
+url = {http://linkinghub.elsevier.com/retrieve/pii/S1007570414003074},
+volume = {20},
+year = {2015}
+}
 @article{Baiardi2000,
 author = {Baiardi, Fabrizio and Chiti, Sarah and Mori, Paolo and Ricci, Laura},
 file = {:home/gullik/Documents/Masteroppgave/boker/chp\%3A10.1007\%2F3-540-45492-6\_8.pdf:pdf},
@@ -172,6 +195,25 @@ url = {http://www.jstor.org/stable/1269484?origin=crossref},
 volume = {29},
 year = {1987}
 }
+@article{StUben2001,
+abstract = {Since the early 1990s, there has been a strongly increasing demand for more eecient methods to solve large sparse, unstructured linear systems of equations. For practically relevant problem sizes, classical one-level methods had already reached their limits and new hierarchical algorithms had to be developed in order to allow an eecient solution of even larger problems. This paper gives a review of the \"{y}rst hierarchical and purely matrix-based approach, algebraic multigrid (AMG). AMG can directly be applied, for instance, to eeciently solve various types of elliptic partial diierential equations discretized on unstructured meshes, both in 2D and 3D. Since AMG does not make use of any geometric information, it is a " plug-in " solver which can even be applied to problems without any geometric background, provided that the underlying matrix has certain properties. c},
+author = {{St Uben}, K},
+file = {:home/gullik/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/St Uben - 2001 - A review of algebraic multigrid.pdf:pdf},
+journal = {Journal of Computational and Applied Mathematics},
+keywords = {Algebraic multigrid},
+pages = {281--309},
+title = {{A review of algebraic multigrid}},
+url = {www.elsevier.nl/locate/cam},
+volume = {128},
+year = {2001}
+}
+@article{Tai,
+abstract = {Uniform linear mesh independent convergence rate estimate is given for some proposed algorithms for variational inequalities in con-nection with domain decomposition and multigrid methods. The algo-rithms are proposed for general space decompositions and thus can also be applied to estimate convergence rate for classical block relaxation methods. Numerical examples which support the theoretical predictions are presented.},
+author = {Tai, Xue–Cheng},
+file = {:home/gullik/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Tai - Unknown - Domain Decomposition and Multigrid Methods for Obstacle Problems.pdf:pdf},
+title = {{Domain Decomposition and Multigrid Methods for Obstacle Problems}},
+url = {http://www.mi.uib.}
+}
 @article{Tezduyar2008,
 abstract = {We present an overview of how the arterial fluid mechanics problems can be modeled with the stabilized space–time fluid–structure interaction (SSTFSI) technique developed by the Team for Advanced Flow Simulation and Modeling (TAFSM). The SSTFSI technique includes the enhancements introduced recently by the TAFSM to increase the scope, accuracy, robustness and efficiency of this class of techniques. The SSTFSI technique is supplemented with a number of special techniques developed for arterial fluid mechanics modeling. These include a recipe for pre-FSI computations that improve the convergence of the FSI computations, using an estimated zero-pressure arterial geometry, and the sequentially coupled arterial FSI (SCAFSI) technique. The recipe for pre-FSI computations is based on the assumption that the arterial deformation during a cardiac cycle is driven mostly by the blood pressure. The SCAFSI technique, which was introduced as an approximate FSI approach in arterial fluid mechanics, is also based on that assumption. The need for an estimated zero-pressure arterial geometry is based on recognizing that the patient-specific image-based geometries correspond to time-averaged blood pressure values. In our arterial fluid mechanics modeling the arterial walls can be represented with the membrane or continuum elements, both of which are geometrically nonlinear, and the continuum element is made of hyperelastic (Fung) material. Test computations are presented for cerebral and abdominal aortic aneurysms, where the arterial geometries used in the computations are close approximations to the patient-specific image-based data.},
 author = {Tezduyar, Tayfun E and Sathe, Sunil and Schwaab, Matthew and Conklin, Brian S},
@@ -185,10 +227,11 @@ title = {{Arterial fluid mechanics modeling with the stabilized space – time f
 year = {2008}
 }
 @book{Trottenberg,
-author = {Trottenberg, U. and Oosterlee, C. W. and Sch\"{u}ller, a.},
+author = {Trottenberg, U. and Oosterlee, C. W. and Sch\"{u}ller, A.},
 file = {:home/gullik/Documents/Masteroppgave/boker/[Ulrich\_Trottenberg,\_Cornelius\_W.\_Oosterlee,\_Anton(BookZZ.org).pdf:pdf},
 isbn = {012701070X},
-title = {{Multigrid}}
+title = {{Multigrid}},
+year = {2001}
 }
 @article{Trottenberg2000,
 author = {Trottenberg, U. and Sch\"{u}ller, a. and Oosterlee, C. W.},
@@ -211,4 +254,31 @@ title = {{Parallel multigrid method for solving elliptic equations}},
 url = {http://link.springer.com/10.1134/S2070048214040103},
 volume = {6},
 year = {2014}
+}
+@article{McAdams2010,
+author = {McAdams, a and Sifakis, E and Teran, J},
+file = {:home/gullik/Downloads/MST10.pdf:pdf},
+journal = {Eurographics/ ACM SIGGRAPH Symposium on Computer Animation},
+pages = {10},
+title = {{A parallel multigrid Poisson solver for fluids simulation on large grids}},
+year = {2010}
+}
+@article{Sandve2011,
+author = {Sandve, Martin and Hake, Alnaes Johan and Kirby, Robert C and Langtangen, Hans Petter and Logg, Anders and Wells, Garth N},
+file = {:home/gullik/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Sandve et al. - 2011 - The FEniCS Manual Excerpts from the FEniCS Book With contributions from.pdf:pdf},
+title = {{The FEniCS Manual Excerpts from the FEniCS Book With contributions from}},
+year = {2011}
+}
+@article{Shen1994,
+abstract = {See, stats, and : http : / / www . researchgate . net / publication / 242913440 Efficient - Galerkin . Direct Solvers - Order Using ARTICLE Impact : 1 . 85 : 10 . 1137 / 0915089 CITATIONS 270 READS 265 1 : Jie Purdue 188 , 317 SEE Available : Jie Retrieved : 15 SIAM J . SCI . COMPUT . Abstract . We present some efficient algorithms based on the Legendre - Galerkin approxima - tions for the direct solution of the second and fourth order elliptic equations . The key to the efficiency of our algorithms is to construct appropriate base functions , which lead to systems with sparse matri - ces for the discrete variational formulations . The complexities of the algorithms are a small multiple of N d+1 operations for a d dimensional domain with (N − 1) d unknowns , while the convergence rates of the algorithms are exponential for problems with smooth solutions . In addition , the algorithms can be effectively parallelized since the bottlenecks of the algorithms are matrix - matrix multiplications . 1 . Introduction . This article is the first in a series for developing efficient spectral Galerkin algorithms for elliptic problems . The spectral method employs global polynomials as the trial functions for the discretization of partial differential equations . It provides very accurate approximations with a relatively small number of unknowns . Consequently it has gained increasing popularity in the last two decades , especially in the field of computational fluid dynamics (see [ 11 ] , [ 8 ] and the references therein) . The use of different test functions in a variational formulation leads to three most commonly used spectral schemes , namely , the Galerkin , tau and collocation versions . In the collocation method , we work in the physical space – a set of collocation points ; whileintheGalerkinandtaumethods,weworkinthespectralspace–thecoefficientsofthepolynomialseries.TheGalerkinandcollocationmethodsusuallyleadtooptimalerrorestimates;whilethetaumethod,beingamodificationoftheGalerkinmethod,leadstononsymmetricvariationalformulationsandonlysub-optimalerrorestimatesareavailable(seeforinstance[19]and[20]).GottliebandOrszagintheirpioneerbook[11]presentedanefficientChebyshev-taumethod;ontheotherhand,theypresentedabasisfortheGalerkinmethodwhichleadstofullmatricesanditsapplicationinpracticeisprohibited.Itissurprisingthatvirtuallynoefforthasbeenmadeonconstructingappropriatebases(otherthantheLagrangianinterpolantbasis)forthespectral-Galerkinmethod.Consequentlythetaumethodalongwiththecollocationmethod(thelaterbeingmorenaturalforproblemswithvariablecoefficients)havebeenthefocusofagreatnumberofresearchpapers(see[8]andthereferencetherein),whiletheGalerkinmethod,beingmoreauthenticandmoreaccuratethanthetaumethod,hasdrawlessattention.Weshouldpointoutthatthespectralelementmethod,developedbyPateraandhisgroup,isinfactaspectral-Galerkinmethod(seethesurveypaper[13]).However,thespectralelementmethod,inthecaseofasingledomain,differsfromthespectral-Galerkinmethodtobepresentedinthisworkintwoaspects:(i)aGaussianquadratureformulaisusedinsteadofexactintegration;},
+author = {Shen, Jie},
+doi = {10.1137/0915089},
+file = {:home/gullik/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Shen - 1994 - Efficient Spectral - Galerkin Method I . Direct Solvers for the Second and Fourth Order Equations Using Legendre Polynomia.pdf:pdf},
+journal = {and Applied Mathematics},
+keywords = {35J05,65F05,65N22,Helmholtz equation,Legendre polynomial,biharmonic equation,direct solver AMS subject classifications 65N35,spectral - Galerkin method},
+number = {6},
+pages = {1489--1505},
+title = {{Efficient Spectral - Galerkin Method I . Direct Solvers for the Second and Fourth Order Equations Using Legendre Polynomials *}},
+volume = {15},
+year = {1994}
 }
