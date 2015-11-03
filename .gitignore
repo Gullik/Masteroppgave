@@ -18,7 +18,10 @@ boker/
 *.out 
 *.syn*
 *.toc 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 65805c9ad732f6ea0d4d502cfa1b53b12cd112f0
 *.gnuplot
 *.gnuplot
 *.table
