@@ -519,62 +519,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "chapters/method.tex",
-			"settings":
-			{
-				"buffer_size": 16457,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "chapters/grid_part.tex",
-			"settings":
-			{
-				"buffer_size": 7715,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/gullik/Documents/molecular-dynamics-fys3150/Report/Molecular_Dynamics_Report.tex",
-			"settings":
-			{
-				"buffer_size": 23479,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/gullik/Documents/CompPhys2_office306/Report/Report_3/sections/appendix.tex",
-			"settings":
-			{
-				"buffer_size": 13204,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "chapters/introduction.tex",
-			"settings":
-			{
-				"buffer_size": 4780,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Master-Thesis.tex",
-			"settings":
-			{
-				"buffer_size": 2628,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "chapters/alt_methods.tex",
-			"settings":
-			{
-				"buffer_size": 6629,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -662,20 +606,25 @@
 	],
 	"file_history":
 	[
+		"/home/gullik/Documents/Masteroppgave/Oppgave/bibs/extra.bib",
+		"/home/gullik/Documents/Masteroppgave/Oppgave/Master-Thesis.tex",
+		"/home/gullik/Documents/Masteroppgave/Oppgave/chapters/multigrid_libraries.tex",
+		"/home/gullik/Documents/Masteroppgave/Oppgave/chapters/alt_methods.tex",
+		"/home/gullik/Documents/Masteroppgave/Oppgave/chapters/introduction.tex",
+		"/home/gullik/Documents/CompPhys2_office306/Report/Report_3/sections/appendix.tex",
+		"/home/gullik/Documents/Masteroppgave/Oppgave/chapters/verification.tex",
+		"/home/gullik/Documents/Masteroppgave/Oppgave/chapters/grid_part.tex",
+		"/home/gullik/Documents/Masteroppgave/Oppgave/chapters/method.tex",
+		"/home/gullik/Documents/molecular-dynamics-fys3150/Report/Molecular_Dynamics_Report.tex",
 		"/home/gullik/Documents/Masteroppgave/Oppgave/untitled.sublime-project",
 		"/home/gullik/Documents/CompPhys2_office306/Report/Report_3/sections/GTO.tex",
 		"/home/gullik/Documents/CompPhys2_office306/Report/Report_3/sections/extras.tex",
 		"/home/gullik/Documents/CompPhys2_office306/Report/Report_3/sections/molecules.tex",
 		"/home/gullik/Documents/Masteroppgave/Oppgave/chapters/conclusions",
-		"/home/gullik/Documents/Masteroppgave/Oppgave/chapters/introduction.tex",
-		"/home/gullik/Documents/Masteroppgave/Oppgave/chapters/verification.tex",
 		"/home/gullik/Documents/Masteroppgave/Oppgave/chapters/untitled",
 		"/home/gullik/Documents/Masteroppgave/Oppgave/chapters/discussion.tex",
 		"/home/gullik/Documents/Masteroppgave/Oppgave/chapters/conclusions.tex",
-		"/home/gullik/Documents/Masteroppgave/Oppgave/chapters/method.tex",
-		"/home/gullik/Documents/CompPhys2_office306/Report/Report_3/sections/appendix.tex",
 		"/home/gullik/Documents/Masteroppgave/Oppgave/chapters/results.tex",
-		"/home/gullik/Documents/Masteroppgave/Oppgave/chapters/alt_methods.tex",
 		"/home/gullik/Documents/Masteroppgave/Oppgave/chapters/abstract.tex",
 		"/home/gullik/Documents/Masteroppgave/Oppgave/chapters/para.tex",
 		"/home/gullik/Documents/Masteroppgave/Oppgave/discussion",
@@ -699,7 +648,6 @@
 		"/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/Exercise_9/source/stability.py",
 		"/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/Exercise_9/report/Report_9.tex",
 		"/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/Exercise_3/source/dipfield_rk4.py",
-		"/home/gullik/Documents/Masteroppgave/Oppgave/Master-Thesis.tex",
 		"/home/gullik/Documents/Masteroppgave/Oppgave/chapters/methods.tex",
 		"/home/gullik/Documents/Masteroppgave/code/source_periodic/src/fmg/fmg_P.c",
 		"/home/gullik/Documents/CompPhys2_office306/Report/Report_3/Project_3.tex",
@@ -736,7 +684,6 @@
 		"/usr/local/lib/python2.7/dist-packages/numpy/lib/npyio.py",
 		"/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/Exercise_6/potential_grid.py",
 		"/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/Exercise_3/source/dipoleField.py",
-		"/home/gullik/Documents/molecular-dynamics-fys3150/Report/Molecular_Dynamics_Report.tex",
 		"/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/Exercise_6/report/test/untitled.tex",
 		"/home/gullik/Documents/Plasma Sommerjobb/Sommerjobb_Oppgaver/Exercise_3/Report_3.tex",
 		"/home/gullik/Documents/INF5620-Gullik/wave_project/solver.py",
@@ -786,10 +733,7 @@
 		"/home/gullik/Documents/CompPhys2_office306/Report/Report_3/Project_3.toc",
 		"/home/gullik/Documents/CompPhys2_office306/Report/Report_3/temp_delete.tex",
 		"/home/gullik/Documents/CompPhys2_office306/Report/Report_3/Project_3.aux",
-		"/home/gullik/Documents/CompPhys2_office306/Report/Report_2/Project_2.tex",
-		"/home/gullik/Documents/Søknader og CV Gullik/søknader og cv gullik/jobbdokumenter/Application DNV/Cover lett mal riktig.tex",
-		"/home/gullik/Documents/Søknader og CV Gullik/søknader og cv gullik/jobbdokumenter/Application DNV/Application DNV summer project (Gullik Killie).tex",
-		"/home/gullik/Documents/CompPhys2_office306/sympyMath/derivatives.py"
+		"/home/gullik/Documents/CompPhys2_office306/Report/Report_2/Project_2.tex"
 	],
 	"find":
 	{
@@ -889,220 +833,13 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "chapters/method.tex",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 16457,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								14470,
-								14470
-							]
-						],
-						"settings":
-						{
-							"spell_check": true,
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 5100.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "chapters/grid_part.tex",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7715,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3,
-								3
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/home/gullik/Documents/molecular-dynamics-fys3150/Report/Molecular_Dynamics_Report.tex",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 23479,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								15723,
-								15723
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 5814.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/home/gullik/Documents/CompPhys2_office306/Report/Report_3/sections/appendix.tex",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 13204,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 3808.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "chapters/introduction.tex",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4780,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								468,
-								468
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1428.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				}
 			]
 		},
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 5,
-					"file": "Master-Thesis.tex",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2628,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2036,
-								2036
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 454.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "chapters/alt_methods.tex",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6629,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3,
-								3
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1134,7 +871,7 @@
 		"cols":
 		[
 			0.0,
-			0.623962040333,
+			0.602609727166,
 			1.0
 		],
 		"rows":
@@ -1190,7 +927,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},

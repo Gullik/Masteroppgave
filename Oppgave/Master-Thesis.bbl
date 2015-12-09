@@ -16,5 +16,183 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \sortlist{entry}{nyt}
+    \entry{Falgout02hypre:a}{inproceedings}{}
+      \name{labelname}{2}{}{%
+        {{uniquename=0,hash=cd0218f423f544a4dd1e92ddae2bddf0}{Falgout}{F\bibinitperiod}{Robert\bibnamedelima D}{R\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=57c03e4eab1b21d1e643bc0e53ad6c0f}{Yang}{Y\bibinitperiod}{Ulrike\bibnamedelima Meier}{U\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=cd0218f423f544a4dd1e92ddae2bddf0}{Falgout}{F\bibinitperiod}{Robert\bibnamedelima D}{R\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=57c03e4eab1b21d1e643bc0e53ad6c0f}{Yang}{Y\bibinitperiod}{Ulrike\bibnamedelima Meier}{U\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{1f4b829376c70ed3bb42fe7b5660c783}
+      \strng{fullhash}{1f4b829376c70ed3bb42fe7b5660c783}
+      \field{sortinit}{F}
+      \field{labelyear}{2002}
+      \field{datelabelsource}{}
+      \field{labeltitle}{{hypre: a Library of High Performance Preconditioners}}
+      \field{booktitle}{Preconditioners, Lecture Notes in Computer Science}
+      \field{title}{{hypre: a Library of High Performance Preconditioners}}
+      \field{year}{2002}
+      \field{pages}{632\bibrangedash 641}
+    \endentry
+    \entry{Gropp2001}{article}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=232270861ce704a354417bfda0acdb1b}{Gropp}{G\bibinitperiod}{William}{W\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=232270861ce704a354417bfda0acdb1b}{Gropp}{G\bibinitperiod}{William}{W\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{232270861ce704a354417bfda0acdb1b}
+      \strng{fullhash}{232270861ce704a354417bfda0acdb1b}
+      \field{sortinit}{G}
+      \field{labelyear}{2001}
+      \field{datelabelsource}{}
+      \field{labeltitle}{{PETSc Users Manual}}
+      \field{journaltitle}{Work}
+      \field{title}{{PETSc Users Manual}}
+      \field{year}{2001}
+      \verb{file}
+      \verb :home/gullik/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Gropp - 2001 - PETSc Users Manual.pdf:pdf
+      \endverb
+    \endentry
+    \entry{METIS}{misc}{}
+      \name{labelname}{2}{}{%
+        {{uniquename=0,hash=3db7df6401b206bb040d6735adbe81e2}{Karypis}{K\bibinitperiod}{George}{G\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=efb90d78e35ff61d3bc639f5c6f3d822}{Kumar}{K\bibinitperiod}{Vipin}{V\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=3db7df6401b206bb040d6735adbe81e2}{Karypis}{K\bibinitperiod}{George}{G\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=efb90d78e35ff61d3bc639f5c6f3d822}{Kumar}{K\bibinitperiod}{Vipin}{V\bibinitperiod}{}{}{}{}}%
+      }
+      \list{organization}{1}{%
+        {University of Minnesota, Minneapolis, MN}%
+      }
+      \strng{namehash}{78d3ffe775563bd509dfd1b2150dab33}
+      \strng{fullhash}{78d3ffe775563bd509dfd1b2150dab33}
+      \field{sortinit}{K}
+      \field{labelyear}{2009}
+      \field{datelabelsource}{}
+      \field{labeltitle}{{MeTis: Unstructured Graph Partitioning and Sparse Matrix Ordering System, Version 4.0}}
+      \field{howpublished}{\url{http://www.cs.umn.edu/~metis}}
+      \field{title}{{MeTis: Unstructured Graph Partitioning and Sparse Matrix Ordering System, Version 4.0}}
+      \field{year}{2009}
+    \endentry
+    \entry{Karypis}{article}{}
+      \name{labelname}{3}{uniquelist=3}{%
+        {{uniquename=0,hash=3db7df6401b206bb040d6735adbe81e2}{Karypis}{K\bibinitperiod}{George}{G\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=efb90d78e35ff61d3bc639f5c6f3d822}{Kumar}{K\bibinitperiod}{Vipin}{V\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=0f6c8d6dc94e1c7ba70a081cefeff1aa}{Sci}{S\bibinitperiod}{Siam\bibnamedelimb J\bibnamedelima Comput}{S\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{3}{uniquelist=3}{%
+        {{uniquename=0,hash=3db7df6401b206bb040d6735adbe81e2}{Karypis}{K\bibinitperiod}{George}{G\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=efb90d78e35ff61d3bc639f5c6f3d822}{Kumar}{K\bibinitperiod}{Vipin}{V\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=0f6c8d6dc94e1c7ba70a081cefeff1aa}{Sci}{S\bibinitperiod}{Siam\bibnamedelimb J\bibnamedelima Comput}{S\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{6ab6d6fb6031903083e8c656943cd971}
+      \strng{fullhash}{6ab6d6fb6031903083e8c656943cd971}
+      \field{sortinit}{K}
+      \field{labelyear}{nodate}
+      \field{labeltitle}{{A FAST AND HIGH QUALITY MULTILEVEL SCHEME FOR PARTITIONING IRREGULAR GRAPHS *}}
+      \field{abstract}{Recently, a number of researchers have investigated a class of graph partitioning algorithms that reduce the size of the graph by collapsing vertices and edges, partition the smaller graph, and then uncoarsen it to construct a partition for the original graph [Bui and Jones, Proc. of the 6th SIAM Conference on Parallel Processing for Scientific Computing, 1993, 445\x{fffd}\x{fffd}\x{fffd}452; Hen-drickson and Leland, A Multilevel Algorithm for Partitioning Graphs, Tech. report SAND 93-1301, Sandia National Laboratories, Albuquerque, NM, 1993]. From the early work it was clear that multilevel techniques held great promise; however, it was not known if they can be made to con-sistently produce high quality partitions for graphs arising in a wide range of application domains. We investigate the effectiveness of many different choices for all three phases: coarsening, partition of the coarsest graph, and refinement. In particular, we present a new coarsening heuristic (called heavy-edge heuristic) for which the size of the partition of the coarse graph is within a small factor of the size of the final partition obtained after multilevel refinement. We also present a much faster variation of the Kernighan\x{fffd}\x{fffd}\x{fffd}Lin (KL) algorithm for refining during uncoarsening. We test our scheme on a large number of graphs arising in various domains including finite element methods, linear pro-gramming, VLSI, and transportation. Our experiments show that our scheme produces partitions that are consistently better than those produced by spectral partitioning schemes in substantially smaller time. Also, when our scheme is used to compute fill-reducing orderings for sparse matrices, it produces orderings that have substantially smaller fill than the widely used multiple minimum degree algorithm.}
+      \field{number}{1}
+      \field{title}{{A FAST AND HIGH QUALITY MULTILEVEL SCHEME FOR PARTITIONING IRREGULAR GRAPHS *}}
+      \field{volume}{20}
+      \field{pages}{359\bibrangedash 392}
+      \verb{file}
+      \verb :home/gullik/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Karypis, Kumar, Sci - Unknown - A FAST AND HIGH QUALITY MULTILEVEL SCHEME FOR PARTITIONING IRREGULAR GRAPHS.pdf:pdf
+      \endverb
+      \keyw{05C85 PII S1064827595287997,fill-reducing orderings,graph partitioning,parallel computations}
+    \endentry
+    \entry{Sbalzarini2006}{article}{}
+      \name{labelname}{6}{}{%
+        {{uniquename=0,hash=4a9f09b60a048bb8c33a06d6af4e962e}{Sbalzarini}{S\bibinitperiod}{I\bibnamedelima F}{I\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=906a6671d287bed4b77b9770efb985a9}{Walther}{W\bibinitperiod}{J\bibnamedelima H}{J\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=3b3476d27a7021cfb0e045d2bee87c90}{Bergdorf}{B\bibinitperiod}{M}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=945be85f4d4b3860489b587de4a6a818}{Hieber}{H\bibinitperiod}{S\bibnamedelima E}{S\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=0b5c16d2ed78c8ea1537930561805ffd}{Kotsalis}{K\bibinitperiod}{E\bibnamedelima M}{E\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9cdc018daaa0bde3fb08bd157c9837f5}{Koumoutsakos}{K\bibinitperiod}{P}{P\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{6}{}{%
+        {{uniquename=0,hash=4a9f09b60a048bb8c33a06d6af4e962e}{Sbalzarini}{S\bibinitperiod}{I\bibnamedelima F}{I\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=906a6671d287bed4b77b9770efb985a9}{Walther}{W\bibinitperiod}{J\bibnamedelima H}{J\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=3b3476d27a7021cfb0e045d2bee87c90}{Bergdorf}{B\bibinitperiod}{M}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=945be85f4d4b3860489b587de4a6a818}{Hieber}{H\bibinitperiod}{S\bibnamedelima E}{S\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=0b5c16d2ed78c8ea1537930561805ffd}{Kotsalis}{K\bibinitperiod}{E\bibnamedelima M}{E\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9cdc018daaa0bde3fb08bd157c9837f5}{Koumoutsakos}{K\bibinitperiod}{P}{P\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{ef5227873b7bcb81421d1e41ce39dc56}
+      \strng{fullhash}{08a8c656353246ac52acbe8bd8f67305}
+      \field{sortinit}{S}
+      \field{labelyear}{2006}
+      \field{datelabelsource}{}
+      \field{labeltitle}{{PPM - A highly efficient parallel particle-mesh library for the simulation of continuum systems}}
+      \field{abstract}{This paper presents a highly efficient parallel particle\x{fffd}\x{fffd}\x{fffd}mesh (PPM) library, based on a unifying particle formulation for the simulation of continuous systems. In this formulation, the grid-free character of particle methods is relaxed by the introduction of a mesh for the reinitialization of the particles, the computation of the field equations, and the discretization of differential operators. The present utilization of the mesh does not detract from the adaptivity, the efficient handling of complex geometries, the minimal dissipation, and the good stability properties of particle methods. The coexistence of meshes and particles, allows for the development of a consistent and adaptive numerical method, but it presents a set of challenging parallelization issues that have hindered in the past the broader use of particle methods. The present library solves the key parallelization issues involving particle\x{fffd}\x{fffd}\x{fffd}mesh interpolations and the balancing of pro-cessor particle loading, using a novel adaptive tree for mixed domain decompositions along with a coloring scheme for the particle\x{fffd}\x{fffd}\x{fffd}mesh interpolation. The high parallel efficiency of the library is demonstrated in a series of benchmark tests on distributed memory and on a shared-memory vector architecture. The modularity of the method is shown by a range of simulations, from compressible vortex rings using a novel formulation of smooth particle hydrodynamics, to simulations of diffusion in real biological cell organelles. The present library enables large scale simulations of diverse physical problems using adaptive particle methods and provides a computational tool that is a viable alternative to mesh-based methods.}
+      \field{title}{{PPM - A highly efficient parallel particle-mesh library for the simulation of continuum systems}}
+      \field{year}{2006}
+      \verb{doi}
+      \verb 10.1016/j.jcp.2005.11.017
+      \endverb
+    \endentry
+    \entry{Trottenberg}{book}{}
+      \name{labelname}{3}{uniquelist=2}{%
+        {{uniquename=0,hash=dfbb333e37948ef2e7b09288724202fe}{Trottenberg}{T\bibinitperiod}{U}{U\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=bb7fcb4aa05d227b5ac457845ed1b8c3}{Oosterlee}{O\bibinitperiod}{C\bibnamedelima W}{C\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=68ffdb4c9026bfe2abe7e51680942d97}{Sch{\"{u}}ller}{S\bibinitperiod}{A}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{3}{uniquelist=2}{%
+        {{uniquename=0,hash=dfbb333e37948ef2e7b09288724202fe}{Trottenberg}{T\bibinitperiod}{U}{U\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=bb7fcb4aa05d227b5ac457845ed1b8c3}{Oosterlee}{O\bibinitperiod}{C\bibnamedelima W}{C\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=68ffdb4c9026bfe2abe7e51680942d97}{Sch{\"{u}}ller}{S\bibinitperiod}{A}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{218bf8e631484b1c687a019f6c7a6590}
+      \strng{fullhash}{2b4581d54862ccf82aaaf0ec01f3b0bc}
+      \field{sortinit}{T}
+      \field{labelyear}{2001}
+      \field{datelabelsource}{}
+      \field{labeltitle}{{Multigrid}}
+      \field{isbn}{012701070X}
+      \field{title}{{Multigrid}}
+      \field{year}{2001}
+      \verb{file}
+      \verb :home/gullik/Documents/Masteroppgave/boker/[Ulrich{\_}Trottenberg,{\_}Cornelius{\_}W.{\_}Oosterlee,{\_}Anton(BookZZ.org).pdf:pdf
+      \endverb
+    \endentry
+    \entry{Trottenberg2000}{article}{}
+      \name{labelname}{3}{uniquelist=2}{%
+        {{uniquename=0,hash=80ed5cff1c831412b03d28fe4faa735d}{Trottenberg}{T\bibinitperiod}{U.}{U\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a9921714756487bb6fc05c83d0ab531c}{Sch{\"{u}}ller}{S\bibinitperiod}{a.}{a\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d04dd7fe7c0fdf7003baff579454cbb0}{Oosterlee}{O\bibinitperiod}{C.\bibnamedelimi W.}{C\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{3}{uniquelist=2}{%
+        {{uniquename=0,hash=80ed5cff1c831412b03d28fe4faa735d}{Trottenberg}{T\bibinitperiod}{U.}{U\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a9921714756487bb6fc05c83d0ab531c}{Sch{\"{u}}ller}{S\bibinitperiod}{a.}{a\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d04dd7fe7c0fdf7003baff579454cbb0}{Oosterlee}{O\bibinitperiod}{C.\bibnamedelimi W.}{C\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{aee8718ec1bd4e5cbda5ea76bad431ca}
+      \strng{fullhash}{e271df848bb7e1107620e123bafbd85c}
+      \field{sortinit}{T}
+      \field{labelyear}{2000}
+      \field{datelabelsource}{}
+      \field{labeltitle}{{Multigrid methods}}
+      \field{title}{{Multigrid methods}}
+      \field{year}{2000}
+      \field{pages}{111\bibrangedash 118}
+      \verb{file}
+      \verb :home/gullik/Documents/Masteroppgave/boker/Parallel{\_}MG{\_}methods.pdf:pdf
+      \endverb
+    \endentry
+  \endsortlist
+  \missing{Press1987}
+  \missing{Chow2006}
+  \missing{Shen1994}
+  \missing{Arraras2015}
+  \missing{Sandve2011}
+  \missing{Adams2001}
+  \missing{StUben2001}
+\endrefsection
 \endinput
 

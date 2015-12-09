@@ -1,7 +1,7 @@
 % arara: pdflatex
 % !arara: biber
 % !arara: pdflatex
-% How to run: 
+% How to run:
 % 1) pdflatex "filename".tex
 % 2) biber "filename"
 % 3) pdflatex "filename".tex
@@ -21,7 +21,7 @@
 %Tikz settings
 \usetikzlibrary{shapes,arrows,chains}
 % =================================================
-% Set up a few colours      
+% Set up a few colours
 \colorlet{lcfree}{Green3}
 \colorlet{lcnorm}{Blue3}
 \colorlet{lccong}{Red3}
@@ -37,8 +37,8 @@
   \begin{pgfonlayer}{marx}
     \node [nmark] at (c#2#1) {#2};
   \end{pgfonlayer}{marx}
-  } 
-\providecommand{\cmark}[2][]{\relax} 
+  }
+\providecommand{\cmark}[2][]{\relax}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -54,7 +54,9 @@
             natbib=true,
             dashed=false]{biblatex}
 
+
 \addbibresource{bibs/bibliography.bib}
+\addbibresource{bibs/extra.bib}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\bibliography{references}
@@ -62,8 +64,6 @@
 \author{Gullik Vetvik Killie}
 \title{Plasmastuffs}
 \date{June 2015}
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %	Document starts here
@@ -75,8 +75,6 @@
 \usepackage{subcaption}
 
 \begin{document}
-
-
 % \maketitle
 % \input{chapters/abstract}
 
@@ -86,7 +84,7 @@
 % \input{chapters/introduction}
 
 % \chapter{Method}
-% \input{chapters/method}
+\input{chapters/method}
 
 % \chapter{Results}
 % \input{chapters/results}
@@ -100,14 +98,15 @@
 \appendix
 % \chapter{Optional methods}
 % \input{chapters/alt_methods}
-\chapter{Grid Structs and Partitioning}
-\input{chapters/grid_part.tex}
-\chapter{Verification and Testing}
-\input{chapters/verification}
+% \chapter{Grid Structs and Partitioning}
+% \input{chapters/grid_part.tex}
+% \chapter{Verification and Testing}
+% \input{chapters/verification}
+\chapter{Multigrid Libraries}
+\input{chapters/multigrid_libraries}
+
 
 
 \printbibliography
 
 \end{document}
-
-
