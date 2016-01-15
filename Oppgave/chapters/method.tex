@@ -39,7 +39,7 @@
 	\section{Multigrid}
 		The multi grid, MG, method used to solve the Poisson equation and obtain the electric field is a widely used and highly efficient solver for elliptic equations, having a theoretical scaling of \(\order{N}\) \citep{Press1987}, where \(N\) is the grid points. Here I will go through the main theory and algorithm behind the method, as explained in more detail in \citep{Press1987,Trottenberg2000} as well as go through some of possible algorithms to parallelize the method.
 
-		We want to solve a linear elliptic problem, 
+		We want to solve a linear elliptic problem,
 			\begin{align}
 				\mathcal{L} u = f
 			\end{align}
@@ -59,7 +59,7 @@
 		Since \(\mathcal{L}\) is a linear operator the error satisfies the following relation
 
 		\begin{align}
-			\mathcal{L}_q v_q &= (\mathcal{L}u_q - f_q) - (\mathcal{L}\tilde{u}_q  - f_q)
+			\mathcal{L}_q v_q &= \mathcal{L}(u_q - \tilde{u}_q)  + (f_q- f_q)
 			\\
 			\mathcal{L}_q v_q &= - d_q \label{eq:diff_MG}
 		\end{align}
@@ -69,7 +69,7 @@
 		If we then apply a restriction operator on the residual we go down a level on the grids and the opposite for the interpolation operator.
 
 		\begin{align}
-			\mathcal{R} d_q = d_{q-1} \qquad \text{and} \qquad \mathcal{P} d_q = d_{q + 1}  
+			\mathcal{R} d_q = d_{q-1} \qquad \text{and} \qquad \mathcal{P} d_q = d_{q + 1}
 		\end{align}
 
 
@@ -77,7 +77,7 @@
 			A sequential algorithm for a two grid V shaped algorithm, where the coarse grid and fine grid has respectively \(q = 1,2\).
 
 		\begin{itemize}
-			\item Initial approximation. \(\tilde{u}\) 
+			\item Initial approximation. \(\tilde{u}\)
 			\item for \(i < \) nCycles:
 				\begin{itemize}
 					\item Presmooth: \(\hat{u}_2 = S_{pre}(u)_2\)
@@ -102,7 +102,7 @@
 				u^{n+1}_{i,j} &= \frac{1}{4}\left( u^n_{i+1,j} + u^{n +1}_{i-1,j} + u^{n}_{i, j+1} + u^{n+1}_{i,j-1}  \right) - \frac{\Delta^2 \rho_{i,j}}{4}
 			\end{align}
 
-			To achieve a vectorization of the calculation of \(u^{n+1}_{i,j}\) we will use Red and Black ordering, first calculating the odd nodes and then the even nodes, so the method has the available information. 
+			To achieve a vectorization of the calculation of \(u^{n+1}_{i,j}\) we will use Red and Black ordering, first calculating the odd nodes and then the even nodes, so the method has the available information.
 
 
 
@@ -121,13 +121,13 @@
 			With grid partitioning we divide the grid \(\mathcal{T}\) into geometric subgrids, then we can let each processes handle one subgrid each, as we will see it can be useful when using the G-S RB smoothing to let the subgrids overlap 1 layer deep. since it on the edges of the subgrid it will need the adjacent node values.
 
 		\subsection{Distributed and accumulated data}
-			During the parallel execution of the code there can be useful to keep track of the different data structures and what needs to be accumulated over all the computational nodes and what only needs to be distributed on the individual computational nodes. 
+			During the parallel execution of the code there can be useful to keep track of the different data structures and what needs to be accumulated over all the computational nodes and what only needs to be distributed on the individual computational nodes.
 
 			\begin{itemize}
 				\item \(u\) solution (\(\Phi\))
 				\item \(w\) temporary correction
 				\item \(d\) defect
-				\item \(f\) source term (\(\rho\)) 
+				\item \(f\) source term (\(\rho\))
 				\item \(\mathcal{L}\) differential operator
 				\item \(\mathcal{I}\) interpolation operator
 				\item \(\mathcal{R}\) restriction operator
@@ -192,7 +192,7 @@
 				\begin{bmatrix}
 					1 & 2 & 1
 					\\
-					2 & 8 & 2
+					2 & 4 & 2
 					\\
 					1 & 2 & 1
 				\end{bmatrix}
@@ -206,23 +206,23 @@
 
 			\begin{align}
 				S(P) = \frac{T(1)}{T(P)} \qquad E(P) = \frac{S(P)}{P}
-			\end{align} 
+			\end{align}
 
 			A perfect parallel algorithm would the computational time would scale inversely with the number of processors, \(T(P) \propto 1/P\) leading to \( E(P) =1 \). Due to the necessary interprocessor communication that is generally not achievable. The computational time of the algorithm is also important, if the algorithm is very slow but has good parallel efficiency it is often worse than a fast algorithm with a worse parallel efficiency.
 
 			The parallel efficiency of an algorithm is governed by the ratio between the time of communication and computation, \(T_{comm}/T_{comp}\). If there is no need for communication, like on \(1\) processor, the algorithm is perfectly parallel efficient. In our case the whole grid is diveded into several subgrids, which is assigned to different processors. In many cases the time used for computation is roughly scaling with the interior grid points, while the communication time is scaling with the boundaries of the subgrids. If a local solution method is used on a local problem it is only the grid points at the boundary that needs the information from grid points on the other processors. Since the edges has lower dimensionality than the inner grid points. So when the problem is is increasing the time for computation grows faster than the time for communication, and a parallel algorithm often has a higher parallel efficiency on a larger problem. This is called the Boundary-Volume effect.
 
 			\subsubsection{Parallel complexity}
-				The complexities, as in needed computational work, of sequential and parallel MG cycles is calculated in \cite{Trottenberg} and is shown in \cref{tab:parallel_complexity}. In the table we can see that in the parallel case there is a substantial increase in the complexity in the case of \(W\) cycles compared to \(V\) cycles. In the sequential case the change in complexity when going to a \(W\) cycle is not dependent on the problem size, but it is in the parallel case. 
+				The complexities, as in needed computational work, of sequential and parallel MG cycles is calculated in \cite{Trottenberg} and is shown in \cref{tab:parallel_complexity}. In the table we can see that in the parallel case there is a substantial increase in the complexity in the case of \(W\) cycles compared to \(V\) cycles. In the sequential case the change in complexity when going to a \(W\) cycle is not dependent on the problem size, but it is in the parallel case.
 
-				
+
 			\begin{table}
 				\centering
 				\begin{tabular}{ c  c c c}
 					& Cycle & Sequential & Parallel
 				  	\\  \hline
 				  	MG & V & \(\order{N}\) & \(\order{\log N}\)
-				  	\\ 
+				  	\\
 				  	& W & $\order{N}$ & $\order{\sqrt{N}}$
 				  	\\ \hline
 					FMG & V & $\order{N}$ & $\order{\log^2 N}$
@@ -232,6 +232,3 @@
 				\caption{The parallel complexities of sequential and parallel multigrid cycles}
 				\label{tab:parallel_complexity}
 			\end{table}
-
-
-			

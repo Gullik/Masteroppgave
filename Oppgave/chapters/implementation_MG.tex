@@ -1,0 +1,110 @@
+
+%Figure
+\begin{figure}
+	\center
+	\begin{tikzpicture}[%
+		>=triangle 60,              % Nice arrows; your taste may be different
+		start chain=going below,    % General flow is top-to-bottom
+		node distance=6mm and 5mm, % Global setup of box spacing
+		every join/.style={norm},   % Default linetype for connecting boxes
+		scale = 1]
+		% -------------------------------------------------
+		% A few box styles
+		% <on chain> *and* <on grid> reduce the need for manual relative
+		% positioning of nodes
+		\tikzset{
+		base/.style={draw, on chain, on grid, align=center, minimum height=8ex, color = black},
+		proc/.style={base, rectangle, text width=5em},
+		% test/.style={base, diamond, aspect=2, text width=5em},
+		term/.style={proc},
+		% coord node style is used for placing corners of connecting lines
+		coord/.style={coordinate, on chain, on grid, node distance=6mm and 45mm},
+		% nmark node style is used for coordinate debugging marks
+		move/.style={draw, blue,rounded corners, text = black, align = left},
+		comp/.style={text = black}
+		% -------------------------------------------------
+		% Connector line styles for different parts of the diagram
+		norm/.style={->, draw, lcnorm},
+		free/.style={->, draw, lcfree},
+		cong/.style={->, draw, lccong},
+		it/.style={font={\small\itshape}}
+		}
+		% -------------------------------------------------
+		% Start by placing the nodes
+		\node[term, it] (U) {U};
+
+		\node[coord, below =of U] (U1)      {};
+		\node[coord, below =of U1] (U2) {};
+		\node[coord, below =of U2] (U3) {};
+		\node[coord, below =of U3] (U4) {};
+		\node[coord, below =of U4] (U5) {};
+
+		\node[term, right =of U5] (V) {V};
+
+		\node[coord, below =of V] (V1) {};
+		\node[coord, below =of V1] (V2) {};
+		\node[coord, below =of V2] (V3) {};
+		\node[coord, below =of V3] (V4) {};
+		\node[coord, below =of V4] (V5) {};
+
+		\node[term, right =of V5] (W) {W};
+
+		\node[coord, above =of W] (Wup1) {};
+		\node[coord, above =of Wup1] (Wup2) {};
+		\node[coord, above =of Wup2] (Wup3) {};
+		\node[coord, above =of Wup3] (Wup4) {};
+		\node[coord, above =of Wup4] (Wup5) {};
+
+		\node[term, right =of Wup5] (Vup) {V};
+
+		\node[coord, above =of Vup] (Vup1) {};
+		\node[coord, above =of Vup1] (Vup2) {};
+		\node[coord, above =of Vup2] (Vup3) {};
+		\node[coord, above =of Vup3] (Vup4) {};
+		\node[coord, above =of Vup4] (Vup5) {};
+
+		\node[term, right =of Vup5] (Uup) {U};
+
+		% \draw[*->, lccong] (V) -- (W);
+		% \draw[*->, lccong] (Vup) -- (Uup);
+		% \draw[*->, lccong] (W) -- (Vup);
+
+		%Top level Equations
+		\node[comp, align=left]  at (-3,0) { \(\bullet\;\hat{\phi}_U = \mathcal{S}(\phi_U, \rho_U)\)
+											 \\ 	\(\bullet\;d_U = \nabla^2\hat{\phi}_U - \rho_U\) };
+
+		\node[comp, align=left]	at (10,0) {\(\bullet\;\hat{\phi}_U = \mathcal{S}(\phi_U, \rho_U)\)
+											 \\ 	\(\bullet\;d_V = \nabla^2\hat{\phi}_U - \rho_U\)};
+
+		%Center level
+		\node[comp, align=left]  at (-1.5,-3) { \(\bullet\;\hat{\phi}_V = \mathcal{S}(\phi_V, d_V)\)
+											 \\ 	\(\bullet\;d_V = \nabla^2\hat{\phi}_V - d_V\) };
+
+		%Restriction
+		\node[move, align=left] (UV) at (0.5,-1.5) {\( d_V = \mathcal{R}(d_U)\)};
+		\node[move, align=left] (VW) at (2,-4.5)	{\( d_W = \mathcal{R}(d_V)\)};
+
+		%Prolongation
+		\node[move, align=left] (WV) at (5, -4.5)	{\( \phi_V = \mathcal{S}(\phi_W) \)};
+		\node[move, align=left] (VU) at (6.5, -1.5) {\( \phi_U = \mathcal{S}(\phi_V) \)};
+
+		\draw[*-, lccong] (U) -- (UV);
+		\draw[->, lccong] (UV) -- (V);
+		\draw[*-, lccong] (V) -- (VW);
+		\draw[->, lccong] (VW) -- (W);
+		\draw[*-, lccong] (W) -- (WV);
+		\draw[->, lccong] (WV) -- (Vup);
+		\draw[*-, lccong] (Vup) -- (VU);
+		\draw[->, lccong] (VU) -- (Uup);
+
+
+
+		% \node[nmark, align=center, left of V] { \(\) }
+
+		% \node [font=\Large] (top)    at (0,0) {Hellooos [0]};
+
+
+	\end{tikzpicture}
+	\caption{Schematic overview of the PIC method}
+	\label{fig:schematic}
+\end{figure}

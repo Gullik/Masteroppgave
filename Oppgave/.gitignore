@@ -1,0 +1,27 @@
+#Ignore the stupid user files
+*.user
+*.o
+boker/
+*~
+*.dat
+*.pro.user.*
+*.aux
+*.log
+*.out
+*.toc
+*.gz
+*.aux
+*.bbl 
+*.blg 
+*.fdb* 
+*.log
+*.out 
+*.syn*
+*.toc 
+*.gnuplot
+*.gnuplot
+*.table
+*.bcf
+*.xml
+*.latexmk
+*.autosave

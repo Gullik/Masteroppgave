@@ -15,6 +15,7 @@
 \usepackage{amssymb}
 \usepackage{ulem}
 \usepackage{cleveref}
+\usepackage{mathtools}
 % \usepackage{subfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -77,36 +78,49 @@
 \begin{document}
 % \maketitle
 % \input{chapters/abstract}
-
+%
 % \tableofcontents
-
+%
 % \chapter{Introduction}
 % \input{chapters/introduction}
 
 % \chapter{Method}
-\input{chapters/method}
+% \input{chapters/method}
 
 % \chapter{Results}
 % \input{chapters/results}
-
+%
 % \chapter{Discussion}
 % \input{chapters/discussion}
-
+%
 % \chapter{Conclusions}
 % \input{chapters/conclusions}
+%
 
-\appendix
+
+% \appendix
+%
+% \chapter{Implementation of MG parts}
+% \input{chapters/implementation_restr_prol}
+% \input{chapters/implementation_GS}
+\input{chapters/implementation_MG}
+%
+% \chapter{Unit Tests}
+% \input{chapters/unittests}
+%
+%
 % \chapter{Optional methods}
 % \input{chapters/alt_methods}
 % \chapter{Grid Structs and Partitioning}
 % \input{chapters/grid_part.tex}
 % \chapter{Verification and Testing}
 % \input{chapters/verification}
-\chapter{Multigrid Libraries}
-\input{chapters/multigrid_libraries}
+% \chapter{Multigrid Libraries}
+% \input{chapters/multigrid_libraries}
 
-
-
-\printbibliography
+% \newpage
+% NB! Note to self, page 122 has a proposed exact solution to u(x,y) = x+2y with no discretization errors. (In which document may I ask?)
+%
+% \printbibliography
 
 \end{document}
