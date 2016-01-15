@@ -70,23 +70,30 @@
 		% \draw[*->, lccong] (W) -- (Vup);
 
 		%Top level Equations
-		\node[comp, align=left]  at (-3,0) { \(\bullet\;\hat{\phi}_U = \mathcal{S}(\phi_U, \rho_U)\)
-											 \\ 	\(\bullet\;d_U = \nabla^2\hat{\phi}_U - \rho_U\) };
+		\node[comp, align=left]  at (-3,0) { \(\bullet\;\widehat{\phi}_U = \mathcal{S}(\phi_U, \rho_U)\)
+											 \\ 	\(\bullet\;d_U = \nabla^2\widehat{\phi}_U - \rho_U\) };
 
-		\node[comp, align=left]	at (10,0) {\(\bullet\;\hat{\phi}_U = \mathcal{S}(\phi_U, \rho_U)\)
-											 \\ 	\(\bullet\;d_V = \nabla^2\hat{\phi}_U - \rho_U\)};
+		\node[comp, align=left]	at (10,0) {\(\bullet\;\widetilde{\phi}_U = \widehat{\phi}_U + \bar{\phi}_U \)
+ 											\\ \(\bullet\; \phi_U = \mathcal{S}(\widetilde{\phi}_U, \rho)\)};
 
 		%Center level
-		\node[comp, align=left]  at (-1.5,-3) { \(\bullet\;\hat{\phi}_V = \mathcal{S}(\phi_V, d_V)\)
-											 \\ 	\(\bullet\;d_V = \nabla^2\hat{\phi}_V - d_V\) };
+		\node[comp, align=left]  at (-1.5,-3) { \(\bullet\;\widehat{\phi}_V = \mathcal{S}(\phi_V, d_V)\)
+											 \\ 	\(\bullet\;d_V = \nabla^2\widehat{\phi}_V - d_V\) };
+
+		\node[comp, align=left]	at (8,-3) {\(\bullet\;\widetilde{\phi}_V = \widehat{\phi}_V + \bar{\phi}_V \)
+ 											\\ \(\bullet\; \phi_V = \mathcal{S}(\widetilde{\phi}_V, d_V)\)};
+
+		%Bottom level
+		\node[comp, align=center] at (3.5, -7.3)  {\(\widehat{\phi}_W = \mathcal{S}(\phi_W, d_W)\)};
+
 
 		%Restriction
 		\node[move, align=left] (UV) at (0.5,-1.5) {\( d_V = \mathcal{R}(d_U)\)};
 		\node[move, align=left] (VW) at (2,-4.5)	{\( d_W = \mathcal{R}(d_V)\)};
 
 		%Prolongation
-		\node[move, align=left] (WV) at (5, -4.5)	{\( \phi_V = \mathcal{S}(\phi_W) \)};
-		\node[move, align=left] (VU) at (6.5, -1.5) {\( \phi_U = \mathcal{S}(\phi_V) \)};
+		\node[move, align=left] (WV) at (5, -4.5)	{\( \bar{\phi}_V = \mathcal{I}(\bar{\phi}_W) \)};
+		\node[move, align=left] (VU) at (6.5, -1.5) {\( \bar{\phi}_U = \mathcal{I}(\bar{\phi}_V) \)};
 
 		\draw[*-, lccong] (U) -- (UV);
 		\draw[->, lccong] (UV) -- (V);
@@ -97,12 +104,7 @@
 		\draw[*-, lccong] (Vup) -- (VU);
 		\draw[->, lccong] (VU) -- (Uup);
 
-
-
-		% \node[nmark, align=center, left of V] { \(\) }
-
-		% \node [font=\Large] (top)    at (0,0) {Hellooos [0]};
-
+		\draw[bend right = 50t,*->, thick]  (Uup) to node [auto, swap] {Repeat} (U);
 
 	\end{tikzpicture}
 	\caption{Schematic overview of the PIC method}
