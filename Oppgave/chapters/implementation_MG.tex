@@ -1,11 +1,118 @@
 
-%Figure
+\section{General idea}
+
+	When an iterative solver solves a problem, it starts with an initial guess then for each cycle it improves the guess to come closer to the
+	wanted solution. The difference between the guess and the correct solution, the residual, does not necessarily converge equally fast for different frequencies.
+	A solver can be very efficient on reducing the local error, while it takes many cycles to reduce the errors due to distant influence.
+	A multigrid solver attacks this problem by applying iterative methods on different discretizations of the problem, by solving on a very coarse grids
+	the error due to distant influence will be reduced faster, while solving on a fine grid reduces the local error fast. So by solving on both
+	fine and coarse grids the needed cycles will be reduced. To implement a multigrid algorithm we then need algorithms to solver the problem on a grid \cref{sec:GSRB},
+	restriction	\cref{sec:restr_simple} and prolongation \cref{sec:prol_simple} operators to transfer the problem between grids, as well as a method to compute the residual.
+
+
+	\subsection{V-cycle}
+		The simplest multigrid cycle is called a V-cycle, which starts at the finest grid, goes down to the coarsest grid and then goes back up
+		to the finest grid.	First the problem is smoothed on the finest level, then we compute the residual, or the rest after inserting the guess solution
+		in the equation. The residual is then used as the source term for the next level, and we restrict it down as the source term for the next
+		coarser level and repeat untill we reach the coarsest level. When we reach the coarsest level the problem is solved there and we obtain a correction
+		term. The correction term is prolongated to the next finer level and added to the solution there, improving the solution, following by a new smoothing
+		to obtain a new correction. This continue untill we reach the finest level again and a multigrid cycle is completed, see \cref{fig:MG_schematic} for a 3
+		level schematic.
+
+
+		In the following description of the steps in the MG method, we will use \(\phi\), \(\rho\), \(d\) and \(\omega\) to signify the solution, source,
+		defect and correction respectively. A subscript means the grid level, where \(0\) si the finest level, while the superscript \(0\) implies an initial guess is used. Hats and tildes are also
+	 	used to signify the stage the solution is in, with a hat meaning the solution is smoothed and a tilde meaning the correction from the grid below is added.
+
+		A level in the multigrid V cycle will then look like the following:
+
+		\begin{tabular}	{l | c}
+			\(1\): Smooth &\( \widehat{\phi}_l = \mathcal{S}(\phi_l, \rho_l)\)
+			\\
+			\(2\): Residual &	\(d_l = \nabla^2\widehat{\phi}_l - \rho_l\)
+			\\
+			\(3\): Restrict &\(\rho_{l+1} = \mathcal{R}d_l \) \nonumber
+			\\
+			\(4\): Go down, recieve correction & \(\omega_l = \mathcal{I} \phi_{l+1}\)
+			\\
+			\(5\): Add correction	&\(\widetilde{\phi}_l = \widehat{\phi}_l + \omega_l\)
+			\\
+			\(6\): Smooth	&\(\phi_l = \mathcal{S}(\widetilde{\phi}_l, \rho_l)\)
+			\\
+			\(7\): Interpolate correction &\( \omega_{l-1} = \mathcal{I} \phi_l\)
+		\end{tabular}
+
+		At the coarsest level the algorithm is slightly different, since there is no coarser level to solve it
+ 		on.
+
+		\subsection{Implementation}
+			In general for the implementation there is \(4\) different quantities we need during the computation, source, solution, residual and correction.
+			Since the residual is only needed when we go down to a coarser level, and the correction is only needed during the 
+
+%
+% 	\subsection{Bottom level}
+% 	At the coarsest grid we do not have a lower grid transfer the problem to, so there the problem is just solved directly before the
+% 	correction is prolongated up.
+%
+% 	\subsection{V-cycle}
+%
+%
+%
+%
+% 	\subsection{V-cycle, recursive solution}
+% 	This is a recursive version of the multigrid cycle, when it is called it computes the necessary quantities,
+% 	then it calls itself and then computes and prepares for the grid above before returning.
+% 	\label{sec:mg_V}
+% 	\begin{lstlisting}[language=c, caption = main routine]
+% void inline static mgVRecursive(dictionary *ini, int level, int targetLvl, Multigrid *mgRho, Multigrid *mgPhi,
+%  									Multigrid *mgRes, const MpiInfo *mpiInfo){
+%
+% 	//Solve and return at coarsest level
+% 	if(level == targetLvl){
+%
+% 		mgRho->coarseSolv(mgPhi->grids[level], mgRho->grids[level], mgRho->nCoarseSolve, mpiInfo);
+% 		mgRho->prolongator(mgRes->grids[level-1], mgPhi->grids[level], mpiInfo);
+% 		return;
+% 	}
+%
+% 	//Gathering info
+% 	int nPreSmooth = mgRho->nPreSmooth;
+% 	int nPostSmooth= mgRho->nPostSmooth;
+% 	Grid *phi = mgPhi->grids[level];
+% 	Grid *rho = mgRho->grids[level];
+% 	Grid *res = mgRes->grids[level];
+%
+% 	//Prepare to go down
+% 	mgRho->preSmooth(phi, rho, nPreSmooth, mpiInfo);
+% 	mgResidual(res, rho, phi, mpiInfo);
+% 	mgRho->restrictor(res, mgRho->grids[level + 1]);
+%
+% 	//Go coarser and solve
+% 	mgVRecursive(ini, level + 1, targetLvl, mgRho, mgPhi, mgRes, mpiInfo);
+%
+% 	//Prepare to go up
+% 	gAddTo( phi, res );
+% 	mgRho->postSmooth(phi, rho, nPostSmooth, mpiInfo);
+%
+% 	if(level > 0)	mgRho->prolongator(mgRes->grids[level-1], phi, mpiInfo);
+%
+% 	return;
+% }
+% 	\end{lstlisting}
+%
+%
+%
+%
+\section{Ex: 3 level V cycle}
+	\label{sec:EX_V_Ccyles}
+
+% %Figure
 \begin{figure}
 	\center
 	\begin{tikzpicture}[%
 		>=triangle 60,              % Nice arrows; your taste may be different
 		start chain=going below,    % General flow is top-to-bottom
-		node distance=6mm and 5mm, % Global setup of box spacing
+		node distance=6mm and 2mm, % Global setup of box spacing
 		every join/.style={norm},   % Default linetype for connecting boxes
 		scale = 1]
 		% -------------------------------------------------
@@ -18,9 +125,10 @@
 		% test/.style={base, diamond, aspect=2, text width=5em},
 		term/.style={proc},
 		% coord node style is used for placing corners of connecting lines
-		coord/.style={coordinate, on chain, on grid, node distance=6mm and 45mm},
+		coord/.style={coordinate, on chain, on grid, node distance=6mm and 9mm},
+		point/.style={draw, circle, thick ,color = black},
 		% nmark node style is used for coordinate debugging marks
-		move/.style={draw, blue,rounded corners, text = black, align = left},
+		move/.style={draw, blue,rounded corners, fill=white, text = black, align = left},
 		comp/.style={text = black}
 		% -------------------------------------------------
 		% Connector line styles for different parts of the diagram
@@ -31,82 +139,102 @@
 		}
 		% -------------------------------------------------
 		% Start by placing the nodes
-		\node[term, it] (U) {U};
+		\node[term] (U) {0};
 
 		\node[coord, below =of U] (U1)      {};
 		\node[coord, below =of U1] (U2) {};
 		\node[coord, below =of U2] (U3) {};
 		\node[coord, below =of U3] (U4) {};
 		\node[coord, below =of U4] (U5) {};
+		\node[coord, right =of U5] (U6) {};
 
-		\node[term, right =of U5] (V) {V};
+		\node[term, right =of U6] (V) {1};
 
 		\node[coord, below =of V] (V1) {};
 		\node[coord, below =of V1] (V2) {};
 		\node[coord, below =of V2] (V3) {};
 		\node[coord, below =of V3] (V4) {};
 		\node[coord, below =of V4] (V5) {};
+		\node[coord, right =of V5] (V6) {};
 
-		\node[term, right =of V5] (W) {W};
+		\node[term, right =of V6] (W) {2};
 
 		\node[coord, above =of W] (Wup1) {};
 		\node[coord, above =of Wup1] (Wup2) {};
 		\node[coord, above =of Wup2] (Wup3) {};
 		\node[coord, above =of Wup3] (Wup4) {};
 		\node[coord, above =of Wup4] (Wup5) {};
+		\node[coord, right =of Wup5] (Wup6) {};
 
-		\node[term, right =of Wup5] (Vup) {V};
+		\node[term, right =of Wup6] (Vup) {1};
 
 		\node[coord, above =of Vup] (Vup1) {};
 		\node[coord, above =of Vup1] (Vup2) {};
 		\node[coord, above =of Vup2] (Vup3) {};
 		\node[coord, above =of Vup3] (Vup4) {};
 		\node[coord, above =of Vup4] (Vup5) {};
+		\node[coord, right =of Vup5] (Vup6) {};
 
-		\node[term, right =of Vup5] (Uup) {U};
 
-		% \draw[*->, lccong] (V) -- (W);
-		% \draw[*->, lccong] (Vup) -- (Uup);
-		% \draw[*->, lccong] (W) -- (Vup);
+		\node[term, right =of Vup6] (Uup) {0};
 
 		%Top level Equations
-		\node[comp, align=left]  at (-3,0) { \(\bullet\;\widehat{\phi}_U = \mathcal{S}(\phi_U, \rho_U)\)
-											 \\ 	\(\bullet\;d_U = \nabla^2\widehat{\phi}_U - \rho_U\) };
+		\node[point, left =of U]  { \(1\)};
 
-		\node[comp, align=left]	at (10,0) {\(\bullet\;\widetilde{\phi}_U = \widehat{\phi}_U + \bar{\phi}_U \)
- 											\\ \(\bullet\; \phi_U = \mathcal{S}(\widetilde{\phi}_U, \rho)\)};
+		\node[point, right =of Uup]	{ \(5\)};
 
 		%Center level
-		\node[comp, align=left]  at (-1.5,-3) { \(\bullet\;\widehat{\phi}_V = \mathcal{S}(\phi_V, d_V)\)
-											 \\ 	\(\bullet\;d_V = \nabla^2\widehat{\phi}_V - d_V\) };
+		\node[point, left =of V]   { \(2\)};
 
-		\node[comp, align=left]	at (8,-3) {\(\bullet\;\widetilde{\phi}_V = \widehat{\phi}_V + \bar{\phi}_V \)
- 											\\ \(\bullet\; \phi_V = \mathcal{S}(\widetilde{\phi}_V, d_V)\)};
+		\node[point, right =of Vup]   { \(4\)};
 
 		%Bottom level
-		\node[comp, align=center] at (3.5, -7.3)  {\(\widehat{\phi}_W = \mathcal{S}(\phi_W, d_W)\)};
+		\node[point, left =of W]	{ \(3\)};
 
-
-		%Restriction
-		\node[move, align=left] (UV) at (0.5,-1.5) {\( d_V = \mathcal{R}(d_U)\)};
-		\node[move, align=left] (VW) at (2,-4.5)	{\( d_W = \mathcal{R}(d_V)\)};
-
-		%Prolongation
-		\node[move, align=left] (WV) at (5, -4.5)	{\( \bar{\phi}_V = \mathcal{I}(\bar{\phi}_W) \)};
-		\node[move, align=left] (VU) at (6.5, -1.5) {\( \bar{\phi}_U = \mathcal{I}(\bar{\phi}_V) \)};
-
-		\draw[*-, lccong] (U) -- (UV);
-		\draw[->, lccong] (UV) -- (V);
-		\draw[*-, lccong] (V) -- (VW);
-		\draw[->, lccong] (VW) -- (W);
-		\draw[*-, lccong] (W) -- (WV);
-		\draw[->, lccong] (WV) -- (Vup);
-		\draw[*-, lccong] (Vup) -- (VU);
-		\draw[->, lccong] (VU) -- (Uup);
+		\draw[*->, lccong] (U) -- (V) node[move, midway] {Restrict};
+		\draw[*->, lccong] (V) -- (W) node[move, midway] {Restrict};
+		\draw[*->, lccong] (W) -- (Vup) node[move, midway] {Prolongate};
+		\draw[*->, lccong] (Vup) -- (Uup) node[move, midway] {Prolongate};
 
 		\draw[bend right = 50t,*->, thick]  (Uup) to node [auto, swap] {Repeat} (U);
-
 	\end{tikzpicture}
-	\caption{Schematic overview of the PIC method}
-	\label{fig:schematic}
+	\caption{Schematic overview of the PIC method. In a three level MG implementation, there is 5 main steps in a cycle that needs to be consider.}
+	\label{fig:MG_schematic}
 \end{figure}
+
+\begin{dingautolist}{192}
+			\item Compute defect on grid \(0\), the finest grid:
+		\begin{itemize}
+			\item	\( \widehat{\phi}_0 = \mathcal{S}(\phi_0, \rho_0)\)
+			\item 	\(d_0 = \nabla^2\widehat{\phi}_0 - \rho_0\)
+			\item Restrict defect: \(\rho_1 = \mathcal{R}d_0 \) \nonumber
+		\end{itemize}
+	\item Compute defect on grid \(1\):
+		\begin{itemize}
+			\item \(\widehat{\phi}_1 = \mathcal{S}(\phi_1^0, \rho_1)\)
+			\item \(d_1 = \nabla^2\widehat{\phi}_1 - \rho_1 \)
+			\item Restrict defect: \(\rho_2 = \mathcal{R}d_1 \)
+		\end{itemize}
+	\item Solve Coarse Grid for correction \(\omega\)
+		\begin{itemize}
+			\item \( \phi_2 = \mathcal{S}(\phi_2^0, \rho_2)\)
+			\item Interpolate as correction:\(\omega_1 = \mathcal{I}\phi_2\)
+		\end{itemize}
+	\item Add correction on level 1:
+		\begin{itemize}
+			\item \(\widetilde{\phi}_1 = \widehat{\phi}_1 + \omega_1\)
+			\item \( \phi_1 = \mathcal{S}(\widetilde{\phi}_1, \rho_1)  \)
+			\item Interpolate correction:\( \omega_0 = \mathcal{I} \phi_1\)
+		\end{itemize}
+	\item Compute solution.
+		\begin{itemize}
+			\item \(\widetilde{\phi}_0 = \widehat{\phi}_0 + \omega_0\)
+			\item \( \phi_0 = \mathcal{S}(\widetilde{\phi}_0, \rho_0)  \)
+		\end{itemize}
+\end{dingautolist}
+%
+% During a MG cycle we can observe that during the way down to coarser grids, we need the source \(\rho \), solution \(\phi \)
+% and defect \(d\) for each step. On the way up we need the a we need the source, solution and the correction at each step.
+% Since the defect and correction, is only needed on the way down, or up, respectively, we can let them share the same
+% grid. So we need three sets of grids, with the defect and correction sharing a grid called 'res'. Since the defect at level \(i\) works as
+% the source term for the problem at the coarser level \(i+1\), it is restricted directly into the source term grid to avoid unnecessarily copying.

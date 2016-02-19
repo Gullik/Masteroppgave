@@ -1,11 +1,11 @@
 # Fdb version 3
-["pdflatex"] 1455019509 "implementation_MG.tex" "implementation_MG.pdf" "implementation_MG" 1455019509
+["pdflatex"] 1454330398 "bnd_cond.tex" "bnd_cond.pdf" "bnd_cond" 1454330398
   "/etc/texmf/web2c/texmf.cnf" 1422219599 1101 af7716885e081ab43982cab7b4672c1a ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1392645748 31083 1dfd8bf685ce0009c40532fedf8a7c53 ""
   "/usr/share/texmf/web2c/texmf.cnf" 1392645748 31083 1dfd8bf685ce0009c40532fedf8a7c53 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1422219666 3822874 a948908854389464bac34c04a8621131 ""
-  "implementation_MG.aux" 1452804590 8 a94a2480d3289e625eea47cd1b285758 ""
-  "implementation_MG.tex" 1455019509 10064 b5a1882c20882e0edc264d1146017d27 ""
+  "bnd_cond.aux" 1454330398 8 a94a2480d3289e625eea47cd1b285758 ""
+  "bnd_cond.tex" 1454330396 3226 5ac12c1dc06705ecc39ee9604dc96f2f ""
   (generated)
-  "implementation_MG.pdf"
-  "implementation_MG.log"
+  "bnd_cond.pdf"
+  "bnd_cond.log"

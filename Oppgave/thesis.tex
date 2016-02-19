@@ -17,6 +17,13 @@
 \usepackage{cleveref}
 \usepackage{mathtools}
 % \usepackage{subfigure}
+% \usepackage{enumitem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	New Commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newcommand*\circled[1]{\tikz[baseline=(C.base)]\node[draw,circle,inner sep=1.2pt,line width=0.2mm,](C) {\small #1};\!}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Tikz settings
@@ -74,19 +81,30 @@
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{pifont}
+
+
 
 \begin{document}
 % \maketitle
 % \input{chapters/abstract}
-%
+
+% \circled{1}
+% \begin{enumerate}%[label=\mbox{\textcircled{\tiny\arabic*}}]
+%                      [label=\circled{\arabic*}]
+%         \item   bla bla
+%         \item   bla bla
+% \end{enumerate}
+
+
 % \tableofcontents
 %
 % \chapter{Introduction}
 % \input{chapters/introduction}
-
+%
 % \chapter{Method}
 % \input{chapters/method}
-
+%
 % \chapter{Results}
 % \input{chapters/results}
 %
@@ -96,14 +114,13 @@
 % \chapter{Conclusions}
 % \input{chapters/conclusions}
 %
-
-
 % \appendix
 %
 % \chapter{Implementation of MG parts}
 % \input{chapters/implementation_restr_prol}
 % \input{chapters/implementation_GS}
 \input{chapters/implementation_MG}
+% \input{chapters/bnd_cond}
 
 % \chapter{Unit Tests}
 % \input{chapters/unittests}
@@ -120,6 +137,7 @@
 
 % \newpage
 % NB! Note to self, page 122 has a proposed exact solution to u(x,y) = x+2y with no discretization errors. (In which document may I ask?)
+% NB! Remember to cite mayavi if using their visualization package
 %
 % \printbibliography
 

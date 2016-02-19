@@ -1,7 +1,7 @@
 
 
 \section{Restriction}
-	\label{sec:restr_imple}
+	\label{sec:restr_simple}
 	The multigrid method (MG) has several grids of different resolution, and we need to
  	convert the problem between the diffrent grids during the overarching the MG-algorithm.
  	The restriction algorithm has the task of translating from a fine grid to a coarser grid.
@@ -138,6 +138,8 @@
 	As of now there is 2 seperate implementations, for 2 and 3 dimensions.
 
 \section{Prolongation}
+	\label{sec:prol_simple}
+
 	Along with the restriction operator described in the previous section, we also need prolongation
 	operator to go from a coarse grid to a finer grid.	Here we will use bilinear interpolation, for
 	two dimensions and trilinear interpolation for 3 dimensions. In bilinear interpolation seperate
