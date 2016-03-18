@@ -1,0 +1,11 @@
+# Fdb version 3
+["pdflatex"] 1458297208 "langmuir_oscillations.tex" "langmuir_oscillations.pdf" "langmuir_oscillations" 1458297208
+  "/etc/texmf/web2c/texmf.cnf" 1422219599 1101 af7716885e081ab43982cab7b4672c1a ""
+  "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1392645748 31083 1dfd8bf685ce0009c40532fedf8a7c53 ""
+  "/usr/share/texmf/web2c/texmf.cnf" 1392645748 31083 1dfd8bf685ce0009c40532fedf8a7c53 ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1422219666 3822874 a948908854389464bac34c04a8621131 ""
+  "langmuir_oscillations.aux" 1458297208 8 a94a2480d3289e625eea47cd1b285758 ""
+  "langmuir_oscillations.tex" 1458297206 14 d2a7600475b8def1486bfc58d13fb88f ""
+  (generated)
+  "langmuir_oscillations.pdf"
+  "langmuir_oscillations.log"

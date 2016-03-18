@@ -1,11 +1,13 @@
 # Fdb version 3
-["pdflatex"] 1455019509 "implementation_MG.tex" "implementation_MG.pdf" "implementation_MG" 1455019509
+["pdflatex"] 1456478924 "implementation_MG.tex" "implementation_MG.pdf" "implementation_MG" 1456478924
   "/etc/texmf/web2c/texmf.cnf" 1422219599 1101 af7716885e081ab43982cab7b4672c1a ""
+  "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti10.tfm" 1136768653 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1392645748 31083 1dfd8bf685ce0009c40532fedf8a7c53 ""
   "/usr/share/texmf/web2c/texmf.cnf" 1392645748 31083 1dfd8bf685ce0009c40532fedf8a7c53 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1422219666 3822874 a948908854389464bac34c04a8621131 ""
   "implementation_MG.aux" 1452804590 8 a94a2480d3289e625eea47cd1b285758 ""
-  "implementation_MG.tex" 1455019509 10064 b5a1882c20882e0edc264d1146017d27 ""
+  "implementation_MG.tex" 1456478923 11934 51ff3939187f4007bd3181a9c323151e ""
   (generated)
-  "implementation_MG.pdf"
   "implementation_MG.log"
+  "implementation_MG.pdf"
