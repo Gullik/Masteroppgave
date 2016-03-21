@@ -3,7 +3,7 @@
 	The main iterative ODE solver, in this version of the multigrid program, is a Gauss-Seidel
 	Red-Black, in addition a Jacobian solver was developed as a stepping stone and testing purposes.
 	It is a modification of the Jacobian method, where the updated values are used where available, which lead
-	to a doubled converging rate \cite{NumReci}.
+	to it converging twice as fast \cite{NumReci}.
 
 	Our problem is given by \(\nabla^2 \phi= -\rho\), one way to think of the jacobian method is as
 	a diffusion problem, and with the equilibrium solution as our wanted solution. If we then discretize the
