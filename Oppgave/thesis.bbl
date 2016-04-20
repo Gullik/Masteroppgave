@@ -16,5 +16,39 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \sortlist{entry}{nyt}
+    \entry{goldston_introduction_1995}{book}{}
+      \name{labelname}{2}{}{%
+        {{uniquename=0,hash=eb256f0860a8da418e5f4a7cee419f8f}{Goldston}{G\bibinitperiod}{R.\bibnamedelimi J.}{R\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=4837efd3ece40deaa9423e5e7201bbf8}{Rutherford}{R\bibinitperiod}{P.\bibnamedelimi H.}{P\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=eb256f0860a8da418e5f4a7cee419f8f}{Goldston}{G\bibinitperiod}{R.\bibnamedelimi J.}{R\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=4837efd3ece40deaa9423e5e7201bbf8}{Rutherford}{R\bibinitperiod}{P.\bibnamedelimi H.}{P\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {CRC Press}%
+      }
+      \strng{namehash}{df7062c16842df4132596112a5989cd9}
+      \strng{fullhash}{df7062c16842df4132596112a5989cd9}
+      \field{sortinit}{G}
+      \field{labelyear}{1995}
+      \field{labelmonth}{11}
+      \field{datelabelsource}{}
+      \field{labeltitle}{Introduction to {Plasma} {Physics}}
+      \field{abstract}{Introduction to Plasma Physics is the standard text for an introductory lecture course on plasma physics. The text\x{fffd}\x{fffd}\x{fffd}s six sections lead readers systematically and comprehensively through the fundamentals of modern plasma physics. Sections on single-particle motion, plasmas as fluids, and collisional processes in plasmas lay the groundwork for a thorough understanding of the subject. The authors take care to place the material in its historical context for a rich understanding of the ideas presented. They also emphasize the importance of medical imaging in radiotherapy, providing a logical link to more advanced works in the area. The text includes problems, tables, and illustrations as well as a thorough index and a complete list of references.}
+      \field{isbn}{978-1-4398-2207-4}
+      \field{month}{11}
+      \field{title}{Introduction to {Plasma} {Physics}}
+      \field{year}{1995}
+      \keyw{Science / Physics / General}
+    \endentry
+  \endsortlist
+\endrefsection
 \endinput
 
