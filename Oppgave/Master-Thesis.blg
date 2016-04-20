@@ -1,9 +1,0 @@
-[0] Config.pm:318> INFO - This is Biber 1.8
-[0] Config.pm:321> INFO - Logfile is 'Master-Thesis.blg'
-[37] biber:275> INFO - === ma. nov.  2, 2015, 17:29:44
-[37] Biber.pm:333> INFO - Reading 'Master-Thesis.bcf'
-[71] Biber.pm:630> INFO - Found 0 citekeys in bib section 0
-[71] Utils.pm:169> WARN - The file 'Master-Thesis.bcf' does not contain any citations!
-[80] bbl.pm:482> INFO - Writing 'Master-Thesis.bbl' with encoding 'ascii'
-[81] bbl.pm:555> INFO - Output to Master-Thesis.bbl
-[81] Biber.pm:105> INFO - WARNINGS: 1
