@@ -1,9 +1,17 @@
 
 To ensure the correctness of the solver we have used a few different methods to
-improve our confidence in it. The first layer is a collection of unittests built
-to verify the small modular parts of the model. were it is possible, for example restricting
-a predefined grid and checking that the coarser grid is correct, and these tests
-are described in \cref{sec:unittests}
+improve our confidence in it. The first layer is a collection of unittests, \cref{sec:unittests},
+built to verify the small modular parts of the model and also help to locate errors
+appearing during further development. The main testing of the solver was by applying
+it to cases with known analytical solutions and looking at the relative error.
+In addition the solver was applied to various randomized charge distributions
+and the then checking if the residualconverged towards \(0\). To make sure that
+the amount of computational nodes didn't interfere with the results, a few runs
+were done with the same charge distribution and total grid points, but with different
+subdivisions of the domain onto computational cores.
+
+
+
 
 
 The multigrid method has several different steps in the algorithm, as a developmental
