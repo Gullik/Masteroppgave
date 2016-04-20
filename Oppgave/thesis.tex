@@ -8,7 +8,7 @@
 % 4) pdflatex "filename".tex
 
 
-\documentclass[x11names,twoside,english]{uiofysmaster}
+\documentclass[x11names,twoside,english]{book}
 % \documentclass[x11names]{article}
 \usepackage{tikz}
 \usepackage{physics}
@@ -84,12 +84,14 @@
 \usepackage{subcaption}
 \usepackage{pifont}
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Remember to change back to uiofysmaster on laptop
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 % \maketitle
 % \input{chapters/abstract}
-
+%
 % \tableofcontents
 %
 % \chapter{Introduction}
@@ -97,11 +99,11 @@
 %
 % \chapter{Method}
 % \input{chapters/method}
-\chapter{Verification}
-% \input{chapters/langmuir_oscillations}
+% \chapter{Verification}
+\input{chapters/langmuir_oscillations}
 \input{chapters/verification}
 
-
+%
 % \chapter{Results}
 % \input{chapters/results}
 %
@@ -110,7 +112,7 @@
 %
 % \chapter{Conclusions}
 % \input{chapters/conclusions}
-%
+
 % \appendix
 %
 % \chapter{Implementation of MG parts}
@@ -118,10 +120,10 @@
 % \input{chapters/implementation_GS}
 % \input{chapters/implementation_MG}
 % \input{chapters/bnd_cond}
-
-
-\chapter{Unit Tests}
-\input{chapters/unittests}
+%
+%
+% \chapter{Unit Tests}
+% \input{chapters/unittests}
 %
 % \chapter{Optional methods}
 % \input{chapters/alt_methods}
