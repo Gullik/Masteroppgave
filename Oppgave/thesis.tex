@@ -8,7 +8,7 @@
 % 4) pdflatex "filename".tex
 
 
-\documentclass[x11names,twoside,english]{book}
+\documentclass[x11names,twoside,english]{uiofysmaster}
 % \documentclass[x11names]{article}
 \usepackage{tikz}
 \usepackage{physics}
@@ -65,7 +65,7 @@
 %
 % \addbibresource{bibs/bibliography.bib}
 % \addbibresource{bibs/extra.bib}
-\addbibresource{bibs/zotero.bib}
+\addbibresource{bibs/bibliography.bib}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\bibliography{references}
@@ -83,6 +83,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{pifont}
+\usepackage[utf8]{inputenc}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Remember to change back to uiofysmaster on laptop
@@ -91,17 +92,18 @@
 \begin{document}
 % \maketitle
 % \input{chapters/abstract}
-%
+% %
 % \tableofcontents
 %
 % \chapter{Introduction}
 % \input{chapters/introduction}
-%
-% \chapter{Method}
-% \input{chapters/method}
-\chapter{Verification}
-\input{chapters/langmuir_oscillations}
-\input{chapters/verification}
+
+\chapter{Method}
+\input{chapters/method}
+
+% \chapter{Verification}
+% \input{chapters/langmuir_oscillations}
+% \input{chapters/verification}
 
 %
 % \chapter{Results}

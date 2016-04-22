@@ -19,36 +19,267 @@
 
 \refsection{0}
   \sortlist{entry}{nyt}
-    \entry{goldston_introduction_1995}{book}{}
-      \name{labelname}{2}{}{%
-        {{uniquename=0,hash=eb256f0860a8da418e5f4a7cee419f8f}{Goldston}{G\bibinitperiod}{R.\bibnamedelimi J.}{R\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=4837efd3ece40deaa9423e5e7201bbf8}{Rutherford}{R\bibinitperiod}{P.\bibnamedelimi H.}{P\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
+    \entry{adams_distributed_2001}{inproceedings}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=bd61e23ab4cd8bb6ec50ffb42a082c68}{Adams}{A\bibinitperiod}{Mark\bibnamedelima F.}{M\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
       }
-      \name{author}{2}{}{%
-        {{uniquename=0,hash=eb256f0860a8da418e5f4a7cee419f8f}{Goldston}{G\bibinitperiod}{R.\bibnamedelimi J.}{R\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=4837efd3ece40deaa9423e5e7201bbf8}{Rutherford}{R\bibinitperiod}{P.\bibnamedelimi H.}{P\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
-      }
-      \list{language}{1}{%
-        {en}%
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=bd61e23ab4cd8bb6ec50ffb42a082c68}{Adams}{A\bibinitperiod}{Mark\bibnamedelima F.}{M\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
       }
       \list{publisher}{1}{%
-        {CRC Press}%
+        {IEEE}%
       }
-      \strng{namehash}{df7062c16842df4132596112a5989cd9}
-      \strng{fullhash}{df7062c16842df4132596112a5989cd9}
-      \field{sortinit}{G}
-      \field{labelyear}{1995}
+      \strng{namehash}{bd61e23ab4cd8bb6ec50ffb42a082c68}
+      \strng{fullhash}{bd61e23ab4cd8bb6ec50ffb42a082c68}
+      \field{sortinit}{A}
+      \field{labelyear}{2001}
+      \field{datelabelsource}{}
+      \field{labeltitle}{A distributed memory unstructured {Gauss}-{Seidel} algorithm for multigrid smoothers}
+      \field{booktitle}{Supercomputing, {ACM}/{IEEE} 2001 {Conference}}
+      \field{title}{A distributed memory unstructured {Gauss}-{Seidel} algorithm for multigrid smoothers}
+      \field{urlday}{21}
+      \field{urlmonth}{04}
+      \field{urlyear}{2016}
+      \field{year}{2001}
+      \field{pages}{14\bibrangedash 14}
+      \verb{file}
+      \verb [PDF] from psu.edu:/home/gullik/.zotero/zotero/ui33ctdv.default/zotero/storage/WJWZXGTA/Adams - 2001 - A distributed memory unstructured Gauss-Seidel alg.pdf:application/pdf;Snapshot:/home/gullik/.zotero/zotero/ui33ctdv.default/zotero/storage/W3VISQSF/abs_all.html:text/html
+      \endverb
+      \verb{url}
+      \verb http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=1592790
+      \endverb
+    \endentry
+    \entry{alnaes_fenics_2011}{book}{}
+      \name{labelname}{6}{}{%
+        {{uniquename=0,hash=c6fe4edb1c669196f76891ddc56e7531}{Alnæs}{A\bibinitperiod}{Martin\bibnamedelima Sandve}{M\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=6c258c7873d4d947fdafc20e9f8b910a}{Hake}{H\bibinitperiod}{Johan}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=f9d76469b85f39694da3dc8ea4bfd8bf}{Kirby}{K\bibinitperiod}{Robert\bibnamedelima C.}{R\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=0967083410282320ed5fab09db692cfc}{Langtangen}{L\bibinitperiod}{Hans\bibnamedelima Petter}{H\bibinitperiod\bibinitdelim P\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=bae2791f700c5805db2f0fda7977a949}{Logg}{L\bibinitperiod}{Anders}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a4bc5763eb3a57316d5da4058635c123}{Wells}{W\bibinitperiod}{Garth\bibnamedelima N.}{G\bibinitperiod\bibinitdelim N\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{6}{}{%
+        {{uniquename=0,hash=c6fe4edb1c669196f76891ddc56e7531}{Alnæs}{A\bibinitperiod}{Martin\bibnamedelima Sandve}{M\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=6c258c7873d4d947fdafc20e9f8b910a}{Hake}{H\bibinitperiod}{Johan}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=f9d76469b85f39694da3dc8ea4bfd8bf}{Kirby}{K\bibinitperiod}{Robert\bibnamedelima C.}{R\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=0967083410282320ed5fab09db692cfc}{Langtangen}{L\bibinitperiod}{Hans\bibnamedelima Petter}{H\bibinitperiod\bibinitdelim P\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=bae2791f700c5805db2f0fda7977a949}{Logg}{L\bibinitperiod}{Anders}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a4bc5763eb3a57316d5da4058635c123}{Wells}{W\bibinitperiod}{Garth\bibnamedelima N.}{G\bibinitperiod\bibinitdelim N\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {October}%
+      }
+      \strng{namehash}{903967afd3fa04fe45c4aa6bf3072c9c}
+      \strng{fullhash}{b2e41dd0eb9f960eeff06827bad0a19f}
+      \field{sortinit}{A}
+      \field{labelyear}{2011}
+      \field{datelabelsource}{}
+      \field{labeltitle}{The {FEniCS} {Manual}}
+      \field{title}{The {FEniCS} {Manual}}
+      \field{urlday}{21}
+      \field{urlmonth}{04}
+      \field{urlyear}{2016}
+      \field{year}{2011}
+      \verb{file}
+      \verb [PDF] from unam.mx:/home/gullik/.zotero/zotero/ui33ctdv.default/zotero/storage/ZR9WJGUT/Alna es et al. - 2011 - The FEniCS Manual.pdf:application/pdf
+      \endverb
+      \verb{url}
+      \verb http://mmc2.geofisica.unam.mx/acl/edp/Ejemplitos/FEniCs/fenics-manual-2011-10-31.pdf
+      \endverb
+    \endentry
+    \entry{chow_survey_2006}{article}{}
+      \name{labelname}{5}{}{%
+        {{uniquename=0,hash=d393bf9ff9d79edf7a611fd295530eaa}{Chow}{C\bibinitperiod}{Edmond}{E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=2aeebdd1c9533ce95f52ae5fba40c629}{Falgout}{F\bibinitperiod}{Robert\bibnamedelima D.}{R\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=5cafd85d5e07a099962aea70513a7e32}{Hu}{H\bibinitperiod}{Jonathan\bibnamedelima J.}{J\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=80e6968c86cf6636075bd2bfa626b047}{Tuminaro}{T\bibinitperiod}{Raymond\bibnamedelima S.}{R\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=57c03e4eab1b21d1e643bc0e53ad6c0f}{Yang}{Y\bibinitperiod}{Ulrike\bibnamedelima Meier}{U\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{5}{}{%
+        {{uniquename=0,hash=d393bf9ff9d79edf7a611fd295530eaa}{Chow}{C\bibinitperiod}{Edmond}{E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=2aeebdd1c9533ce95f52ae5fba40c629}{Falgout}{F\bibinitperiod}{Robert\bibnamedelima D.}{R\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=5cafd85d5e07a099962aea70513a7e32}{Hu}{H\bibinitperiod}{Jonathan\bibnamedelima J.}{J\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=80e6968c86cf6636075bd2bfa626b047}{Tuminaro}{T\bibinitperiod}{Raymond\bibnamedelima S.}{R\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=57c03e4eab1b21d1e643bc0e53ad6c0f}{Yang}{Y\bibinitperiod}{Ulrike\bibnamedelima Meier}{U\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{0593ef34c870e8fabf95aae50703138f}
+      \strng{fullhash}{0ad49ecc7c7b4e00820f36ca978138e8}
+      \field{sortinit}{C}
+      \field{labelyear}{2006}
+      \field{datelabelsource}{}
+      \field{labeltitle}{A survey of parallelization techniques for multigrid solvers}
+      \field{journaltitle}{Parallel processing for scientific computing}
+      \field{title}{A survey of parallelization techniques for multigrid solvers}
+      \field{urlday}{21}
+      \field{urlmonth}{04}
+      \field{urlyear}{2016}
+      \field{volume}{20}
+      \field{year}{2006}
+      \field{pages}{179\bibrangedash 201}
+      \verb{file}
+      \verb [PDF] from edmondchow.com:/home/gullik/.zotero/zotero/ui33ctdv.default/zotero/storage/PQZJ6DHU/Chow et al. - 2006 - A survey of parallelization techniques for multigr.pdf:application/pdf
+      \endverb
+      \verb{url}
+      \verb http://www.edmondchow.com/pubs/parmg-survey-siam.pdf
+      \endverb
+    \endentry
+    \entry{hackbusch_multigrid_1982}{article}{}
+      \name{labelname}{2}{}{%
+        {{uniquename=0,hash=01bcfafc59c11a565163fcf9ef2a0907}{Hackbusch}{H\bibinitperiod}{Wolfgang}{W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=114331449f25e3b7253783221adb73cc}{Trottenberg}{T\bibinitperiod}{Ulrich}{U\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=01bcfafc59c11a565163fcf9ef2a0907}{Hackbusch}{H\bibinitperiod}{Wolfgang}{W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=114331449f25e3b7253783221adb73cc}{Trottenberg}{T\bibinitperiod}{Ulrich}{U\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{147b453720a94264434a64fef0dc905c}
+      \strng{fullhash}{147b453720a94264434a64fef0dc905c}
+      \field{sortinit}{H}
+      \field{labelyear}{1982}
+      \field{datelabelsource}{}
+      \field{labeltitle}{Multigrid methods}
+      \field{title}{Multigrid methods}
+      \field{urlday}{21}
+      \field{urlmonth}{04}
+      \field{urlyear}{2016}
+      \field{year}{1982}
+      \verb{url}
+      \verb http://158.69.150.236:1080/jspui/handle/961944/66389
+      \endverb
+    \endentry
+    \entry{press_numerical_1988}{article}{}
+      \name{labelname}{4}{}{%
+        {{uniquename=0,hash=e25935343805f5bc8cf8924629f02376}{Press}{P\bibinitperiod}{William\bibnamedelima H.}{W\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=67697fa4e8f96fea3d0c4b1f7ed40a54}{Teukolsky}{T\bibinitperiod}{S.\bibnamedelimi A.}{S\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c4198a24a680798147d7bde9ebc609b4}{Vetterling}{V\bibinitperiod}{W.\bibnamedelimi T.}{W\bibinitperiod\bibinitdelim T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=903fec84c425c443d906d94bab916687}{Flannery}{F\bibinitperiod}{B.\bibnamedelimi P.}{B\bibinitperiod\bibinitdelim P\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{4}{}{%
+        {{uniquename=0,hash=e25935343805f5bc8cf8924629f02376}{Press}{P\bibinitperiod}{William\bibnamedelima H.}{W\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=67697fa4e8f96fea3d0c4b1f7ed40a54}{Teukolsky}{T\bibinitperiod}{S.\bibnamedelimi A.}{S\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c4198a24a680798147d7bde9ebc609b4}{Vetterling}{V\bibinitperiod}{W.\bibnamedelimi T.}{W\bibinitperiod\bibinitdelim T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=903fec84c425c443d906d94bab916687}{Flannery}{F\bibinitperiod}{B.\bibnamedelimi P.}{B\bibinitperiod\bibinitdelim P\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{21c96521d50e44757fcf123ac89a147c}
+      \strng{fullhash}{88594c17433d0c09f9cf68e5e9c45428}
+      \field{sortinit}{P}
+      \field{labelyear}{1988}
+      \field{datelabelsource}{}
+      \field{labeltitle}{Numerical recipes in {C}}
+      \field{journaltitle}{Cambridge University Press}
+      \field{title}{Numerical recipes in {C}}
+      \field{urlday}{21}
+      \field{urlmonth}{04}
+      \field{urlyear}{2016}
+      \field{volume}{1}
+      \field{year}{1988}
+      \field{pages}{3}
+      \verb{file}
+      \verb [PDF] from numerical-recipes.com:/home/gullik/.zotero/zotero/ui33ctdv.default/zotero/storage/EMUPJZNU/Press et al. - 1988 - Numerical recipes in C.pdf:application/pdf;Snapshot:/home/gullik/.zotero/zotero/ui33ctdv.default/zotero/storage/CDU29FH7/displayAbstract.html:text/html
+      \endverb
+      \verb{url}
+      \verb http://journals.cambridge.org/abstract_S0269964800000565
+      \endverb
+    \endentry
+    \entry{shen_efficient_1994}{article}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=58f02d1fc91ed64baed927a1d852c975}{Shen}{S\bibinitperiod}{J.}{J\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=58f02d1fc91ed64baed927a1d852c975}{Shen}{S\bibinitperiod}{J.}{J\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{58f02d1fc91ed64baed927a1d852c975}
+      \strng{fullhash}{58f02d1fc91ed64baed927a1d852c975}
+      \field{sortinit}{S}
+      \field{labelyear}{1994}
       \field{labelmonth}{11}
       \field{datelabelsource}{}
-      \field{labeltitle}{Introduction to {Plasma} {Physics}}
-      \field{abstract}{Introduction to Plasma Physics is the standard text for an introductory lecture course on plasma physics. The text\x{fffd}\x{fffd}\x{fffd}s six sections lead readers systematically and comprehensively through the fundamentals of modern plasma physics. Sections on single-particle motion, plasmas as fluids, and collisional processes in plasmas lay the groundwork for a thorough understanding of the subject. The authors take care to place the material in its historical context for a rich understanding of the ideas presented. They also emphasize the importance of medical imaging in radiotherapy, providing a logical link to more advanced works in the area. The text includes problems, tables, and illustrations as well as a thorough index and a complete list of references.}
-      \field{isbn}{978-1-4398-2207-4}
+      \field{labeltitle}{Efficient {Spectral}-{Galerkin} {Method} {I}. {Direct} {Solvers} of {Second}- and {Fourth}-{Order} {Equations} {Using} {Legendre} {Polynomials}}
+      \field{abstract}{This paper presents some efficient algorithms based on the Legendre–Galerkin approximations for the direct solution of the second- and fourth-order elliptic equations. The key to the efficiency of these algorithms is to construct appropriate base functions, which lead to systems with sparse matrices for the discrete variational formulations. The complexities of the algorithms are a small multiple of \$N^\{d + 1\} \$ operations for a d-dimensional domain with \$(N - 1)^d \$ unknowns, while the convergence rates of the algorithms are exponential for problems with smooth solutions. In addition, the algorithms can be effectively parallelized since the bottlenecks of the algorithms are matrix-matrix multiplications.}
+      \field{issn}{1064-8275}
+      \field{journaltitle}{SIAM Journal on Scientific Computing}
       \field{month}{11}
-      \field{title}{Introduction to {Plasma} {Physics}}
-      \field{year}{1995}
-      \keyw{Science / Physics / General}
+      \field{number}{6}
+      \field{title}{Efficient {Spectral}-{Galerkin} {Method} {I}. {Direct} {Solvers} of {Second}- and {Fourth}-{Order} {Equations} {Using} {Legendre} {Polynomials}}
+      \field{urlday}{21}
+      \field{urlmonth}{04}
+      \field{urlyear}{2016}
+      \field{volume}{15}
+      \field{year}{1994}
+      \field{pages}{1489\bibrangedash 1505}
+      \verb{doi}
+      \verb 10.1137/0915089
+      \endverb
+      \verb{file}
+      \verb Full Text PDF:/home/gullik/.zotero/zotero/ui33ctdv.default/zotero/storage/JJCBCQ9W/Shen - 1994 - Efficient Spectral-Galerkin Method I. Direct Solve.pdf:application/pdf;Snapshot:/home/gullik/.zotero/zotero/ui33ctdv.default/zotero/storage/EW6BKNR8/0915089.html:text/html
+      \endverb
+      \verb{url}
+      \verb http://epubs.siam.org/doi/abs/10.1137/0915089
+      \endverb
+    \endentry
+    \entry{stuben_review_2001}{article}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=0f45b08207e9d3210a5038e690578335}{Stüben}{S\bibinitperiod}{Klaus}{K\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=0f45b08207e9d3210a5038e690578335}{Stüben}{S\bibinitperiod}{Klaus}{K\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{0f45b08207e9d3210a5038e690578335}
+      \strng{fullhash}{0f45b08207e9d3210a5038e690578335}
+      \field{sortinit}{S}
+      \field{labelyear}{2001}
+      \field{datelabelsource}{}
+      \field{labeltitle}{A review of algebraic multigrid}
+      \field{journaltitle}{Journal of Computational and Applied Mathematics}
+      \field{number}{1}
+      \field{title}{A review of algebraic multigrid}
+      \field{urlday}{21}
+      \field{urlmonth}{04}
+      \field{urlyear}{2016}
+      \field{volume}{128}
+      \field{year}{2001}
+      \field{pages}{281\bibrangedash 309}
+      \verb{file}
+      \verb [HTML] from sciencedirect.com:/home/gullik/.zotero/zotero/ui33ctdv.default/zotero/storage/2HXJFWVT/S0377042700005161.html:text/html
+      \endverb
+      \verb{url}
+      \verb http://www.sciencedirect.com/science/article/pii/S0377042700005161
+      \endverb
+    \endentry
+    \entry{trottenberg_multigrid_2000}{book}{}
+      \name{labelname}{3}{}{%
+        {{uniquename=0,hash=114331449f25e3b7253783221adb73cc}{Trottenberg}{T\bibinitperiod}{Ulrich}{U\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b471cabf81b0b3d2e71a565733d547eb}{Oosterlee}{O\bibinitperiod}{Cornelius\bibnamedelima W.}{C\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d2165f57f15a0a4ba97322a38c3c9cd3}{Schuller}{S\bibinitperiod}{Anton}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{3}{}{%
+        {{uniquename=0,hash=114331449f25e3b7253783221adb73cc}{Trottenberg}{T\bibinitperiod}{Ulrich}{U\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b471cabf81b0b3d2e71a565733d547eb}{Oosterlee}{O\bibinitperiod}{Cornelius\bibnamedelima W.}{C\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d2165f57f15a0a4ba97322a38c3c9cd3}{Schuller}{S\bibinitperiod}{Anton}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Academic press}%
+      }
+      \strng{namehash}{331ba245e4bd1e286e2e7f877d25ea02}
+      \strng{fullhash}{d2a2773cc15fae227db3b9532263fcc6}
+      \field{sortinit}{T}
+      \field{labelyear}{2000}
+      \field{datelabelsource}{}
+      \field{labeltitle}{Multigrid}
+      \field{title}{Multigrid}
+      \field{urlday}{21}
+      \field{urlmonth}{04}
+      \field{urlyear}{2016}
+      \field{year}{2000}
+      \verb{file}
+      \verb Snapshot:/home/gullik/.zotero/zotero/ui33ctdv.default/zotero/storage/BR7SBQKS/books.html:text/html
+      \endverb
+      \verb{url}
+      \verb https://www.google.com/books?hl=en&lr=&id=9ysyNPZoR24C&oi=fnd&pg=PP1&dq=trottenberg+2000&ots=rJCHSPzSMY&sig=sin3i-gmWOoykoTFnyHGIPZXT5Q
+      \endverb
     \endentry
   \endsortlist
+  \missing{arraras_domain_2015}
 \endrefsection
 \endinput
 

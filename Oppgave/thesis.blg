@@ -1,13 +1,16 @@
 [0] Config.pm:318> INFO - This is Biber 1.8
 [0] Config.pm:321> INFO - Logfile is 'thesis.blg'
-[41] biber:275> INFO - === on. april 20, 2016, 09:45:56
-[42] Biber.pm:333> INFO - Reading 'thesis.bcf'
-[78] Biber.pm:630> INFO - Found 1 citekeys in bib section 0
-[88] Biber.pm:3053> INFO - Processing section 0
-[98] Biber.pm:3190> INFO - Looking for bibtex format file 'bibs/zotero.bib' for section 0
-[99] bibtex.pm:808> INFO - Found BibTeX data source 'bibs/zotero.bib'
-[128] Biber.pm:2939> INFO - Overriding locale 'en_US.UTF-8' default tailoring 'variable = shifted' with 'variable = non-ignorable'
-[128] Biber.pm:2945> INFO - Sorting 'entry' list 'nyt' keys
-[129] Biber.pm:2949> INFO - No sort tailoring available for locale 'en_US.UTF-8'
-[133] bbl.pm:482> INFO - Writing 'thesis.bbl' with encoding 'ascii'
-[134] bbl.pm:555> INFO - Output to thesis.bbl
+[39] biber:275> INFO - === to. april 21, 2016, 13:23:56
+[40] Biber.pm:333> INFO - Reading 'thesis.bcf'
+[76] Biber.pm:630> INFO - Found 9 citekeys in bib section 0
+[86] Biber.pm:3053> INFO - Processing section 0
+[98] Biber.pm:3190> INFO - Looking for bibtex format file 'bibs/bibliography.bib' for section 0
+[100] bibtex.pm:933> INFO - Decoding LaTeX character macros into UTF-8
+[103] bibtex.pm:808> INFO - Found BibTeX data source 'bibs/bibliography.bib'
+[118] Utils.pm:169> WARN - I didn't find a database entry for 'arraras_domain_2015' (section 0)
+[152] Biber.pm:2939> INFO - Overriding locale 'en_US.UTF-8' default tailoring 'variable = shifted' with 'variable = non-ignorable'
+[152] Biber.pm:2945> INFO - Sorting 'entry' list 'nyt' keys
+[152] Biber.pm:2949> INFO - No sort tailoring available for locale 'en_US.UTF-8'
+[166] bbl.pm:482> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[167] bbl.pm:555> INFO - Output to thesis.bbl
+[168] Biber.pm:105> INFO - WARNINGS: 1

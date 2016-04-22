@@ -1,45 +1,132 @@
-@inproceedings{Falgout02hypre:a,
-author = {Falgout, Robert D and Yang, Ulrike Meier},
-booktitle = {Preconditioners, Lecture Notes in Computer Science},
-pages = {632--641},
-title = {{hypre: a Library of High Performance Preconditioners}},
-year = {2002}
+
+@book{trottenberg_multigrid_2000,
+	title = {Multigrid},
+	url = {https://www.google.com/books?hl=en&lr=&id=9ysyNPZoR24C&oi=fnd&pg=PP1&dq=trottenberg+2000&ots=rJCHSPzSMY&sig=sin3i-gmWOoykoTFnyHGIPZXT5Q},
+	urldate = {2016-04-21},
+	publisher = {Academic press},
+	author = {Trottenberg, Ulrich and Oosterlee, Cornelius W. and Schuller, Anton},
+	year = {2000},
+	file = {Snapshot:/home/gullik/.zotero/zotero/ui33ctdv.default/zotero/storage/BR7SBQKS/books.html:text/html}
 }
-@article{Gropp2001,
-author = {Gropp, William},
-file = {:home/gullik/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Gropp - 2001 - PETSc Users Manual.pdf:pdf},
-journal = {Work},
-title = {{PETSc Users Manual}},
-year = {2001}
+
+@article{stuben_review_2001,
+	title = {A review of algebraic multigrid},
+	volume = {128},
+	url = {http://www.sciencedirect.com/science/article/pii/S0377042700005161},
+	number = {1},
+	urldate = {2016-04-21},
+	journal = {Journal of Computational and Applied Mathematics},
+	author = {Stüben, Klaus},
+	year = {2001},
+	pages = {281--309},
+	file = {[HTML] from sciencedirect.com:/home/gullik/.zotero/zotero/ui33ctdv.default/zotero/storage/2HXJFWVT/S0377042700005161.html:text/html}
 }
-@article{Karypis,
-abstract = {Recently, a number of researchers have investigated a class of graph partitioning algorithms that reduce the size of the graph by collapsing vertices and edges, partition the smaller graph, and then uncoarsen it to construct a partition for the original graph [Bui and Jones, Proc. of the 6th SIAM Conference on Parallel Processing for Scientific Computing, 1993, 445–452; Hen-drickson and Leland, A Multilevel Algorithm for Partitioning Graphs, Tech. report SAND 93-1301, Sandia National Laboratories, Albuquerque, NM, 1993]. From the early work it was clear that multilevel techniques held great promise; however, it was not known if they can be made to con-sistently produce high quality partitions for graphs arising in a wide range of application domains. We investigate the effectiveness of many different choices for all three phases: coarsening, partition of the coarsest graph, and refinement. In particular, we present a new coarsening heuristic (called heavy-edge heuristic) for which the size of the partition of the coarse graph is within a small factor of the size of the final partition obtained after multilevel refinement. We also present a much faster variation of the Kernighan–Lin (KL) algorithm for refining during uncoarsening. We test our scheme on a large number of graphs arising in various domains including finite element methods, linear pro-gramming, VLSI, and transportation. Our experiments show that our scheme produces partitions that are consistently better than those produced by spectral partitioning schemes in substantially smaller time. Also, when our scheme is used to compute fill-reducing orderings for sparse matrices, it produces orderings that have substantially smaller fill than the widely used multiple minimum degree algorithm.},
-author = {Karypis, George and Kumar, Vipin and Sci, Siam J Comput},
-file = {:home/gullik/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Karypis, Kumar, Sci - Unknown - A FAST AND HIGH QUALITY MULTILEVEL SCHEME FOR PARTITIONING IRREGULAR GRAPHS.pdf:pdf},
-keywords = {05C85 PII S1064827595287997,fill-reducing orderings,graph partitioning,parallel computations},
-number = {1},
-pages = {359--392},
-title = {{A FAST AND HIGH QUALITY MULTILEVEL SCHEME FOR PARTITIONING IRREGULAR GRAPHS *}},
-volume = {20}
+
+@article{shen_efficient_1994,
+	title = {Efficient {Spectral}-{Galerkin} {Method} {I}. {Direct} {Solvers} of {Second}- and {Fourth}-{Order} {Equations} {Using} {Legendre} {Polynomials}},
+	volume = {15},
+	issn = {1064-8275},
+	url = {http://epubs.siam.org/doi/abs/10.1137/0915089},
+	doi = {10.1137/0915089},
+	abstract = {This paper presents some efficient algorithms based on the Legendre–Galerkin approximations for the direct solution of the second- and fourth-order elliptic equations. The key to the efficiency of these algorithms is to construct appropriate base functions, which lead to systems with sparse matrices for the discrete variational formulations. The complexities of the algorithms are a small multiple of \$N{\textasciicircum}\{d + 1\} \$ operations for a d-dimensional domain with \$(N - 1){\textasciicircum}d \$ unknowns, while the convergence rates of the algorithms are exponential for problems with smooth solutions. In addition, the algorithms can be effectively parallelized since the bottlenecks of the algorithms are matrix-matrix multiplications.},
+	number = {6},
+	urldate = {2016-04-21},
+	journal = {SIAM Journal on Scientific Computing},
+	author = {Shen, J.},
+	month = nov,
+	year = {1994},
+	pages = {1489--1505},
+	file = {Full Text PDF:/home/gullik/.zotero/zotero/ui33ctdv.default/zotero/storage/JJCBCQ9W/Shen - 1994 - Efficient Spectral-Galerkin Method I. Direct Solve.pdf:application/pdf;Snapshot:/home/gullik/.zotero/zotero/ui33ctdv.default/zotero/storage/EW6BKNR8/0915089.html:text/html}
 }
-@article{Sbalzarini2006,
-abstract = {This paper presents a highly efficient parallel particle–mesh (PPM) library, based on a unifying particle formulation for the simulation of continuous systems. In this formulation, the grid-free character of particle methods is relaxed by the introduction of a mesh for the reinitialization of the particles, the computation of the field equations, and the discretization of differential operators. The present utilization of the mesh does not detract from the adaptivity, the efficient handling of complex geometries, the minimal dissipation, and the good stability properties of particle methods. The coexistence of meshes and particles, allows for the development of a consistent and adaptive numerical method, but it presents a set of challenging parallelization issues that have hindered in the past the broader use of particle methods. The present library solves the key parallelization issues involving particle–mesh interpolations and the balancing of pro-cessor particle loading, using a novel adaptive tree for mixed domain decompositions along with a coloring scheme for the particle–mesh interpolation. The high parallel efficiency of the library is demonstrated in a series of benchmark tests on distributed memory and on a shared-memory vector architecture. The modularity of the method is shown by a range of simulations, from compressible vortex rings using a novel formulation of smooth particle hydrodynamics, to simulations of diffusion in real biological cell organelles. The present library enables large scale simulations of diverse physical problems using adaptive particle methods and provides a computational tool that is a viable alternative to mesh-based methods.},
-author = {Sbalzarini, I F and Walther, J H and Bergdorf, M and Hieber, S E and Kotsalis, E M and Koumoutsakos, P},
-doi = {10.1016/j.jcp.2005.11.017},
-title = {{PPM - A highly efficient parallel particle-mesh library for the simulation of continuum systems}},
-year = {2006}
+
+@article{press_numerical_1988,
+	title = {Numerical recipes in {C}},
+	volume = {1},
+	url = {http://journals.cambridge.org/abstract_S0269964800000565},
+	urldate = {2016-04-21},
+	journal = {Cambridge University Press},
+	author = {Press, William H. and Teukolsky, S. A. and Vetterling, W. T. and Flannery, B. P.},
+	year = {1988},
+	pages = {3},
+	file = {[PDF] from numerical-recipes.com:/home/gullik/.zotero/zotero/ui33ctdv.default/zotero/storage/EMUPJZNU/Press et al. - 1988 - Numerical recipes in C.pdf:application/pdf;Snapshot:/home/gullik/.zotero/zotero/ui33ctdv.default/zotero/storage/CDU29FH7/displayAbstract.html:text/html}
 }
-@book{Trottenberg,
-author = {Trottenberg, U and Oosterlee, C W and Sch{\"{u}}ller, A},
-file = {:home/gullik/Documents/Masteroppgave/boker/[Ulrich{\_}Trottenberg,{\_}Cornelius{\_}W.{\_}Oosterlee,{\_}Anton(BookZZ.org).pdf:pdf},
-isbn = {012701070X},
-title = {{Multigrid}},
-year = {2001}
+
+@article{chow_survey_2006,
+	title = {A survey of parallelization techniques for multigrid solvers},
+	volume = {20},
+	url = {http://www.edmondchow.com/pubs/parmg-survey-siam.pdf},
+	urldate = {2016-04-21},
+	journal = {Parallel processing for scientific computing},
+	author = {Chow, Edmond and Falgout, Robert D. and Hu, Jonathan J. and Tuminaro, Raymond S. and Yang, Ulrike Meier},
+	year = {2006},
+	pages = {179--201},
+	file = {[PDF] from edmondchow.com:/home/gullik/.zotero/zotero/ui33ctdv.default/zotero/storage/PQZJ6DHU/Chow et al. - 2006 - A survey of parallelization techniques for multigr.pdf:application/pdf}
 }
-@article{Trottenberg2000,
-author = {Trottenberg, U. and Sch{\"{u}}ller, a. and Oosterlee, C. W.},
-file = {:home/gullik/Documents/Masteroppgave/boker/Parallel{\_}MG{\_}methods.pdf:pdf},
-pages = {111--118},
-title = {{Multigrid methods}},
-year = {2000}
+
+@article{arrar`as_domain_2015,
+	title = {Domain decomposition multigrid methods for nonlinear reaction–diffusion problems},
+	volume = {20},
+	url = {http://www.sciencedirect.com/science/article/pii/S1007570414003074},
+	number = {3},
+	urldate = {2016-04-21},
+	journal = {Communications in Nonlinear Science and Numerical Simulation},
+	author = {Arrar\{{\textbackslash}`a\}s, A. and Gaspar, F. J. and Portero, L. and Rodrigo, C.},
+	year = {2015},
+	pages = {699--710},
+	file = {Snapshot:/home/gullik/.zotero/zotero/ui33ctdv.default/zotero/storage/3K2W2KEW/S1007570414003074.html:text/html}
+}
+
+@book{alnaes_fenics_2011,
+	title = {The {FEniCS} {Manual}},
+	url = {http://mmc2.geofisica.unam.mx/acl/edp/Ejemplitos/FEniCs/fenics-manual-2011-10-31.pdf},
+	urldate = {2016-04-21},
+	publisher = {October},
+	author = {Alnæs, Martin Sandve and Hake, Johan and Kirby, Robert C. and Langtangen, Hans Petter and Logg, Anders and Wells, Garth N.},
+	year = {2011},
+	file = {[PDF] from unam.mx:/home/gullik/.zotero/zotero/ui33ctdv.default/zotero/storage/ZR9WJGUT/Alna es et al. - 2011 - The FEniCS Manual.pdf:application/pdf}
+}
+
+@inproceedings{adams_distributed_2001,
+	title = {A distributed memory unstructured {Gauss}-{Seidel} algorithm for multigrid smoothers},
+	url = {http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=1592790},
+	urldate = {2016-04-21},
+	booktitle = {Supercomputing, {ACM}/{IEEE} 2001 {Conference}},
+	publisher = {IEEE},
+	author = {Adams, Mark F.},
+	year = {2001},
+	pages = {14--14},
+	file = {[PDF] from psu.edu:/home/gullik/.zotero/zotero/ui33ctdv.default/zotero/storage/WJWZXGTA/Adams - 2001 - A distributed memory unstructured Gauss-Seidel alg.pdf:application/pdf;Snapshot:/home/gullik/.zotero/zotero/ui33ctdv.default/zotero/storage/W3VISQSF/abs_all.html:text/html}
+}
+
+@book{kelley_earths_2009,
+	title = {The {Earth}'s {Ionosphere}: {Plasma} {Physics} \& {Electrodynamics}},
+	isbn = {978-0-08-091657-6},
+	shorttitle = {The {Earth}'s {Ionosphere}},
+	abstract = {Although interesting in its own right, due to the ever-increasing use of satellites for communication and navigation, weather in the ionosphere is of great concern. Every such system uses trans-ionospheric propagation of radio waves, waves which must traverse the commonly turbulent ionosphere. Understanding this turbulence and predicting it are one of the major goals of the National Space Weather program. Acquiring such a prediction capability will rest on understanding the very topics of this book, the plasma physics and electrodynamics of the system.*Fully updated to reflect advances in the field in the 20 years since the first edition published*Explores the buffeting of the ionosphere from above by the sun and from below by the lower atmosphere*Unique text appropriate both as a reference and for coursework.},
+	language = {en},
+	publisher = {Academic Press},
+	author = {Kelley, Michael C.},
+	month = jun,
+	year = {2009},
+	keywords = {Science / Earth Sciences / General, Science / Earth Sciences / Meteorology \& Climatology, Science / Physics / General, Science / Physics / Optics \& Light}
+}
+
+@article{hackbusch_multigrid_1982,
+	title = {Multigrid methods},
+	url = {http://158.69.150.236:1080/jspui/handle/961944/66389},
+	urldate = {2016-04-21},
+	author = {Hackbusch, Wolfgang and Trottenberg, Ulrich},
+	year = {1982}
+}
+
+@book{goldston_introduction_1995,
+	title = {Introduction to {Plasma} {Physics}},
+	isbn = {978-1-4398-2207-4},
+	abstract = {Introduction to Plasma Physics is the standard text for an introductory lecture course on plasma physics. The text’s six sections lead readers systematically and comprehensively through the fundamentals of modern plasma physics. Sections on single-particle motion, plasmas as fluids, and collisional processes in plasmas lay the groundwork for a thorough understanding of the subject. The authors take care to place the material in its historical context for a rich understanding of the ideas presented. They also emphasize the importance of medical imaging in radiotherapy, providing a logical link to more advanced works in the area. The text includes problems, tables, and illustrations as well as a thorough index and a complete list of references.},
+	language = {en},
+	publisher = {CRC Press},
+	author = {Goldston, R. J. and Rutherford, P. H.},
+	month = nov,
+	year = {1995},
+	keywords = {Science / Physics / General}
 }

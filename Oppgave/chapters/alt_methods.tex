@@ -2,17 +2,17 @@
 
 
 \section{MG-Methods}
-	
+
 	\subsection{FMG}
 		\begin{itemize}
 			\item 'Easy' to implement.
-			\item Theoretically scales \(\order{N}\) \citep{Press1987}, in reality 
-			\item FMG and W cycles are usually avoided in massive parallel computers \citep{Chow2006}, as they visit the coarsest grid often, due to:
+			\item Theoretically scales \(\order{N}\) \citep{Press1987}, in reality
+			\item FMG and W cycles are usually avoided in massive parallel computers \citep{chow_survey_2006}, as they visit the coarsest grid often, due to:
 				\begin{itemize}
 					\item At the coarsest level the computation is fast, communication usually the bottleneck
 					\item Coarsest grid may couple all the domain, needs global communication
 				\end{itemize}
-			\item Options to solve the coarse matrix \citep{Chow2006}
+			\item Options to solve the coarse matrix \citep{chow_survey_2006}
 				\begin{itemize}
 					\item Direct solver: Sequential, if small problem may be done on each processor to avoid communication
 					\item Iterative method, Gauss-Seidel. Can be parallelized
@@ -27,7 +27,7 @@
 				\begin{itemize}
 					\item Solves \(Au = \rho\) for a sparse matrix.
 				\end{itemize}
-			\item 
+			\item
 
 		\end{itemize}
 
@@ -52,8 +52,8 @@
 % 		    node distance=6mm and 45mm, % Global setup of box spacing
 % 		    every join/.style={norm},   % Default linetype for connecting boxes
 % 		    ]
-% 		% ------------------------------------------------- 
-% 		% A few box styles 
+% 		% -------------------------------------------------
+% 		% A few box styles
 % 		% <on chain> *and* <on grid> reduce the need for manual relative
 % 		% positioning of nodes
 % 		\tikzset{
@@ -75,10 +75,10 @@
 % 		% -------------------------------------------------
 % 		% Start by placing the nodes
 
-		
+
 
 % 		%Setting up the nodes on the side
-% 		% \node [term, left=of SD] (quantum) { Compute  Quantumforce}; 
+% 		% \node [term, left=of SD] (quantum) { Compute  Quantumforce};
 % 		% \node[coord, right=of last]	(around1){};
 
 
@@ -103,8 +103,8 @@
 	% 	    node distance=6mm and 45mm, % Global setup of box spacing
 	% 	    every join/.style={norm},   % Default linetype for connecting boxes
 	% 	    ]
-	% 	% ------------------------------------------------- 
-	% 	% A few box styles 
+	% 	% -------------------------------------------------
+	% 	% A few box styles
 	% 	% <on chain> *and* <on grid> reduce the need for manual relative
 	% 	% positioning of nodes
 	% 	\tikzset{
@@ -141,7 +141,7 @@
 	% 	\node [term, right=of SD] (trialfunction) {Compute \( \psi_T(\vb{r}) \)};
 	% 	\node [term, left=of SD] (quantum) { Compute  Quantumforce};
 	% 	\node[term, left=of test] (old_pos) {Keep \(  \vb{r}^{old} \)};
-	% 	\node [coord, left=of new_pos] (c1)  {};    
+	% 	\node [coord, left=of new_pos] (c1)  {};
 	% 	\node[coord, right=of last]	(around1){};
 	% 	\node[coord, right=of around1] (around2) {};
 	% 	\node[coord, right=of position]	(around3){};

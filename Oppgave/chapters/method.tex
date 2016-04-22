@@ -1,234 +1,234 @@
 
-	\section{Poisson Solvers}
+\section{Poisson Solvers}
 
-		In the Particle in Cell method, instead of calculating the forces directly between the particles, we first calculate the electric field from all the particles and then use that to calculate the individual force on the particles. From the particles we use a weighting scheme to obtain a charge density on a grid. Then we can use Poisson's equation \cref{eq:poisson} to calculate the electric potential from the charge density, before computing the electric field from the potential. So we need an efficient Poisson solver.
+	In the Particle in Cell method, instead of calculating the forces directly between the particles, we first calculate the electric field from all the particles and then use that to calculate the individual force on the particles. From the particles we use a weighting scheme to obtain a charge density on a grid. Then we can use Poisson's equation \cref{eq:poisson} to calculate the electric potential from the charge density, before computing the electric field from the potential. So we need an efficient Poisson solver.
 
-		\begin{align}
-			\nabla ^2 \Phi &= -\rho \qquad \text{in} \qquad \Omega \label{eq:poisson}
-		\end{align}
+	\begin{align}
+		\nabla ^2 \Phi &= -\rho \qquad \text{in} \qquad \Omega \label{eq:poisson}
+	\end{align}
 
-		The problem also need boundary conditions in which we will focus on periodic, Dirichlet and Neumann boundary conditions.
+	The problem also need boundary conditions in which we will focus on periodic, Dirichlet and Neumann boundary conditions.
 
-		\subsection{Spectral Methods}
-			The spectral methods is based on Fourier transforms of the problem and solving the problem in it's spectral version, see \cite{Shen1994} for an implementation of an spectral poisson solver. They are efficient solvers that can be less, but can be inaccurate for complex geometries.
+	\subsection{Spectral Methods}
+		The spectral methods is based on Fourier transforms of the problem and solving the problem in it's spectral version, see \citep{shen_efficient_1994} \textbf{(Fix citation format)} for an implementation of an spectral poisson solver. They are efficient solvers that can be less, but can be inaccurate for complex geometries.
 
-			When looking for a solution with a spectral method we first rewrite the functions as Fourier series, which for the three-dimensional Poisson equation would be
-
-			\begin{align}
-				\nabla^2 \sum A_{j,k,l} e^{i(jx + ky + lz)} &= \sum B_{j,k,l} e^{i(jx + ky + lz)}
-				\intertext{From there we get a relation between the coefficients}
-				A_{j,k,l} &= -\frac{B_{j,k,l}}{j^2 + k^2 + l^2}
-				\intertext{Then we compute the Fourier transform of the right hand side obtaining the coefficients \(B_{j,k,l}\). We compute all the coefficients \(A_{j,k,l}\) from the relation between the coefficients. At last we perform a inverse Fourier transform of the left hand side obtaining the solution.}
-			\end{align}
-
-
-
-		\subsection{Finite Element Methods}
-
-			The finite element is a method to numerically solve a partial differential equations (PDE) first transforming the problem into a variational problem and then constructing a mesh and local trial functions, see \cite{Sandve2011} for a more complete discussion.
-
-			To transform the PDE to a variational problem we first multiply the PDE by a test function \(v\), then it is integrated using integration by parts on the second order terms. Then the problem is separated into two parts, the bilinear form \(a(u,v)\) containing the unknown solution and the test function and the linear form \(L(v)\) containing only the test function.
-
-			\begin{align}
-				a(u,v) = L(v)	\qquad v\epsilon \hat{V}
-			\end{align}
-
-			Next we construct discrete local function spaces of that we assume contain the trialfunctions and testfunctions. The function spaces often consists of locally defined functions that are \(0\) except in a close neighbourhood of a mesh point, so the resulting matrix to be solved is sparse and can be computed quickly. The matrix system is then solved by a suiting linear algebra algorithm, before the solution is put together.
-
-
-	\section{Multigrid}
-		The multi grid, MG, method used to solve the Poisson equation and obtain the electric field is a widely used and highly efficient solver for elliptic equations, having a theoretical scaling of \(\order{N}\) \citep{Press1987}, where \(N\) is the grid points. Here I will go through the main theory and algorithm behind the method, as explained in more detail in \citep{Press1987,Trottenberg2000} as well as go through some of possible algorithms to parallelize the method.
-
-		We want to solve a linear elliptic problem,
-			\begin{align}
-				\mathcal{L} u = f
-			\end{align}
-		where \(\mathcal{L}\) is a linear operator, \(u\) is the solution and \(f\) is a source term. In our specific case the operator is given by the laplacian, the source term is given by the charge density and we solve for the electric potential.
-
-		We discretize the equation onto a grid of size \(q\).
-		\begin{align}
-			\mathcal{L}_q u_q &= f_q \label{eq:difference}
-		\end{align}
-
-		Let the error, \(v_q\) be the difference between the exact solution and an approximate solution to the difference equation (\ref{eq:difference}), \( v_q = u_q - \tilde{u}_q \). Then we define the residual as what is left after using the approximate solution in the equation.
+		When looking for a solution with a spectral method we first rewrite the functions as Fourier series, which for the three-dimensional Poisson equation would be
 
 		\begin{align}
-			d_q &= \mathcal{L}_q \tilde{u}_q - f_q
-		\end{align}
-
-		Since \(\mathcal{L}\) is a linear operator the error satisfies the following relation
-
-		\begin{align}
-			\mathcal{L}_q v_q &= \mathcal{L}(u_q - \tilde{u}_q)  + (f_q- f_q)
-			\\
-			\mathcal{L}_q v_q &= - d_q \label{eq:diff_MG}
-		\end{align}
-
-		In the multigrid methods instead of solving the equation directly here, we set up a system nested coarser square grids, \(\mathfrak{T}_1 \subset \mathfrak{T}_2 \subset \cdots \subset \mathfrak{T}_\ell\), where \(1\) is the coarsest grid and \(\ell\) is the finest. Then the main thought behind the methods is that instead of solving the problem directly on the initial grid, we use restriction, \( \mathcal{R} \), and interpolation, \( \mathcal{P} \), operators to change the problem between the different grid levels and solve them on there. (Fix previous sentence) Due to the fewer grid points the problem is faster to solver on the coarser grid levels than on the fine grid.
-
-		If we then apply a restriction operator on the residual we go down a level on the grids and the opposite for the interpolation operator.
-
-		\begin{align}
-			\mathcal{R} d_q = d_{q-1} \qquad \text{and} \qquad \mathcal{P} d_q = d_{q + 1}
+			\nabla^2 \sum A_{j,k,l} e^{i(jx + ky + lz)} &= \sum B_{j,k,l} e^{i(jx + ky + lz)}
+			\intertext{From there we get a relation between the coefficients}
+			A_{j,k,l} &= -\frac{B_{j,k,l}}{j^2 + k^2 + l^2}
+			\intertext{Then we compute the Fourier transform of the right hand side obtaining the coefficients \(B_{j,k,l}\). We compute all the coefficients \(A_{j,k,l}\) from the relation between the coefficients. At last we perform a inverse Fourier transform of the left hand side obtaining the solution.}
 		\end{align}
 
 
-		\subsection{Algorithm}
-			A sequential algorithm for a two grid V shaped algorithm, where the coarse grid and fine grid has respectively \(q = 1,2\).
+
+	\subsection{Finite Element Methods}
+
+		The finite element is a method to numerically solve a partial differential equations (PDE) first transforming the problem into a variational problem and then constructing a mesh and local trial functions, see \cite{alnaes_fenics_2011} \textbf{(fix norwegian letter in name)} for a more complete discussion.
+
+		To transform the PDE to a variational problem we first multiply the PDE by a test function \(v\), then it is integrated using integration by parts on the second order terms. Then the problem is separated into two parts, the bilinear form \(a(u,v)\) containing the unknown solution and the test function and the linear form \(L(v)\) containing only the test function.
+
+		\begin{align}
+			a(u,v) = L(v)	\qquad v\epsilon \hat{V}
+		\end{align}
+
+		Next we construct discrete local function spaces of that we assume contain the trialfunctions and testfunctions. The function spaces often consists of locally defined functions that are \(0\) except in a close neighbourhood of a mesh point, so the resulting matrix to be solved is sparse and can be computed quickly. The matrix system is then solved by a suiting linear algebra algorithm, before the solution is put together.
+
+
+\section{Multigrid}
+	The multi grid, MG, method used to solve the Poisson equation and obtain the electric field is a widely used and highly efficient solver for elliptic equations, having a theoretical scaling of \(\order{N}\) \citep{press_numerical_1988}, where \(N\) is the grid points. Here I will go through the main theory and algorithm behind the method, as explained in more detail in \citep{press_numerical_1988,trottenberg_multigrid_2000} as well as go through some of possible algorithms to parallelize the method.
+
+	We want to solve a linear elliptic problem,
+		\begin{align}
+			\mathcal{L} u = f
+		\end{align}
+	where \(\mathcal{L}\) is a linear operator, \(u\) is the solution and \(f\) is a source term. In our specific case the operator is given by the laplacian, the source term is given by the charge density and we solve for the electric potential.
+
+	We discretize the equation onto a grid of size \(q\).
+	\begin{align}
+		\mathcal{L}_q u_q &= f_q \label{eq:difference}
+	\end{align}
+
+	Let the error, \(v_q\) be the difference between the exact solution and an approximate solution to the difference equation (\ref{eq:difference}), \( v_q = u_q - \tilde{u}_q \). Then we define the residual as what is left after using the approximate solution in the equation.
+
+	\begin{align}
+		d_q &= \mathcal{L}_q \tilde{u}_q - f_q
+	\end{align}
+
+	Since \(\mathcal{L}\) is a linear operator the error satisfies the following relation
+
+	\begin{align}
+		\mathcal{L}_q v_q &= \mathcal{L}(u_q - \tilde{u}_q)  + (f_q- f_q)
+		\\
+		\mathcal{L}_q v_q &= - d_q \label{eq:diff_MG}
+	\end{align}
+
+	In the multigrid methods instead of solving the equation directly here, we set up a system nested coarser square grids, \(\mathfrak{T}_1 \subset \mathfrak{T}_2 \subset \cdots \subset \mathfrak{T}_\ell\), where \(1\) is the coarsest grid and \(\ell\) is the finest. Then the main thought behind the methods is that instead of solving the problem directly on the initial grid, we use restriction, \( \mathcal{R} \), and interpolation, \( \mathcal{P} \), operators to change the problem between the different grid levels and solve them on there. (Fix previous sentence) Due to the fewer grid points the problem is faster to solver on the coarser grid levels than on the fine grid.
+
+	If we then apply a restriction operator on the residual we go down a level on the grids and the opposite for the interpolation operator.
+
+	\begin{align}
+		\mathcal{R} d_q = d_{q-1} \qquad \text{and} \qquad \mathcal{P} d_q = d_{q + 1}
+	\end{align}
+
+
+	\subsection{Algorithm}
+		A sequential algorithm for a two grid V shaped algorithm, where the coarse grid and fine grid has respectively \(q = 1,2\).
+
+	\begin{itemize}
+		\item Initial approximation. \(\tilde{u}\)
+		\item for \(i < \) nCycles:
+			\begin{itemize}
+				\item Presmooth: \(\hat{u}_2 = S_{pre}(u)_2\)
+				\item Calculate defect: \( d_2 = f_2 - \mathcal{L}\hat{u}_2\)
+				\item Restrict defect: \( d_1 = Rd_2 \)
+				\item Initial guess: 	\( \tilde{u}_1 = 0 \)
+				\item Solve (G-S RB): 	\( L_1 \tilde{u}_1 = d_1 \)
+				\item Interpolate:		\( \tilde{u}_2 = I \tilde{u}_1 \)
+				\item Add correction:	\( u^{new}_2 = \hat{u}_2 + \tilde{u}_2 \)
+			\end{itemize}
+	\end{itemize}
+
+	\subsection{Smoothing: Gauss-Seidel}
+		Relaxation methods, such as Gauss-Seidel, work by looking for the setting up the equation as a diffusion equation, and then solve for the equilibrium solution.
+
+		So suppose we want to solve the elliptic equation
+		\begin{align}
+			\mathcal{L}u &= \rho
+			\intertext{Then we set it up as a diffusion equation}
+			\pdv{u}{t} &= \mathcal{L}u - \rho
+			\intertext{By starting with an initial guess for what \(u\) could be the equation will relax into the equilibrium solution \(\mathcal{L}u = \rho\). By using a Forward-Time-Centered-Space scheme to discretize, along with the largest stable timestep \(\Delta t = \Delta^2 / 2^d\) (Double check the factor.), we arrive at Jacobi's method, which is an averaging of the neighbors in addition to a contribution from the source term. By using the already updated values for in the calculation of the \(u^{new}\) we arrive at the method called Gauss-Seidel which for two dimensions is the following}
+			u^{n+1}_{i,j} &= \frac{1}{4}\left( u^n_{i+1,j} + u^{n +1}_{i-1,j} + u^{n}_{i, j+1} + u^{n+1}_{i,j-1}  \right) - \frac{\Delta^2 \rho_{i,j}}{4}
+		\end{align}
+
+		To achieve a vectorization of the calculation of \(u^{n+1}_{i,j}\) we will use Red and Black ordering, first calculating the odd nodes and then the even nodes, so the method has the available information.
+
+
+
+
+\section{Parallelization}
+	For the parallelization of an algorithm there is two obvious issues that need to be addressed to ensure that the algorithm retains a high degree of parallelization; communication overhead and load imbalance \citep{hackbusch_multigrid_1982}. Communication overhead means the time the computational nodes spend communicating with each other, if that is longer than the actual time spent computing the speed of the algorithm will suffer, and load imbalance appears if some nodes need to do more work than others causing some nodes to stand idle.
+
+	Here we will focus on multigrid of a 3D cubic (to be expanded to rectangular cubes) grid, where each grid level has half the number of grid points. We will use grid partitioning to divide the domain, GS-RB (Gauss-Seidel Red-Black) as both a smoother and a coarse grid solver.
+
+	We need to investigate how the different steps: interpolation, restriction, smoothing and the coarse grid solver, in a MG method will handle parallelization.
+
+	\subsection{Grid Partition}
+		\label{sec:grid_partitioning}
+		There are several well explored options for how a multigrid method can be parallized, for example Domain Decomposition \citep{arraras_domain_2015}, Algebraic Multigrid \citep{stuben_review_2001}, see \citet{chow_survey_2006} for a survey of different techniques. Here we will focus on Geometric Multigrid (GMG) with grid partitioning used for the parallelization, as described in the books \cite{trottenberg_multigrid_2000, hackbusch_multigrid_1982}.
+
+		With grid partitioning we divide the grid \(\mathcal{T}\) into geometric subgrids, then we can let each processes handle one subgrid each, as we will see it can be useful when using the G-S RB smoothing to let the subgrids overlap 1 layer deep. since it on the edges of the subgrid it will need the adjacent node values.
+
+	\subsection{Distributed and accumulated data}
+		During the parallel execution of the code there can be useful to keep track of the different data structures and what needs to be accumulated over all the computational nodes and what only needs to be distributed on the individual computational nodes.
 
 		\begin{itemize}
-			\item Initial approximation. \(\tilde{u}\)
-			\item for \(i < \) nCycles:
+			\item \(u\) solution (\(\Phi\))
+			\item \(w\) temporary correction
+			\item \(d\) defect
+			\item \(f\) source term (\(\rho\))
+			\item \(\mathcal{L}\) differential operator
+			\item \(\mathcal{I}\) interpolation operator
+			\item \(\mathcal{R}\) restriction operator
+			\item \( \va{u}\) Bold means accumulated vector
+			\item \( \tilde{\va{ u }} \) is the temporary smoothed solution
+		\end{itemize}
+
+		\begin{itemize}
+			\item Accumulated vectors:	\(\va{u}_q\), \( \hat{\va{u}}_q \), \(\tilde{\va{u}}_q\), \(\hat{\va{w}}_q\) \(\va{w}_{q-1}\), \(\va{I}\),\(\va{R}\)
+			\item Distributed vectors:  \( f_q \), \(d_q\), \(d_{q-1}\)
+		\end{itemize}
+		Algorithm: P is the number of processes
+		\begin{itemize}
+			\item If (q == 1): Solve: \(\sum_{s=1}^P\mathcal{L}_{s,1} \va{u}_1 = \sum_{s=1}^Pf_{s,1}\)
+			\item else:
 				\begin{itemize}
-					\item Presmooth: \(\hat{u}_2 = S_{pre}(u)_2\)
-					\item Calculate defect: \( d_2 = f_2 - \mathcal{L}\hat{u}_2\)
-					\item Restrict defect: \( d_1 = Rd_2 \)
-					\item Initial guess: 	\( \tilde{u}_1 = 0 \)
-					\item Solve (G-S RB): 	\( L_1 \tilde{u}_1 = d_1 \)
-					\item Interpolate:		\( \tilde{u}_2 = I \tilde{u}_1 \)
-					\item Add correction:	\( u^{new}_2 = \hat{u}_2 + \tilde{u}_2 \)
+					\item Presmooth: \( \hat{\va{u}}_q = \mathcal{S}_{pre} \va{u_q}\)
+					\item Compute defect: \( d_q = f_q - \mathcal{L}_q \hat{\va{u}}_q \)
+					\item Restrict defect: \( d_{q -1} = \mathcal{R} d_q \)
+					\item Initial guess:   \( \va{w}_{q-1} = 0 \)
+					\item Solve defect system: \( \va{w}_{q-1} = PMG(\va{w}_{q-1}, d_{q -1} ) \)
+					\item Interpolate correction: \( \va{w}_q = \mathcal{R} \va{w}_{q-1} \)
+					\item Add correction:		\( \tilde{\va{u}}_q = \hat{\va{u}}_q + \va{w}_q \)
+					\item Post-smooth:			\( \va{u}_q = \mathcal{S}_{post}\)
 				\end{itemize}
 		\end{itemize}
 
-		\subsection{Smoothing: Gauss-Seidel}
-			Relaxation methods, such as Gauss-Seidel, work by looking for the setting up the equation as a diffusion equation, and then solve for the equilibrium solution.
 
-			So suppose we want to solve the elliptic equation
-			\begin{align}
-				\mathcal{L}u &= \rho
-				\intertext{Then we set it up as a diffusion equation}
-				\pdv{u}{t} &= \mathcal{L}u - \rho
-				\intertext{By starting with an initial guess for what \(u\) could be the equation will relax into the equilibrium solution \(\mathcal{L}u = \rho\). By using a Forward-Time-Centered-Space scheme to discretize, along with the largest stable timestep \(\Delta t = \Delta^2 / 2^d\) (Double check the factor.), we arrive at Jacobi's method, which is an averaging of the neighbors in addition to a contribution from the source term. By using the already updated values for in the calculation of the \(u^{new}\) we arrive at the method called Gauss-Seidel which for two dimensions is the following}
-				u^{n+1}_{i,j} &= \frac{1}{4}\left( u^n_{i+1,j} + u^{n +1}_{i-1,j} + u^{n}_{i, j+1} + u^{n+1}_{i,j-1}  \right) - \frac{\Delta^2 \rho_{i,j}}{4}
-			\end{align}
+	\subsection{Smoothing}
+		% Will use G-S with R-B ordering, supposedly good parallel properties \citep{chow_survey_2006}. Follow algorithm I in \cite{adams_distributed_2001} (alternatively try to implement the more complicated version)?
 
-			To achieve a vectorization of the calculation of \(u^{n+1}_{i,j}\) we will use Red and Black ordering, first calculating the odd nodes and then the even nodes, so the method has the available information.
+		We have earlier divided the grid into subgrids, with overlap, as described in subsection \ref{sec:grid_partitioning} and given each processor responsibility for a subgrid. Then do a a GS-RB method we start with an approximation of \(u^{n}_{i,j}\). Then we will obtain the next iteration by the following formula
+
+		\begin{align}
+			u^{n+1}_{i,j} &= \frac{1}{4}\left( u^n_{i+1,j} + u^{n +1}_{i-1,j} + u^{n}_{i, j+1} + u^{n+1}_{i,j-1}  \right) - \frac{\Delta^2 \rho_{i,j}}{4}
+		\end{align}
+
+		We can see that the for the inner subgrid we will have no problems since we have all the surrounding grid points. On the edges we will need the adjacent grid points that are kept in the other processors. To avoid the algorithm from asking neighboring subgrids for adjacent grid points each time it reaches a edge we instead update the entire neighboring column at the start. So we will have a 1-row overlap between the subgrids, that need to be updated for each iteration.
 
 
+	\subsection{Restriction}
+		For the transfer down a grid level, to the coarser grid we will use a half weighting stencil. In two dimensions it will be the following
+
+		\begin{align}
+			\mathcal{R} &= \frac{1}{8}
+			\begin{bmatrix}
+				0 & 1 & 0
+				\\
+				1 & 4 & 1
+				\\
+				0 & 1 & 0
+			\end{bmatrix}
+		\end{align}
+
+		With the overlap of the subgrids we will have the necessary information to perform the restriction without needing communication between the processors \citep{hackbusch_multigrid_1982}.
+
+	\subsection{Interpolation}
+		For the interpolation we will use bilinear interpolation:
+
+		\begin{align}
+			\mathcal{I} &= \frac{1}{4}
+			\begin{bmatrix}
+				1 & 2 & 1
+				\\
+				2 & 4 & 2
+				\\
+				1 & 2 & 1
+			\end{bmatrix}
+		\end{align}
+
+		Since the interpolation is always done after GS-RB iterations the the outer part overlapped part of the grid updated, and we can have all the necessary information.
+
+	\subsection{Scaling}
+		\subsubsection{Volume-Boundary effect}
+		While a sequential MG algorithm has a theoretical scaling of \(\order{N}\) \citep{press_numerical_1988}, where \(N\) is the number of grid points, an implementation will have a lower scaling efficiency due to interprocessor communication. We want a parallel algorithm that attains a high speedup with more added processors \(P\),  compared to sequential \(1\) processor algorithm. Let \(T(P)\) be the computational time needed for solving the problem on \(P\) processors. Then we define the speedup \(S(P)\) and the parallel efficiency \(E(P)\) as
+
+		\begin{align}
+			S(P) = \frac{T(1)}{T(P)} \qquad E(P) = \frac{S(P)}{P}
+		\end{align}
+
+		A perfect parallel algorithm would the computational time would scale inversely with the number of processors, \(T(P) \propto 1/P\) leading to \( E(P) =1 \). Due to the necessary interprocessor communication that is generally not achievable. The computational time of the algorithm is also important, if the algorithm is very slow but has good parallel efficiency it is often worse than a fast algorithm with a worse parallel efficiency.
+
+		The parallel efficiency of an algorithm is governed by the ratio between the time of communication and computation, \(T_{comm}/T_{comp}\). If there is no need for communication, like on \(1\) processor, the algorithm is perfectly parallel efficient. In our case the whole grid is diveded into several subgrids, which is assigned to different processors. In many cases the time used for computation is roughly scaling with the interior grid points, while the communication time is scaling with the boundaries of the subgrids. If a local solution method is used on a local problem it is only the grid points at the boundary that needs the information from grid points on the other processors. Since the edges has lower dimensionality than the inner grid points. So when the problem is is increasing the time for computation grows faster than the time for communication, and a parallel algorithm often has a higher parallel efficiency on a larger problem. This is called the Boundary-Volume effect.
+
+		\subsubsection{Parallel complexity}
+			The complexities, as in needed computational work, of sequential and parallel MG cycles is calculated in \cite{hackbusch_multigrid_1982} and is shown in \cref{tab:parallel_complexity}. In the table we can see that in the parallel case there is a substantial increase in the complexity in the case of \(W\) cycles compared to \(V\) cycles. In the sequential case the change in complexity when going to a \(W\) cycle is not dependent on the problem size, but it is in the parallel case.
 
 
-	\section{Parallelization}
-		For the parallelization of an algorithm there is two obvious issues that need to be addressed to ensure that the algorithm retains a high degree of parallelization; communication overhead and load imbalance \citep{Trottenberg}. Communication overhead means the time the computational nodes spend communicating with each other, if that is longer than the actual time spent computing the speed of the algorithm will suffer, and load imbalance appears if some nodes need to do more work than others causing some nodes to stand idle.
-
-		Here we will focus on multigrid of a 3D cubic (to be expanded to rectangular cubes) grid, where each grid level has half the number of grid points. We will use grid partitioning to divide the domain, GS-RB (Gauss-Seidel Red-Black) as both a smoother and a coarse grid solver.
-
-		We need to investigate how the different steps: interpolation, restriction, smoothing and the coarse grid solver, in a MG method will handle parallelization.
-
-		\subsection{Grid Partition}
-			\label{sec:grid_partitioning}
-			There are several well explored options for how a multigrid method can be parallized, for example Domain Decomposition \citep{Arraras2015}, Algebraic Multigrid \citep{StUben2001}, see \citet{Chow2006} for a survey of different techniques. Here we will focus on Geometric Multigrid (GMG) with grid partitioning used for the parallelization, as described in the books \cite{Trottenberg2000,Trottenberg}.
-
-			With grid partitioning we divide the grid \(\mathcal{T}\) into geometric subgrids, then we can let each processes handle one subgrid each, as we will see it can be useful when using the G-S RB smoothing to let the subgrids overlap 1 layer deep. since it on the edges of the subgrid it will need the adjacent node values.
-
-		\subsection{Distributed and accumulated data}
-			During the parallel execution of the code there can be useful to keep track of the different data structures and what needs to be accumulated over all the computational nodes and what only needs to be distributed on the individual computational nodes.
-
-			\begin{itemize}
-				\item \(u\) solution (\(\Phi\))
-				\item \(w\) temporary correction
-				\item \(d\) defect
-				\item \(f\) source term (\(\rho\))
-				\item \(\mathcal{L}\) differential operator
-				\item \(\mathcal{I}\) interpolation operator
-				\item \(\mathcal{R}\) restriction operator
-				\item \( \va{u}\) Bold means accumulated vector
-				\item \( \tilde{\va{ u }} \) is the temporary smoothed solution
-			\end{itemize}
-
-			\begin{itemize}
-				\item Accumulated vectors:	\(\va{u}_q\), \( \hat{\va{u}}_q \), \(\tilde{\va{u}}_q\), \(\hat{\va{w}}_q\) \(\va{w}_{q-1}\), \(\va{I}\),\(\va{R}\)
-				\item Distributed vectors:  \( f_q \), \(d_q\), \(d_{q-1}\)
-			\end{itemize}
-			Algorithm: P is the number of processes
-			\begin{itemize}
-				\item If (q == 1): Solve: \(\sum_{s=1}^P\mathcal{L}_{s,1} \va{u}_1 = \sum_{s=1}^Pf_{s,1}\)
-				\item else:
-					\begin{itemize}
-						\item Presmooth: \( \hat{\va{u}}_q = \mathcal{S}_{pre} \va{u_q}\)
-						\item Compute defect: \( d_q = f_q - \mathcal{L}_q \hat{\va{u}}_q \)
-						\item Restrict defect: \( d_{q -1} = \mathcal{R} d_q \)
-						\item Initial guess:   \( \va{w}_{q-1} = 0 \)
-						\item Solve defect system: \( \va{w}_{q-1} = PMG(\va{w}_{q-1}, d_{q -1} ) \)
-						\item Interpolate correction: \( \va{w}_q = \mathcal{R} \va{w}_{q-1} \)
-						\item Add correction:		\( \tilde{\va{u}}_q = \hat{\va{u}}_q + \va{w}_q \)
-						\item Post-smooth:			\( \va{u}_q = \mathcal{S}_{post}\)
-					\end{itemize}
-			\end{itemize}
-
-
-		\subsection{Smoothing}
-			Will use G-S with R-B ordering, supposedly good parallel properties \citep{Chow2006}. Follow algorithm I in \cite{Adams2001} (alternatively try to implement the more complicated version)?
-
-			We have earlier divided the grid into subgrids, with overlap, as described in subsection \ref{sec:grid_partitioning} and given each processor responsibility for a subgrid. Then do a a GS-RB method we start with an approximation of \(u^{n}_{i,j}\). Then we will obtain the next iteration by the following formula
-
-			\begin{align}
-				u^{n+1}_{i,j} &= \frac{1}{4}\left( u^n_{i+1,j} + u^{n +1}_{i-1,j} + u^{n}_{i, j+1} + u^{n+1}_{i,j-1}  \right) - \frac{\Delta^2 \rho_{i,j}}{4}
-			\end{align}
-
-			We can see that the for the inner subgrid we will have no problems since we have all the surrounding grid points. On the edges we will need the adjacent grid points that are kept in the other processors. To avoid the algorithm from asking neighboring subgrids for adjacent grid points each time it reaches a edge we instead update the entire neighboring column at the start. So we will have a 1-row overlap between the subgrids, that need to be updated for each iteration.
-
-
-		\subsection{Restriction}
-			For the transfer down a grid level, to the coarser grid we will use a half weighting stencil. In two dimensions it will be the following
-
-			\begin{align}
-				\mathcal{R} &= \frac{1}{8}
-				\begin{bmatrix}
-					0 & 1 & 0
-					\\
-					1 & 4 & 1
-					\\
-					0 & 1 & 0
-				\end{bmatrix}
-			\end{align}
-
-			With the overlap of the subgrids we will have the necessary information to perform the restriction without needing communication between the processors \citep{Trottenberg}.
-
-		\subsection{Interpolation}
-			For the interpolation we will use bilinear interpolation:
-
-			\begin{align}
-				\mathcal{I} &= \frac{1}{4}
-				\begin{bmatrix}
-					1 & 2 & 1
-					\\
-					2 & 4 & 2
-					\\
-					1 & 2 & 1
-				\end{bmatrix}
-			\end{align}
-
-			Since the interpolation is always done after GS-RB iterations the the outer part overlapped part of the grid updated, and we can have all the necessary information.
-
-		\subsection{Scaling}
-			\subsubsection{Volume-Boundary effect}
-			While a sequential MG algorithm has a theoretical scaling of \(\order{N}\) \citep{Press1987}, where \(N\) is the number of grid points, an implementation will have a lower scaling efficiency due to interprocessor communication. We want a parallel algorithm that attains a high speedup with more added processors \(P\),  compared to sequential \(1\) processor algorithm. Let \(T(P)\) be the computational time needed for solving the problem on \(P\) processors. Then we define the speedup \(S(P)\) and the parallel efficiency \(E(P)\) as
-
-			\begin{align}
-				S(P) = \frac{T(1)}{T(P)} \qquad E(P) = \frac{S(P)}{P}
-			\end{align}
-
-			A perfect parallel algorithm would the computational time would scale inversely with the number of processors, \(T(P) \propto 1/P\) leading to \( E(P) =1 \). Due to the necessary interprocessor communication that is generally not achievable. The computational time of the algorithm is also important, if the algorithm is very slow but has good parallel efficiency it is often worse than a fast algorithm with a worse parallel efficiency.
-
-			The parallel efficiency of an algorithm is governed by the ratio between the time of communication and computation, \(T_{comm}/T_{comp}\). If there is no need for communication, like on \(1\) processor, the algorithm is perfectly parallel efficient. In our case the whole grid is diveded into several subgrids, which is assigned to different processors. In many cases the time used for computation is roughly scaling with the interior grid points, while the communication time is scaling with the boundaries of the subgrids. If a local solution method is used on a local problem it is only the grid points at the boundary that needs the information from grid points on the other processors. Since the edges has lower dimensionality than the inner grid points. So when the problem is is increasing the time for computation grows faster than the time for communication, and a parallel algorithm often has a higher parallel efficiency on a larger problem. This is called the Boundary-Volume effect.
-
-			\subsubsection{Parallel complexity}
-				The complexities, as in needed computational work, of sequential and parallel MG cycles is calculated in \cite{Trottenberg} and is shown in \cref{tab:parallel_complexity}. In the table we can see that in the parallel case there is a substantial increase in the complexity in the case of \(W\) cycles compared to \(V\) cycles. In the sequential case the change in complexity when going to a \(W\) cycle is not dependent on the problem size, but it is in the parallel case.
-
-
-			\begin{table}
-				\centering
-				\begin{tabular}{ c  c c c}
-					& Cycle & Sequential & Parallel
-				  	\\  \hline
-				  	MG & V & \(\order{N}\) & \(\order{\log N}\)
-				  	\\
-				  	& W & $\order{N}$ & $\order{\sqrt{N}}$
-				  	\\ \hline
-					FMG & V & $\order{N}$ & $\order{\log^2 N}$
-					\\
-					& W & $\order{N}$ & \( \order{\sqrt{N} \log{N}} \)
-				\end{tabular}
-				\caption{The parallel complexities of sequential and parallel multigrid cycles}
-				\label{tab:parallel_complexity}
-			\end{table}
+		\begin{table}
+			\centering
+			\begin{tabular}{ c  c c c}
+				& Cycle & Sequential & Parallel
+			  	\\  \hline
+			  	MG & V & \(\order{N}\) & \(\order{\log N}\)
+			  	\\
+			  	& W & $\order{N}$ & $\order{\sqrt{N}}$
+			  	\\ \hline
+				FMG & V & $\order{N}$ & $\order{\log^2 N}$
+				\\
+				& W & $\order{N}$ & \( \order{\sqrt{N} \log{N}} \)
+			\end{tabular}
+			\caption{The parallel complexities of sequential and parallel multigrid cycles}
+			\label{tab:parallel_complexity}
+		\end{table}
