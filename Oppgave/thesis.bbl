@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 2.3 $
+% $ biblatex bbl format version 2.4 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -18,37 +18,7 @@
 
 
 \refsection{0}
-  \sortlist{entry}{nyt}
-    \entry{adams_distributed_2001}{inproceedings}{}
-      \name{labelname}{1}{}{%
-        {{uniquename=0,hash=bd61e23ab4cd8bb6ec50ffb42a082c68}{Adams}{A\bibinitperiod}{Mark\bibnamedelima F.}{M\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
-      }
-      \name{author}{1}{}{%
-        {{uniquename=0,hash=bd61e23ab4cd8bb6ec50ffb42a082c68}{Adams}{A\bibinitperiod}{Mark\bibnamedelima F.}{M\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
-      }
-      \list{publisher}{1}{%
-        {IEEE}%
-      }
-      \strng{namehash}{bd61e23ab4cd8bb6ec50ffb42a082c68}
-      \strng{fullhash}{bd61e23ab4cd8bb6ec50ffb42a082c68}
-      \field{sortinit}{A}
-      \field{labelyear}{2001}
-      \field{datelabelsource}{}
-      \field{labeltitle}{A distributed memory unstructured {Gauss}-{Seidel} algorithm for multigrid smoothers}
-      \field{booktitle}{Supercomputing, {ACM}/{IEEE} 2001 {Conference}}
-      \field{title}{A distributed memory unstructured {Gauss}-{Seidel} algorithm for multigrid smoothers}
-      \field{urlday}{21}
-      \field{urlmonth}{04}
-      \field{urlyear}{2016}
-      \field{year}{2001}
-      \field{pages}{14\bibrangedash 14}
-      \verb{file}
-      \verb [PDF] from psu.edu:/home/gullik/.zotero/zotero/ui33ctdv.default/zotero/storage/WJWZXGTA/Adams - 2001 - A distributed memory unstructured Gauss-Seidel alg.pdf:application/pdf;Snapshot:/home/gullik/.zotero/zotero/ui33ctdv.default/zotero/storage/W3VISQSF/abs_all.html:text/html
-      \endverb
-      \verb{url}
-      \verb http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=1592790
-      \endverb
-    \endentry
+  \sortlist{nyt}{nyt}
     \entry{alnaes_fenics_2011}{book}{}
       \name{labelname}{6}{}{%
         {{uniquename=0,hash=c6fe4edb1c669196f76891ddc56e7531}{Alnæs}{A\bibinitperiod}{Martin\bibnamedelima Sandve}{M\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
@@ -72,6 +42,7 @@
       \strng{namehash}{903967afd3fa04fe45c4aa6bf3072c9c}
       \strng{fullhash}{b2e41dd0eb9f960eeff06827bad0a19f}
       \field{sortinit}{A}
+      \field{sortinithash}{c8a29dea43e9d2645817723335a4dbe8}
       \field{labelyear}{2011}
       \field{datelabelsource}{}
       \field{labeltitle}{The {FEniCS} {Manual}}
@@ -105,6 +76,7 @@
       \strng{namehash}{0593ef34c870e8fabf95aae50703138f}
       \strng{fullhash}{0ad49ecc7c7b4e00820f36ca978138e8}
       \field{sortinit}{C}
+      \field{sortinithash}{dd0e4ddd17488a6ebf12cd6de2f2c237}
       \field{labelyear}{2006}
       \field{datelabelsource}{}
       \field{labeltitle}{A survey of parallelization techniques for multigrid solvers}
@@ -135,6 +107,7 @@
       \strng{namehash}{147b453720a94264434a64fef0dc905c}
       \strng{fullhash}{147b453720a94264434a64fef0dc905c}
       \field{sortinit}{H}
+      \field{sortinithash}{95b2cb08933fe649b7e9f8beee2132b4}
       \field{labelyear}{1982}
       \field{datelabelsource}{}
       \field{labeltitle}{Multigrid methods}
@@ -163,6 +136,7 @@
       \strng{namehash}{21c96521d50e44757fcf123ac89a147c}
       \strng{fullhash}{88594c17433d0c09f9cf68e5e9c45428}
       \field{sortinit}{P}
+      \field{sortinithash}{b8af9282ac256b81613dc9012a0ac921}
       \field{labelyear}{1988}
       \field{datelabelsource}{}
       \field{labeltitle}{Numerical recipes in {C}}
@@ -191,11 +165,12 @@
       \strng{namehash}{58f02d1fc91ed64baed927a1d852c975}
       \strng{fullhash}{58f02d1fc91ed64baed927a1d852c975}
       \field{sortinit}{S}
+      \field{sortinithash}{4125bb4c3a0eb3eaee3ea6da32eb70c8}
       \field{labelyear}{1994}
       \field{labelmonth}{11}
       \field{datelabelsource}{}
       \field{labeltitle}{Efficient {Spectral}-{Galerkin} {Method} {I}. {Direct} {Solvers} of {Second}- and {Fourth}-{Order} {Equations} {Using} {Legendre} {Polynomials}}
-      \field{abstract}{This paper presents some efficient algorithms based on the Legendre–Galerkin approximations for the direct solution of the second- and fourth-order elliptic equations. The key to the efficiency of these algorithms is to construct appropriate base functions, which lead to systems with sparse matrices for the discrete variational formulations. The complexities of the algorithms are a small multiple of \$N^\{d + 1\} \$ operations for a d-dimensional domain with \$(N - 1)^d \$ unknowns, while the convergence rates of the algorithms are exponential for problems with smooth solutions. In addition, the algorithms can be effectively parallelized since the bottlenecks of the algorithms are matrix-matrix multiplications.}
+      \field{abstract}{This paper presents some efficient algorithms based on the Legendre–Galerkin approximations for the direct solution of the second- and fourth-order elliptic equations. The key to the efficiency of these algorithms is to construct appropriate base functions, which lead to systems with sparse matrices for the discrete variational formulations. The complexities of the algorithms are a small multiple of \$N{^}\{d + 1\} \$ operations for a d-dimensional domain with \$(N - 1){^}d \$ unknowns, while the convergence rates of the algorithms are exponential for problems with smooth solutions. In addition, the algorithms can be effectively parallelized since the bottlenecks of the algorithms are matrix-matrix multiplications.}
       \field{issn}{1064-8275}
       \field{journaltitle}{SIAM Journal on Scientific Computing}
       \field{month}{11}
@@ -227,6 +202,7 @@
       \strng{namehash}{0f45b08207e9d3210a5038e690578335}
       \strng{fullhash}{0f45b08207e9d3210a5038e690578335}
       \field{sortinit}{S}
+      \field{sortinithash}{4125bb4c3a0eb3eaee3ea6da32eb70c8}
       \field{labelyear}{2001}
       \field{datelabelsource}{}
       \field{labeltitle}{A review of algebraic multigrid}
@@ -263,6 +239,7 @@
       \strng{namehash}{331ba245e4bd1e286e2e7f877d25ea02}
       \strng{fullhash}{d2a2773cc15fae227db3b9532263fcc6}
       \field{sortinit}{T}
+      \field{sortinithash}{9378dd666f3c24d81538df53aa99e23d}
       \field{labelyear}{2000}
       \field{datelabelsource}{}
       \field{labeltitle}{Multigrid}

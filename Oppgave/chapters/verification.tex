@@ -1,14 +1,53 @@
+\section{Multigrid Solver}
+	Since the most important property of any type of solver is its correctness we have
+	employed a variety of different methods to verify the multigrid solver.
+	On the lowest level there is a suite of unittests that checks the modular parts
+	of the algorithm where possible, see \cref{sec:unittests} for an overview.
 
-To ensure the correctness of the solver we have used a few different methods to
-improve our confidence in it. The first layer is a collection of unittests, \cref{sec:unittests},
-built to verify the small modular parts of the model and also help to locate errors
-appearing during further development. The main testing of the solver was by applying
-it to cases with known analytical solutions and looking at the relative error.
-In addition the solver was applied to various randomized charge distributions
-and the then checking if the residualconverged towards \(0\). To make sure that
-the amount of computational nodes didn't interfere with the results, a few runs
-were done with the same charge distribution and total grid points, but with different
-subdivisions of the domain onto computational cores.
+	To test the solver itself we employ a couple different techniques. First we
+	create a charge distribution by differentiating a known potential, and then
+	running the solver and check if the resulting potential was equal to the original
+	known potential.
+
+	For the second test we use a charge potential with a known analytical solution,
+	and we then check that the solver reproduces the known analytical solution.
+
+	A third method we use to verify it is to produce a random charge potential
+	and then check that the potential converges, or in other words
+	that the residual goes toward zero.
+
+	Then lastly we use the solver on identical charge distributions with the domain
+	divided up into different subdomains and check that the solver produces the same
+	potential.
+
+\subsection{Predetermined Potential}
+		In this section we first decide which potential we want, then numerically
+		construct a corresponding charge potential by derivating. Then we compare the
+		result with the original potential.
+
+		In
+
+		\begin{figure}
+			\centering
+			\includegraphics[width = 0.45\textwidth]{figures/verification/sinusoidal/analytical.pdf}
+			\includegraphics[width = 0.45\textwidth]{figures/verification/sinusoidal/error.pdf}
+		\end{figure}
+
+
+\subsection{Analytical Solutions}
+
+		\begin{equation}
+			f(x) =
+		\end{equation}
+
+
+\subsection{Convergence of Residual}
+
+\subsection{Different Domain divisions}
+
+
+
+\textbf{NB! See if something below is salvageable}
 
 
 The multigrid method has several different steps in the algorithm, as a developmental
@@ -21,9 +60,6 @@ use an initial density field with a length between the grid steps that results i
 an exact answer. The restriction and prolongation operators can also tested to a
 degree by checking that they preserve a constant grid through several grid level changes.
 
-
-
-\textbf{NB! Rewrite (see if something is usable) below}
 
 The multigrid method has several different steps in the algorithm, as a developmental
 help and to ensure that the program works correctly during as many different conditions
