@@ -1,1 +1,39 @@
+\section{Unittests}
 \label{sec:unittests}
+Unittests are small tests that is used to check that the single pieces of the code
+work as they should. This serves a dual purpose in developing a software project.
+When a part of the code is developed it serves as a framework to create a standardized
+test of the piece of code that can easily be repeated.
+It also helps when developing the higher level algorithms, in that the unittests ensures
+that the problem lies in the higher level algorithm and not in the lower level pieces
+it uses. When implementing wider changes, for example datastructures, the unittests
+can help making sure that the changes are not causing any unintended bugs. For
+information of how to use the unittests see the documentation, \cite{documentation}.
+
+\subsection{Prolongation and Restriction}
+	The prolongation and restriction operators with the earlier proposed stencils
+  will average out the grid points when applied. So the idea here is to set up a
+  system with a constant charge density, \(\rho(\va{r}) = C\), and then apply a
+  restriction. After performing the restriction we can check that the grid points
+  values are preserved. Then we can do the same with the prolongation. While this
+  does not completely verify that the operators work as wanted, it gives an indication
+	that we have not lost any grid points and the total mass of the charge density should be conserved.
+
+\subsection{Finite difference}
+  The finite difference operators is tested by setting up a test
+  field based on a polynomial on which the operator should give an exact answer for.
+  For example if we have a quantity \(f(x) = 3x\), then a first order finite difference
+  scheme will give \(\hat{\nabla}f(x) = 3\).
+
+\subsection{Multigrid and Grid structure}
+  We want the basic grid to be available through a grid datastructure and the stack
+  of grids stored in the multigrid structure. To ensure that this will still work
+  through changes in the the structs there is a simple unittest that uses a grid struct
+  to set up a field, then it is changed in the multigrid struct. Then it confirms
+  that the values in the grid struct is also changed.
+
+\subsection{Edge Operations}
+  In the communication between the subdomains, as well as in the treatment of
+  boundary conditions, there is a group of functions dealing with slice operations.
+  These are tested by putting assigning each subdomain different constant values,
+  then different slice operations is performed.

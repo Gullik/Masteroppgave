@@ -194,7 +194,7 @@
 	\cite{??}, has the following steps, which is also shown for a 2D case in \ref{fig:prolongation}.
 
  	\begin{enumerate}
-		\item Direct insertion: Coarse->Fine
+		\item Direct insertion: Coarse$\rightarrow$ Fine
 		\item Interpolation on highest Dimension: \(f(x) = \frac{f(x+h) + f(x-h)}{2h}\)
 		\item Fill needed ghosts.
 		\item Interpolation on next highest Dimension
@@ -553,21 +553,3 @@
 		fPrev 	+=2*fSizeProd[2];
 	}
 	\end{lstlisting}
-
-	Notes
-	\begin{itemize}
-		\item Restriction algorithm
-			\begin{itemize}
-				\item I tried to make a simpler algorithm, that just cycled through all the values and didn't care about the ghost layers.
-						The problem was that the fine grid needed to increment twice as fast as the coarse grid, except at the edge where
-						it needed to increment the same as the coarse grid, due to having the same number of ghost cells.
-			\end{itemize}
-		\item Prolongation
-			\begin{itemize}
-				\item All the dimensional swipes repeats themself so much that it should easily be able to
-					modified to an nDim algorithm instead of a 2D and 3D case.
-				\item When filling ghost layer in a particular direction, we already know that only one side has values. So transferring both sides
- 					of the ghost layer is unnecessary.
-			\end{itemize}
-		\item Should time everything, test performance/improvements
-	\end{itemize}

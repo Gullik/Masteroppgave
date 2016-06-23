@@ -19,6 +19,14 @@
 % \usepackage{subfigure}
 % \usepackage{enumitem}
 
+
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{pifont}
+\usepackage[utf8]{inputenc}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %	New Commands
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -70,6 +78,13 @@
 
 %\bibliography{references}
 
+
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{pifont}
+\usepackage[utf8]{inputenc}
+
 \author{Gullik Vetvik Killie}
 \title{Plasmastuffs}
 \date{June 2015}
@@ -77,13 +92,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %	Document starts here
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\usepackage{graphicx}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage{pifont}
-\usepackage[utf8]{inputenc}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Remember to change back to uiofysmaster on laptop
@@ -101,9 +109,10 @@
 % \chapter{Method}
 % \input{chapters/method}
 
-\chapter{Verification}
+\chapter{Verification and Performance}
 % \input{chapters/langmuir_oscillations}
 \input{chapters/verification}
+\input{chapters/unittests}
 
 %
 % \chapter{Results}
@@ -115,7 +124,9 @@
 % \chapter{Conclusions}
 % \input{chapters/conclusions}
 %
-% \appendix
+\appendix
+% \input{chapters/unittests}
+  % \input{chapters/code_snippets}
 %
 % \chapter{Implementation of MG parts}
 % \input{chapters/implementation_restr_prol}
