@@ -14,26 +14,35 @@ test cases and randomly generated fields.
 		\bar{r} &= \frac{1}{N^d}\left( \sum_i{ \nabla^2 \hat{\phi}_i + \rho_i  }  \right)
 	\end{align}
 
-\section{Multigrid Solver}
-	To test the solver itself we employ a couple different techniques. First we
-	create a charge distribution by differentiating a known potential, and then
-	running the solver and check if the resulting potential was equal to the original
-	known potential.
+	\subsection{Analytical Solutions}
+		We use a few different constructed charge density fields, which is analyticall solvable,
+		to test the performance and correctness of the solver.
 
-	For the second test we use a charge distribution with a known analytical solution,
-	and we then check that the solver reproduces the known analytical solution.
+			\begin{equation}
+				f(x) =
+			\end{equation}
 
-	A third method we use to verify it is to produce a random charge potential
-	and then check that the potential converges, or in other words
-	that the residual goes toward zero.
-
-	Then lastly we use the solver on identical charge distributions with the domain
-	divided up into different subdomains and check that the solver produces the same
-	potential.
-\subsection{Predetermined Potential}
-		In this section we first decide which potential we want, then numerically
-		construct a corresponding charge potential by derivating. Then we compare the
-		result with the original potential.
+%
+% \section{Multigrid Solver}
+% 	To test the solver itself we employ a couple different techniques. First we
+% 	create a charge distribution by differentiating a known potential, and then
+% 	running the solver and check if the resulting potential was equal to the original
+% 	known potential.
+%
+% 	For the second test we use a charge distribution with a known analytical solution,
+% 	and we then check that the solver reproduces the known analytical solution.
+%
+% 	A third method we use to verify it is to produce a random charge potential
+% 	and then check that the potential converges, or in other words
+% 	that the residual goes toward zero.
+%
+% 	Then lastly we use the solver on identical charge distributions with the domain
+% 	divided up into different subdomains and check that the solver produces the same
+% 	potential.
+% \subsection{Predetermined Potential}
+% 		In this section we first decide which potential we want, then numerically
+% 		construct a corresponding charge potential by derivating. Then we compare the
+% 		result with the original potential.
 
 		% In
 		%
@@ -48,11 +57,6 @@ test cases and randomly generated fields.
 		% \end{figure}
 		%
 
-\subsection{Analytical Solutions}
-
-		\begin{equation}
-			f(x) =
-		\end{equation}
 
 
 		\subsection{Convergence of Residual}
