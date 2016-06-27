@@ -1,43 +1,77 @@
 
-\section{Poisson Solvers}
-
-	In the Particle in Cell method, instead of calculating the forces directly between the particles, we first calculate the electric field from all the particles and then use that to calculate the individual force on the particles. From the particles we use a weighting scheme to obtain a charge density on a grid. Then we can use Poisson's equation \cref{eq:poisson} to calculate the electric potential from the charge density, before computing the electric field from the potential. So we need an efficient Poisson solver.
+\section{Particle-in-Cell}
+ To investigate the mechanics involved in a wide variety of plasma phenomenens,
+ computer simulation. Particle-in-Cell, PiC, is a model that takes a particle based approach,
+ where each particle is simulated seperately, or a collection. If we naively would
+ attempt to compute the electrical force between each particle, the necessary
+ computational power would grow quickly as the number of particle increases, \(\order{#particles^2}\).
+ Since a large number of particles is often neccessary the PiC method seeks to
+ the problem by computing the electrical field produces by the particles, and then
+ compute the force on the particle directly from the field instead. From the charge
+ distribution we can find the electric potential through the use of Poissons
+ equation, \cref{eq:poisson}, and subsequently find the electrical field from the electrical potential.
+ So an important part of a PiC simulation is an numerically efficient Poisson Solver.
 
 	\begin{align}
 		\nabla ^2 \Phi &= -\rho \qquad \text{in} \qquad \Omega \label{eq:poisson}
 	\end{align}
 
-	The problem also need boundary conditions in which we will focus on periodic, Dirichlet and Neumann boundary conditions.
+	The problem also need boundary conditions in which we will focus on periodic,
+	Dirichlet and Neumann boundary conditions.
+
+
 
 	\subsection{Spectral Methods}
-		The spectral methods is based on Fourier transforms of the problem and solving the problem in it's spectral version, see \citep{shen_efficient_1994} \textbf{(Fix citation format)} for an implementation of an spectral poisson solver. They are efficient solvers that can be less, but can be inaccurate for complex geometries.
+		The spectral methods is based on Fourier transforms of the problem and solving
+		the problem in it's spectral version, see \citep{shen_efficient_1994}, for an
+		implementation of an spectral poisson solver. They are efficient solvers that
+		can be less intricate to implement (?), but can be inaccurate for complex geometries.
 
-		When looking for a solution with a spectral method we first rewrite the functions as Fourier series, which for the three-dimensional Poisson equation would be
+		When looking for a solution with a spectral method we first rewrite the
+		functions as Fourier series, which for the three-dimensional Poisson equation would be
 
 		\begin{align}
 			\nabla^2 \sum A_{j,k,l} e^{i(jx + ky + lz)} &= \sum B_{j,k,l} e^{i(jx + ky + lz)}
 			\intertext{From there we get a relation between the coefficients}
 			A_{j,k,l} &= -\frac{B_{j,k,l}}{j^2 + k^2 + l^2}
-			\intertext{Then we compute the Fourier transform of the right hand side obtaining the coefficients \(B_{j,k,l}\). We compute all the coefficients \(A_{j,k,l}\) from the relation between the coefficients. At last we perform a inverse Fourier transform of the left hand side obtaining the solution.}
+			\intertext{Then we compute the Fourier transform of the right hand side obtaining
+			the coefficients \(B_{j,k,l}\). We compute all the coefficients \(A_{j,k,l}\)
+			from the relation between the coefficients. At last we perform a inverse
+			Fourier transform of the left hand side obtaining the solution.}
 		\end{align}
-
-
 
 	\subsection{Finite Element Methods}
 
-		The finite element is a method to numerically solve a partial differential equations (PDE) first transforming the problem into a variational problem and then constructing a mesh and local trial functions, see \cite{alnaes_fenics_2011} \textbf{(fix norwegian letter in name)} for a more complete discussion.
+		The finite element is a method to numerically solve a partial differential
+		equations (PDE) first transforming the problem into a variational problem and
+		then constructing a mesh and local trial functions, see \cite{alnaes_fenics_2011}
+		for a more complete discussion.
 
-		To transform the PDE to a variational problem we first multiply the PDE by a test function \(v\), then it is integrated using integration by parts on the second order terms. Then the problem is separated into two parts, the bilinear form \(a(u,v)\) containing the unknown solution and the test function and the linear form \(L(v)\) containing only the test function.
+		To transform the PDE to a variational problem we first multiply the PDE by a
+		test function \(v\), then it is integrated using integration by parts on the
+		second order terms. Then the problem is separated into two parts, the bilinear
+		form \(a(u,v)\) containing the unknown solution and the test function and the
+		linear form \(L(v)\) containing only the test function.
 
 		\begin{align}
 			a(u,v) = L(v)	\qquad v\epsilon \hat{V}
 		\end{align}
 
-		Next we construct discrete local function spaces of that we assume contain the trialfunctions and testfunctions. The function spaces often consists of locally defined functions that are \(0\) except in a close neighbourhood of a mesh point, so the resulting matrix to be solved is sparse and can be computed quickly. The matrix system is then solved by a suiting linear algebra algorithm, before the solution is put together.
+		Next we construct discrete local function spaces of that we assume contain
+		the trialfunctions and testfunctions. The function spaces often consists of
+		locally defined functions that are \(0\) except in a close neighbourhood of
+		a mesh point, so the resulting matrix to be solved is sparse and can be computed
+		quickly. The matrix system is then solved by a suiting linear algebra algorithm,
+		before the solution is put together.
 
 
 \section{Multigrid}
-	The multi grid, MG, method used to solve the Poisson equation and obtain the electric field is a widely used and highly efficient solver for elliptic equations, having a theoretical scaling of \(\order{N}\) \citep{press_numerical_1988}, where \(N\) is the grid points. Here I will go through the main theory and algorithm behind the method, as explained in more detail in \citep{press_numerical_1988,trottenberg_multigrid_2000} as well as go through some of possible algorithms to parallelize the method.
+	The multi grid, MG, method used to solve the Poisson equation and obtain the
+	electric field is a widely used and highly efficient solver for elliptic equations,
+	having a theoretical scaling of \(\order{N}\) \citep{press_numerical_1988},
+	where \(N\) is the grid points. Here I will go through the main theory and
+	algorithm behind the method, as explained in more detail in \citep{press_numerical_1988,trottenberg_multigrid_2000}
+	as well as go through some of possible algorithms to parallelize the method.
 
 	We want to solve a linear elliptic problem,
 		\begin{align}
