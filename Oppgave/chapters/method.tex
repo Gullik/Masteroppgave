@@ -64,7 +64,7 @@
 		\mathcal{L}_q v_q &= - d_q \label{eq:diff_MG}
 	\end{align}
 
-	In the multigrid methods instead of solving the equation directly here, we set up a system nested coarser square grids, \(\mathfrak{T}_1 \subset \mathfrak{T}_2 \subset \cdots \subset \mathfrak{T}_\ell\), where \(1\) is the coarsest grid and \(\ell\) is the finest. Then the main thought behind the methods is that instead of solving the problem directly on the initial grid, we use restriction, \( \mathcal{R} \), and interpolation, \( \mathcal{P} \), operators to change the problem between the different grid levels and solve them on there. (Fix previous sentence) Due to the fewer grid points the problem is faster to solver on the coarser grid levels than on the fine grid.
+	In the multigrid methods instead of solving the equation directly here, we set up a system of nested coarser square grids, \(\mathfrak{T}_1 \subset \mathfrak{T}_2 \subset \cdots \subset \mathfrak{T}_\ell\), where \(1\) is the coarsest grid and \(\ell\) is the finest. Then the main thought behind the methods is that instead of solving the problem directly on the initial grid, we use restriction, \( \mathcal{R} \), and interpolation, \( \mathcal{P} \), operators to change the problem between the different grid levels and solve them on there. (Fix previous sentence) Due to the fewer grid points the problem is faster to solver on the coarser grid levels than on the fine grid.
 
 	If we then apply a restriction operator on the residual we go down a level on the grids and the opposite for the interpolation operator.
 
@@ -98,7 +98,8 @@
 			\mathcal{L}u &= \rho
 			\intertext{Then we set it up as a diffusion equation}
 			\pdv{u}{t} &= \mathcal{L}u - \rho
-			\intertext{By starting with an initial guess for what \(u\) could be the equation will relax into the equilibrium solution \(\mathcal{L}u = \rho\). By using a Forward-Time-Centered-Space scheme to discretize, along with the largest stable timestep \(\Delta t = \Delta^2 / 2^d\) (Double check the factor.), we arrive at Jacobi's method, which is an averaging of the neighbors in addition to a contribution from the source term. By using the already updated values for in the calculation of the \(u^{new}\) we arrive at the method called Gauss-Seidel which for two dimensions is the following}
+			\intertext{By starting with an initial guess for what \(u\) could be the equation will relax into the equilibrium solution \(\mathcal{L}u = \rho\).
+			By using a Forward-Time-Centered-Space scheme to discretize, along with the largest stable timestep \(\Delta t = \Delta^2 / (2\cdot d))\) (Double check the factor.), we arrive at Jacobi's method, which is an averaging of the neighbors in addition to a contribution from the source term. By using the already updated values for in the calculation of the \(u^{new}\) we arrive at the method called Gauss-Seidel which for two dimensions is the following}
 			u^{n+1}_{i,j} &= \frac{1}{4}\left( u^n_{i+1,j} + u^{n +1}_{i-1,j} + u^{n}_{i, j+1} + u^{n+1}_{i,j-1}  \right) - \frac{\Delta^2 \rho_{i,j}}{4}
 		\end{align}
 
@@ -139,21 +140,21 @@
 			\item Accumulated vectors:	\(\va{u}_q\), \( \hat{\va{u}}_q \), \(\tilde{\va{u}}_q\), \(\hat{\va{w}}_q\) \(\va{w}_{q-1}\), \(\va{I}\),\(\va{R}\)
 			\item Distributed vectors:  \( f_q \), \(d_q\), \(d_{q-1}\)
 		\end{itemize}
-		Algorithm: P is the number of processes
-		\begin{itemize}
-			\item If (q == 1): Solve: \(\sum_{s=1}^P\mathcal{L}_{s,1} \va{u}_1 = \sum_{s=1}^Pf_{s,1}\)
-			\item else:
-				\begin{itemize}
-					\item Presmooth: \( \hat{\va{u}}_q = \mathcal{S}_{pre} \va{u_q}\)
-					\item Compute defect: \( d_q = f_q - \mathcal{L}_q \hat{\va{u}}_q \)
-					\item Restrict defect: \( d_{q -1} = \mathcal{R} d_q \)
-					\item Initial guess:   \( \va{w}_{q-1} = 0 \)
-					\item Solve defect system: \( \va{w}_{q-1} = PMG(\va{w}_{q-1}, d_{q -1} ) \)
-					\item Interpolate correction: \( \va{w}_q = \mathcal{R} \va{w}_{q-1} \)
-					\item Add correction:		\( \tilde{\va{u}}_q = \hat{\va{u}}_q + \va{w}_q \)
-					\item Post-smooth:			\( \va{u}_q = \mathcal{S}_{post}\)
-				\end{itemize}
-		\end{itemize}
+		% Algorithm: P is the number of processes
+		% \begin{itemize}
+		% 	\item If (q == 1): Solve: \(\sum_{s=1}^P\mathcal{L}_{s,1} \va{u}_1 = \sum_{s=1}^Pf_{s,1}\)
+		% 	\item else:
+		% 		\begin{itemize}
+		% 			\item Presmooth: \( \hat{\va{u}}_q = \mathcal{S}_{pre} \va{u_q}\)
+		% 			\item Compute defect: \( d_q = f_q - \mathcal{L}_q \hat{\va{u}}_q \)
+		% 			\item Restrict defect: \( d_{q -1} = \mathcal{R} d_q \)
+		% 			\item Initial guess:   \( \va{w}_{q-1} = 0 \)
+		% 			\item Solve defect system: \( \va{w}_{q-1} = PMG(\va{w}_{q-1}, d_{q -1} ) \)
+		% 			\item Interpolate correction: \( \va{w}_q = \mathcal{R} \va{w}_{q-1} \)
+		% 			\item Add correction:		\( \tilde{\va{u}}_q = \hat{\va{u}}_q + \va{w}_q \)
+		% 			\item Post-smooth:			\( \va{u}_q = \mathcal{S}_{post}\)
+		% 		\end{itemize}
+		% \end{itemize}
 
 
 	\subsection{Smoothing}
