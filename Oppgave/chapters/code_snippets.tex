@@ -257,70 +257,70 @@ As of now there is 2 seperate implementations, for 2 and 3 dimensions.
   }
 \end{lstlisting}
 
-\newpage
-\subsection{GS-RB 2D}
-\label{sec:GS_RB_2D}
-\begin{lstlisting}[language=c, caption = Main loop]
-    for(int c = 0; c < nCycles;c++){
+% \newpage
+% \subsection{GS-RB 2D}
+% \label{sec:GS_RB_2D}
+% \begin{lstlisting}[language=c, caption = Main loop]
+%     for(int c = 0; c < nCycles;c++){
+%
+%       //Increments
+%       int kEdgeInc = nGhostLayers[2] + nGhostLayers[rank + 2] + sizeProd[2];
+%
+%       /**************************
+%        *	Red Pass
+%        *************************/
+%       //Odd numbered rows
+%       g = nGhostLayers[1] + sizeProd[2];
+%       loopRedBlack2D(rhoVal, phiVal, sizeProd, trueSize, kEdgeInc, g, gj, gjj, gk, gkk);
+%
+%       //Even numbered columns
+%       g = nGhostLayers[1] + 1 + 2*sizeProd[2];
+%       loopRedBlack2D(rhoVal, phiVal, sizeProd, trueSize, kEdgeInc, g, gj, gjj, gk, gkk);
+%
+%       for(int d = 1; d < rank; d++) gSwapHalo(phi, mpiInfo, d);
+%
+%       /***********************************
+%        *	Black pass
+%        **********************************/
+%       //Odd numbered rows
+%       g = nGhostLayers[1] + 1 + sizeProd[2];
+%       loopRedBlack2D(rhoVal, phiVal, sizeProd, trueSize, kEdgeInc, g, gj, gjj, gk, gkk);
+%
+%       //Even numbered columns
+%       g = nGhostLayers[1] + 2*sizeProd[2];
+%       loopRedBlack2D(rhoVal, phiVal, sizeProd, trueSize, kEdgeInc, g, gj, gjj, gk, gkk);
+%
+%
+%       for(int d = 1; d < rank; d++) gSwapHalo(phi, mpiInfo, d);
+%     }
+%
+%     return;
+%   }
+% \end{lstlisting}
 
-      //Increments
-      int kEdgeInc = nGhostLayers[2] + nGhostLayers[rank + 2] + sizeProd[2];
-
-      /**************************
-       *	Red Pass
-       *************************/
-      //Odd numbered rows
-      g = nGhostLayers[1] + sizeProd[2];
-      loopRedBlack2D(rhoVal, phiVal, sizeProd, trueSize, kEdgeInc, g, gj, gjj, gk, gkk);
-
-      //Even numbered columns
-      g = nGhostLayers[1] + 1 + 2*sizeProd[2];
-      loopRedBlack2D(rhoVal, phiVal, sizeProd, trueSize, kEdgeInc, g, gj, gjj, gk, gkk);
-
-      for(int d = 1; d < rank; d++) gSwapHalo(phi, mpiInfo, d);
-
-      /***********************************
-       *	Black pass
-       **********************************/
-      //Odd numbered rows
-      g = nGhostLayers[1] + 1 + sizeProd[2];
-      loopRedBlack2D(rhoVal, phiVal, sizeProd, trueSize, kEdgeInc, g, gj, gjj, gk, gkk);
-
-      //Even numbered columns
-      g = nGhostLayers[1] + 2*sizeProd[2];
-      loopRedBlack2D(rhoVal, phiVal, sizeProd, trueSize, kEdgeInc, g, gj, gjj, gk, gkk);
-
-
-      for(int d = 1; d < rank; d++) gSwapHalo(phi, mpiInfo, d);
-    }
-
-    return;
-  }
-\end{lstlisting}
-
-\begin{lstlisting}[language=c, caption = Loop through grid]
-  gj = g + sizeProd[1];
-  gjj= g - sizeProd[1];
-  gk = g + sizeProd[2];
-  gkk= g - sizeProd[2];
-
-  for(int k = 1; k < trueSize[2]; k +=2){
-    for(int j = 1; j < trueSize[1]; j += 2){
-      phiVal[g] = 0.25*(	phiVal[gj] + phiVal[gjj] +
-                phiVal[gk] + phiVal[gkk] + rhoVal[g]);
-      g	+=2;
-      gj	+=2;
-      gjj	+=2;
-      gk	+=2;
-      gkk	+=2;
-    }
-    g	+=kEdgeInc;
-    gj	+=kEdgeInc;
-    gjj	+=kEdgeInc;
-    gk	+=kEdgeInc;
-    gkk	+=kEdgeInc;
-  }
-\end{lstlisting}
+% \begin{lstlisting}[language=c, caption = Loop through grid]
+%   gj = g + sizeProd[1];
+%   gjj= g - sizeProd[1];
+%   gk = g + sizeProd[2];
+%   gkk= g - sizeProd[2];
+%
+%   for(int k = 1; k < trueSize[2]; k +=2){
+%     for(int j = 1; j < trueSize[1]; j += 2){
+%       phiVal[g] = 0.25*(	phiVal[gj] + phiVal[gjj] +
+%                 phiVal[gk] + phiVal[gkk] + rhoVal[g]);
+%       g	+=2;
+%       gj	+=2;
+%       gjj	+=2;
+%       gk	+=2;
+%       gkk	+=2;
+%     }
+%     g	+=kEdgeInc;
+%     gj	+=kEdgeInc;
+%     gjj	+=kEdgeInc;
+%     gk	+=kEdgeInc;
+%     gkk	+=kEdgeInc;
+%   }
+% \end{lstlisting}
 
 \newpage
 \subsection{GS-RB 3D if tests}
