@@ -7,4 +7,19 @@
   We want to obtain a better understanding of how the field resolution can be scaled
   up without hampering the perfomance of the particle-in-cell simulation to much.
 
-  
+  \subsection{Perfomance Optimizer}
+    A multigrid solver has several parameters that needs to be set correctly for
+    a an optimal performance (Find Source for!!!). These parameters are dependent on the problem size,
+    as well as the computing architecture. Instead of attempting to estimate them beforehand
+    we have included an external script that runs the program with different MG-solver
+    settings on the wanted domainsize and tries to optimize them.
+    The parameters it tries to change is the number of grid levels and the cycles
+    to run for presmoothing, postsmoothing and the coarse solver. It should be worth it
+    to spend some computing power, finding close to optimal settings,  prior to
+    running a full scale simulation since the solver needs to run each time step.
+    The performance optimizer naively runs the solver for a predetermined mesh of
+    settings.
+
+    \begin{enumerate}
+      \item Smarter testing algorithm 'if better when increase continue increasing, else stop'
+    \end{enumerate}

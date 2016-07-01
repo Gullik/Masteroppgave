@@ -1,17 +1,9 @@
-[0] Config.pm:320> INFO - This is Biber 1.9
-[0] Config.pm:323> INFO - Logfile is 'thesis.blg'
-[20] biber:277> INFO - === Fri Apr 22, 2016, 10:11:46
-[20] Biber.pm:333> INFO - Reading 'thesis.bcf'
-[72] Biber.pm:635> INFO - Found 8 citekeys in bib section 0
-[89] Biber.pm:3051> INFO - Processing section 0
-[101] Biber.pm:3189> INFO - Looking for bibtex format file 'bibs/bibliography.bib' for section 0
-[108] bibtex.pm:990> INFO - Decoding LaTeX character macros into UTF-8
-[111] bibtex.pm:864> INFO - Found BibTeX data source 'bibs/bibliography.bib'
-[124] Utils.pm:144> WARN - I didn't find a database entry for 'arraras_domain_2015' (section 0)
-[173] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[173] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[173] Biber.pm:2928> INFO - Sorting list 'nyt' of type 'entry' with scheme 'nyt' and locale 'en-US'
-[173] Biber.pm:2932> INFO - No sort tailoring available for locale 'en-US'
-[184] bbl.pm:517> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[186] bbl.pm:606> INFO - Output to thesis.bbl
-[191] Biber.pm:106> INFO - WARNINGS: 1
+[0] Config.pm:327> INFO - This is Biber 2.3
+[0] Config.pm:330> INFO - Logfile is 'thesis.blg'
+[23] biber:287> INFO - === Fri Jul  1, 2016, 12:22:10
+[53] Biber.pm:346> INFO - Reading 'thesis.bcf'
+[110] Biber.pm:689> INFO - Found 0 citekeys in bib section 0
+[110] Utils.pm:147> WARN - The file 'thesis.bcf' does not contain any citations!
+[115] bbl.pm:505> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[115] bbl.pm:596> INFO - Output to thesis.bbl
+[117] Biber.pm:107> INFO - WARNINGS: 1
