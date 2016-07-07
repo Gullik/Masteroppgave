@@ -11,13 +11,13 @@ boker/
 *.toc
 *.gz
 *.aux
-*.bbl 
-*.blg 
-*.fdb* 
+*.bbl
+*.blg
+*.fdb*
 *.log
-*.out 
+*.out
 *.syn*
-*.toc 
+*.toc
 *.gnuplot
 *.gnuplot
 *.table
@@ -25,3 +25,4 @@ boker/
 *.xml
 *.latexmk
 *.autosave
+*.pdf
