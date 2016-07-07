@@ -1,0 +1,46 @@
+\begin{figure}
+\center
+\begin{tikzpicture}[%
+    >=triangle 60,              % Nice arrows; your taste may be different
+    start chain=going below,    % General flow is top-to-bottom
+    node distance=6mm and 45mm, % Global setup of box spacing
+    every join/.style={norm},   % Default linetype for connecting boxes
+    ]
+% -------------------------------------------------
+% A few box styles
+% <on chain> *and* <on grid> reduce the need for manual relative
+% positioning of nodes
+\tikzset{
+  base/.style={draw, on chain, on grid, align=center, minimum height=4ex},
+  proc/.style={base, rectangle, text width=10em},
+  test/.style={base, diamond, aspect=2, text width=5em},
+  term/.style={proc, rounded corners},
+  % coord node style is used for placing corners of connecting lines
+  coord/.style={coordinate, on chain, on grid, node distance=6mm and 45mm},
+  % nmark node style is used for coordinate debugging marks
+  nmark/.style={draw, cyan, circle, font={\sffamily\bfseries}},
+  % -------------------------------------------------
+  % Connector line styles for different parts of the diagram
+  norm/.style={->, draw, lcnorm},
+  free/.style={->, draw, lcfree},
+  cong/.style={->, draw, lccong},
+  it/.style={font={\small\itshape}}
+}
+% -------------------------------------------------
+% Start by placing the nodes
+\node[term] (move) {Move particles};
+\node[coord] (center) {};
+\node[term]	(field) {Solve for \(E\)};
+\node[term, right =of center] (density) {Charge density \(\rho\)};
+\node[term, left =of center] (force) { Force to particles };
+
+%Lines
+\draw [*->, lcnorm, yshift = -1em] (move.east) -- (density.west);  %MAke curved if time
+\draw [*->, lcnorm] (density.west) -- (field.east);  %MAke curved if time
+\draw [*->, lcnorm] (field.west) -- (force.east);  %MAke curved if time
+\draw [*->, lcnorm] (force.east) -- (move.west);  %MAke curved if time
+
+\end{tikzpicture}
+\caption{Schematic overview of the PIC method}
+\label{fig:schematic}
+\end{figure}

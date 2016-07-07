@@ -29,7 +29,34 @@
 	% 	\item What has been done in this thesis and what results was found.
 	% \end{itemize}
 
+\section{Numerical Simulations}
+	As there are several theoretical branches within the field of plasma physics,
+	magnetohydrodynamics, kinetic theory (Note to self:  Need better overview, and citations),
+	that are suited to investigate plasma physics at different scales and different phenonema,
+	there are also different approaches to conduct numerical plasma studies.
+	Plasma simulation codes can be classified along the extent they are particle based
+	or fluid based. Fluid based programs use the magnetohydrodynamical equations,
 
-		\section{Particle in Cell}
 
-	
+
+	\section{Particle-in-Cell}
+	 To investigate the mechanics involved in a wide variety of plasma phenomenens,
+	 computer simulation. Particle-in-Cell, PiC, is simulation model that takes a
+	 particle based approach, where each particle is simulated seperately, or a
+	 collection. If we naively would attempt to compute the electrical force between each particle, the necessary
+	 computational power would grow quickly as the number of particle increases, \(\order{(\#particles)^2}\).
+	 Since a large number of particles is often neccessary the PiC method seeks to
+	 the problem by computing the electrical field produces by the particles, and then
+	 compute the force on the particle directly from the field instead. From the charge
+	 distribution we can find the electric potential through the use of Poissons
+	 equation, \cref{eq:poisson}, and subsequently find the electrical field from
+	 the electrical potential. See \cref{fig:schematic} for an overview of the
+
+		\begin{align}
+			\nabla ^2 \Phi &= -\rho \qquad \text{in} \qquad \Omega \label{eq:poisson}
+		\end{align}
+
+	  \input{tixz/PiC_fig}
+
+		% The problem also need boundary conditions in which we will focus on periodic,
+		% Dirichlet and Neumann boundary conditions.
