@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 2.5 $
+% $ biblatex bbl format version 2.3 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -16,5 +16,68 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \sortlist{entry}{nyt}
+    \entry{birdsall_plasma_2004}{book}{}
+      \name{labelname}{2}{}{%
+        {{uniquename=0,hash=8dca8af684912398b1b90d7569c1da84}{Birdsall}{B\bibinitperiod}{C.\bibnamedelimi K.}{C\bibinitperiod\bibinitdelim K\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=996baa0e8b9551e2631659e7bd7a2e7c}{Langdon}{L\bibinitperiod}{A.\bibnamedelimi B.}{A\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=8dca8af684912398b1b90d7569c1da84}{Birdsall}{B\bibinitperiod}{C.\bibnamedelimi K.}{C\bibinitperiod\bibinitdelim K\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=996baa0e8b9551e2631659e7bd7a2e7c}{Langdon}{L\bibinitperiod}{A.\bibnamedelimi B.}{A\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {CRC Press}%
+      }
+      \strng{namehash}{0e4d38c4dd24fe3921eada76838ada15}
+      \strng{fullhash}{0e4d38c4dd24fe3921eada76838ada15}
+      \field{sortinit}{B}
+      \field{labelyear}{2004}
+      \field{labelmonth}{10}
+      \field{datelabelsource}{}
+      \field{labeltitle}{Plasma {Physics} via {Computer} {Simulation}}
+      \field{abstract}{Divided into three main parts, the book guides the reader to an understanding of the basic concepts in this fascinating field of research. Part 1 introduces you to the fundamental concepts of simulation. It examines one-dimensional electrostatic codes and electromagnetic codes, and describes the numerical methods and analysis. Part 2 explores the mathematics and physics behind the algorithms used in Part 1. In Part 3, the authors address some of the more complicated simulations in two and three dimensions. The book introduces projects to encourage practical work Readers can download plasma modeling and simulation software — the ES1 program — with implementations for PCs and Unix systems along with the original FORTRAN source code. Now available in paperback, Plasma Physics via Computer Simulation is an ideal complement to plasma physics courses and for self-study.}
+      \field{isbn}{978-1-4822-6306-0}
+      \field{month}{10}
+      \field{title}{Plasma {Physics} via {Computer} {Simulation}}
+      \field{year}{2004}
+      \keyw{Mathematics / Arithmetic,Science / Physics / General,Science / Physics / Mathematical \& Computational}
+    \endentry
+    \entry{goldston_introduction_1995}{book}{}
+      \name{labelname}{2}{}{%
+        {{uniquename=0,hash=eb256f0860a8da418e5f4a7cee419f8f}{Goldston}{G\bibinitperiod}{R.\bibnamedelimi J.}{R\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=4837efd3ece40deaa9423e5e7201bbf8}{Rutherford}{R\bibinitperiod}{P.\bibnamedelimi H.}{P\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=eb256f0860a8da418e5f4a7cee419f8f}{Goldston}{G\bibinitperiod}{R.\bibnamedelimi J.}{R\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=4837efd3ece40deaa9423e5e7201bbf8}{Rutherford}{R\bibinitperiod}{P.\bibnamedelimi H.}{P\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {CRC Press}%
+      }
+      \strng{namehash}{df7062c16842df4132596112a5989cd9}
+      \strng{fullhash}{df7062c16842df4132596112a5989cd9}
+      \field{sortinit}{G}
+      \field{labelyear}{1995}
+      \field{labelmonth}{11}
+      \field{datelabelsource}{}
+      \field{labeltitle}{Introduction to {Plasma} {Physics}}
+      \field{abstract}{Introduction to Plasma Physics is the standard text for an introductory lecture course on plasma physics. The text’s six sections lead readers systematically and comprehensively through the fundamentals of modern plasma physics. Sections on single-particle motion, plasmas as fluids, and collisional processes in plasmas lay the groundwork for a thorough understanding of the subject. The authors take care to place the material in its historical context for a rich understanding of the ideas presented. They also emphasize the importance of medical imaging in radiotherapy, providing a logical link to more advanced works in the area. The text includes problems, tables, and illustrations as well as a thorough index and a complete list of references.}
+      \field{isbn}{978-1-4398-2207-4}
+      \field{month}{11}
+      \field{title}{Introduction to {Plasma} {Physics}}
+      \field{year}{1995}
+      \keyw{Science / Physics / General}
+    \endentry
+  \endsortlist
+\endrefsection
 \endinput
 
