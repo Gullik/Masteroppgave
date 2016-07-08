@@ -1,62 +1,8 @@
 
 
-\section{Restriction}
-	\label{sec:restr_simple}
-	The multigrid method (MG) has several grids of different resolution, and we need to
- 	convert the problem between the diffrent grids during the overarching the MG-algorithm.
- 	The restriction algorithm has the task of translating from a fine grid to a coarser grid.
-	In this implementation we use a half weight stencil to restrict a quantity from a fine
-	grid to a coarse grid. To get the coarse grid value it gives half weighting to
-	the fine grid point corresponding directly to the coarse grid point, and gives the remaining
-	half to the adjacent fine grid values, see \eqref{eq:restriction_stencils}, for 1D,
-	2D and 3D examples.
 
-	\begin{equation}
-		\begin{aligned}
-			\mathcal{R}_{1\text{D}} &= \frac{1}{4}
-			\begin{bmatrix}
-				1 & 2 & 1
-			\end{bmatrix}
-			\\
-			\mathcal{R}_{2\text{D}} &= \frac{1}{8}
-			\begin{bmatrix}
-				0 & 1 & 0
-				\\
-				1 & 4 & 1
-				\\
-				0 & 1 & 0
-			\end{bmatrix}
-			\\
-			\mathcal{R}_{3\text{D}} &= \frac{1}{12} \left(
-			\begin{bmatrix}
-				0 & 0 & 0
-				\\
-				0 & 1 & 0
-				\\
-				0 & 0 & 0
-			\end{bmatrix}
-			,
-			\begin{bmatrix}
-				0 & 1 & 0
-				\\
-				1 & 6 & 1
-				\\
-				0 & 1 & 0
-			\end{bmatrix}
-			,
-			\begin{bmatrix}
-				0 & 0 & 0
-				\\
-				0 & 1 & 0
-				\\
-				0 & 0 & 0
-			\end{bmatrix}
-			\right)
-			\label{eq:restriction_stencils}
-		\end{aligned}
-	\end{equation}
-
-	In our implementaion we first cycle through all of the true coarse grid points, then
+\subsection{Restriction}
+	In our implementation we first cycle through all of the true coarse grid points, then
 	the two main tasks is to find the specific fine grid point corresponding to the specific
  	coarse grid point, and finding the indexes of the fine grid points surrounding the grid point.
 
@@ -87,60 +33,11 @@
 
 
 \section{Prolongation}
-	\label{sec:prol_simple}
 
-	Along with the restriction operator described in the previous section, we also need prolongation
-	operator to go from a coarse grid to a finer grid.	Here we will use bilinear interpolation, for
-	two dimensions and trilinear interpolation for 3 dimensions. In bilinear interpolation seperate
-	linear interpolation is done in the x- and y-direction, then those are combined to give a result
-	on the wanted spot. (Note to self: Add source here) The same concept is expanded to give trilinear
-	interpolation. The two and three dimensional stencils is given in \eqref{eq:prolongation_stencils}
-
-
-	\begin{equation}
-		\centering
-		\begin{aligned}
-			\mathcal{I}_{2\text{D}} &= \frac{1}{4}
-			\begin{bmatrix}
-				1 & 2 & 1
-				\\
-				2 & 4 & 2
-				\\
-				1 & 2 & 1
-			\end{bmatrix}
-			\\
-			\mathcal{I}_{3\text{D}} &= \frac{1}{8} \left(
-			\begin{bmatrix}
-				1 & 2 & 1
-				\\
-				2 & 4 & 2
-				\\
-				1 & 2 & 1
-			\end{bmatrix}
-			,
-			\begin{bmatrix}
-				2 & 4 & 2
-				\\
-				4 & 8 & 4
-				\\
-				2 & 4 & 2
-			\end{bmatrix}
-			,
-			\begin{bmatrix}
-				2 & 2 & 1
-				\\
-				2 & 4 & 2
-				\\
-				1 & 2 & 1
-			\end{bmatrix}
-			\right)
-			\label{eq:prolongation_stencils}
-		\end{aligned}
-	\end{equation}
 
 	%Citation Numerical Recipes in C
 	The algorithm implemented for the interpolation is based on the method, described in
-	\cite{??}, has the following steps, which is also shown for a 2D case in \ref{fig:prolongation}.
+	\cite{press_numerical_1988}, has the following steps, which is also shown for a 2D case in \ref{fig:prolongation}.
 
  	\begin{enumerate}
 		\item Direct insertion: Coarse$\rightarrow$ Fine

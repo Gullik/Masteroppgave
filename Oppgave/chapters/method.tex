@@ -101,26 +101,32 @@
 		\mathcal{R} d_q = d_{q-1} \qquad \text{and} \qquad \mathcal{I} d_q = d_{q + 1}
 	\end{align}
 
+    \input{tixz/mgV}
 
-	\subsection{Algorithm}
-		A sequential algorithm for a two grid V shaped algorithm, where the coarse
-		grid and fine grid has respectively \(q = 1,2\).
+    The \cref{fig:MG_schematic} shows a schematic overview of the multigrid cycle described here.
 
-	\begin{itemize}
-		\item Initial approximation. \(\tilde{u}\)
-		\item for \(i < \) nCycles:
-			\begin{itemize}
-				\item Presmooth: \(\hat{u}_2 = S_{pre}(u)_2\)
-				\item Calculate defect: \( d_2 = f_2 - \mathcal{L}\hat{u}_2\)
-				\item Restrict defect: \( d_1 = Rd_2 \)
-				\item Initial guess: 	\( \tilde{u}_1 = 0 \)
-				\item Solve (GS-RB): 	\( L_1 \tilde{u}_1 = d_1 \)
-				\item Interpolate:		\( \tilde{u}_2 = I \tilde{u}_1 \)
-				\item Add correction:	\( u^{new}_2 = \hat{u}_2 + \tilde{u}_2 \)
-			\end{itemize}
-	\end{itemize}
 
-	\subsection{Smoothing: Gauss-Seidel}
+	% \subsection{Algorithm}
+	% 	A sequential algorithm for a two grid V shaped algorithm, where the coarse
+	% 	grid and fine grid has respectively \(q = 1,2\).
+    %
+	% \begin{itemize}
+	% 	\item Initial approximation. \(\tilde{u}\)
+	% 	\item for \(i < \) nCycles:
+	% 		\begin{itemize}
+	% 			\item Presmooth: \(\hat{u}_2 = S_{pre}(u)_2\)
+	% 			\item Calculate defect: \( d_2 = f_2 - \mathcal{L}\hat{u}_2\)
+	% 			\item Restrict defect: \( d_1 = Rd_2 \)
+	% 			\item Initial guess: 	\( \tilde{u}_1 = 0 \)
+	% 			\item Solve (GS-RB): 	\( L_1 \tilde{u}_1 = d_1 \)
+	% 			\item Interpolate:		\( \tilde{u}_2 = I \tilde{u}_1 \)
+	% 			\item Add correction:	\( u^{new}_2 = \hat{u}_2 + \tilde{u}_2 \)
+	% 		\end{itemize}
+	% \end{itemize}
+
+	\subsection{Smoothing}
+        Note-to-self: Should be overview of Smoothers and properties we want them to have.
+
 		Relaxation methods, such as Gauss-Seidel, work by looking for the setting up
 		the equation as a diffusion equation, and then solve for the equilibrium solution.
 
@@ -144,6 +150,169 @@
     every other grid point at a time, by using Red and Black Ordering.
     This allows a vectorization of the problem and avoids any uneccessary copying.
 
+    \subsubsection{Jacobian and Gauss-Seidel RB}
+    	\label{sec:GSRB}
+    	The main iterative PDE solver, in this version of the multigrid program, is a Gauss-Seidel
+    	Red-Black, in addition a Jacobian solver was developed as a stepping stone and for testing purposes.
+    	It is a modification of the Jacobian method, where the updated values are used where available, which lead
+    	to it converging twice as fast \cite{press_numerical_1988}.
+
+    	Our problem is given by \(\nabla^2 \phi= -\rho\), one way to think of the jacobian method is as
+    	a diffusion problem, and with the equilibrium solution as our wanted solution. If we then discretize the
+    	diffusion problem by a Forward-Time-Centralized-Space scheme, we arrive at the Jacobian method, which is shown explicitly below
+    	for 1 dimension.
+
+     	\begin{align}
+    		\pdv{\phi}{t} &= \nabla^2 \phi + \rho
+    		\intertext{The subscript \(j\) indicates the spatial coordinate, and the superscript \(n\) is the 'temporal' component.}
+    		\frac{\phi^{n+1}_{j} - \phi^{n+1}_{j}}{\Delta t} &= \frac{\phi^n_{j+1} - 2 \phi^n_{j} + \phi^n_{j-1}}{\Delta x^2} + \rho_j
+    		\intertext{This is numerically stable if \( \Delta t/\Delta x^2 \le 1/2 \), so using the timestep \( \Delta t = \Delta x^2/2 \) we get}
+    		\phi^{n+1}_j &= \phi^{n}_j + \frac{1}{2}\left( \phi^n_{j+1} - 2 \phi^n_{j} + \phi^n_{j-1} \right) + \frac{\Delta x^2}{2} \rho_j
+    		\intertext{Then we arrive at the Jacobian method}
+    		\phi^{n+1}_j &= \frac{1}{2}\left(  \phi^n_{j+1} +\phi^n_{j-1} + \Delta x^2 \rho_j \right)
+    		\intertext{The Gauss-Seidel method uses updated values, where available, and is given by}
+    		\phi^{n+1}_j &= \frac{1}{2}\left(  \phi^n_{j+1} +\phi^{n+1}_{j-1} + \Delta x^2 \rho_j \right)
+    	\end{align}
+
+    	Following the same procedure we get the Gauss-Seidel method for for 2 and 3 dimensions.
+
+    	\begin{equation}
+    		\phi^{n+1}_{j,k} = \frac{1}{4} \left( \phi^n_{j+1,k} +\phi^{n+1}_{j-1,k} + \phi^n_{j,k+1} + \phi^{n+1}_{j,k-1} + \Delta x^2 \rho_{j,k} \right)
+    	\end{equation}
+
+    	\begin{equation}
+    		\phi^{n+1}_{j,k,l} = \frac{1}{8} \left( \phi^n_{j+1,k,l} +\phi^{n+1}_{j-1,k,l} + \phi^n_{j,k+1,l} + \phi^{n+1}_{j,k-1,l} +
+     							\phi^n_{j,k,l+1} + \phi^{n+1}_{j,k,l-1} + \Delta x^2 \rho_{j,k,l} \right)
+    	\end{equation}
+
+    	Here we have implemented a different version of the Gauss-Seidel algorithm called Red and Black ordering, which has conseptual similarities
+    	to the leapfrog algorithm, where usually position and velocity is computed at \(t\) and \( t+(\delta t)/2 \). Every other grid point is labeled a
+    	red point, and the remaining is black. When updating a red node only black nodes are used, and when updating black nodes only
+    	red nodes are used. Then a whole cycle consists of two halfsteps which calculates the red and black nodes seperately.
+
+    	\begin{itemize}
+    		\item For all red points:
+    			\[\phi^{n+1/2}_{j,k,l} = \frac{1}{8} \left( \phi^n_{j+1,k,l} +\phi^{n}_{j-1,k,l} + \phi^n_{j,k+1,l} + \phi^{n}_{j,k-1,l} +
+    	 							\phi^n_{j,k,l+1} + \phi^{n}_{j,k,l-1} + \Delta x^2 \rho_{j,k,l} \right)
+    			\]
+    		\item For all black points:
+    		\[\phi^{n+1}_{j,k,l} = \frac{1}{8} \left( \phi^{n+1/2}_{j+1,k,l} +\phi^{n+1/2}_{j-1,k,l} + \phi^{n+1/2}_{j,k+1,l} + \phi^{n+1/2}_{j,k-1,l} +
+    							\phi^{n+1/2}_{j,k,l+1} + \phi^{n+1/2}_{j,k,l-1} + \Delta x^2 \rho_{j,k,l} \right)
+    		\]
+    	\end{itemize}
+
+        \subsection{Restriction}
+            Note to self: Overview of restriction stencils/methods/algorithms/order\\
+
+            	\label{sec:restr_simple}
+            	The multigrid method (MG) has several grids of different resolution, and we need to
+             	convert the problem between the diffrent grids during the overarching the MG-algorithm.
+             	The restriction algorithm has the task of translating from a fine grid to a coarser grid.
+            	In this implementation we use a half weight stencil to restrict a quantity from a fine
+            	grid to a coarse grid. To get the coarse grid value it gives half weighting to
+            	the fine grid point corresponding directly to the coarse grid point, and gives the remaining
+            	half to the adjacent fine grid values, see \eqref{eq:restriction_stencils}, for 1D,
+            	2D and 3D examples.
+
+            	\begin{equation}
+            		\begin{aligned}
+            			\mathcal{R}_{1\text{D}} &= \frac{1}{4}
+            			\begin{bmatrix}
+            				1 & 2 & 1
+            			\end{bmatrix}
+            			\\
+            			\mathcal{R}_{2\text{D}} &= \frac{1}{8}
+            			\begin{bmatrix}
+            				0 & 1 & 0
+            				\\
+            				1 & 4 & 1
+            				\\
+            				0 & 1 & 0
+            			\end{bmatrix}
+            			\\
+            			\mathcal{R}_{3\text{D}} &= \frac{1}{12} \left(
+            			\begin{bmatrix}
+            				0 & 0 & 0
+            				\\
+            				0 & 1 & 0
+            				\\
+            				0 & 0 & 0
+            			\end{bmatrix}
+            			,
+            			\begin{bmatrix}
+            				0 & 1 & 0
+            				\\
+            				1 & 6 & 1
+            				\\
+            				0 & 1 & 0
+            			\end{bmatrix}
+            			,
+            			\begin{bmatrix}
+            				0 & 0 & 0
+            				\\
+            				0 & 1 & 0
+            				\\
+            				0 & 0 & 0
+            			\end{bmatrix}
+            			\right)
+            			\label{eq:restriction_stencils}
+            		\end{aligned}
+            	\end{equation}
+
+                \subsection{Prolongation}
+                    NOTE TO SELF: Should contain overview of different prolongation algorithms/stencils/
+
+                    \label{sec:prol_simple}
+
+                    Along with the restriction operator described in the previous section, we also need prolongation
+                    operator to go from a coarse grid to a finer grid.	Here we will use bilinear interpolation, for
+                    two dimensions and trilinear interpolation for 3 dimensions. In bilinear interpolation seperate
+                    linear interpolation is done in the x- and y-direction, then those are combined to give a result
+                    on the wanted spot. (Note to self: Add source here) The same concept is expanded to give trilinear
+                    interpolation. The two and three dimensional stencils is given in \eqref{eq:prolongation_stencils}
+
+
+                    \begin{equation}
+                        \centering
+                        \begin{aligned}
+                            \mathcal{P}_{2\text{D}} &= \frac{1}{4}
+                            \begin{bmatrix}
+                                1 & 2 & 1
+                                \\
+                                2 & 4 & 2
+                                \\
+                                1 & 2 & 1
+                            \end{bmatrix}
+                            \\
+                            \mathcal{P}_{3\text{D}} &= \frac{1}{8} \left(
+                            \begin{bmatrix}
+                                1 & 2 & 1
+                                \\
+                                2 & 4 & 2
+                                \\
+                                1 & 2 & 1
+                            \end{bmatrix}
+                            ,
+                            \begin{bmatrix}
+                                2 & 4 & 2
+                                \\
+                                4 & 8 & 4
+                                \\
+                                2 & 4 & 2
+                            \end{bmatrix}
+                            ,
+                            \begin{bmatrix}
+                                2 & 2 & 1
+                                \\
+                                2 & 4 & 2
+                                \\
+                                1 & 2 & 1
+                            \end{bmatrix}
+                            \right)
+                            \label{eq:prolongation_stencils}
+                        \end{aligned}
+                    \end{equation}
+
 \section{Parallelization}
 	For the parallelization of an algorithm there is two obvious issues that need
 	to be addressed to ensure that the algorithm retains a high degree of parallelization;
@@ -164,7 +333,7 @@
 	\subsection{Grid Partition}
 		\label{sec:grid_partitioning}
 		There are several well explored options for how a multigrid method can be
-		parallized, for example Domain Decomposition \citep{arraras_domain_2015},
+		parallized, for example Domain Decomposition \citep{arraras_domain_2015} (fix accent),
 		Algebraic Multigrid \citep{stuben_review_2001}, see \citet{chow_survey_2006}
 		for a survey of different techniques. Here we will focus on Geometric
 		Multigrid (GMG) with domain decomposition used for the parallelization, as
@@ -188,7 +357,7 @@
 			\item \(d\) defect
 			\item \(f\) source term (\(\rho\))
 			\item \(\mathcal{L}\) differential operator
-			\item \(\mathcal{I}\) interpolation operator
+			\item \(\mathcal{P}\) interpolation operator
 			\item \(\mathcal{R}\) restriction operator
 			\item \( \va{u}\) Bold means accumulated vector
 			\item \( \tilde{\va{ u }} \) is the temporary smoothed solution
@@ -260,7 +429,7 @@
 		For the interpolation we will use bilinear interpolation:
 
 		\begin{align}
-			\mathcal{I} &= \frac{1}{4}
+			\mathcal{P} &= \frac{1}{4}
 			\begin{bmatrix}
 				1 & 2 & 1
 				\\

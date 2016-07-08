@@ -1,0 +1,95 @@
+% %Figure
+\begin{figure}
+    \center
+    \begin{tikzpicture}[%
+        >=triangle 60,              % Nice arrows; your taste may be different
+        start chain=going below,    % General flow is top-to-bottom
+        node distance=6mm and 2mm, % Global setup of box spacing
+        every join/.style={norm},   % Default linetype for connecting boxes
+        scale = 1]
+        % -------------------------------------------------
+        % A few box styles
+        % <on chain> *and* <on grid> reduce the need for manual relative
+        % positioning of nodes
+        \tikzset{
+        base/.style={draw, on chain, on grid, align=center, minimum height=8ex, color = black},
+        proc/.style={base, rectangle, text width=5em},
+        % test/.style={base, diamond, aspect=2, text width=5em},
+        term/.style={proc},
+        % coord node style is used for placing corners of connecting lines
+        coord/.style={coordinate, on chain, on grid, node distance=6mm and 9mm},
+        point/.style={draw, circle, thick ,color = black},
+        % nmark node style is used for coordinate debugging marks
+        move/.style={draw, blue,rounded corners, fill=white, text = black, align = left},
+        comp/.style={text = black}
+        % -------------------------------------------------
+        % Connector line styles for different parts of the diagram
+        norm/.style={->, draw, lcnorm},
+        free/.style={->, draw, lcfree},
+        cong/.style={->, draw, lccong},
+        it/.style={font={\small\itshape}}
+        }
+        % -------------------------------------------------
+        % Start by placing the nodes
+        \node[term] (U) {0};
+
+        \node[coord, below =of U] (U1)      {};
+        \node[coord, below =of U1] (U2) {};
+        \node[coord, below =of U2] (U3) {};
+        \node[coord, below =of U3] (U4) {};
+        \node[coord, below =of U4] (U5) {};
+        \node[coord, right =of U5] (U6) {};
+
+        \node[term, right =of U6] (V) {1};
+
+        \node[coord, below =of V] (V1) {};
+        \node[coord, below =of V1] (V2) {};
+        \node[coord, below =of V2] (V3) {};
+        \node[coord, below =of V3] (V4) {};
+        \node[coord, below =of V4] (V5) {};
+        \node[coord, right =of V5] (V6) {};
+
+        \node[term, right =of V6] (W) {2};
+
+        \node[coord, above =of W] (Wup1) {};
+        \node[coord, above =of Wup1] (Wup2) {};
+        \node[coord, above =of Wup2] (Wup3) {};
+        \node[coord, above =of Wup3] (Wup4) {};
+        \node[coord, above =of Wup4] (Wup5) {};
+        \node[coord, right =of Wup5] (Wup6) {};
+
+        \node[term, right =of Wup6] (Vup) {1};
+
+        \node[coord, above =of Vup] (Vup1) {};
+        \node[coord, above =of Vup1] (Vup2) {};
+        \node[coord, above =of Vup2] (Vup3) {};
+        \node[coord, above =of Vup3] (Vup4) {};
+        \node[coord, above =of Vup4] (Vup5) {};
+        \node[coord, right =of Vup5] (Vup6) {};
+
+
+        \node[term, right =of Vup6] (Uup) {0};
+
+        %Top level Equations
+        \node[point, left =of U]  { \(1\)};
+
+        \node[point, right =of Uup]	{ \(5\)};
+
+        %Center level
+        \node[point, left =of V]   { \(2\)};
+
+        \node[point, right =of Vup]   { \(4\)};
+
+        %Bottom level
+        \node[point, left =of W]	{ \(3\)};
+
+        \draw[*->, lccong] (U) -- (V) node[move, midway] {Restrict};
+        \draw[*->, lccong] (V) -- (W) node[move, midway] {Restrict};
+        \draw[*->, lccong] (W) -- (Vup) node[move, midway] {Prolongate};
+        \draw[*->, lccong] (Vup) -- (Uup) node[move, midway] {Prolongate};
+
+        \draw[bend right = 50t,*->, thick]  (Uup) to node [auto, swap] {Repeat} (U);
+    \end{tikzpicture}
+    \caption{Schematic overview of the PIC method. In a three level MG implementation, there is 5 main steps in a cycle that needs to be considered.}
+    \label{fig:MG_schematic}
+\end{figure}

@@ -1,60 +1,8 @@
-\section{Jacobian and Gauss-Seidel RB}
-	\label{sec:GSRB}
-	The main iterative ODE solver, in this version of the multigrid program, is a Gauss-Seidel
-	Red-Black, in addition a Jacobian solver was developed as a stepping stone and testing purposes.
-	It is a modification of the Jacobian method, where the updated values are used where available, which lead
-	to it converging twice as fast \cite{NumReci}.
-
-	Our problem is given by \(\nabla^2 \phi= -\rho\), one way to think of the jacobian method is as
-	a diffusion problem, and with the equilibrium solution as our wanted solution. If we then discretize the
-	diffusion problem by a Forward-Time-Centralized-Space scheme, we arrive at the Jacobian method, which is shown explicitly below
-	for 1 dimension.
-
- 	\begin{align}
-		\pdv{\phi}{t} &= \nabla^2 \phi + \rho
-		\intertext{The subscript \(j\) indicates the spatial coordinate, and the superscript \(n\) is the 'temporal' component.}
-		\frac{\phi^{n+1}_{j} - \phi^{n+1}_{j}}{\Delta t} &= \frac{\phi^n_{j+1} - 2 \phi^n_{j} + \phi^n_{j-1}}{\Delta x^2} + \rho_j
-		\intertext{This is numerically stable if \( \Delta t/\Delta x^2 \le 1/2 \), so using the timestep \( \Delta t = \Delta x^2/2 \) we get}
-		\phi^{n+1}_j &= \phi^{n}_j + \frac{1}{2}\left( \phi^n_{j+1} - 2 \phi^n_{j} + \phi^n_{j-1} \right) + \frac{\Delta x^2}{2} \rho_j
-		\intertext{Then we arrive at the Jacobian method}
-		\phi^{n+1}_j &= \frac{1}{2}\left(  \phi^n_{j+1} +\phi^n_{j-1} + \Delta x^2 \rho_j \right)
-		\intertext{The Gauss-Seidel method uses updated values, where available, and is given by}
-		\phi^{n+1}_j &= \frac{1}{2}\left(  \phi^n_{j+1} +\phi^{n+1}_{j-1} + \Delta x^2 \rho_j \right)
-	\end{align}
-
-	Following the same procedure we get the Gauss-Seidel method for for 2 and 3 dimensions.
-
-	\begin{equation}
-		\phi^{n+1}_{j,k} = \frac{1}{4} \left( \phi^n_{j+1,k} +\phi^{n+1}_{j-1,k} + \phi^n_{j,k+1} + \phi^{n+1}_{j,k-1} + \Delta x^2 \rho_{j,k} \right)
-	\end{equation}
-
-	\begin{equation}
-		\phi^{n+1}_{j,k,l} = \frac{1}{8} \left( \phi^n_{j+1,k,l} +\phi^{n+1}_{j-1,k,l} + \phi^n_{j,k+1,l} + \phi^{n+1}_{j,k-1,l} +
- 							\phi^n_{j,k,l+1} + \phi^{n+1}_{j,k,l-1} + \Delta x^2 \rho_{j,k,l} \right)
-	\end{equation}
-
-	Here we have implemented a different version of the Gauss-Seidel algorithm called Red and Black ordering, which has conseptual similarities
-	to the leapfrog algorithm, where usually position and velocity is computed at \(t\) and \( t+(\delta t)/2 \). Every other grid point is labeled a
-	red point, and the remaining is black. When updating a red node only black nodes are used, and when updating black nodes only
-	red nodes are used. Then a whole cycle consists of two halfsteps which calculates the red and black nodes seperately.
-
-	\begin{itemize}
-		\item For all red points:
-			\[\phi^{n+1/2}_{j,k,l} = \frac{1}{8} \left( \phi^n_{j+1,k,l} +\phi^{n}_{j-1,k,l} + \phi^n_{j,k+1,l} + \phi^{n}_{j,k-1,l} +
-	 							\phi^n_{j,k,l+1} + \phi^{n}_{j,k,l-1} + \Delta x^2 \rho_{j,k,l} \right)
-			\]
-		\item For all black points:
-		\[\phi^{n+1}_{j,k,l} = \frac{1}{8} \left( \phi^{n+1/2}_{j+1,k,l} +\phi^{n+1/2}_{j-1,k,l} + \phi^{n+1/2}_{j,k+1,l} + \phi^{n+1/2}_{j,k-1,l} +
-							\phi^{n+1/2}_{j,k,l+1} + \phi^{n+1/2}_{j,k,l-1} + \Delta x^2 \rho_{j,k,l} \right)
-		\]
-	\end{itemize}
-
-
 
 	\subsection{Implementation}
 		\subsubsection{Jacobi's method}
 		The implementation of the jacobian algorithm is straightforward, but it has the downside of slow convergence and
-		bad smoothing properties, in addition to needing an additional created. When \(\phi^{n+1}_{i}\) is computed
+		bad smoothing properties, in addition to needing an additional grid values. When \(\phi^{n+1}_{i}\) is computed
 		we need access to the previous value \(\phi^n_{i-1}\), and more values in higher dimensions, so either the previous values
 		need to stored seperately, or \(\phi^{n+1}_{i}\) can be computed on a new grid and then copied over after completing the cycle.
 		In this implementation we computed on a temporary grid and then copied over, since it was mostly for debugging purposes and

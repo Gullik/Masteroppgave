@@ -1,0 +1,35 @@
+\section{Ex: 3 level V cycle, steps necessary}
+	\label{sec:EX_V_Ccyles}
+
+	(This should probably be cut.)
+
+\begin{dingautolist}{192}
+			\item Compute defect on grid \(0\), the finest grid:
+		\begin{itemize}
+			\item	\( \widehat{\phi}_0 = \mathcal{S}(\phi_0, \rho_0)\)
+			\item 	\(d_0 = \nabla^2\widehat{\phi}_0 - \rho_0\)
+			\item Restrict defect: \(\rho_1 = \mathcal{R}d_0 \) \nonumber
+		\end{itemize}
+	\item Compute defect on grid \(1\):
+		\begin{itemize}
+			\item \(\widehat{\phi}_1 = \mathcal{S}(\phi_1^0, \rho_1)\)
+			\item \(d_1 = \nabla^2\widehat{\phi}_1 - \rho_1 \)
+			\item Restrict defect: \(\rho_2 = \mathcal{R}d_1 \)
+		\end{itemize}
+	\item Solve Coarse Grid for correction \(\omega\)
+		\begin{itemize}
+			\item \( \phi_2 = \mathcal{S}(\phi_2^0, \rho_2)\)
+			\item Interpolate as correction:\(\omega_1 = \mathcal{I}\phi_2\)
+		\end{itemize}
+	\item Add correction on level 1:
+		\begin{itemize}
+			\item \(\widetilde{\phi}_1 = \widehat{\phi}_1 + \omega_1\)
+			\item \( \phi_1 = \mathcal{S}(\widetilde{\phi}_1, \rho_1)  \)
+			\item Interpolate correction:\( \omega_0 = \mathcal{I} \phi_1\)
+		\end{itemize}
+	\item Compute solution.
+		\begin{itemize}
+			\item \(\widetilde{\phi}_0 = \widehat{\phi}_0 + \omega_0\)
+			\item \( \phi_0 = \mathcal{S}(\widetilde{\phi}_0, \rho_0)  \)
+		\end{itemize}
+\end{dingautolist}

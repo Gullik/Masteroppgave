@@ -19,102 +19,6 @@
 		to obtain a new correction. This continue untill we reach the finest level again and a multigrid cycle is completed, see \cref{fig:MG_schematic} for a 3
 		level schematic.
 
-		% %Figure
-		\begin{figure}
-			\center
-			\begin{tikzpicture}[%
-				>=triangle 60,              % Nice arrows; your taste may be different
-				start chain=going below,    % General flow is top-to-bottom
-				node distance=6mm and 2mm, % Global setup of box spacing
-				every join/.style={norm},   % Default linetype for connecting boxes
-				scale = 1]
-				% -------------------------------------------------
-				% A few box styles
-				% <on chain> *and* <on grid> reduce the need for manual relative
-				% positioning of nodes
-				\tikzset{
-				base/.style={draw, on chain, on grid, align=center, minimum height=8ex, color = black},
-				proc/.style={base, rectangle, text width=5em},
-				% test/.style={base, diamond, aspect=2, text width=5em},
-				term/.style={proc},
-				% coord node style is used for placing corners of connecting lines
-				coord/.style={coordinate, on chain, on grid, node distance=6mm and 9mm},
-				point/.style={draw, circle, thick ,color = black},
-				% nmark node style is used for coordinate debugging marks
-				move/.style={draw, blue,rounded corners, fill=white, text = black, align = left},
-				comp/.style={text = black}
-				% -------------------------------------------------
-				% Connector line styles for different parts of the diagram
-				norm/.style={->, draw, lcnorm},
-				free/.style={->, draw, lcfree},
-				cong/.style={->, draw, lccong},
-				it/.style={font={\small\itshape}}
-				}
-				% -------------------------------------------------
-				% Start by placing the nodes
-				\node[term] (U) {0};
-
-				\node[coord, below =of U] (U1)      {};
-				\node[coord, below =of U1] (U2) {};
-				\node[coord, below =of U2] (U3) {};
-				\node[coord, below =of U3] (U4) {};
-				\node[coord, below =of U4] (U5) {};
-				\node[coord, right =of U5] (U6) {};
-
-				\node[term, right =of U6] (V) {1};
-
-				\node[coord, below =of V] (V1) {};
-				\node[coord, below =of V1] (V2) {};
-				\node[coord, below =of V2] (V3) {};
-				\node[coord, below =of V3] (V4) {};
-				\node[coord, below =of V4] (V5) {};
-				\node[coord, right =of V5] (V6) {};
-
-				\node[term, right =of V6] (W) {2};
-
-				\node[coord, above =of W] (Wup1) {};
-				\node[coord, above =of Wup1] (Wup2) {};
-				\node[coord, above =of Wup2] (Wup3) {};
-				\node[coord, above =of Wup3] (Wup4) {};
-				\node[coord, above =of Wup4] (Wup5) {};
-				\node[coord, right =of Wup5] (Wup6) {};
-
-				\node[term, right =of Wup6] (Vup) {1};
-
-				\node[coord, above =of Vup] (Vup1) {};
-				\node[coord, above =of Vup1] (Vup2) {};
-				\node[coord, above =of Vup2] (Vup3) {};
-				\node[coord, above =of Vup3] (Vup4) {};
-				\node[coord, above =of Vup4] (Vup5) {};
-				\node[coord, right =of Vup5] (Vup6) {};
-
-
-				\node[term, right =of Vup6] (Uup) {0};
-
-				%Top level Equations
-				\node[point, left =of U]  { \(1\)};
-
-				\node[point, right =of Uup]	{ \(5\)};
-
-				%Center level
-				\node[point, left =of V]   { \(2\)};
-
-				\node[point, right =of Vup]   { \(4\)};
-
-				%Bottom level
-				\node[point, left =of W]	{ \(3\)};
-
-				\draw[*->, lccong] (U) -- (V) node[move, midway] {Restrict};
-				\draw[*->, lccong] (V) -- (W) node[move, midway] {Restrict};
-				\draw[*->, lccong] (W) -- (Vup) node[move, midway] {Prolongate};
-				\draw[*->, lccong] (Vup) -- (Uup) node[move, midway] {Prolongate};
-
-				\draw[bend right = 50t,*->, thick]  (Uup) to node [auto, swap] {Repeat} (U);
-			\end{tikzpicture}
-			\caption{Schematic overview of the PIC method. In a three level MG implementation, there is 5 main steps in a cycle that needs to be considered.}
-			\label{fig:MG_schematic}
-		\end{figure}
-
 		In the following description of the steps in the MG method, we will use \(\phi\), \(\rho\), \(d\) and \(\omega\) to signify the solution, source,
 		defect and correction respectively. A subscript means the grid level, where \(0\) si the finest level, while the superscript \(0\) implies an initial guess is used. Hats and tildes are also
 	 	used to signify the stage the solution is in, with a hat meaning the solution is smoothed and a tilde meaning the correction from the grid below is added.
@@ -143,18 +47,18 @@
 		At the coarsest level the the problem is solved directly and the correction is propageted upward.
 
 		\subsection{Updating the Halo}
-		All of the grids has a halo of ghosts around it, which is necessary each computational node
-		only represents a subdomain of the whole, with the neighboring node being the boundary. In addition the
- 		ghost halo is used to facilitate boundary conditions on the whole domain. For some of the grid operators
+		All of the subgrids has a halo of ghostslayers around it, which is used to simplify boundary conditions and subdomain communication. Each computational node
+		represents a subdomain of the whole, with the neighboring node being the boundary. So between two subdomains each subdomain updates the boundary according to
+		the neigbouring subdomain. In addition the halo is used to facilitate boundary conditions on the whole domain. For some of the grid operators
 		the ghost are not used, while some of them need updated values. All of the iterative solvers, that are used
 		for smoothing, need updated values of the of the solution, \(\phi\). The prolongation and residual operators need updated values
-		for the solution \(\phi\), and the restrictor need updated residual values, \(\rho\), as long as direct insertion is not used.
+		for the solution \(\phi\), and the restrictor need updated residual values, \(\rho\), as long as direct insertion is not used. (NOTE TO SELF: belong in paralellization part)
 		We also need to take into account that the smoothers outputs an updated halo for \(\phi\), to avoid
 		unnecessarily communication between the processors.
 
 		\subsection{Implementation}
-			In general there are \(4\) different quantities, the source, the solution, the residual and the correction, we need to keep account of.
-			On a grid level the residual is computed, then it is set as the source term for the next level and then it is not used more.
+			In general there are \(4\) different quantities, the source, the solution, the residual and the correction, we need to keep track of.
+			On each grid level the residual is computed, then it is set as the source term for the next level and then it is not used more.
 			The correction, the improvement to the finer grid, is only used when going to a finer grid. Due to this we can save some memory by
 			letting the correction and the residual share the same memory, so both are stored in the mgRes struct. There are a regular as well as a recursive implementation
 			of a V-cycle. The functions takes the current level, the bottom of the cycle as well as the end point of the cycle. So several different cycles
@@ -171,45 +75,3 @@
 			so the grid below has an updated source term, then it calls itself on a lower level. After recieving the correction from
 			the lower level it is improved and sent to the level above. If the function is at the bottom level, it solves the problem directly and sends
 			the correction up. See \cref{sec:mg_V_recursive} for an example code.
-
-
-
-
-
-
-
-\section{Ex: 3 level V cycle, steps necessary}
-	\label{sec:EX_V_Ccyles}
-
-	(This should probably be cut.)
-
-\begin{dingautolist}{192}
-			\item Compute defect on grid \(0\), the finest grid:
-		\begin{itemize}
-			\item	\( \widehat{\phi}_0 = \mathcal{S}(\phi_0, \rho_0)\)
-			\item 	\(d_0 = \nabla^2\widehat{\phi}_0 - \rho_0\)
-			\item Restrict defect: \(\rho_1 = \mathcal{R}d_0 \) \nonumber
-		\end{itemize}
-	\item Compute defect on grid \(1\):
-		\begin{itemize}
-			\item \(\widehat{\phi}_1 = \mathcal{S}(\phi_1^0, \rho_1)\)
-			\item \(d_1 = \nabla^2\widehat{\phi}_1 - \rho_1 \)
-			\item Restrict defect: \(\rho_2 = \mathcal{R}d_1 \)
-		\end{itemize}
-	\item Solve Coarse Grid for correction \(\omega\)
-		\begin{itemize}
-			\item \( \phi_2 = \mathcal{S}(\phi_2^0, \rho_2)\)
-			\item Interpolate as correction:\(\omega_1 = \mathcal{I}\phi_2\)
-		\end{itemize}
-	\item Add correction on level 1:
-		\begin{itemize}
-			\item \(\widetilde{\phi}_1 = \widehat{\phi}_1 + \omega_1\)
-			\item \( \phi_1 = \mathcal{S}(\widetilde{\phi}_1, \rho_1)  \)
-			\item Interpolate correction:\( \omega_0 = \mathcal{I} \phi_1\)
-		\end{itemize}
-	\item Compute solution.
-		\begin{itemize}
-			\item \(\widetilde{\phi}_0 = \widehat{\phi}_0 + \omega_0\)
-			\item \( \phi_0 = \mathcal{S}(\widetilde{\phi}_0, \rho_0)  \)
-		\end{itemize}
-\end{dingautolist}
