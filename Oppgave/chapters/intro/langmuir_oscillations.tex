@@ -1,0 +1,140 @@
+
+\section{Electron plasma oscillations in unmagnetized plasma}
+	\subsection{Physical mechanism}
+	\label{sec:elec_plasma}
+	Here we will consider an electron fluid under local thermal equilibrium, LTE,
+	experiencing small perturbations from an equilibrium state of an homogeneous
+	electron density, \(n_0\), and pressure, \(p_0\), and vanishing flow, \(\va{u}_0 = 0\),
+	and electric field, \(\va{E}_0 = 0 \). See \citet{goldston_introduction_1995} for a more thorough overview.
+
+	The small perturbation of the electron density will cause an electric field electric
+	field working to restore the equilibrium. When the electrons reach the equilibrium
+	position they have a kinetic energy and will overshoot causing a new perturbation
+	away from the equilibrium.
+
+	The fluid is governed by the following equations:
+
+	\begin{subequations}
+	  \begin{equation}
+	    \pdv{n_e}{t} + \nabla \cdot (n_e \va{u}_e) = 0
+	  \end{equation}
+	  \begin{equation}
+	    m_en_e\left( \pdv{}{t} + \va{u}_e \cdot \nabla \right)\va{u}_e = e n_e \nabla \phi - \nabla p_e
+	  \end{equation}
+	  \begin{equation}
+	    \left( \pdv{}{t} + \va{u}_e \cdot \nabla \right) p_e + \frac{5}{3} p_e\nabla \cdot \va{u}_e = 0
+	  \end{equation}
+	  \begin{equation}
+	    \epsilon_0 \nabla^2 \phi = e\left( n_e - n_0 \right)
+	  \end{equation}
+	\end{subequations}
+
+	Assuming the small perturbation to the equilibrium.
+	\begin{equation*}
+	\text{Perturbation} \rightarrow
+	\begin{cases}
+	  n_e = n_0 + \tilde{n}_e\\
+	  p_e = p_0 + \tilde{p}_e\\
+	  \va{u}_e = \tilde{\va{u}}_e\\
+	  \phi = \tilde {\phi}
+	\end{cases}
+	\end{equation*}
+
+	Inserting the perturbation and linearizing the equations we get:
+
+	\begin{subequations}
+	  \begin{equation}
+	    \pdv{\tilde{n}_e}{t} + \nabla \cdot (n_0 \tilde{\va{u}}_e) = 0 \label{eq:continuity}
+	  \end{equation}
+	  \begin{equation}
+	    m_e \pdv{\tilde{\va{u}}_e}{t}  = e  \nabla \tilde{ \phi} - \frac{\nabla \tilde{p}_e}{n_0}
+	  \end{equation}
+	  \begin{equation}
+	     \pdv{\tilde{p}}{t} +\frac{5}{3}p_0 \nabla \cdot \tilde{\va{u}}_e = 0 \label{eq:energy}
+	  \end{equation}
+	  \begin{equation}
+	    \epsilon_0 \nabla^2 \tilde{\phi} = e\tilde{n}_e
+	  \end{equation}
+	\end{subequations}
+
+	Then we combine the continuity and energy equations, \cref{eq:continuity} and \cref{eq:energy}.
+
+	\begin{align}
+	\pdv{}{t}\left( \frac{\tilde{p}_e}{p_0} + \frac{5}{3} \frac{\tilde{n}_e}{n_0} \right) &= 0
+	\end{align}
+
+	The perturbed pressure and density is proportional, \(\nabla \tilde{p}_e = \left(5p_0/3n_0\right)\nabla \tilde{n}_e\).
+	Assuming plane wave solutions along the x-axis, so the differential operators become \(\nabla \rightarrow ik\)
+ 	and \(\pdv{}{t} \rightarrow -i\omega\), we can solve for the dispersion relation.
+
+	\begin{align}
+	\epsilon(\omega, k) = 1 + \frac{5}{3} \lambda_{se}^2k ^2 -  \frac{\omega^2}{\omega_{pe}^2}
+	\end{align}
+
+	Here we have subsituted in the electron debye length \(\lambda_{se} = (\epsilon_0  p_0) / (e^2 n_0^2)\),
+	and the electron plasma frequency \(\omega_{pe} = e^2n_0 \)
+
+	\subsection{Test Case}
+	As a test of the validity of our PiC program, we can use the langmuir wave
+	oscillation. This test is inspired by a case set up in \citet{birdsall_plasma_2004},
+	and modified to fit with our normalization and discretizations.
+
+
+
+
+% \section{Langmuir Oscillations}
+% 	REDO, You have already done this in a neater way before!!!!!!!!!!!!
+%
+% 	In a we consider a homogenous and isotropic plasma, in stable equilibrium,
+% 	and let the electrons be pushed, causing a slight perturbation of the equilibrium.
+% 	The slightly uneven distribution will cause an electric field pushing against
+% 	the perturbation and try to restore the equilibrium. When the electrons reach
+% 	the equilibrium position they have a kinetic energy and will overshoot
+%  	causing an equal opposite perturbation. Then it repeats and we have a simple
+% 	oscillation of the electron density.
+%
+% 	Certain assumptions are necessary to derive the oscillation mathematically.
+% 	First the plasma needs to be in a homogenous and isotropic equilibrium state
+%  	so the spatial and temporal derivatives is zero. The magnetic field strength
+% 	also needs to be small enough to be safely ignored.	We then consider movements
+% 	on a timescale so that the inertial effects of the electrons are important,
+% 	while the ions are considered stationary.
+%
+% 	We start from the electron fluid motion equation,
+% 	\begin{equation}
+% 	mn_e \left( \pdv{}{t} + \vec{u} \cdot \nabla \right)\vec{u} = -en_e\vec{E} - \nabla p_e
+% 	\end{equation}
+% 	and we consider a small perturbation to the equilibrium state so the quantities becomes:
+% 	\begin{equation}
+% 	\vec{u} \approx \vec{u}_0 + \vec{\tilde{u}}; \qquad{}
+% 	\vec{E} \approx \tilde{\vec{E}}; \qquad{}
+% 	n \approx n_0 + \tilde{n};\qquad{}
+% 	p \approx p_0 + \tilde {p}
+% 	\end{equation}
+% 	Here the subscript for the electron is dropped, the subscript \(0\) is
+%  	the equilibrium state and the tilde is the perturbation. Then we apply
+% 	linearization to the equation, so that all the second order terms of the
+% 	perturbation goes away.
+% 	\begin{equation}
+% 	mn_0\pdv{}{t} \tilde{\vec{u}} = -en_0\vec{\tilde{E}} - \nabla \tilde{p_e}
+% 	\end{equation}
+% 	For simplicities sake the perturbation is a plane wave in the x-direction, \(exp[i(kx - i\omega)]\),
+% 	as well as what we will program for verification use. Then the differential
+% 	operators become \(\nabla \rightarrow ik\) and \(\pdv{}{t} \rightarrow -i\omega\),
+% 	using the relation \(\tilde{p} = {3T\tilde{n}}\), see cite{Goldston INtro to plasma 1995}.
+% 	Then the x-component of the electron motion equation becomes:
+% 	\begin{equation}
+% 	i\omega mn_0 \tilde{u} = e n_0 \tilde{E} + i 3 kt\tilde{n}
+% 	\end{equation}
+%
+% 	Using the same procedure the electron continuity equation,
+% 	\(\pdv{n}{t} + \nabla \cdot (\vec{u} n) = 0 \), becomes
+% 	\begin{equation}
+% 		-i\omega \tilde{n} = ikn_0 \tilde{u}
+% 	\end{equation}
+%
+% 	Next we look poisson's equation, \(\epsilon_0 \nabla \cdot \vec{E} = e(n_i-n_e) \), which using the same procedures,
+% 	as well as letting the ion density cancel the equilibrium electron density,	ends up as
+% 	\begin{equation}
+% 		ik\epsilon_0\tilde{E} = -\tilde{n}
+% 	\end{equation}

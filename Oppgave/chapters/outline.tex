@@ -1,0 +1,74 @@
+\begin{enumerate}
+    \item Expanded Abstract
+        \begin{itemize}
+            \item Summary of thesis
+        \end{itemize}
+    \item Theoretical background
+        \begin{itemize}
+            \item Plasma
+            \begin{itemize}
+                \item Where is plasma
+                \item Plasma as a medium
+                \item Quasineutrality, cold, warm
+                \item \(\lambda_D, \omega_{pe}\)
+                \item Scale description, assumptions, simplifications due to cold etc, length-time scales descritions that are valid
+                \item Linearization \(\rightarrow\) Langmuir
+                \item Single particle motion
+                    \begin{itemize}
+                        \item Gyration
+                        \item \(E\cross B\) drift
+                    \end{itemize}
+                \item Multifluid
+            \end{itemize}
+            \item Numerical simulations
+                \begin{itemize}
+                    \item Relate Vlasov, MHD, PiC to length-time scales
+                    \item PiC flexible.
+                    \item Electromagnetic PiC, doesn't need Poisson solvers, ways to solve Lorentz force
+                    \item Hybrid
+                    \item Electrostatic, in what regimes is it valid
+                    \item Short about poisson solvers
+                \end{itemize}
+        \end{itemize}
+    \item Method (Theory)
+        \begin{itemize}
+            \item PiC description
+            \begin{itemize}
+                \item Cycle
+                \item Charge interpolation
+                \item Pusher interpolation
+                \item Non-dimensionalizing variables
+                \item More advanced meshes
+                \item Boris Pusher
+                \item Enough information to vaguely understand PiC
+            \end{itemize}
+            \item Field Solvers
+            \item Multigrid
+            \begin{itemize}
+                \item Needed bits
+                \item Restrictors
+                \item Prolongators
+                \item Smoothers
+                \item Boundary Conditions, physical mechanism
+                \begin{itemize}
+                    \item Periodic
+                    \item Dirichlet
+                    \item Von Neumann
+                \end{itemize}
+            \end{itemize}
+            \item Parallelism
+                \begin{itemize}
+                    \item Scaling
+                    \item Discuss ways MG could be parallellized
+                \end{itemize}
+            \item Grid Partitioning
+                \begin{itemize}
+                    \item Domain Partitioning
+                    \item Calculation of various boundary-volume stuff
+                \end{itemize}
+        \end{itemize}
+    \item Implementation
+    \begin{itemize}
+        \item Write pseudo codes, remove code\_snippets
+    \end{itemize}
+\end{enumerate}

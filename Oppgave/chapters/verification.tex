@@ -3,6 +3,9 @@ solver, as well as scaling measurements. Modular parts of the solver is tested w
 where feasible. In addition the whole solver is tested with both analytically solvable
 test cases and randomly generated fields.
 
+(NOTE TO SELF: When (\(dx\neq dy\neq dz\) the error magnitude is different for each direction,
+should be smaller with more grid levels)
+
 \subsection{Error Quantification}
 	In order to evaluate solutions we will use two different measurements, the error, \(\bar{E}\), based
 	on the average deviation from a correct solution and the residual, \(\bar{r}\) based on the average
@@ -17,9 +20,9 @@ test cases and randomly generated fields.
 	\subsection{Analytical Solutions}
 		We use a few different constructed charge density fields, which is analytically solvable,
 		to test the performance and correctness of the solver. All the simulations here are ran on
-		a grid of the size \( 128, 128, 64 \) divided into \(2,2,1\) subdomains.
+		a grid of the size \( 128, 64, 64 \) divided into \(1,2,2\) subdomains.
  		It uses \(5\) cycles when presmoothing, solving on the coarsest grid and postsmoothing, the
-		MG solver is instructed to run for \(100\) MG V-cycles with \(2\) grid levels
+		MG solver is instructed to run for \(100\) MG V-cycles with \(2\) grid levels.
 
 	\subsubsection{Sinusoidal function}
 		\label{sec:sinusoidal}
@@ -39,15 +42,15 @@ test cases and randomly generated fields.
 
 		\begin{figure}
 			\centering
-				% \begin{subfigure}[b]{0.32\textwidth}
-				% 	\includegraphics[width = \textwidth]{figures/verification/sinusoidal/rho.pdf}
-				% \end{subfigure}
-				% \begin{subfigure}[b]{0.32\textwidth}
-				% 	\includegraphics[width = \textwidth]{figures/verification/sinusoidal/numerical.pdf}
-				% \end{subfigure}
-				% \begin{subfigure}[b]{0.32\textwidth}
-				% 	\includegraphics[width = \textwidth]{figures/verification/sinusoidal/residual.pdf}
-				% \end{subfigure}
+				\begin{subfigure}[b]{0.32\textwidth}
+					\includegraphics[width = \textwidth]{figures/verification/sinusoidal/rho.pdf}
+				\end{subfigure}
+				\begin{subfigure}[b]{0.32\textwidth}
+					\includegraphics[width = \textwidth]{figures/verification/sinusoidal/phi.pdf}
+				\end{subfigure}
+				\begin{subfigure}[b]{0.32\textwidth}
+					\includegraphics[width = \textwidth]{figures/verification/sinusoidal/residual.pdf}
+				\end{subfigure}
 			\caption{This a \(x,y\)-plane from the grids cut along \(z_l = 32\), from the sinusoidal test case described in \cref{sec:sinusoidal}.
 			The left plot shows the charge distribution, the center plot shows the numerical solution of the potential and the plot to the right depicts
 			the residual.}
@@ -74,15 +77,15 @@ test cases and randomly generated fields.
 
 		\begin{figure}
 			\centering
-				% \begin{subfigure}[b]{0.32\textwidth}
-				% 	\includegraphics[width = \textwidth]{figures/verification/heaviside/rho.pdf}
-				% \end{subfigure}
-				% \begin{subfigure}[b]{0.32\textwidth}
-				% 	\includegraphics[width = \textwidth]{figures/verification/heaviside/numerical.pdf}
-				% \end{subfigure}
-				% \begin{subfigure}[b]{0.32\textwidth}
-				% 	\includegraphics[width = \textwidth]{figures/verification/heaviside/residual.pdf}
-				% \end{subfigure}
+				\begin{subfigure}[b]{0.32\textwidth}
+					\includegraphics[width = \textwidth]{figures/verification/heaviside/rho.pdf}
+				\end{subfigure}
+				\begin{subfigure}[b]{0.32\textwidth}
+					\includegraphics[width = \textwidth]{figures/verification/heaviside/phi.pdf}
+				\end{subfigure}
+				\begin{subfigure}[b]{0.32\textwidth}
+					\includegraphics[width = \textwidth]{figures/verification/heaviside/residual.pdf}
+				\end{subfigure}
 			\caption{As earlier this is a \(x,y\)-plane cut along \(x_k=32\), of the grid. The plots show the charge distribution,
 			numerical solution and the solution, from left to right. This is a test case constructed
 			with Heaviside functions. In the solution of the potential the expected second degree polynomial can be seen.
@@ -102,9 +105,9 @@ test cases and randomly generated fields.
 				% \begin{subfigure}[b]{0.32\textwidth}
 				% 	\includegraphics[width = \textwidth]{figures/verification/random/rho.pdf}
 				% \end{subfigure}
-				% \begin{subfigure}[b]{0.32\textwidth}
-				% 	\includegraphics[width = \textwidth]{figures/verification/random/numerical.pdf}
-				% \end{subfigure}
+				\begin{subfigure}[b]{0.32\textwidth}
+					\includegraphics[width = \textwidth]{figures/verification/random/phi.pdf}
+				\end{subfigure}
 				% \begin{subfigure}[b]{0.32\textwidth}
 				% 	\includegraphics[width = \textwidth]{figures/verification/random/residual.pdf}
 				% \end{subfigure}
