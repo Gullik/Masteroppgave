@@ -1,6 +1,0 @@
-PWD /mn/fys-server-rp1/s2/gullikvk/Documents/Masteroppgave/Oppgave/chapters/intro
-INPUT /opt/app-sync/texlive/uio-texmf/texmf.cnf
-INPUT /opt/app-sync/texlive/uio-texmf/texmf-dist/web2c/texmf.cnf
-INPUT /opt/app-sync/texlive/uio-texmf/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT plasma.tex
-OUTPUT plasma.log

@@ -25,6 +25,10 @@
 \usepackage{subcaption}
 \usepackage{pifont}
 \usepackage[utf8]{inputenc}
+% \usepackage{natbib}
+% \usepackage{usebib}
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -70,6 +74,8 @@
             natbib=true,
             dashed=false]{biblatex}
 
+%Fix citetitle style
+\DeclareFieldFormat*{citetitle}{#1}
 
 % \addbibresource{bibs/bibliography.bib}
 % \addbibresource{bibs/extra.bib}
@@ -78,12 +84,6 @@
 
 %\bibliography{references}
 
-
-\usepackage{graphicx}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage{pifont}
-\usepackage[utf8]{inputenc}
 
 \author{Gullik Vetvik Killie}
 \title{Plasmastuffs}
@@ -108,9 +108,9 @@
 % \input{chapters/outline}
 
 \chapter{Introduction}
-    \input{chapters/intro/plasma}
-    % \input{chapters/intro/single_particle_motion}
-    % \input{chapters/intro/numerical_simulations}
+    \input{chapters/theory/plasma}
+    \input{chapters/theory/single_particle_motion}
+    \input{chapters/theory/numerical_simulations}
 
 
 

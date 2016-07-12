@@ -1,0 +1,76 @@
+	%
+	% \begin{itemize}
+	% 	\item Plasma
+	% 		\begin{itemize}
+	% 			\item What is it
+	% 			\item What is known
+	% 			\item What will this thesis attempt to add
+	% 		\end{itemize}
+	% 	\item Farley-Buneman instability
+	% 		\begin{itemize}
+	% 			\item Explanation of what it is and why it is important (?)
+	% 			\item How will this project help to investigate it
+	% 			\item Hopefully by allowing a big enough domain for the F-B to appear
+	% 		\end{itemize}
+	% 	\item PIC code (DiP3D)
+	% 		\begin{itemize}
+	% 			\item Short overview of the PIC code in the group
+	% 			\item Shortcomings
+	% 			\item Field solver as the bottleneck on a parallel computer
+	% 		\end{itemize}
+	% 	\item Parallel MG-solver
+	% 		\begin{itemize}
+	% 			\item Overview of MG methods
+	% 			\item Widely researched area, important for all kinds of CFD computations
+	% 			\item Scales well, \(\order{N}\)
+	% 			\item Problems (hard to parallelize)
+	% 		\end{itemize}
+	% 	\item Boundary conditions
+	% 	\item What has been done in this thesis and what results was found.
+	% \end{itemize}
+
+\section{Numerical Simulations}
+	As there are several theoretical branches within the field of plasma physics,
+	magnetohydrodynamics, kinetic theory (Note to self:  Need better overview, and citations),
+	that are suited to investigate plasma physics at different scales and different phenonema,
+	there are also different approaches to conduct numerical plasma studies.
+	Plasma simulation codes can be classified along the extent they are using a
+	kinetic kinetic or fluid description of the plasma. Kinetic codes include
+	Vlasov simulations (cite), Fokker-Planck simulations (Cite) and particle codes like the
+	Particle-in-Cell code, that the development of, was a large part of this master thesis.
+	Plasma fluid simulations are called MHD and are based on magnetohydrodynamical theory, (mention some).
+	In the fluid description some of the detailed physics is averaged out and this causes
+	MHD codes to be unsuited to study results depending on some small scale phenomena.
+	Their advantage is that due to the reduced detail they can simulate on a much larger scale.
+	Kinetic simulations generally have more detail and capture more physics (rewrite),
+	and as a tradeof they are restricted to simulate over a physical domain due to
+	limited computation power and memory storage.
+	Since the relevant timescales vary vastly between ions and electrons a multitude
+	of hybrid codes has also been developed. (Search for multitude of hybrid codes and ref).
+	These types of codes can e.g. treat some of the species as fluids and some as
+	particles capturing the wanted phenomena. Particle based codes can also be combined
+	with molecular dynamics code, if the algorithm is unsuited in a regime.
+
+
+
+	\section{Particle-in-Cell}
+	 To investigate the mechanics involved in a wide variety of plasma phenomenens,
+	 computer simulation. Particle-in-Cell, PiC, is simulation model that takes a
+	 particle based approach, where each particle is simulated seperately, or a
+	 collection. If we naively would attempt to compute the electrical force between each particle, the necessary
+	 computational power would grow quickly as the number of particle increases, \(\order{(\#particles)^2}\).
+	 Since a large number of particles is often neccessary the PiC method seeks to
+	 the problem by computing the electrical field produces by the particles, and then
+	 compute the force on the particle directly from the field instead. From the charge
+	 distribution we can find the electric potential through the use of Poissons
+	 equation, \cref{eq:poisson}, and subsequently find the electrical field from
+	 the electrical potential. See \cref{fig:schematic} for an overview of the
+
+		\begin{align}
+			\nabla ^2 \Phi &= -\rho \qquad \text{in} \qquad \Omega \label{eq:poisson}
+		\end{align}
+
+	  \input{tixz/PiC_fig}
+
+		% The problem also need boundary conditions in which we will focus on periodic,
+		% Dirichlet and Neumann boundary conditions.

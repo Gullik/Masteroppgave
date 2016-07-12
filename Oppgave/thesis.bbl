@@ -16,5 +16,127 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \sortlist{nyt}{nyt}
+    \entry{chen_introduction_1984}{book}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=71a8df72129a67cf80d79c33f0a32c16}{Chen}{C\bibinitperiod}{Francis\bibnamedelima F.}{F\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {Boston, MA}%
+      }
+      \list{publisher}{1}{%
+        {Springer US}%
+      }
+      \strng{namehash}{71a8df72129a67cf80d79c33f0a32c16}
+      \strng{fullhash}{71a8df72129a67cf80d79c33f0a32c16}
+      \field{sortinit}{C}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{labelyear}{1984}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-1-4419-3201-3 978-1-4757-5595-4}
+      \field{title}{Introduction to {Plasma} {Physics} and {Controlled} {Fusion}}
+      \field{urlday}{12}
+      \field{urlmonth}{07}
+      \field{urlyear}{2016}
+      \field{year}{1984}
+      \verb{url}
+      \verb http://link.springer.com/10.1007/978-1-4757-5595-4
+      \endverb
+    \endentry
+    \entry{fitzpatrick_plasma_2014}{book}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=f7f30a3a440fa574307351e6690550fa}{Fitzpatrick}{F\bibinitperiod}{Richard}{R\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {English}%
+      }
+      \list{location}{1}{%
+        {Boca Raton}%
+      }
+      \list{publisher}{1}{%
+        {CRC Press}%
+      }
+      \strng{namehash}{f7f30a3a440fa574307351e6690550fa}
+      \strng{fullhash}{f7f30a3a440fa574307351e6690550fa}
+      \field{sortinit}{F}
+      \field{sortinithash}{c6a7d9913bbd7b20ea954441c0460b78}
+      \field{labelyear}{2014}
+      \field{labelmonth}{08}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Encompasses the Lectured Works of a Renowned Expert in the Field Plasma Physics: An Introduction is based on a series of university course lectures by a leading name in the field, and thoroughly covers the physics of the fourth state of matter. This book looks at non-relativistic, fully ionized, nondegenerate, quasi-neutral, and weakly coupled plasma. Intended for the student market, the text provides a concise and cohesive introduction to plasma physics theory, and offers a solid foundation for students wishing to take higher level courses in plasma physics. Mathematically Rigorous, but Driven by Physics This work contains over 80 exercises―carefully selected for their pedagogical value―with fully worked out solutions available in a separate solutions manual for professors. The author provides an in-depth discussion of the various fluid theories typically used in plasma physics. The material presents a number of applications, and works through specific topics including basic plasma parameters, the theory of charged particle motion in inhomogeneous electromagnetic fields, plasma fluid theory, electromagnetic waves in cold plasmas, electromagnetic wave propagation through inhomogeneous plasmas, magnetohydrodynamical fluid theory, and kinetic theory. Discusses fluid theory illustrated by the investigation of Langmuir sheaths Explores charged particle motion illustrated by the investigation of charged particle trapping in the earth’s magnetosphere Examines the WKB theory illustrated by the investigation of radio wave propagation in the earth’s ionosphere Studies the MHD theory illustrated by the investigation of solar wind, dynamo theory, magnetic reconnection, and MHD shocks Plasma Physics: An Introduction addresses applied areas and advanced topics in the study of plasma physics, and specifically demonstrates the behavior of ionized gas.}
+      \field{edition}{1 edition}
+      \field{isbn}{978-1-4665-9426-5}
+      \field{month}{08}
+      \field{shorttitle}{Plasma {Physics}}
+      \field{title}{Plasma {Physics}: {An} {Introduction}}
+      \field{year}{2014}
+    \endentry
+    \entry{goldston_introduction_1995}{book}{}
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=eb256f0860a8da418e5f4a7cee419f8f}{Goldston}{G\bibinitperiod}{R.\bibnamedelimi J.}{R\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=4837efd3ece40deaa9423e5e7201bbf8}{Rutherford}{R\bibinitperiod}{P.\bibnamedelimi H.}{P\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {CRC Press}%
+      }
+      \strng{namehash}{df7062c16842df4132596112a5989cd9}
+      \strng{fullhash}{df7062c16842df4132596112a5989cd9}
+      \field{sortinit}{G}
+      \field{sortinithash}{1c854ef9177a91bf894e66485bdbd3ed}
+      \field{labelyear}{1995}
+      \field{labelmonth}{11}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Introduction to Plasma Physics is the standard text for an introductory lecture course on plasma physics. The text’s six sections lead readers systematically and comprehensively through the fundamentals of modern plasma physics. Sections on single-particle motion, plasmas as fluids, and collisional processes in plasmas lay the groundwork for a thorough understanding of the subject. The authors take care to place the material in its historical context for a rich understanding of the ideas presented. They also emphasize the importance of medical imaging in radiotherapy, providing a logical link to more advanced works in the area. The text includes problems, tables, and illustrations as well as a thorough index and a complete list of references.}
+      \field{isbn}{978-1-4398-2207-4}
+      \field{month}{11}
+      \field{title}{Introduction to {Plasma} {Physics}}
+      \field{year}{1995}
+      \keyw{Science / Physics / General}
+    \endentry
+    \entry{pecseli_waves_2012}{book}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=546f007bbdd1aeef99e90f2a3768fe22}{Pécseli}{P\bibinitperiod}{Hans\bibnamedelima L.}{H\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {English}%
+      }
+      \list{location}{1}{%
+        {Boca Raton}%
+      }
+      \list{publisher}{1}{%
+        {CRC Press}%
+      }
+      \strng{namehash}{546f007bbdd1aeef99e90f2a3768fe22}
+      \strng{fullhash}{546f007bbdd1aeef99e90f2a3768fe22}
+      \field{sortinit}{P}
+      \field{sortinithash}{c0a4896d0e424f9ca4d7f14f2b3428e7}
+      \field{labelyear}{2012}
+      \field{labelmonth}{09}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Winner of an Outstanding Academic Title Award from CHOICE Magazine   The result of more than 15 years of lectures in plasma sciences presented at universities in Denmark, Norway, and the United States, Waves and Oscillations in Plasmas addresses central issues in modern plasma sciences. The book covers fluid models as well as kinetic plasma models, including a detailed discussion of, for instance, collisionless Landau damping. Offering a clear separation of linear and nonlinear models, the book can be tailored for readers of varying levels of expertise. Designed to provide basic training in linear as well as nonlinear plasma dynamics, and practical in areas as diverse as the space sciences, laboratory experiments, plasma processing, and more, this book includes: Sections on basic experimental methods, facilitating students’ appreciation of experimental results from laboratory and space plasmas Elements of electromagnetic field theory, fluid mechanics, and wave dynamics, including features of nonlinear wave analysis Basic mathematical tools and other relevant material are summarized in Appendices Exercises as well as short sections that can be used for student presentations A comprehensive reference list reviewing classic papers and notable texts in the field Waves and Oscillations in Plasmas provides a solid foundation in basic plasma physics and its applications, giving a practical introduction to more advanced methods as well. Including simple physical interpretations where possible, this comprehensive, classroom-tested book places plasma sciences in the logical context of general classical physics.}
+      \field{edition}{1 edition}
+      \field{isbn}{978-1-4398-7848-4}
+      \field{month}{09}
+      \field{title}{Waves and {Oscillations} in {Plasmas}}
+      \field{year}{2012}
+    \endentry
+  \endsortlist
+\endrefsection
 \endinput
 
