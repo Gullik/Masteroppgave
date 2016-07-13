@@ -1,0 +1,50 @@
+\section{Normalization}
+    For most numerical code significant computational gains can be achieved
+    relatively easy by smart normalization. With a succesful normalization most
+    of the multiplications with constants will dissappear. Numerical errors
+    due to machine precision are smallest close to unity, \(\order{1}\), (Find Citation) so we
+    want to work with numbers as close to unity as we can. As a sidebenefit it also
+    makes the code easier to write and cleaner to read. Consider a single particle,
+    with mass \(m\) and charge \(q\), in an electric field \(\vb{E}\). Its equation of motion is then
+
+    \begin{align}
+        m\pdv[2]{\vb{r}}{t} &= q\vb{E}
+    \end{align}
+
+    To compute the acceleration of this particle completely naive would at each point
+    cost \(1\) multiplications and \(1\) division, \(m/q*E\). If we instead use smartly normalized
+    values the equation could look like this
+
+    \begin{align}
+        \pdv[2]{\tilde {\vb{r}}}{t} &= \tilde{\vb{E}}
+    \end{align}
+
+    where \(\tilde {\vb{r}}\) and \(\tilde{\vb{E}}\) is normalized so the dimensionality of the
+    equation works out. Here we get away with no multiplications and no divisions,
+    but we do have the added task of transforming our variables first to the normalized variables
+    and then back to the original after the simulation has run.
+
+    \subsection{Non-dimensionality PinC}
+        A good strategy to remove the dimensionality of the equations is to first remove
+        dimensionality from the fundamental quantities, and then work out the
+        normalizations necessary for the derived quantities.
+
+        The fundamental quantities that are involved in our PiC simulation is
+        mass \(m\), position \(\vb{r}\), time \(t\) and charge \(q\). Since we are dealing with
+        plasma it is useful to normalize with Debye-length, \(\lambda_D\), and electron plasma frequency, \(\omega_{pe}\).
+        The normalized quantities are then:
+
+        \begin{subequations}
+        \begin{equation}
+            \tilde{\vb{r} }= \frac{\vb{r}}{\lambda_D}
+        \end{equation}
+        \begin{equation}
+            \tilde {t} = \omega_{pe}t
+        \end{equation}
+    \end{subequations}
+
+
+    \subsection{Normalization PinC}
+        It should be mentioned that the normalization scheme for PinC was mostly worked
+        out by Sigvald Marholm, and I am mostly repeating his work here. It still needs
+        to be in this work to get a complete understanding of our PiC implementation.

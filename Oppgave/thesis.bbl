@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 2.3 $
+% $ biblatex bbl format version 2.5 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -18,15 +18,16 @@
 
 
 \refsection{0}
-  \sortlist{entry}{nyt}
+  \sortlist{nyt}{nyt}
     \entry{_fast_????}{misc}{}
       \field{sortinit}{A}
+      \field{sortinithash}{b685c7856330eaee22789815b49de9bb}
       \field{labelyear}{2016}
       \field{labelmonth}{07}
       \field{labelday}{08}
       \field{datelabelsource}{url}
-      \field{labeltitle}{A fast and high quality multilevel scheme for partitioning irregular graphs | {Karypis} {Lab}}
-      \field{title}{A fast and high quality multilevel scheme for partitioning irregular graphs | {Karypis} {Lab}}
+      \field{labeltitlesource}{title}
+      \field{title}{A fast and high quality multilevel scheme for partitioning irregular graphs {|} {Karypis} {Lab}}
       \field{urlday}{08}
       \field{urlmonth}{07}
       \field{urlyear}{2016}
@@ -38,14 +39,6 @@
       \endverb
     \endentry
     \entry{alnaes_fenics_2011}{book}{}
-      \name{labelname}{6}{}{%
-        {{uniquename=0,hash=c6fe4edb1c669196f76891ddc56e7531}{Alnæs}{A\bibinitperiod}{Martin\bibnamedelima Sandve}{M\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=6c258c7873d4d947fdafc20e9f8b910a}{Hake}{H\bibinitperiod}{Johan}{J\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=f9d76469b85f39694da3dc8ea4bfd8bf}{Kirby}{K\bibinitperiod}{Robert\bibnamedelima C.}{R\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=0967083410282320ed5fab09db692cfc}{Langtangen}{L\bibinitperiod}{Hans\bibnamedelima Petter}{H\bibinitperiod\bibinitdelim P\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=bae2791f700c5805db2f0fda7977a949}{Logg}{L\bibinitperiod}{Anders}{A\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=a4bc5763eb3a57316d5da4058635c123}{Wells}{W\bibinitperiod}{Garth\bibnamedelima N.}{G\bibinitperiod\bibinitdelim N\bibinitperiod}{}{}{}{}}%
-      }
       \name{author}{6}{}{%
         {{uniquename=0,hash=c6fe4edb1c669196f76891ddc56e7531}{Alnæs}{A\bibinitperiod}{Martin\bibnamedelima Sandve}{M\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
         {{uniquename=0,hash=6c258c7873d4d947fdafc20e9f8b910a}{Hake}{H\bibinitperiod}{Johan}{J\bibinitperiod}{}{}{}{}}%
@@ -60,9 +53,11 @@
       \strng{namehash}{903967afd3fa04fe45c4aa6bf3072c9c}
       \strng{fullhash}{b2e41dd0eb9f960eeff06827bad0a19f}
       \field{sortinit}{A}
+      \field{sortinithash}{b685c7856330eaee22789815b49de9bb}
       \field{labelyear}{2011}
       \field{datelabelsource}{}
-      \field{labeltitle}{The {FEniCS} {Manual}}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
       \field{title}{The {FEniCS} {Manual}}
       \field{urlday}{21}
       \field{urlmonth}{04}
@@ -76,12 +71,6 @@
       \endverb
     \endentry
     \entry{arraras_domain_2015}{article}{}
-      \name{labelname}{4}{}{%
-        {{uniquename=0,hash=be2e5ec6f57bffcb80a719b7046f1f60}{Arraras}{A\bibinitperiod}{A.}{A\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=cca144fd3ead96672ff66331b2e795ac}{Gaspar}{G\bibinitperiod}{F.\bibnamedelimi J.}{F\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=b57162950198687a0dfa2c37518590a0}{Portero}{P\bibinitperiod}{L.}{L\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=89883edd937ec7f77ccdd888ba88a940}{Rodrigo}{R\bibinitperiod}{C.}{C\bibinitperiod}{}{}{}{}}%
-      }
       \name{author}{4}{}{%
         {{uniquename=0,hash=be2e5ec6f57bffcb80a719b7046f1f60}{Arraras}{A\bibinitperiod}{A.}{A\bibinitperiod}{}{}{}{}}%
         {{uniquename=0,hash=cca144fd3ead96672ff66331b2e795ac}{Gaspar}{G\bibinitperiod}{F.\bibnamedelimi J.}{F\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
@@ -91,9 +80,11 @@
       \strng{namehash}{c0cf2314a562913da2881fb7fe996b1f}
       \strng{fullhash}{355a11f5a10c193609261be4e23227a0}
       \field{sortinit}{A}
+      \field{sortinithash}{b685c7856330eaee22789815b49de9bb}
       \field{labelyear}{2015}
       \field{datelabelsource}{}
-      \field{labeltitle}{Domain decomposition multigrid methods for nonlinear reaction–diffusion problems}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
       \field{journaltitle}{Communications in Nonlinear Science and Numerical Simulation}
       \field{number}{3}
       \field{title}{Domain decomposition multigrid methods for nonlinear reaction–diffusion problems}
@@ -103,6 +94,7 @@
       \field{volume}{20}
       \field{year}{2015}
       \field{pages}{699\bibrangedash 710}
+      \range{pages}{12}
       \verb{file}
       \verb Snapshot:/mn/fys-server-rp1/s2/gullikvk/.zotero/zotero/9dvr81pm.default/zotero/storage/3K2W2KEW/S1007570414003074.html:text/html
       \endverb
@@ -111,10 +103,6 @@
       \endverb
     \endentry
     \entry{birdsall_plasma_2004}{book}{}
-      \name{labelname}{2}{}{%
-        {{uniquename=0,hash=8dca8af684912398b1b90d7569c1da84}{Birdsall}{B\bibinitperiod}{C.\bibnamedelimi K.}{C\bibinitperiod\bibinitdelim K\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=996baa0e8b9551e2631659e7bd7a2e7c}{Langdon}{L\bibinitperiod}{A.\bibnamedelimi B.}{A\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
-      }
       \name{author}{2}{}{%
         {{uniquename=0,hash=8dca8af684912398b1b90d7569c1da84}{Birdsall}{B\bibinitperiod}{C.\bibnamedelimi K.}{C\bibinitperiod\bibinitdelim K\bibinitperiod}{}{}{}{}}%
         {{uniquename=0,hash=996baa0e8b9551e2631659e7bd7a2e7c}{Langdon}{L\bibinitperiod}{A.\bibnamedelimi B.}{A\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
@@ -128,10 +116,12 @@
       \strng{namehash}{0e4d38c4dd24fe3921eada76838ada15}
       \strng{fullhash}{0e4d38c4dd24fe3921eada76838ada15}
       \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
       \field{labelyear}{2004}
       \field{labelmonth}{10}
       \field{datelabelsource}{}
-      \field{labeltitle}{Plasma {Physics} via {Computer} {Simulation}}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
       \field{abstract}{Divided into three main parts, the book guides the reader to an understanding of the basic concepts in this fascinating field of research. Part 1 introduces you to the fundamental concepts of simulation. It examines one-dimensional electrostatic codes and electromagnetic codes, and describes the numerical methods and analysis. Part 2 explores the mathematics and physics behind the algorithms used in Part 1. In Part 3, the authors address some of the more complicated simulations in two and three dimensions. The book introduces projects to encourage practical work Readers can download plasma modeling and simulation software — the ES1 program — with implementations for PCs and Unix systems along with the original FORTRAN source code. Now available in paperback, Plasma Physics via Computer Simulation is an ideal complement to plasma physics courses and for self-study.}
       \field{isbn}{978-1-4822-6306-0}
       \field{month}{10}
@@ -140,9 +130,6 @@
       \keyw{Mathematics / Arithmetic,Science / Physics / General,Science / Physics / Mathematical \& Computational}
     \endentry
     \entry{chen_introduction_1984}{book}{}
-      \name{labelname}{1}{}{%
-        {{uniquename=0,hash=71a8df72129a67cf80d79c33f0a32c16}{Chen}{C\bibinitperiod}{Francis\bibnamedelima F.}{F\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
-      }
       \name{author}{1}{}{%
         {{uniquename=0,hash=71a8df72129a67cf80d79c33f0a32c16}{Chen}{C\bibinitperiod}{Francis\bibnamedelima F.}{F\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
       }
@@ -158,9 +145,11 @@
       \strng{namehash}{71a8df72129a67cf80d79c33f0a32c16}
       \strng{fullhash}{71a8df72129a67cf80d79c33f0a32c16}
       \field{sortinit}{C}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
       \field{labelyear}{1984}
       \field{datelabelsource}{}
-      \field{labeltitle}{Introduction to {Plasma} {Physics} and {Controlled} {Fusion}}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
       \field{isbn}{978-1-4419-3201-3 978-1-4757-5595-4}
       \field{title}{Introduction to {Plasma} {Physics} and {Controlled} {Fusion}}
       \field{urlday}{12}
@@ -172,13 +161,6 @@
       \endverb
     \endentry
     \entry{chow_survey_2006}{article}{}
-      \name{labelname}{5}{}{%
-        {{uniquename=0,hash=d393bf9ff9d79edf7a611fd295530eaa}{Chow}{C\bibinitperiod}{Edmond}{E\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=2aeebdd1c9533ce95f52ae5fba40c629}{Falgout}{F\bibinitperiod}{Robert\bibnamedelima D.}{R\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=5cafd85d5e07a099962aea70513a7e32}{Hu}{H\bibinitperiod}{Jonathan\bibnamedelima J.}{J\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=80e6968c86cf6636075bd2bfa626b047}{Tuminaro}{T\bibinitperiod}{Raymond\bibnamedelima S.}{R\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=57c03e4eab1b21d1e643bc0e53ad6c0f}{Yang}{Y\bibinitperiod}{Ulrike\bibnamedelima Meier}{U\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
-      }
       \name{author}{5}{}{%
         {{uniquename=0,hash=d393bf9ff9d79edf7a611fd295530eaa}{Chow}{C\bibinitperiod}{Edmond}{E\bibinitperiod}{}{}{}{}}%
         {{uniquename=0,hash=2aeebdd1c9533ce95f52ae5fba40c629}{Falgout}{F\bibinitperiod}{Robert\bibnamedelima D.}{R\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
@@ -189,9 +171,11 @@
       \strng{namehash}{0593ef34c870e8fabf95aae50703138f}
       \strng{fullhash}{0ad49ecc7c7b4e00820f36ca978138e8}
       \field{sortinit}{C}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
       \field{labelyear}{2006}
       \field{datelabelsource}{}
-      \field{labeltitle}{A survey of parallelization techniques for multigrid solvers}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
       \field{journaltitle}{Parallel processing for scientific computing}
       \field{title}{A survey of parallelization techniques for multigrid solvers}
       \field{urlday}{21}
@@ -200,6 +184,7 @@
       \field{volume}{20}
       \field{year}{2006}
       \field{pages}{179\bibrangedash 201}
+      \range{pages}{23}
       \verb{file}
       \verb [PDF] from edmondchow.com:/mn/fys-server-rp1/s2/gullikvk/.zotero/zotero/9dvr81pm.default/zotero/storage/PQZJ6DHU/Chow et al. - 2006 - A survey of parallelization techniques for multigr.pdf:application/pdf
       \endverb
@@ -208,10 +193,6 @@
       \endverb
     \endentry
     \entry{falgout_hypre:_2002}{incollection}{}
-      \name{labelname}{2}{}{%
-        {{uniquename=0,hash=2aeebdd1c9533ce95f52ae5fba40c629}{Falgout}{F\bibinitperiod}{Robert\bibnamedelima D.}{R\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=57c03e4eab1b21d1e643bc0e53ad6c0f}{Yang}{Y\bibinitperiod}{Ulrike\bibnamedelima Meier}{U\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
-      }
       \name{author}{2}{}{%
         {{uniquename=0,hash=2aeebdd1c9533ce95f52ae5fba40c629}{Falgout}{F\bibinitperiod}{Robert\bibnamedelima D.}{R\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
         {{uniquename=0,hash=57c03e4eab1b21d1e643bc0e53ad6c0f}{Yang}{Y\bibinitperiod}{Ulrike\bibnamedelima Meier}{U\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
@@ -231,10 +212,12 @@
       \strng{namehash}{8eb9f221f16fb3adec8a760817d4e731}
       \strng{fullhash}{8eb9f221f16fb3adec8a760817d4e731}
       \field{sortinit}{F}
+      \field{sortinithash}{c6a7d9913bbd7b20ea954441c0460b78}
       \field{labelyear}{2002}
       \field{labelmonth}{04}
       \field{datelabelsource}{}
-      \field{labeltitle}{hypre}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
       \field{abstract}{hypre is a software library for the solution of large, sparse linear systems on massively parallel computers. Its emphasis is on modern powerful and scalable preconditioners. hypre provides various conceptual interfaces to enable application users to access the library in the way they naturally think about their problems. This paper presents the conceptual interfaces in hypre. An overview of the preconditioners that are available in hypre is given, including some numerical results that show the efficiency of the library.}
       \field{booktitle}{Computational {Science} — {ICCS} 2002}
       \field{isbn}{978-3-540-43594-5 978-3-540-47789-1}
@@ -249,6 +232,7 @@
       \field{urlyear}{2016}
       \field{year}{2002}
       \field{pages}{632\bibrangedash 641}
+      \range{pages}{10}
       \verb{file}
       \verb Full Text PDF:/mn/fys-server-rp1/s2/gullikvk/.zotero/zotero/9dvr81pm.default/zotero/storage/S8GDVQFC/Falgout and Yang - 2002 - hypre A Library of High Performance Preconditione.pdf:application/pdf;Snapshot:/mn/fys-server-rp1/s2/gullikvk/.zotero/zotero/9dvr81pm.default/zotero/storage/CS86UBGM/10.html:text/html
       \endverb
@@ -258,9 +242,6 @@
       \keyw{Computational Mathematics and Numerical Analysis,Computer Communication Networks,Mathematics of Computing,Software Engineering/Programming and Operating Systems,Theoretical,Mathematical and Computational Physics,Theory of Computation}
     \endentry
     \entry{fitzpatrick_plasma_2014}{book}{}
-      \name{labelname}{1}{}{%
-        {{uniquename=0,hash=f7f30a3a440fa574307351e6690550fa}{Fitzpatrick}{F\bibinitperiod}{Richard}{R\bibinitperiod}{}{}{}{}}%
-      }
       \name{author}{1}{}{%
         {{uniquename=0,hash=f7f30a3a440fa574307351e6690550fa}{Fitzpatrick}{F\bibinitperiod}{Richard}{R\bibinitperiod}{}{}{}{}}%
       }
@@ -276,10 +257,12 @@
       \strng{namehash}{f7f30a3a440fa574307351e6690550fa}
       \strng{fullhash}{f7f30a3a440fa574307351e6690550fa}
       \field{sortinit}{F}
+      \field{sortinithash}{c6a7d9913bbd7b20ea954441c0460b78}
       \field{labelyear}{2014}
       \field{labelmonth}{08}
       \field{datelabelsource}{}
-      \field{labeltitle}{Plasma {Physics}}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
       \field{abstract}{Encompasses the Lectured Works of a Renowned Expert in the Field Plasma Physics: An Introduction is based on a series of university course lectures by a leading name in the field, and thoroughly covers the physics of the fourth state of matter. This book looks at non-relativistic, fully ionized, nondegenerate, quasi-neutral, and weakly coupled plasma. Intended for the student market, the text provides a concise and cohesive introduction to plasma physics theory, and offers a solid foundation for students wishing to take higher level courses in plasma physics. Mathematically Rigorous, but Driven by Physics This work contains over 80 exercises―carefully selected for their pedagogical value―with fully worked out solutions available in a separate solutions manual for professors. The author provides an in-depth discussion of the various fluid theories typically used in plasma physics. The material presents a number of applications, and works through specific topics including basic plasma parameters, the theory of charged particle motion in inhomogeneous electromagnetic fields, plasma fluid theory, electromagnetic waves in cold plasmas, electromagnetic wave propagation through inhomogeneous plasmas, magnetohydrodynamical fluid theory, and kinetic theory. Discusses fluid theory illustrated by the investigation of Langmuir sheaths Explores charged particle motion illustrated by the investigation of charged particle trapping in the earth’s magnetosphere Examines the WKB theory illustrated by the investigation of radio wave propagation in the earth’s ionosphere Studies the MHD theory illustrated by the investigation of solar wind, dynamo theory, magnetic reconnection, and MHD shocks Plasma Physics: An Introduction addresses applied areas and advanced topics in the study of plasma physics, and specifically demonstrates the behavior of ionized gas.}
       \field{edition}{1 edition}
       \field{isbn}{978-1-4665-9426-5}
@@ -289,10 +272,6 @@
       \field{year}{2014}
     \endentry
     \entry{goldston_introduction_1995}{book}{}
-      \name{labelname}{2}{}{%
-        {{uniquename=0,hash=eb256f0860a8da418e5f4a7cee419f8f}{Goldston}{G\bibinitperiod}{R.\bibnamedelimi J.}{R\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=4837efd3ece40deaa9423e5e7201bbf8}{Rutherford}{R\bibinitperiod}{P.\bibnamedelimi H.}{P\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
-      }
       \name{author}{2}{}{%
         {{uniquename=0,hash=eb256f0860a8da418e5f4a7cee419f8f}{Goldston}{G\bibinitperiod}{R.\bibnamedelimi J.}{R\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
         {{uniquename=0,hash=4837efd3ece40deaa9423e5e7201bbf8}{Rutherford}{R\bibinitperiod}{P.\bibnamedelimi H.}{P\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
@@ -306,10 +285,12 @@
       \strng{namehash}{df7062c16842df4132596112a5989cd9}
       \strng{fullhash}{df7062c16842df4132596112a5989cd9}
       \field{sortinit}{G}
+      \field{sortinithash}{1c854ef9177a91bf894e66485bdbd3ed}
       \field{labelyear}{1995}
       \field{labelmonth}{11}
       \field{datelabelsource}{}
-      \field{labeltitle}{Introduction to {Plasma} {Physics}}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
       \field{abstract}{Introduction to Plasma Physics is the standard text for an introductory lecture course on plasma physics. The text’s six sections lead readers systematically and comprehensively through the fundamentals of modern plasma physics. Sections on single-particle motion, plasmas as fluids, and collisional processes in plasmas lay the groundwork for a thorough understanding of the subject. The authors take care to place the material in its historical context for a rich understanding of the ideas presented. They also emphasize the importance of medical imaging in radiotherapy, providing a logical link to more advanced works in the area. The text includes problems, tables, and illustrations as well as a thorough index and a complete list of references.}
       \field{isbn}{978-1-4398-2207-4}
       \field{month}{11}
@@ -318,10 +299,6 @@
       \keyw{Science / Physics / General}
     \endentry
     \entry{hackbusch_multigrid_1982}{article}{}
-      \name{labelname}{2}{}{%
-        {{uniquename=0,hash=01bcfafc59c11a565163fcf9ef2a0907}{Hackbusch}{H\bibinitperiod}{Wolfgang}{W\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=114331449f25e3b7253783221adb73cc}{Trottenberg}{T\bibinitperiod}{Ulrich}{U\bibinitperiod}{}{}{}{}}%
-      }
       \name{author}{2}{}{%
         {{uniquename=0,hash=01bcfafc59c11a565163fcf9ef2a0907}{Hackbusch}{H\bibinitperiod}{Wolfgang}{W\bibinitperiod}{}{}{}{}}%
         {{uniquename=0,hash=114331449f25e3b7253783221adb73cc}{Trottenberg}{T\bibinitperiod}{Ulrich}{U\bibinitperiod}{}{}{}{}}%
@@ -329,9 +306,11 @@
       \strng{namehash}{147b453720a94264434a64fef0dc905c}
       \strng{fullhash}{147b453720a94264434a64fef0dc905c}
       \field{sortinit}{H}
+      \field{sortinithash}{82012198d5dfa657b8c4a168793268a6}
       \field{labelyear}{1982}
       \field{datelabelsource}{}
-      \field{labeltitle}{Multigrid methods}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
       \field{title}{Multigrid methods}
       \field{urlday}{21}
       \field{urlmonth}{04}
@@ -343,11 +322,12 @@
     \endentry
     \entry{_manual.pdf_????}{misc}{}
       \field{sortinit}{m}
+      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
       \field{labelyear}{2016}
       \field{labelmonth}{07}
       \field{labelday}{08}
       \field{datelabelsource}{url}
-      \field{labeltitle}{manual.pdf}
+      \field{labeltitlesource}{title}
       \field{title}{manual.pdf}
       \field{urlday}{08}
       \field{urlmonth}{07}
@@ -360,9 +340,6 @@
       \endverb
     \endentry
     \entry{pecseli_waves_2012}{book}{}
-      \name{labelname}{1}{}{%
-        {{uniquename=0,hash=546f007bbdd1aeef99e90f2a3768fe22}{Pécseli}{P\bibinitperiod}{Hans\bibnamedelima L.}{H\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
-      }
       \name{author}{1}{}{%
         {{uniquename=0,hash=546f007bbdd1aeef99e90f2a3768fe22}{Pécseli}{P\bibinitperiod}{Hans\bibnamedelima L.}{H\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
       }
@@ -378,10 +355,12 @@
       \strng{namehash}{546f007bbdd1aeef99e90f2a3768fe22}
       \strng{fullhash}{546f007bbdd1aeef99e90f2a3768fe22}
       \field{sortinit}{P}
+      \field{sortinithash}{c0a4896d0e424f9ca4d7f14f2b3428e7}
       \field{labelyear}{2012}
       \field{labelmonth}{09}
       \field{datelabelsource}{}
-      \field{labeltitle}{Waves and {Oscillations} in {Plasmas}}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
       \field{abstract}{Winner of an Outstanding Academic Title Award from CHOICE Magazine   The result of more than 15 years of lectures in plasma sciences presented at universities in Denmark, Norway, and the United States, Waves and Oscillations in Plasmas addresses central issues in modern plasma sciences. The book covers fluid models as well as kinetic plasma models, including a detailed discussion of, for instance, collisionless Landau damping. Offering a clear separation of linear and nonlinear models, the book can be tailored for readers of varying levels of expertise. Designed to provide basic training in linear as well as nonlinear plasma dynamics, and practical in areas as diverse as the space sciences, laboratory experiments, plasma processing, and more, this book includes: Sections on basic experimental methods, facilitating students’ appreciation of experimental results from laboratory and space plasmas Elements of electromagnetic field theory, fluid mechanics, and wave dynamics, including features of nonlinear wave analysis Basic mathematical tools and other relevant material are summarized in Appendices Exercises as well as short sections that can be used for student presentations A comprehensive reference list reviewing classic papers and notable texts in the field Waves and Oscillations in Plasmas provides a solid foundation in basic plasma physics and its applications, giving a practical introduction to more advanced methods as well. Including simple physical interpretations where possible, this comprehensive, classroom-tested book places plasma sciences in the logical context of general classical physics.}
       \field{edition}{1 edition}
       \field{isbn}{978-1-4398-7848-4}
@@ -390,12 +369,6 @@
       \field{year}{2012}
     \endentry
     \entry{press_numerical_1988}{article}{}
-      \name{labelname}{4}{}{%
-        {{uniquename=0,hash=e25935343805f5bc8cf8924629f02376}{Press}{P\bibinitperiod}{William\bibnamedelima H.}{W\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=67697fa4e8f96fea3d0c4b1f7ed40a54}{Teukolsky}{T\bibinitperiod}{S.\bibnamedelimi A.}{S\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=c4198a24a680798147d7bde9ebc609b4}{Vetterling}{V\bibinitperiod}{W.\bibnamedelimi T.}{W\bibinitperiod\bibinitdelim T\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=903fec84c425c443d906d94bab916687}{Flannery}{F\bibinitperiod}{B.\bibnamedelimi P.}{B\bibinitperiod\bibinitdelim P\bibinitperiod}{}{}{}{}}%
-      }
       \name{author}{4}{}{%
         {{uniquename=0,hash=e25935343805f5bc8cf8924629f02376}{Press}{P\bibinitperiod}{William\bibnamedelima H.}{W\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
         {{uniquename=0,hash=67697fa4e8f96fea3d0c4b1f7ed40a54}{Teukolsky}{T\bibinitperiod}{S.\bibnamedelimi A.}{S\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
@@ -405,9 +378,11 @@
       \strng{namehash}{21c96521d50e44757fcf123ac89a147c}
       \strng{fullhash}{88594c17433d0c09f9cf68e5e9c45428}
       \field{sortinit}{P}
+      \field{sortinithash}{c0a4896d0e424f9ca4d7f14f2b3428e7}
       \field{labelyear}{1988}
       \field{datelabelsource}{}
-      \field{labeltitle}{Numerical recipes in {C}}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
       \field{journaltitle}{Cambridge University Press}
       \field{title}{Numerical recipes in {C}}
       \field{urlday}{21}
@@ -416,6 +391,7 @@
       \field{volume}{1}
       \field{year}{1988}
       \field{pages}{3}
+      \range{pages}{1}
       \verb{file}
       \verb [PDF] from numerical-recipes.com:/mn/fys-server-rp1/s2/gullikvk/.zotero/zotero/9dvr81pm.default/zotero/storage/EMUPJZNU/Press et al. - 1988 - Numerical recipes in C.pdf:application/pdf;Snapshot:/mn/fys-server-rp1/s2/gullikvk/.zotero/zotero/9dvr81pm.default/zotero/storage/CDU29FH7/displayAbstract.html:text/html
       \endverb
@@ -424,14 +400,6 @@
       \endverb
     \endentry
     \entry{sbalzarini_ppm_2006}{article}{}
-      \name{labelname}{6}{}{%
-        {{uniquename=0,hash=b5705414149f542d9b3c7c1c7073cdf8}{Sbalzarini}{S\bibinitperiod}{I.F.}{I\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=0216615d8927aeac6d70d87517594d8f}{Walther}{W\bibinitperiod}{J.H.}{J\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=c0a38208cfb82e63e7a2dee1d402b913}{Bergdorf}{B\bibinitperiod}{M.}{M\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=86175647d1df597fba93f2f5cfa43a54}{Hieber}{H\bibinitperiod}{S.E.}{S\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=522ba56589079ba36b5f731f619950cc}{Kotsalis}{K\bibinitperiod}{E.M.}{E\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=9c0de4778f99c2c1ac98af5b6f29670b}{Koumoutsakos}{K\bibinitperiod}{P.}{P\bibinitperiod}{}{}{}{}}%
-      }
       \name{author}{6}{}{%
         {{uniquename=0,hash=b5705414149f542d9b3c7c1c7073cdf8}{Sbalzarini}{S\bibinitperiod}{I.F.}{I\bibinitperiod}{}{}{}{}}%
         {{uniquename=0,hash=0216615d8927aeac6d70d87517594d8f}{Walther}{W\bibinitperiod}{J.H.}{J\bibinitperiod}{}{}{}{}}%
@@ -446,10 +414,12 @@
       \strng{namehash}{92e6b2afe62d7223c3cf68f8d70d251c}
       \strng{fullhash}{d0542290c3fc77988248ebfc9c6ecf7a}
       \field{sortinit}{S}
+      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
       \field{labelyear}{2006}
       \field{labelmonth}{07}
       \field{datelabelsource}{}
-      \field{labeltitle}{{PPM} – {A} highly efficient parallel particle–mesh library for the simulation of continuum systems}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
       \field{issn}{00219991}
       \field{journaltitle}{Journal of Computational Physics}
       \field{month}{07}
@@ -461,6 +431,7 @@
       \field{volume}{215}
       \field{year}{2006}
       \field{pages}{566\bibrangedash 588}
+      \range{pages}{23}
       \verb{doi}
       \verb 10.1016/j.jcp.2005.11.017
       \endverb
@@ -469,20 +440,19 @@
       \endverb
     \endentry
     \entry{shen_efficient_1994}{article}{}
-      \name{labelname}{1}{}{%
-        {{uniquename=0,hash=58f02d1fc91ed64baed927a1d852c975}{Shen}{S\bibinitperiod}{J.}{J\bibinitperiod}{}{}{}{}}%
-      }
       \name{author}{1}{}{%
         {{uniquename=0,hash=58f02d1fc91ed64baed927a1d852c975}{Shen}{S\bibinitperiod}{J.}{J\bibinitperiod}{}{}{}{}}%
       }
       \strng{namehash}{58f02d1fc91ed64baed927a1d852c975}
       \strng{fullhash}{58f02d1fc91ed64baed927a1d852c975}
       \field{sortinit}{S}
+      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
       \field{labelyear}{1994}
       \field{labelmonth}{11}
       \field{datelabelsource}{}
-      \field{labeltitle}{Efficient {Spectral}-{Galerkin} {Method} {I}. {Direct} {Solvers} of {Second}- and {Fourth}-{Order} {Equations} {Using} {Legendre} {Polynomials}}
-      \field{abstract}{This paper presents some efficient algorithms based on the Legendre–Galerkin approximations for the direct solution of the second- and fourth-order elliptic equations. The key to the efficiency of these algorithms is to construct appropriate base functions, which lead to systems with sparse matrices for the discrete variational formulations. The complexities of the algorithms are a small multiple of \$N^\{d + 1\} \$ operations for a d-dimensional domain with \$(N - 1)^d \$ unknowns, while the convergence rates of the algorithms are exponential for problems with smooth solutions. In addition, the algorithms can be effectively parallelized since the bottlenecks of the algorithms are matrix-matrix multiplications.}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This paper presents some efficient algorithms based on the Legendre–Galerkin approximations for the direct solution of the second- and fourth-order elliptic equations. The key to the efficiency of these algorithms is to construct appropriate base functions, which lead to systems with sparse matrices for the discrete variational formulations. The complexities of the algorithms are a small multiple of \$N{^}\{d + 1\} \$ operations for a d-dimensional domain with \$(N - 1){^}d \$ unknowns, while the convergence rates of the algorithms are exponential for problems with smooth solutions. In addition, the algorithms can be effectively parallelized since the bottlenecks of the algorithms are matrix-matrix multiplications.}
       \field{issn}{1064-8275}
       \field{journaltitle}{SIAM Journal on Scientific Computing}
       \field{month}{11}
@@ -494,6 +464,7 @@
       \field{volume}{15}
       \field{year}{1994}
       \field{pages}{1489\bibrangedash 1505}
+      \range{pages}{17}
       \verb{doi}
       \verb 10.1137/0915089
       \endverb
@@ -505,18 +476,17 @@
       \endverb
     \endentry
     \entry{stuben_review_2001}{article}{}
-      \name{labelname}{1}{}{%
-        {{uniquename=0,hash=0f45b08207e9d3210a5038e690578335}{Stüben}{S\bibinitperiod}{Klaus}{K\bibinitperiod}{}{}{}{}}%
-      }
       \name{author}{1}{}{%
         {{uniquename=0,hash=0f45b08207e9d3210a5038e690578335}{Stüben}{S\bibinitperiod}{Klaus}{K\bibinitperiod}{}{}{}{}}%
       }
       \strng{namehash}{0f45b08207e9d3210a5038e690578335}
       \strng{fullhash}{0f45b08207e9d3210a5038e690578335}
       \field{sortinit}{S}
+      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
       \field{labelyear}{2001}
       \field{datelabelsource}{}
-      \field{labeltitle}{A review of algebraic multigrid}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of Computational and Applied Mathematics}
       \field{number}{1}
       \field{title}{A review of algebraic multigrid}
@@ -526,6 +496,7 @@
       \field{volume}{128}
       \field{year}{2001}
       \field{pages}{281\bibrangedash 309}
+      \range{pages}{29}
       \verb{file}
       \verb [HTML] from sciencedirect.com:/mn/fys-server-rp1/s2/gullikvk/.zotero/zotero/9dvr81pm.default/zotero/storage/2HXJFWVT/S0377042700005161.html:text/html
       \endverb
@@ -534,11 +505,6 @@
       \endverb
     \endentry
     \entry{trottenberg_multigrid_2000}{book}{}
-      \name{labelname}{3}{}{%
-        {{uniquename=0,hash=114331449f25e3b7253783221adb73cc}{Trottenberg}{T\bibinitperiod}{Ulrich}{U\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=b471cabf81b0b3d2e71a565733d547eb}{Oosterlee}{O\bibinitperiod}{Cornelius\bibnamedelima W.}{C\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=d2165f57f15a0a4ba97322a38c3c9cd3}{Schuller}{S\bibinitperiod}{Anton}{A\bibinitperiod}{}{}{}{}}%
-      }
       \name{author}{3}{}{%
         {{uniquename=0,hash=114331449f25e3b7253783221adb73cc}{Trottenberg}{T\bibinitperiod}{Ulrich}{U\bibinitperiod}{}{}{}{}}%
         {{uniquename=0,hash=b471cabf81b0b3d2e71a565733d547eb}{Oosterlee}{O\bibinitperiod}{Cornelius\bibnamedelima W.}{C\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
@@ -550,9 +516,11 @@
       \strng{namehash}{331ba245e4bd1e286e2e7f877d25ea02}
       \strng{fullhash}{d2a2773cc15fae227db3b9532263fcc6}
       \field{sortinit}{T}
+      \field{sortinithash}{423d138a005a533b47e6475e39378bf2}
       \field{labelyear}{2000}
       \field{datelabelsource}{}
-      \field{labeltitle}{Multigrid}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
       \field{title}{Multigrid}
       \field{urlday}{21}
       \field{urlmonth}{04}
@@ -566,7 +534,9 @@
       \endverb
     \endentry
   \endsortlist
+  \missing{Kacem2012}
   \missing{documentation}
+  \missing{Press1987}
 \endrefsection
 \endinput
 

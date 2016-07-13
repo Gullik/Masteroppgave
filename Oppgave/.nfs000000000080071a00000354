@@ -101,70 +101,70 @@
 % \maketitle
 % \input{chapters/abstract}
 % %
-\tableofcontents
+% \tableofcontents
 % \section{To-do list}
 % \input{chapters/todo}
 % \section{Outline}
 % \input{chapters/outline}
 
-% \chapter{Introduction}
-%     \input{chapters/introduction/introduction}
-%
-% \chapter{Theoretical Background}
-%     \input{chapters/theory/plasma}
-%     \input{chapters/theory/single_particle_motion}
-%     \input{chapters/theory/fluid}
-%     \input{chapters/theory/langmuir_oscillations}
-%     \input{chapters/theory/numerical_simulations}
-%
-%
-%
+\chapter{Introduction}
+    \input{chapters/theory/plasma}
+    \input{chapters/theory/single_particle_motion}
+    \input{chapters/theory/numerical_simulations}
+
+
+
 % \chapter{Method}
-%     \input{chapters/method/nondimensionality}
-%     \input{chapters/method/PiC}
-%     \input{chapters/method/method}
-%     \input{chapters/method/grid_part}
-% %
+%   \input{chapters/method}
+%   \input{chapters/grid_part.tex}
+
 % \chapter{Implementation of MG parts}
-%     \input{chapters/implementation/MG}
-%     \input{chapters/implementation/restr_prol}
-%     \input{chapters/implementation/GS}
-%     \input{chapters/implementation/bnd_cond}
-%
+%   \input{chapters/implementation_MG}
+%   \input{chapters/implementation_restr_prol}
+%   \input{chapters/implementation_GS}
+%   \input{chapters/bnd_cond}
+% %
 % \chapter{Verification and Performance}
-%     \input{chapters/verification/langmuir_verification}
-%     \input{chapters/verification/verification}
-%     \input{chapters/verification/performance}
-
-% \chapter{Results}
-%   \input{chapters/results}
+%   \input{chapters/langmuir_oscillations}
+  % \input{chapters/verification}
+%   \input{chapters/performance}
 %
-% \chapter{Discussion}
-%   \input{chapters/discussion}
+% % \chapter{Results}
+% %   \input{chapters/results}
+% %
+% % \chapter{Discussion}
+% %   \input{chapters/discussion}
+% %
+% % \chapter{Conclusions}
+% %   \input{chapters/conclusions}
+% %
+% \appendix
+%     \input{chapters/notation}
+%   \chapter{Unittests}
+%   \input{chapters/unittests}
+% %
+% %
+% % \chapter{Discussion}
+% %   \input{chapters/discussion}
+% %
+% % \chapter{Conclusions}
+% %   \input{chapters/conclusions}
 %
-% \chapter{Conclusions}
-%   \input{chapters/conclusions}
+% \appendix
+%   \chapter{Unittests}
+%   \input{chapters/unittests}
 %
-\appendix
-\chapter{Further Development}
-    \input{chapters/appendix/further}
-
-\chapter{Notation}
-    \input{chapters/appendix/notation}
-
-\chapter{Unittests}
-    \input{chapters/appendix/unittests}
-
-\chapter{Examples}
-    \input{chapters/appendix/V_example}
-
-\chapter{Optional methods}
-    \input{chapters/appendix/alt_methods}
-\chapter{Multigrid Libraries}
-    \input{chapters/appendix/multigrid_libraries}
-
-\chapter{Code}
-    \input{chapters/appendix/code_snippets}
+%   \chapter{Examples}
+%   \input{chapters/V_example}
+%
+%
+% % \chapter{Optional methods}
+% %   \input{chapters/alt_methods}
+% \chapter{Multigrid Libraries}
+%   \input{chapters/multigrid_libraries}
+%
+% \chapter{Code}
+%   \input{chapters/code_snippets}
 
 
 % \newpage

@@ -10,7 +10,10 @@
 	\end{align}
 	To simplify matters we will only consider particles in static electromagnetic field,
 	as that is often a valid approximation on the time and spatial scales particle gyration
-	operates on.
+	operates on. There several other types of drift, and motions, that appear in various configurations,
+	that we will not go through here, i.e. gradient-B drift, curvature drift, polarization drift and magnetic mirror
+	to mention a few.
+
 
 	\subsection{Gyration}
 		\label{sec:gyration}
@@ -19,7 +22,7 @@
 		The equation of motion for the particle will is then
 
 		\begin{align}
-			m\pdv{v}{t} &= q\vb{v}\cross\vb{B} \label{eq:simple_gyration}
+			m\pdv{\vb{v}}{t} &= q\vb{v}\cross\vb{B} \label{eq:simple_gyration}
 			\intertext{The velocity parallel to the magnetic field is unaffected by the field. So we will
 			seperate the velocity into a parallel and perpendicular velocity with respect to the magnetic field,
 			\(\vb{v}=\vb{v}_\parallel + \vb{v}_\perp\). Then we remove the uninteresting parallel part and we
@@ -55,7 +58,7 @@
 
 
 	The parallel velocity is unaffected by the magnetic field and has uninteresting
-	solutions only involving the electric field. From \cref{sec:gyration} we know that the gyration
+	solutions involving only the electric field. From \cref{sec:gyration} we know that the gyration
 	part is given by
 
 	\begin{align}
