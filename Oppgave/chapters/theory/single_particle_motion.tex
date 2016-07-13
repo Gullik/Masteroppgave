@@ -1,72 +1,80 @@
 \section{Single Particle Motion}
+	To better understand the collective motion of plasma it is useful to consider
+	the motions of the single particles that the plasma consists of. By at first
+	treating only one particle we can ignore the electromagnetic influence from
+	the other particles which greatly simplifies the situation. The Lorentz
+	term is often the dominant force in a plasma due to it's relative strength
+ 	compared to gravity and other forces.
+ 	\begin{align}
+		\vb{F} = q\left(\vb{E} + \vb{v}\cross\vb{B}\right)
+	\end{align}
+	To simplify matters we will only consider particles in static electromagnetic field,
+	as that is often a valid approximation on the time and spatial scales particle gyration
+	operates on.
 
-\subsubsection{E cross B drift}
-To find the theoretical drift we first decompose the velocity into a parallel and perpendicular velocity, $\va{v}_\parallel $ and $\va{v}_\perp $. In addition we assume there exists a constant drift, \(\va{v}_D\), so we can seperate the perpendicular velocity into the drift and the gyration velocity, \(\va{\omega}_\perp\). In total the velocity is seperated into the following
+	\subsection{Gyration}
+		\label{sec:gyration}
+		Let us consider a situation with a single particle in a static and isotropic external
+ 		magnetic field \(\vb{B}\) and the particle has an initial velocity \(\vb{v}\).
+		The equation of motion for the particle will is then
 
-\[ \va{v} \rightarrow \va{v}_\parallel + \va{\omega}_\perp + \va{v}_D \]
+		\begin{align}
+			m\pdv{v}{t} &= q\vb{v}\cross\vb{B} \label{eq:simple_gyration}
+			\intertext{The velocity parallel to the magnetic field is unaffected by the field. So we will
+			seperate the velocity into a parallel and perpendicular velocity with respect to the magnetic field,
+			\(\vb{v}=\vb{v}_\parallel + \vb{v}_\perp\). Then we remove the uninteresting parallel part and we
+			do a temporal derivative on the equation of motion.}
+			\pdv[2]{\vb{v}_\perp}{t} &= \frac{q}{m} \pdv{\vb{v}_\perp}{t}\cross \vb{B}
+			\intertext{Then we insert \cref{eq:simple_gyration} into the equation and use the vector relation
+			\( a\cross b\cross c = b(a\cdot b) - c(a\cdot b) \).}
+			\pdv[2]{\vb{v_\perp}}{t} + \left(\frac{qB}{m}\right)^2\vb{v}_\perp &= 0
+		\end{align}
 
-which gives the following equation of motion
+		This differential equation corresponds to a gyration around the magnetic field lines
+		with the plasma frequency, \(\omega_p = \frac{qB}{m}\), as the frequency. From here on
+		we will use the term \(\vb{\omega}_\perp\) to refer to the gyration part of the velocity described here.
 
-\begin{align}
-     \pdv{}{t}\left( \va{v}_\parallel + \va{\omega}_\perp + \va{v}_D\right) &= \frac{q}{m} \left( \va{E} +   \left( \va{v}_\parallel + \va{\omega}_\perp + \va{v}_D \right)  \cross \va{B}_0 \right)
-\end{align}
+	\subsection{E-cross-B Drift}
+	The E-cross-B drift happens when a particle is moving with static and isotropic
+	electric and magnetic fields. The equation of motion is then
 
-The parallel velocity is unaffected by the magnetic field
+	\begin{align}
+		m\pdv{v}{t} &= q(\vb{E} + \vb{v}\cross\vb{B}) \label{eq:EcrossB}
+	\end{align}
+	As in the previous section we decompose the velocity into a parallel and perpendicular
+ 	velocity. We also assume there exists a constant drift \(\vb{v}_D\), somewhat unfounded at this stage,
+	so that we can seperate the perpendicular motion into the drift and the gyration.
+	The velocity is then given by \(\va{v} = \va{v}_\parallel + \va{\omega}_\perp + \va{v}_D\),
+	and we insert this into the equation of motion.
 
-\begin{align}
-      \pdv{v_\parallel}{t} &= \frac{q}{m} E_\parallel
-      \\
-      v_\parallel &= \frac{q}{m} E_\parallel t
-\end{align}
+	\begin{align}
+		m\pdv{}{t}\left( \va{v}_\parallel + \va{\omega}_\perp + \va{v}_D\right) &=
+		q \left( \va{E} +   \left( \va{v}_\parallel + \va{\omega}_\perp +
+		\va{v}_D \right)  \cross \va{B}_0 \right)
+	\end{align}
 
-Then we handle the gyration velocity
-\begin{align}
-      \pdv{\va{\omega}_\perp}{t} &= \frac{q}{m}\va{\omega}_\perp \cross \va{B}_0        \label{eq:gyro_vel_1}
-      \intertext{Let us do a temporal derivative}
-      \pdv[2]{\omega_\perp}{t} &= \frac{q}{m} \left(\pdv{\omega_\perp}{t} \cross \va{B}_0\right)
-      \intertext{Let us then substitute \cref{eq:gyro_vel_1} into the equation to obtain }
-      \pdv[2]{\omega_\perp}{t} &= \frac{q}{m} \left(\frac{q}{m} \va{\omega}_\perp \cross \va{B}_0 \right)  \cross \va{B}_0
-      \intertext{Then we use the vector relation \(a\cross b \cross c = b(a\cdot c) - c(a\cdot b)\) to get}
-      \pdv[2]{\va{\omega}_\perp}{t} + \omega_c ^2 \va{\omega}_\perp&= 0
-      \intertext{where \( \omega_c = \frac{q B_0}{m} \). Using that the gyration velocity magnitude is \(v_x^2 + v_y^2 = |\va{\omega}_\perp| = \omega_\perp\) a solution for this differential equation is}
-      \va{\omega}_\perp(t) &=
-            \begin{pmatrix}
-                  \omega_\perp \cos(\frac{qB_0}{m}t + \theta)
-                  \\
-                  -\omega_\perp \sin(\frac{qB_0}{m}t + \theta)
-                  \\
-                  0
-            \end{pmatrix}
-      \intertext{where \(\theta\) the phase of the gyration we are starting at.}
-\end{align}
 
-\noindent Since we assumed that the drift was constant we set the time derivative to 0 when solving for the drift.
+	The parallel velocity is unaffected by the magnetic field and has uninteresting
+	solutions only involving the electric field. From \cref{sec:gyration} we know that the gyration
+	part is given by
 
-\begin{align}
-      0 &= \frac{q}{m} \left(\va{E}_\perp +  \va{v}_D \cross \va{B}_0\right)
-      \intertext{Then we cross the equation with \(\va{B}_0\) and use the same vector identity as earlier to obtain}
-      \va{B}_0 \cross  \left(\va{v}_D \cross \va{B}_0 \right) &= \va{B}_0 \cross (- \va{E}_\perp)
-      \\
-      \va{v}_D &= \frac{\va{E}_\perp \cross \va{B}_0}{B_0^2} = \frac{1}{B_0}
-      \begin{pmatrix}
-      E_y \\ -E_x \\ 0
-      \end{pmatrix}
-\end{align}
+	\begin{align}
+		m\pdv{\vb{\omega}_\perp}{t} &= q\vb{\vb{\omega}_\perp}\cross\vb{B}
+	\end{align}
 
-The complete solution for the velocity is then, if we only take the case where \( v_z = E_z = 0 \) for simplicity
+	When we take out these two parts we have left the drift velocity
 
-\begin{align}
-      v_x (t) &= \omega_\perp \cos(\frac{qB_0}{m}t + \theta) + \frac{E_y}{B_0}      \label{eq:vx}
-      \\
-      v_y (t) &= -\omega_\perp \sin(\frac{qB_0}{m}t + \theta) - \frac{E_x}{B_0}     \label{eq:vy}
-\end{align}
+	\begin{align}
+		\pdv{\va{v}_D}{t} &= \frac{q}{m} \left( \va{E}_\perp + \va{v}_D \cross \va{B} \right)
+	\end{align}
 
-Then by integrating we obtain the position of the particle
+	Then we use the assumption that the drift velocity is constant, cross the equation
+ 	with \(\vb{B}\) and perform some algebra to arrive at
 
-\begin{align}
-      x(t) &= x_c + \rho_c \sin(\frac{qB_0}{m}t + \theta) + \frac{E_y}{B_0}t
-      \\
-      y(t) &= y_c + \rho_c \cos(\frac{qB_0}{m}t + \theta) - \frac{E_x}{B_0}t
-\end{align}
+	\begin{align}
+		\vb{v}_D &= \frac{\vb{E}\cross\vb{B}}{B^2}
+	\end{align}
 
-\noindent where \(x_c\) and $y_c$ is initial position of the guiding center.
+	As we can see the E-cross-B drift is independent of particle charge and mass,
+	which means both the ions and electrons will be drifting at the same velocity
+	subject to the drift which will be perpendicular to electric and magnetic fields.

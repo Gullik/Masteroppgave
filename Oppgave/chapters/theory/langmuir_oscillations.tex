@@ -1,35 +1,37 @@
+\section{Langmuir Oscillations}
+	\label{sec:langmuir}
+	Here we will consider an one specie plasma fluid consisting of electrons under local thermal equilibrium, LTE.
+	The electron density, \(n_0\) and pressure \(p_0\) is initally homogenous.
+ 	The fluid has a vanishing flow, \(\va{u}_0 = 0\), and the electric field \(\vb{E}_0=0\).
+ 	See one of the books mentioned in \cref{sec:plasma} for a more thorough overview.
 
-\section{Electron plasma oscillations in unmagnetized plasma}
-	\subsection{Physical mechanism}
-	\label{sec:elec_plasma}
-	Here we will consider an electron fluid under local thermal equilibrium, LTE,
-	experiencing small perturbations from an equilibrium state of an homogeneous
-	electron density, \(n_0\), and pressure, \(p_0\), and vanishing flow, \(\va{u}_0 = 0\),
-	and electric field, \(\va{E}_0 = 0 \). See \citet{goldston_introduction_1995} for a more thorough overview.
+	A small perturbation of the electron density will cause the electric field
+	to try to restore the equilibrium. When the electrons reach the equilibrium
+	position they will have a kinetic energy and will overshoot.This will cause
+	a new perturbation away from the equilibrium. This phenomen is called Langmuir
+	oscillations.
 
-	The small perturbation of the electron density will cause an electric field electric
-	field working to restore the equilibrium. When the electrons reach the equilibrium
-	position they have a kinetic energy and will overshoot causing a new perturbation
-	away from the equilibrium.
-
-	The fluid is governed by the following equations:
+	Under the LTE conditions the fluid equations simplify to
 
 	\begin{subequations}
-	  \begin{equation}
-	    \pdv{n_e}{t} + \nabla \cdot (n_e \va{u}_e) = 0
-	  \end{equation}
-	  \begin{equation}
-	    m_en_e\left( \pdv{}{t} + \va{u}_e \cdot \nabla \right)\va{u}_e = e n_e \nabla \phi - \nabla p_e
-	  \end{equation}
-	  \begin{equation}
-	    \left( \pdv{}{t} + \va{u}_e \cdot \nabla \right) p_e + \frac{5}{3} p_e\nabla \cdot \va{u}_e = 0
-	  \end{equation}
-	  \begin{equation}
-	    \epsilon_0 \nabla^2 \phi = e\left( n_e - n_0 \right)
-	  \end{equation}
+		\begin{equation}
+		\pdv{n_e}{t} + \nabla \cdot (n_e \va{u}_e) = 0
+		\end{equation}
+		\begin{equation}
+		m_en_e\left( \pdv{}{t} + \va{u}_e \cdot \nabla \right)\va{u}_e = e n_e \nabla \phi - \nabla p_e
+		\end{equation}
+		\begin{equation}
+		\left( \pdv{}{t} + \va{u}_e \cdot \nabla \right) p_e + \frac{5}{3} p_e\nabla \cdot \va{u}_e = 0
+		\end{equation}
 	\end{subequations}
+	Since this set of equations have more unknowns than equations so we need additional information
+	to close the set. Here we can use the Poisson equation to close it.
+	\begin{equation}
+	\epsilon_0 \nabla^2 \phi = e\left( n_e - n_0 \right)
+	\end{equation}
 
-	Assuming the small perturbation to the equilibrium.
+	Now we let a small perturbation happen to the equilibrium.
+
 	\begin{equation*}
 	\text{Perturbation} \rightarrow
 	\begin{cases}
@@ -40,44 +42,49 @@
 	\end{cases}
 	\end{equation*}
 
-	Inserting the perturbation and linearizing the equations we get:
+	Since the pertubation is small, we can say that any part that contains
+	second order terms of perturbation of a quantity will be much smaller than the value
+	of the quantity, \(q \ll\tilde q \tilde q\). So even though we may miss some processes
+	by doing this we can drop the second order perturbation terms.
+	This process is called linearization.
+
+	So inserting the perturbation and linearizing the equations we get:
 
 	\begin{subequations}
 	  \begin{equation}
-	    \pdv{\tilde{n}_e}{t} + \nabla \cdot (n_0 \tilde{\va{u}}_e) = 0 \label{eq:continuity}
+	    \pdv{\tilde{n}_e}{t} + \nabla \cdot (n_0 \tilde{\va{u}}_e) = 0 \label{eq:langmuir_continuity}
 	  \end{equation}
 	  \begin{equation}
 	    m_e \pdv{\tilde{\va{u}}_e}{t}  = e  \nabla \tilde{ \phi} - \frac{\nabla \tilde{p}_e}{n_0}
 	  \end{equation}
 	  \begin{equation}
-	     \pdv{\tilde{p}}{t} +\frac{5}{3}p_0 \nabla \cdot \tilde{\va{u}}_e = 0 \label{eq:energy}
+	     \pdv{\tilde{p}}{t} +\frac{5}{3}p_0 \nabla \cdot \tilde{\va{u}}_e = 0 \label{eq:langmuir_energy}
 	  \end{equation}
 	  \begin{equation}
 	    \epsilon_0 \nabla^2 \tilde{\phi} = e\tilde{n}_e
 	  \end{equation}
 	\end{subequations}
 
-	Then we combine the continuity and energy equations, \cref{eq:continuity} and \cref{eq:energy}.
+	Then we combine the continuity and energy equations, \cref{eq:langmuir_continuity} and \cref{eq:langmuir_energy}.
 
 	\begin{align}
 	\pdv{}{t}\left( \frac{\tilde{p}_e}{p_0} + \frac{5}{3} \frac{\tilde{n}_e}{n_0} \right) &= 0
 	\end{align}
 
 	The perturbed pressure and density is proportional, \(\nabla \tilde{p}_e = \left(5p_0/3n_0\right)\nabla \tilde{n}_e\).
-	Assuming plane wave solutions along the x-axis, so the differential operators become \(\nabla \rightarrow ik\)
+	Assuming plane wave solutions along the x-axis, the differential operators become \(\nabla \rightarrow ik\)
  	and \(\pdv{}{t} \rightarrow -i\omega\), we can solve for the dispersion relation.
 
 	\begin{align}
 	\epsilon(\omega, k) = 1 + \frac{5}{3} \lambda_{se}^2k ^2 -  \frac{\omega^2}{\omega_{pe}^2}
 	\end{align}
 
-	Here we have subsituted in the electron debye length \(\lambda_{se} = (\epsilon_0  p_0) / (e^2 n_0^2)\),
-	and the electron plasma frequency \(\omega_{pe} = e^2n_0 \)
+	Here we have subsituted in the electron debye length \(\lambda_{D}\) and the plasma frequency \(\omega_{p}\).
 
-	\subsection{Test Case}
-	As a test of the validity of our PiC program, we can use the langmuir wave
-	oscillation. This test is inspired by a case set up in \citet{birdsall_plasma_2004},
-	and modified to fit with our normalization and discretizations.
+	(NOTE TO SELF: NEED TO GET TO expression for charge density time evolution)
+
+
+
 
 
 

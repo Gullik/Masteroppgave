@@ -1,0 +1,79 @@
+\section{Fluid Description}
+\subsection{Fluid Equations}
+	\label{sec:fluid}
+	The generalized fluid equations is given in \cref{eq:continuity,eq:momentum,eq:pressure}, where the three equations
+	describe the conservation of mass, momentum and energy respectively. We refer you to the earlier mentioned
+	\textit{\citetitle{fitzpatrick_plasma_2014}} for the rather involved derivation to obtain them.
+	The symbols \(n_s\), \(\vb{u}_s\), \(p_s\), \(\vb{p}_s\) , \(\vb{F}_s\) and \(\mathcal{W}_s\) stands respectively for
+	the specie specific; number density, averaged velocity, scalar pressure, pressure tensor, force and energy.
+
+	\begin{align}
+		\left( \pdv{n_s}{t} + \vb{u}_s\cdot\nabla \right)n_s + n_s\nabla\cdot \vb{u}_s&=0
+		\label{eq:continuity}
+		\\
+		m_sn_s\left( \pdv{t} + \vb{u}_s \cdot \nabla \right)\vb{u}_s + \nabla\cdot p_s - e_s n_s\left(\vb{E} + \vb{e}_s\cross{\vb{B}}\right) &= \vb{F}_s
+		\label{eq:momentum}
+		\\
+		\frac{3}{2}\left( \pdv{t} + \vb{u_s} \cdot \nabla \right)p_s + \frac{3}{2} p_s\nabla \cdot u_s + \vb{p}_s : \nabla{\vb{u_s}} + &=\mathcal{W}_s
+		\label{eq:pressure}
+	\end{align}
+
+\subsection{Plasma States}
+	It is usual to classify plasma into different states according to which
+	approximations and simplifications it is valid to apply to close the fluid equations in \cref{sec:fluid}.
+
+	\subsubsection{Local Thermodynamic Equilibrium}
+	A plasma is said to be in a \textit{local thermodynamic equalibrium} (LTE)
+	if the phase-space distribution is locally maxwellian.
+
+	\begin{align}
+		\mathcal{F}_m = \frac{n}{(2\pi )^{3/2}v_t^3} \exp{-\frac{(v-u)^2}{2v_t^2}}
+	\end{align}
+
+	Since the viscosity tensor, \(\vb{\pi}\), and the heat flux tensor, \(\vb{q}\)
+	contains odd integrals over the distribution, \textit{\citetitle[see][]{fitzpatrick_plasma_2014}},
+	they dissappear. This simplifies the fluid equations.
+
+
+	\subsubsection{Cold Plasma}
+
+	\subsubsection{Isothermal}
+
+\subsection{Plasma Kinetic Theory}
+	Another useful way to make analyze plasma is by the use of fluid approximations.
+	The plasma is then characterized by local parameters describing particle
+	density, kinetic temperature, flow velocity and so on. The time evolution
+	is then governed by the fluid equation, but unfortunately the resulting
+	equations are generally less tractable than the usual hydrodynamical
+	equations.
+
+	Let \(\mathcal{F}_s\) be the exact phase-space density of a particle species,
+	it contains all the positions, velocities for all the particles at
+	all times. By integrating over all velocities and multiplying with the charge
+	for all species we obtain the charge density, \(\rho_c\).
+
+	\[\rho_c = \sum_s e_s \int \mathcal{F}_s(\vb{r},\vb{v},t)\dd[3]{\vb{v}}\]
+
+	Likewise we find he current density, \(\vb{j}\).
+
+	\[\vb{j} = \sum_s e_s \int \vb{v}\mathcal{F}_s(\vb{r},\vb{v},t)\dd[3]{\vb{v}}\]
+
+	Then in principle all plasma interaction could be derived from phase-space
+	conservation, combined with the Lorentz force as the only relevant force,
+
+	\begin{align}
+		\pdv{\mathcal{F}}{t} + \vb{v}\cdot\nabla\mathcal{F}_s + \frac{e_s}{m_s}\left( \vb{E} + v\cross\vb{B} \right) \cdot \nabla_v\mathcal{F}_s = 0 \label{eq:vlasov}
+	\end{align}
+
+	where \(\nabla_v\) is the velocity grad-operator.
+	Unfortunately this expression, combined with Maxwells equations, is in general
+	not tractable. To simplify matters we can average over an ensemble to obtain the
+	average distribution function \(\mathcal{\bar{F}}_s\),
+	\[\mathcal{\bar{F}}_s \equiv \left< \mathcal{F}_s\right>_{ensemble}\].
+
+	The averaged distribution is then used in \cref{eq:vlasov} to make it more tractable.
+	The electric, \(\vb{E}\), and magnetic fields, \(\vb{B}\), is statistically
+	dependent of the distribution function and this leads to correlations when
+	using the averaged distribution. We will not go into those here, so see
+	\textit{\citetitle{fitzpatrick_plasma_2014}}\citep{fitzpatrick_plasma_2014}
+	for a treatment of it.
