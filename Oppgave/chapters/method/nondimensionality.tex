@@ -25,7 +25,7 @@
     and then back to the original after the simulation has run.
 
     \subsection{Non-dimensionality PinC}
-        A good strategy to remove the dimensionality of the equations is to first remove
+        A good dimensionalizing strategy is to first remove
         dimensionality from the fundamental quantities, and then work out the
         normalizations necessary for the derived quantities.
 
@@ -35,14 +35,51 @@
         The normalized quantities are then:
 
         \begin{subequations}
-        \begin{equation}
-            \tilde{\vb{r} }= \frac{\vb{r}}{\lambda_D}
-        \end{equation}
-        \begin{equation}
-            \tilde {t} = \omega_{pe}t
-        \end{equation}
-    \end{subequations}
+	        \begin{equation}
+	            \tilde{\vb{r} }= \frac{\vb{r}}{\lambda_D} \label{eq:pos_nondim}
+	        \end{equation}
+	        \begin{equation}
+	            \tilde {t} = \omega_{pe} t	\label{eq:time_nondim}
+	        \end{equation}
+			\begin{equation}
+				\tilde m = \frac{m}{m_e}	\label{eq:mass_nondim}
+			\end{equation}
+			\begin{equation}
+				\tilde q = \frac{q}{e}	\label{eq:charge_nondim}
+			\end{equation}
+    	\end{subequations}
 
+		Next we need the velocity, which is the temporal derivative of
+		the position. This is normalized by transforming the position to the
+		nondimensional position, by \cref{eq:pos_nondim}, as well as changing the temporal derivative
+		to a nondimensional temporal, by \cref{eq:time_nondim}.
+
+		\begin{equation}
+			\pdv{\vb{r}}{t} = v \quad \rightarrow  \quad \pdv{\tilde{\vb{r}}}{\tilde t} = \tilde{\vb{v}} = \lambda_{De} \omega_{pe} \vb{v}
+		\end{equation}
+
+		Now we will use the equation of motion to normalize the electromagnetic fields.
+
+ 		\begin{equation}
+ 			\pdv{\vb{v}}{t} = \frac{q}{m}\left( \vb{E} + \vb{v}\cross \vb{B} \right)
+ 		\end{equation}
+
+		Swapping in all the nondimensional values from \cref{eq:pos_nondim,eq:time_nondim,eq:mass_nondim,eq:charge_nondim}
+		we obtain
+
+		\begin{equation}
+			\pdv{(\tilde{\vb{v}}/(\lambda_{De} \omega_{pe}))}{(\tilde{t}/\omega_{pe})} =
+			\frac{e\tilde{q}}{m_e\tilde{m}} \left(\vb{E} +  (\tilde{\vb{v}}/(\lambda_{De} \omega_{pe}))\cross \vb{B}\right)
+		\end{equation}
+		\begin{equation}
+			\pdv{\tilde{\vb{v}}}{\tilde{t}} =\frac{\tilde q}{\tilde m} \left(
+ 			\frac{\lambda_{De}  e}{m_e}\vb{E}
+			+ \vb{\tilde v} \cross \frac{\lambda_{De}  e}{m_e \lambda_{De}\omega_{pe}}\vb{B} \right)
+		\end{equation}
+
+		Check equation against dimensionalizing chart...
+
+		
 
     \subsection{Normalization PinC}
         It should be mentioned that the normalization scheme for PinC was mostly worked
