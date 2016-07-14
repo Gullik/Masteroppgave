@@ -1,14 +1,23 @@
 \section{Plasma}
 	\label{sec:plasma}
-    If you, the reader, is already familiar with plasma physics this section could serve as
-    as a quick reminder about important basic plasma theory. Or it could hopefully
-    serve as a too short and shallow introduction, to the uninitatied reader,
-    of the knowledge needed to make sense of the numerical experiments in this
-    thesis. For a more thorough introduction the books \textit{\citetitle{fitzpatrick_plasma_2014}}
+	This section presents a short overview of basic plasma theory, it can serve as a
+	quick reminder if already familiar with the subject, or hopefully provide enough
+	background to understand the numerical simulations in this work.
+    % If you, the reader, is already familiar with plasma physics this section could serve as
+    % as a quick reminder about important basic plasma theory. Or it could hopefully
+    % serve as a too short and shallow introduction, to the uninitatied reader,
+    % of the knowledge needed to make sense of the numerical experiments in this
+    % thesis.
+	For a more thorough introduction the books \textit{\citetitle{fitzpatrick_plasma_2014}}
     \citep{fitzpatrick_plasma_2014}, \textit{\citetitle{goldston_introduction_1995}} \citep{goldston_introduction_1995},
-    \textit{\citetitle{pecseli_waves_2012}} \citep{pecseli_waves_2012} and the classic
+    \textit{\citetitle{pecseli_waves_2012}} \citep{pecseli_waves_2012} or the classic
     \textit{\citetitle{chen_introduction_1984}} \citep{chen_introduction_1984} can be consulted.
 
+	Plasma is the forth, lesser known, state of matter. It is similar to a gas
+	in the the particles are free to move, but it has the key distinction that
+	a proportion of its constituent particles are electrically charged. This
+	causes the particles to be subject to the Lorentz force, \cref{eq:lorentz}, which drastically
+	changes the behaviour of the gas.
 
     \begin{itemize}
         \item What
@@ -18,12 +27,14 @@
 
     \subsection{Plasma Parameters}
 		\label{sec:parameters}
+		Characteristic scales help us
+
         Let us first consider an idealized plasma, with approximately equal number
         of ions and electrons. Each of the species has mass \(m_s\), where the
         subscript signifies specie, and respectively charge \(-e, \; +e\). Then we let the plasma be in a quasi-neutral state
         so the number density, \(n\), is apprimately equal, \(n_i\approx n_e = n\).
         Now let's introduce the concept of kinetic temperature \(T_s\), i.e. the random
-        motion part of the kinetic energy.
+        motion of the kinetic energy.
 
         \[T_s \equiv \frac{1}{3}m_s \left< v_s^2 \right> \]
 
@@ -51,7 +62,7 @@
         a typical length scale, \(L\), and time scale, \(\tau\), larger than the Debye length and plasma
         period respectively.
 
-        \[\frac{\lambda_D}{L} \ll 1  \qquad{;} \qquad \frac{\tau_p}{\tau} \ll 1 \]
+        \[\frac{\lambda_D}{L} \ll 1  \qquad{} \qquad \frac{\tau_p}{\tau} \ll 1 \]
 
 
 

@@ -3,10 +3,11 @@
 	the motions of the single particles that the plasma consists of. By at first
 	treating only one particle we can ignore the electromagnetic influence from
 	the other particles which greatly simplifies the situation. The Lorentz
-	term is often the dominant force in a plasma due to it's relative strength
+	force, \(\vb{F}_L = q\left(\vb{E} + \vb{v} \cross \vb{B} \right)\), (Check which terms need an introduction) is often
+	the dominant force in a plasma due to it's relative strength
  	compared to gravity and other forces.
  	\begin{align}
-		\vb{F} = q\left(\vb{E} + \vb{v}\cross\vb{B}\right)
+		\vb{F} = q\left(\vb{E} + \vb{v}\cross\vb{B}\right) \label{eq:lorentz}
 	\end{align}
 	To simplify matters we will only consider particles in static electromagnetic field,
 	as that is often a valid approximation on the time and spatial scales particle gyration
@@ -18,32 +19,37 @@
 	\subsection{Gyration}
 		\label{sec:gyration}
 		Let us consider a situation with a single particle in a static and isotropic external
- 		magnetic field \(\vb{B}\) and the particle has an initial velocity \(\vb{v}\).
+ 		magnetic field \(\vb{B}\), with initial velocity \(\vb{v}\).
 		The equation of motion for the particle will is then
 
 		\begin{align}
 			m\pdv{\vb{v}}{t} &= q\vb{v}\cross\vb{B} \label{eq:simple_gyration}
 			\intertext{The velocity parallel to the magnetic field is unaffected by the field. So we will
 			seperate the velocity into a parallel and perpendicular velocity with respect to the magnetic field,
-			\(\vb{v}=\vb{v}_\parallel + \vb{v}_\perp\). Then we remove the uninteresting parallel part and we
-			do a temporal derivative on the equation of motion.}
+			\(\vb{v}=\vb{v}_\parallel + \vb{v}_\perp\). The parallel motion is fully described by
+			\(\pdv{\vb{v}_\parallel}{t} = \frac{q}{m}\vb{E_\parallel}\).
+			We remove the parallel part and perform temporal derivative on the equation of motion to get }
 			\pdv[2]{\vb{v}_\perp}{t} &= \frac{q}{m} \pdv{\vb{v}_\perp}{t}\cross \vb{B}
 			\intertext{Then we insert \cref{eq:simple_gyration} into the equation and use the vector relation
 			\( a\cross b\cross c = b(a\cdot b) - c(a\cdot b) \).}
-			\pdv[2]{\vb{v_\perp}}{t} + \left(\frac{qB}{m}\right)^2\vb{v}_\perp &= 0
+			\pdv[2]{\vb{\omega}_\perp}{t} + \left(\frac{qB}{m}\right)^2\vb{\omega}_\perp &= 0
 		\end{align}
 
 		This differential equation corresponds to a gyration around the magnetic field lines
-		with the plasma frequency, \(\omega_p = \frac{qB}{m}\), as the frequency. From here on
-		we will use the term \(\vb{\omega}_\perp\) to refer to the gyration part of the velocity described here.
+		with the gyration frequency, \(\omega_c = \frac{qB}{m}\), as the frequency.
+		In the last equation we also changed the term describing the rotational motion
+		to \(\vb{\omega}_\perp\), which is often used in plasma literature to
+		signify gyration.
 
 	\subsection{E-cross-B Drift}
-	The E-cross-B drift happens when a particle is moving with static and isotropic
-	electric and magnetic fields. The equation of motion is then
+	The E-cross-B drift happens when a particle is moving within static and isotrop
+	electric and magnetic fields. The equation of motion, neglecting all forces
+	except the electromagnetic, is then
 
 	\begin{align}
 		m\pdv{v}{t} &= q(\vb{E} + \vb{v}\cross\vb{B}) \label{eq:EcrossB}
 	\end{align}
+
 	As in the previous section we decompose the velocity into a parallel and perpendicular
  	velocity. We also assume there exists a constant drift \(\vb{v}_D\), somewhat unfounded at this stage,
 	so that we can seperate the perpendicular motion into the drift and the gyration.
@@ -57,22 +63,22 @@
 	\end{align}
 
 
-	The parallel velocity is unaffected by the magnetic field and has uninteresting
-	solutions involving only the electric field. From \cref{sec:gyration} we know that the gyration
+	As before the parallel velocity is unaffected by the magnetic field we subtract
+	it from the equation. From \cref{sec:gyration} we know that the gyration
 	part is given by
 
 	\begin{align}
 		m\pdv{\vb{\omega}_\perp}{t} &= q\vb{\vb{\omega}_\perp}\cross\vb{B}
 	\end{align}
 
-	When we take out these two parts we have left the drift velocity
+	After we have subtracted these two parts we are left with
 
 	\begin{align}
 		\pdv{\va{v}_D}{t} &= \frac{q}{m} \left( \va{E}_\perp + \va{v}_D \cross \va{B} \right)
 	\end{align}
 
-	Then we use the assumption that the drift velocity is constant, cross the equation
- 	with \(\vb{B}\) and perform some algebra to arrive at
+	Then we use the previous assumption that the drift velocity is constant,
+	cross the equation with \(\vb{B}\) and perform some algebra to arrive at
 
 	\begin{align}
 		\vb{v}_D &= \frac{\vb{E}\cross\vb{B}}{B^2}

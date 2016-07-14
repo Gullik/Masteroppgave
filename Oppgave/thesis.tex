@@ -9,93 +9,12 @@
 
 
 \documentclass[x11names,twoside,english]{uiofysmaster}
-% \documentclass[x11names]{article}
-\usepackage{tikz}
-\usepackage{physics}
-\usepackage{amssymb}
-\usepackage{ulem}
-\usepackage{cleveref}
-\usepackage{mathtools}
-% \usepackage{subfigure}
-% \usepackage{enumitem}
 
-
-\usepackage{graphicx}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage{pifont}
-\usepackage[utf8]{inputenc}
-% \usepackage{natbib}
-% \usepackage{usebib}
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%	New Commands
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \newcommand*\circled[1]{\tikz[baseline=(C.base)]\node[draw,circle,inner sep=1.2pt,line width=0.2mm,](C) {\small #1};\!}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Tikz settings
-\usetikzlibrary{shapes,arrows,chains}
-% =================================================
-% Set up a few colours
-\colorlet{lcfree}{Green3}
-\colorlet{lcnorm}{Blue3}
-\colorlet{lccong}{Red3}
-% -------------------------------------------------
-% Set up a new layer for the debugging marks, and make sure it is on
-% top
-\pgfdeclarelayer{marx}
-% \pgfsetlayers{main,marx}
-% A macro for marking coordinates (specific to the coordinate naming
-% scheme used here). Swap the following 2 definitions to deactivate
-% marks.
-\providecommand{\cmark}[2][]{%
-  \begin{pgfonlayer}{marx}
-    \node [nmark] at (c#2#1) {#2};
-  \end{pgfonlayer}{marx}
-  }
-\providecommand{\cmark}[2][]{\relax}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %% references
-\usepackage[style=authoryear,
-            bibstyle=authoryear,
-            backend=biber,
-            % refsection=chapter,
-            maxbibnames=99,
-            maxnames=2,
-            firstinits=true,
-            uniquename=init,
-            natbib=true,
-            dashed=false]{biblatex}
-
-%Fix citetitle style
-\DeclareFieldFormat*{citetitle}{#1}
-
-% \addbibresource{bibs/bibliography.bib}
-% \addbibresource{bibs/extra.bib}
-\addbibresource{bibs/bibliography.bib}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\bibliography{references}
-
+\input{preamble}
 
 \author{Gullik Vetvik Killie}
 \title{Plasmastuffs}
 \date{June 2015}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%	Document starts here
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%   Remember to change back to uiofysmaster on laptop
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 % \maketitle
@@ -110,20 +29,20 @@
 % \chapter{Introduction}
 %     \input{chapters/introduction/introduction}
 
-% \chapter{Theoretical Background}
-%     \input{chapters/theory/plasma}
-%     \input{chapters/theory/single_particle_motion}
-%     \input{chapters/theory/fluid}
-%     \input{chapters/theory/langmuir_oscillations}
-%     \input{chapters/theory/numerical_simulations}
+\chapter{Theoretical Background}
+    \input{chapters/theory/plasma}
+    \input{chapters/theory/single_particle_motion}
+    \input{chapters/theory/fluid}
+    \input{chapters/theory/langmuir_oscillations}
+    \input{chapters/theory/numerical_simulations}
 %
-\chapter{Method}
+% \chapter{Method}
 %     \input{chapters/method/PiC}
-    \input{chapters/method/nondimensionality}
+    % \input{chapters/method/nondimensionality}
 %     \input{chapters/method/method}
 %     \input{chapters/method/grid_part}
-% %
-% \chapter{Implementation of MG parts}
+%
+% \chapter{Implementation}
 %     \input{chapters/implementation/MG}
 %     \input{chapters/implementation/restr_prol}
 %     \input{chapters/implementation/GS}
