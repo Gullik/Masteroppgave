@@ -7,6 +7,8 @@
 	to make the fluid equations closable.
 
 \subsection{Plasma Kinetic Theory}
+	(NOTE TO SELF: THIS WAS MAYBE A HUGE WASTE OF TIME, TO MUCH DETAIL. AND TO LITTLE
+	TO BE SENSIBLE)
 
 	To investigate plasma as a fluid we have to make certain fluid approximations.
 	The plasma is then characterized by local parameters describing particle
@@ -29,8 +31,7 @@
 	Then its seems we can derive all plasma interaction from considering
 	the conservation of the phase-space density, coupled with Maxwells equations.
 	The phase-space conservation is given by what is known as Vlasovs equation \cref{eq:vlasov}
-	(\textit{\citetitle{pecseli_waves_2012}} \cite{pecseli_waves_2012}), some refer
-	to it as Boltzmanns equation.
+	(\textit{\citetitle{pecseli_waves_2012}} \cite{pecseli_waves_2012}).
 
 	\begin{align}
 		\pdv{\mathcal{F}}{t} + \vb{v}\cdot\nabla\mathcal{F}_s + \frac{e_s}{m_s}\left( \vb{E} + v\cross\vb{B} \right) \cdot \nabla_v\mathcal{F}_s = 0 \label{eq:vlasov}
@@ -63,21 +64,42 @@
 		By integrating the moment functions and the distribution function
 		\(\mathcal{F}\), over the velocity space we can retrieve different quantities.
 
-		Integrating the zeroth order moment gives the density.
+		Integrating the zeroth order moment gives the density, if we divide by the
+		mass.
 
 		\begin{equation}
-				n = \int m \mathcal{F} \dd\vb{v}
+				n = \frac{1}{m}\int m \mathcal{F} \dd\vb{v}
 		\end{equation}
 
 		Integrating over the first order moment gives the momentum, if we divide
 		by density.
 
 		\begin{equation}
-				n = \int m\vb{v} \mathcal{F} \dd\vb{v}
+				m\vb{v} = \int m \vb{v} \mathcal{F} \dd\vb{v}
 		\end{equation}
 
-		Show general momentum averaging + General transport + doing this makes the fluid equations
-		appear.
+		We can in fact find the mean of any order moment by integrating the
+		distribution function over \(\mathcal{F}\).
+
+		\begin{equation}
+			\left< \Phi^n(\vb{v}) \right> = \frac{1}{n} \int \Phi^n \mathcal{F} \dd\vb{v}
+		\end{equation}
+
+		\subsubsection{Transport Equation}
+		By multiplying the a momentum function, \( \Phi \), with the Vlasov equation, \cref{eq:vlasov},
+		we obtain the general momentum transport equation. (Need Citation for this, sent mail and asked.)
+
+		\begin{equation}
+			\pdv{n\left< \Phi^n(\vb{v}) \right>}{t} + \nabla \cdot \left( \left< \Phi^n(\vb{v})\vb{v} \right> \right)
+			= \frac{n}{m} \left< \vb{F}_L \cdot \nabla_v \Phi^n(\vb{v}) \right>
+		\end{equation}
+
+		This then becomes a conservation equation for the average macroscopic quantity
+		\(\left< \Phi \right>\). By using this equation and inserting in the zeroth, first and second order
+		moment we obtain the fluid equations, \cref{eq:continuity,eq:momentum,eq:pressure}.
+		We refer you to \citetitle{fitzpatrick_plasma_2014} to see a derivation of the fluid
+		equations.
+
 
 	% To simplify matters we can average over an ensemble to obtain the
 	% average distribution function \(\mathcal{\bar{F}}_s\),
@@ -95,10 +117,11 @@
 	\label{sec:fluid}
 	The generalized fluid equations is given in \cref{eq:continuity,eq:momentum,eq:pressure}, where the three equations
 	describe the conservation of mass, momentum and energy respectively. The collision term is negleted.
-	We refer you to the earlier mentioned \textit{\citetitle{fitzpatrick_plasma_2014}}
+	We refer you to the earlier mentioned \textit{\citetitle{fitzpatrick_plasma_2014}}, although some
+	terms are changed
 	for the rather involved derivation to obtain them.
 	The symbols \(n_s\), \(\vb{u}_s\), \(p_s\), \(\pi_s\) , \(\vb{F}_s\) and \(\mathcal{W}_s\) stands respectively for
-	the specie specific; number density, averaged velocity, scalar pressure, pressure tensor, force and energy.
+	the specie specific; number density, averaged velocity, scalar pressure, viscosity tensor, force and energy.
 
 	\begin{subequations}
 		\begin{equation}
@@ -117,6 +140,18 @@
 			\label{eq:pressure}
 		\end{equation}
 	\end{subequations}
+
+	(NOTE TO SELF: NEED TO DEFINE PROPERLY ALL TERMS)
+	% To simplify matters we can average over an ensemble to obtain the
+	% average distribution function \(\mathcal{\bar{F}}_s\),
+	% \[\mathcal{\bar{F}}_s \equiv \left< \mathcal{F}_s\right>_{ensemble}\].
+	%
+	% The averaged distribution is then used in \cref{eq:vlasov} to make it more tractable.
+	% The electric, \(\vb{E}\), and magnetic fields, \(\vb{B}\), is statistically
+	% dependent of the distribution function and this leads to correlations when
+	% using the averaged distribution. We will not go into those here, so see
+	% \textit{\citetitle{fitzpatrick_plasma_2014}}\citep{fitzpatrick_plasma_2014}
+	% for a treatment of it.
 
 	The first equation equation \cref{eq:continuity} is the continuity equation, it states that the total density
 	should be preserved. The divergence terms signifies change due to the compressability of the fluid

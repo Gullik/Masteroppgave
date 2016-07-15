@@ -13,11 +13,20 @@
     \textit{\citetitle{pecseli_waves_2012}} \citep{pecseli_waves_2012} or the classic
     \textit{\citetitle{chen_introduction_1984}} \citep{chen_introduction_1984} can be consulted.
 
-	Plasma is the forth, lesser known, state of matter. It is similar to a gas
+	Plasma is the fourth, lesser known, state of matter. It is similar to a gas
 	in the the particles are free to move, but it has the key distinction that
-	a proportion of its constituent particles are electrically charged. This
-	causes the particles to be subject to the Lorentz force, \cref{eq:lorentz}, which drastically
-	changes the behaviour of the gas.
+	a proportion of its constituent particles are electrically charged. \citeauthor{chen_introduction_1984} defined plasma with
+\\ \\
+	\indent \textit{"A plasma is a quasineutral gas of charged and neutral particles which exhibits
+	collective behaviour."}
+\\ \\
+	The charge causes the particles to be subject to the Lorentz force, \cref{eq:lorentz}, which
+	changes the behaviour of the gas. The plasma state is a typical state,
+	sun/stars, northen light, plasma cutters (Welding arcs), argon light tubes, fusion, a lot of various
+	industrial techniques, earth athmosphere. (Make this into a paragraph)
+
+	Plasma are fun because of (Intriguing physics, useful for industrial applications,
+	solar storms, the ever elusive fusion, space craft, predicting solar storms)
 
     \begin{itemize}
         \item What
@@ -27,8 +36,53 @@
 
     \subsection{Plasma Parameters}
 		\label{sec:parameters}
-		Characteristic scales help us
 
+		Characteristic scales can help us
+
+
+
+		\subsubsection{Electron Plasma Frequency}
+
+		\begin{itemize}
+			\item Slab oscillating, plasma frequency falls out
+		\end{itemize}
+
+		\begin{equation}
+			\omega_{pe} \equiv \sqrt{\frac{ne^2}{\epsilon_0 m_e}}
+		\end{equation}
+
+		\begin{equation}
+			\tau_p \equiv 2\pi/\omega_{pe}
+		\end{equation}
+
+		\subsubsection{Debye Shielding}
+		Debye shielding is heuristically the distance at which the electric influence
+		from a particle is shielded out by the surrounding plasma.
+		Consider a charged particle immersed in a plasma bath. The plasma is in
+		a thermodynamically equilibrium, i.e. there is no significant temperature
+		gradients.
+
+
+
+		\begin{equation}
+			\lambda_D \equiv \sqrt{\frac{\epsilon_0 T}{n e^2}}
+		\end{equation}
+
+		\subsubsection{Quasineutrality}
+		The assumption of quasi-neutrality is often a valid approximation in plasma
+		physics. By quasi-neutrality we assume that we in the analysis set the electron
+		density equal to the electron density, \(n_e \approx n_i\). This is often called the
+		\textit{"plasma approximation"}, \citep{chen_introduction_1984}. This approximation is often valid on scales
+		much larger than the Debye length due to the following arguement. If a
+		large volume of plasma lost a significant amount of charge a large electric
+		field accompany the density imbalance. This electric field would quickly correct
+		the imbalance.
+
+		\subsection{Thermal speed}
+
+		\citet{goldston_introduction_1995}
+
+		\subsubsection{TBR}
         Let us first consider an idealized plasma, with approximately equal number
         of ions and electrons. Each of the species has mass \(m_s\), where the
         subscript signifies specie, and respectively charge \(-e, \; +e\). Then we let the plasma be in a quasi-neutral state
@@ -48,16 +102,15 @@
         Time scales in plasma is usually related to the plasma frequency, \(\omega_{pe}\), of the
         electron as the fastest gyrating particle.
 
-        \[ \omega_{pe} = \sqrt{\frac{ne^2}{\epsilon_0 m_e}} \]
-
-        The reciprocal of the plasma frequency, the plasma period, \(\tau_p \equiv 1/\omega_{pe}\) is often
+        The reciprocal of the plasma frequency, the plasma period,  is often
         helpful as well.
 
         Then we define the Debye length \(\lambda_D\) as the length a typical particle
         travels in a plasma period, ignoring the ion contribution.
 
-        \[\lambda_D \equiv v_t \tau = \sqrt{\frac{\epsilon_0 T}{n e^2}}\]
 
+
+		\subsubsection{Plasma Classification}
         For a plasma description to be useful the system we consider must have
         a typical length scale, \(L\), and time scale, \(\tau\), larger than the Debye length and plasma
         period respectively.
