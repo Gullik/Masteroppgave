@@ -1,0 +1,9 @@
+\begin{tikzpicture}
+      \draw[->] (0,0) -- (5,0) node[below] {$x$};
+      \draw[->] (0,0) -- (0,5) node[left] {$y$};
+      \draw (5,5)   node {$\vec{B}$};
+      \draw[scale=0.5,domain=0:5,smooth,variable =\x, blue] plot ({\x},{sqrt(\x)});
+    %   \draw[scale=0.5,domain=-3:3,smooth,variable=y,red]  plot ({\y*\y},{y});
+    \draw[color=blue] plot[id=sin] function{cos(x)}
+            node[right] {$f(x) = \sin x$};
+\end{tikzpicture}

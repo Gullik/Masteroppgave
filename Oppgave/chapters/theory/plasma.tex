@@ -1,7 +1,7 @@
 \section{Plasma}
 	\label{sec:plasma}
 	This section presents a short overview of basic plasma theory, it can serve as a
-	quick reminder if already familiar with the subject, or hopefully provide enough
+	quick reminder if already familiar with the subject, and necessary
 	background to understand the numerical simulations in this work.
     % If you, the reader, is already familiar with plasma physics this section could serve as
     % as a quick reminder about important basic plasma theory. Or it could hopefully
@@ -15,11 +15,13 @@
 
 	Plasma is the fourth, lesser known, state of matter. It is similar to a gas
 	in the the particles are free to move, but it has the key distinction that
-	a proportion of its constituent particles are electrically charged. \citeauthor{chen_introduction_1984} defined plasma with
-\\ \\
-	\indent \textit{"A plasma is a quasineutral gas of charged and neutral particles which exhibits
+	a proportion of its constituent particles are electrically charged.
+	\\[1.0cm]
+	\indent \textit{\large"A plasma is a quasineutral gas of charged and neutral particles which exhibits
 	collective behaviour."}
-\\ \\
+	\begin{flushright}
+	    \textbf{Francis F. Chen}\\[1.0cm]
+	\end{flushright}
 	The charge causes the particles to be subject to the Lorentz force, \cref{eq:lorentz}, which
 	changes the behaviour of the gas. The plasma state is a typical state,
 	sun/stars, northen light, plasma cutters (Welding arcs), argon light tubes, fusion, a lot of various
@@ -28,18 +30,19 @@
 	Plasma are fun because of (Intriguing physics, useful for industrial applications,
 	solar storms, the ever elusive fusion, space craft, predicting solar storms)
 
-    \begin{itemize}
-        \item What
-        \item Where
-        \item Why
-    \end{itemize}
+	\begin{figure}
+		\begin{center}
+			\includegraphics[width = 0.5\textwidth]{figures/theory/plasma_density}
+		\end{center}
+		\caption{Plasmas occurs both in the hot and dense condiotions in necessary for fusion, as
+		well as in the cold and sparse interstellar environment. [NOTE MAKE BETTER FIGURE]
+		}
+	\end{figure}
+
+
 
     \subsection{Plasma Parameters}
 		\label{sec:parameters}
-
-		Characteristic scales can help us
-
-
 
 		\subsubsection{Electron Plasma Frequency}
 
@@ -78,14 +81,14 @@
 		field accompany the density imbalance. This electric field would quickly correct
 		the imbalance.
 
-		\subsection{Thermal speed}
+		\subsubsection{Thermal speed}
 
 		\citet{goldston_introduction_1995}
 
-		\subsubsection{TBR}
+		\subsubsection{TBR(emoved)}
         Let us first consider an idealized plasma, with approximately equal number
         of ions and electrons. Each of the species has mass \(m_s\), where the
-        subscript signifies specie, and respectively charge \(-e, \; +e\). Then we let the plasma be in a quasi-neutral state
+        subscript, \(_s\), signifies specie, and respectively charge \(-e, \; +e\). Then we let the plasma be in a quasi-neutral state
         so the number density, \(n\), is apprimately equal, \(n_i\approx n_e = n\).
         Now let's introduce the concept of kinetic temperature \(T_s\), i.e. the random
         motion of the kinetic energy.
