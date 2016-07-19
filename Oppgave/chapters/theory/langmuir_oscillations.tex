@@ -1,15 +1,20 @@
-\section{Langmuir Oscillations}
+\section{Plasma Oscillations}
 	\label{sec:langmuir}
+	Plasma oscillations, also called Langmuir oscillations, is the basic resulting
+	oscillation	that happens as a plasma tries to right disturbances to its equilibrium.
+	We will use this to show how the fluid equations can be closed for a simple system
+	using assumptions. This is also very suited to test simulations, as we do later
+	in \cref{sec:langmuir_verification}.
+
 	Here we will consider an one specie plasma fluid consisting of electrons under local thermal equilibrium, LTE.
 	The electron density, \(n_0\) and pressure \(p_0\) is initally homogenous.
  	The fluid has a vanishing flow, \(\va{u}_0 = 0\), and the electric field \(\vb{E}_0=0\).
- 	See one of the books mentioned in \cref{sec:plasma} for a more thorough overview.
+ 	See \citet{goldston_introduction_1995} for a more thorough overview.
 
 	A small perturbation of the electron density will cause the electric field
 	to try to restore the equilibrium. When the electrons reach the equilibrium
 	position they will have a kinetic energy and will overshoot.This will cause
-	a new perturbation away from the equilibrium. This phenomen is called Langmuir
-	oscillations.
+	a new perturbation away from the equilibrium.
 
 	Under the LTE conditions the fluid equations simplify to
 
@@ -30,7 +35,7 @@
 	\epsilon_0 \nabla^2 \phi = e\left( n_e - n_0 \right)
 	\end{equation}
 
-	Now we let a small perturbation happen to the equilibrium.
+	Now we let a small perturbation, denoted by \(~\), happen to the equilibrium.
 
 	\begin{equation*}
 	\text{Perturbation} \rightarrow
@@ -44,11 +49,11 @@
 
 	Since the pertubation is small, we can say that any part that contains
 	second order terms of perturbation of a quantity will be much smaller than the value
-	of the quantity, \(q \ll\tilde q \tilde q\). So even though we may miss some processes
+	of the quantity, \(q \gg\tilde q \tilde q\). So even though we may miss some processes
 	by doing this we can drop the second order perturbation terms.
 	This process is called linearization.
 
-	So inserting the perturbation and linearizing the equations we get:
+	Inserting the perturbation and linearizing the equations we get:
 
 	\begin{subequations}
 	  \begin{equation}

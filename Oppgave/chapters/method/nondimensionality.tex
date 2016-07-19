@@ -55,10 +55,12 @@
 		to a nondimensional temporal, by \cref{eq:time_nondim}.
 
 		\begin{equation}
-			\pdv{\vb{r}}{t} = v \quad \rightarrow  \quad \pdv{\tilde{\vb{r}}}{\tilde t} = \tilde{\vb{v}} = \lambda_{De} \omega_{pe} \vb{v}
+			\pdv{\vb{r}}{t} = v \quad \rightarrow  \quad \pdv{\tilde{\vb{r}}}{\tilde t} = \tilde{\vb{v}} = \frac{\vb{v}}{v_{th}}
 		\end{equation}
 
-		Now we will use the equation of motion to normalize the electromagnetic fields.
+        Here we have introduced the thermal velocity \(v_th = \lambda_{De} \omega_{pe}\).
+
+		Now we will use the Lorentz force to normalize the electromagnetic fields.
 
  		\begin{equation}
  			\pdv{\vb{v}}{t} = \frac{q}{m}\left( \vb{E} + \vb{v}\cross \vb{B} \right)
@@ -68,14 +70,21 @@
 		we obtain
 
 		\begin{equation}
-			\pdv{(\tilde{\vb{v}}/(\lambda_{De} \omega_{pe}))}{(\tilde{t}/\omega_{pe})} =
-			\frac{e\tilde{q}}{m_e\tilde{m}} \left(\vb{E} +  (\tilde{\vb{v}}/(\lambda_{De} \omega_{pe}))\cross \vb{B}\right)
+            \pdv{(\tilde{\vb{v}}v_{th})}{(\tilde{t}/{\omega_{pe}})}
+            = \frac{(\tilde{q}e)}{(\tilde{m}m_e)}\left( \vb{E} + (\vb{v}v_{th})\cross \vb{B} \right)
 		\end{equation}
 		\begin{equation}
-			\pdv{\tilde{\vb{v}}}{\tilde{t}} =\frac{\tilde q}{\tilde m} \left(
- 			\frac{\lambda_{De}  e}{m_e}\vb{E}
-			+ \vb{\tilde v} \cross \frac{\lambda_{De}  e}{m_e \lambda_{De}\omega_{pe}}\vb{B} \right)
+			\pdv{\tilde{\vb{v}}}{\tilde{t}} =
+            \frac{\tilde q}{\tilde m} \left(\frac{e}{v_{th}\omega_{pe}m_e}\vb{E}
+            + \tilde{\vb{v}} \cross  \frac{e}{\omega_{pe}m_e}\vb{B}
+ 			 \right)
 		\end{equation}
+
+        This suggests that we use the following nondimensionalized fields
+
+        \begin{equation*}
+            \tilde{\vb{E}} = \frac{e}{v_{th}\omega_{pe}m_e}\vb{E} \quad{\text{and}} \quad \tilde{\vb{B}} = \frac{e}{\omega_{pe}m_e}\vb{B}
+        \end{equation*}
 
 		Check equation against dimensionalizing chart... (And get proper results in terms og kT on so on)
 

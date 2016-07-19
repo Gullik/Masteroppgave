@@ -1,6 +1,7 @@
 %!TEX root=../../thesis.tex
 
 \section{Single Particle Motion}
+	\label{sec:single_particle}
 	To better understand the collective motion of plasma it is useful to consider
 	the motions of the single particles that the plasma consists of. By at first
 	treating only one particle we can ignore the electromagnetic influence from
@@ -17,22 +18,20 @@
 
 	\subsection{Gyration}
 		\label{sec:gyration}
-		Let us consider a situation with a single particle in a static and isotropic external
- 		magnetic field, with an initial velocity, as in \citet{goldston_introduction_1995}.
+		Let us consider a situation with a single moving particle in a static and isotropic external
+ 		magnetic field, the same set up as in \citet{goldston_introduction_1995}.
 		Newtons Second law together with \cref{eq:lorentz} then gives
 
 		\begin{align}
 			m\pdv{\vb{v}}{t} &= q\vb{v}\cross\vb{B} \label{eq:simple_gyration}
-			\intertext{The velocity component parallel to the magnetic field is unaffected by the field and
-			will remain constant. If we take perform a temporal differention on the
-			perpendicular part we get}
-			% So we will
-			% seperate the velocity into a parallel and perpendicular velocity with respect to the magnetic field,
-			% \(\vb{v}=\vb{v}_\parallel + \vb{v}_\perp\). The parallel motion is fully described by
-			% \(\pdv{\vb{v}_\parallel}{t} = 0\).
-			% We remove the parallel part and perform temporal derivative on the equation of motion to get }
+			\intertext{We should note that the velocity component parallel to the magnetic field, is not affected by the field and
+			will remain constant, \(\pdv{\vb{v}_\parallel}{t}=0\). The cross product of two parallel vectors is always zero,
+			so \(\vb{v}_\parallel\cross \vb{B}=0\). Using these two notions we can write the equation only in terms
+			of the perpendicular, in respect to \(\vb{B}\), velocity.}
+			m\pdv{\vb{v}_\perp}{t} &= q\vb{v_\perp}\cross\vb{B} \label{eq:perp_gyration}
+			\intertext{Then we perform a temporal derivative.}
 			\pdv[2]{\vb{v}_\perp}{t} &= \frac{q}{m} \pdv{\vb{v}_\perp}{t}\cross \vb{B}
-			\intertext{Then we insert \cref{eq:simple_gyration} into the equation and use the vector relation
+			\intertext{Then we insert \cref{eq:perp_gyration} into the equation and use the vector relation
 			\( a\cross b\cross c = b(a\cdot b) - c(a\cdot b) \).}
 			\pdv[2]{\vb{\omega}_\perp}{t} + \left(\frac{qB}{m}\right)^2\vb{\omega}_\perp &= 0
 		\end{align}
@@ -43,23 +42,31 @@
 				\input{tikz/gyration_fig.tex}
 				\caption{The blue line shows the motion of a particle moving in the presense of a magnetic
 				field pointing out of the paper. The particles trajectory is a gyration around the magnetic field lines.}
+				\label{fig:gyration}
 			\end{subfigure}
 			\begin{subfigure}{0.45\textwidth}
 				\missingfigure[figwidth=\textwidth]{Gyration E\_parallel}
 				\caption{Here we can see a particle experiencing the E-cross-B drift. The motion consists of a gyration
 				as well a constant drift along the \(x\)-axis.}
+				\label{fig:EcrossB}
 			\end{subfigure}
 		\end{figure}
 
 
-		This differential equation corresponds to a gyration around the magnetic field lines
-		with the gyration frequency, \(\omega_c = \frac{qB}{m}\), as the frequency.
 		In the last equation we also changed the term describing the rotational motion
 		to \(\vb{\omega}_\perp\), which is often used in plasma literature to
 		signify gyration.
+		This differential equation corresponds to a gyration around the magnetic field lines
+		with the gyration frequency, \(\omega_c = \frac{qB}{m}\), as the frequency. If the particle
+		has parallel velocity it will rotate in a spiral along the magnetic field lines, as illustrated in
+		\cref{fig:gyration}. This spiral effect is often an important part of the reason why
+		there are often field-aligned currents, such as 'Birkeland Currents' \citep{cummings_field-aligned_1967},
+		transporting plasma along magnetic field lines.
+
+
 
 	\subsection{E-cross-B Drift}
-	The E-cross-B drift happens when a particle is moving within static and isotrop
+	A drift called E-cross-B drift appears when a particle is moving within static and isotrop
 	electric and magnetic fields. The equation of motion, neglecting all forces
 	except the electromagnetic, is then
 
@@ -67,28 +74,57 @@
 		m\pdv{v}{t} &= q(\vb{E} + \vb{v}\cross\vb{B}) \label{eq:EcrossB}
 	\end{align}
 
-	As in the previous section we decompose the velocity into a parallel and perpendicular
- 	velocity. We also assume there exists a constant drift \(\vb{v}_D\), somewhat unfounded at this stage,
-	so that we can seperate the perpendicular motion into the drift and the gyration.
-	The velocity is then given by \(\va{v} = \va{v}_\parallel + \va{\omega}_\perp + \va{v}_D\),
-	and we insert this into the equation of motion.
+	In plasmaphysics it is often a good strategy to decompose quantities into
+	parallel and perpendicular, to \(\vb{B}\) quantities. We start by seperating the
+	velocity into \(\vb{v} = \vb{v}_\parallel + \vb{v}_\perp\) and the electric field
+	into \(\vb{E} = \vb{E}_\parallel + \vb{E}_\perp\). Inserting this and using that \(\vb{v}_\parallel\cross\vb{B}=0\)
+	again the equation becomes
 
-	\begin{align}
-		m\pdv{}{t}\left( \va{v}_\parallel + \va{\omega}_\perp + \va{v}_D\right) &=
-		q \left( \va{E} +   \left( \va{v}_\parallel + \va{\omega}_\perp +
-		\va{v}_D \right)  \cross \va{B}_0 \right)
-	\end{align}
+	\begin{equation}
+		m\pdv{}{t}\left( \va{v}_\parallel + \va{v}_\perp \right) =
+		q \left( \va{E}_\perp + \va{E}_\parallel + \left( \va{v}_\perp\right)  \cross \va{B}\right)
+	\end{equation}
 
-	
-	As before the parallel velocity is unaffected by the magnetic field we subtract
-	it from the equation. From \cref{sec:gyration} we know that the gyration
-	part is given by
+	The parallel motion consist of an acceleration caused by the parallel part of the electric field and
+	is given by
+	\begin{equation}
+		m\pdv{\va{v}_\parallel}{t} = q \va{E}_\parallel
+	\end{equation}
+
+	The remaining part of the equation describes the perpendicular motion.
+
+	\begin{equation}
+		m\pdv{\va{v}_\perp}{t}  = q \left( \va{E}_\perp +  \left( \va{v}_\perp\right)  \cross \va{B}\right)
+	\end{equation}
+
+	Now we assume there is a time-invariant drift \(\vb{v}_D\), i.e. not dependent on time, and
+	then we seperate the perpendicular motion into a drift and gyration,
+	\(\va{v} = \va{v}_\parallel + \va{\omega}_\perp + \va{v}_D\).
+
+	\begin{equation}
+		m\pdv{}{t} \left( \va{\omega}_\perp + \vb{v}_D \right) =
+		q \left( \va{E}_\perp +  \left( \va{\omega}_\perp + \vb{v}_D \right)  \cross \va{B}\right)
+	\end{equation}
+
+	% As in the previous section we decompose the velocity into a parallel and perpendicular
+ % 	velocity. We also assume there exists a constant drift \(\vb{v}_D\), somewhat unfounded at this stage,
+	% so that we can seperate the perpendicular motion into the drift and the gyration.
+	% The velocity is then given by \(\va{v} = \va{v}_\parallel + \va{\omega}_\perp + \va{v}_D\),
+	% and we insert this into the equation of motion.
+
+	% \begin{align}
+	% 	m\pdv{}{t}\left( \va{v}_\parallel + \va{\omega}_\perp + \va{v}_D\right) &=
+	% 	q \left( \va{E} +   \left( \va{v}_\parallel + \va{\omega}_\perp +
+	% 	\va{v}_D \right)  \cross \va{B}_0 \right)
+	% \end{align}
+
+	From \cref{sec:gyration} we know that the gyration part is given by
 
 	\begin{align}
 		m\pdv{\vb{\omega}_\perp}{t} &= q\vb{\vb{\omega}_\perp}\cross\vb{B}
 	\end{align}
 
-	After we have subtracted these two parts we are left with
+	Taking this out of the equation we have
 
 	\begin{align}
 		\pdv{\va{v}_D}{t} &= \frac{q}{m} \left( \va{E}_\perp + \va{v}_D \cross \va{B} \right)
@@ -103,9 +139,10 @@
 	\end{align}
 
 	As we can see the E-cross-B drift is independent of particle charge and mass,
-	which means both the ions and electrons will be drifting at the same velocity
-	subject to the drift which will be perpendicular to electric and magnetic fields.
+	which means both the ions and electrons will be drifting in the same direction and
+	speed, \cref{fig:EcrossB}.
 
-	There several other types of drift, and motions, that appear in various configurations,
-	that we will not go through here, i.e. gradient-B drift, curvature drift, polarization drift and magnetic mirror
-	to mention a few.
+	This is just an example, and there are many other important concepts found in
+	considering single particles, that we will not go into here, see \citet{goldston_introduction_1995}.
+	Other examples that could be useful include gradient-B drift, curvature drift,
+	polarization drift and magnetic mirroring.
