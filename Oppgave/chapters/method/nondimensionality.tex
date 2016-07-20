@@ -58,7 +58,7 @@
 			\pdv{\vb{r}}{t} = v \quad \rightarrow  \quad \pdv{\tilde{\vb{r}}}{\tilde t} = \tilde{\vb{v}} = \frac{\vb{v}}{v_{th}}
 		\end{equation}
 
-        Here we have introduced the thermal velocity \(v_th = \lambda_{De} \omega_{pe}\).
+        Here we have introduced the thermal velocity, mentioned in \cref{sec:parameters}, \(v_{th} = \lambda_{De} \omega_{pe}\).
 
 		Now we will use the Lorentz force to normalize the electromagnetic fields.
 
@@ -82,15 +82,58 @@
 
         This suggests that we use the following nondimensionalized fields
 
-        \begin{equation*}
+        \begin{equation}
             \tilde{\vb{E}} = \frac{e}{v_{th}\omega_{pe}m_e}\vb{E} \quad{\text{and}} \quad \tilde{\vb{B}} = \frac{e}{\omega_{pe}m_e}\vb{B}
-        \end{equation*}
+        \end{equation}
 
-		Check equation against dimensionalizing chart... (And get proper results in terms og kT on so on)
+        The electric field is related to the charge density \(\rho\) through Gauss'
+        law.
 
+        \begin{equation}
+            \nabla \cdot \vb{E} = \frac{\rho}{\epsilon_0}
+        \end{equation}
 
+        Inserting normalized quantities for \(\vb{E}\) and the gradient operator
+        \[\tilde{\nabla}=\left(\pdv{\tilde x}, \pdv{\tilde y} , \pdv{\tilde z}\right) = \lambda_D \nabla\]
+
+        \begin{equation}
+            \frac{1}{\lambda_D}\tilde\nabla \cdot \frac{v_{th}\omega_{pe}m_e}{e}\tilde{\vb{E}} = \frac{\rho}{\epsilon_0}
+        \end{equation}
+        \begin{equation}
+            \tilde\nabla \cdot\tilde{\vb{E}} = \frac{\lambda_De}{v_{th}\omega_{pe}m_e}\frac{\rho}{\epsilon_0}
+        \end{equation}
+        This gives the dimensionless charge density
+        \begin{equation}
+            \tilde \rho = \frac{\rho}{n_0e}
+        \end{equation}
+
+        (NOTE TO SELF: I think Sigvalds notes had an error in his dimensionless E and B)
 
     \subsection{Normalization PinC}
         It should be mentioned that the normalization scheme for PinC was mostly worked
-        out by Sigvald Marholm, and I am mostly repeating his work here. It still needs
-        to be in this work to get a complete understanding of our PiC implementation.
+        out by Sigvald Marholm, and I am mostly repeating his work here. It is still
+        included here to give complete understanding of our PiC implementation.
+        The general aim of the normalization scheme is to reduce the number of
+        floating point operations on the particles. Since there are usually
+        fewer grid points, i.e. values for fields such as \(\rho\) and \(\vb{E}\),
+        than particles in a simulation a multiplication should preferably be done to
+        a field instead of each particle. From now on we will omit the \(~\) on dimensionless
+        quantities and consider all quantities dimensionless.
+\\ \\
+        (NOTE TO SELF: I think Sigvald had maybe erroneously used \(\frac{(\Delta t)^2}{\Delta x \Delta y \Delta z}\) during the normalization of
+        \(\vb{E}\), this is not the same as \(\frac{(\Delta t)^2}{\Delta \vb{r}}\), but there are more errors.)
+        \\ \\(ExtraNote TO SELF: Not sure if this was actually correct and how it was implemented, or
+        where the discretization normalization of E is.)
+
+        \subsection{Mover}
+            We use the Leapfrog algorithm from \textit{\citetitle{birdsall_plasma_2004}} \citep{birdsall_plasma_2004}
+            book. This has the perks of second order accuracy and stability for oscillatory motion
+            with the same number of function calls as Euler integration. It is
+            a momentum conserving algorithm. Here we assume that we have a solver
+            that will give us an electric field.
+
+            The finite difference discretization of a leapfrog step is given by
+
+            \begin{equation}
+                \frac{\vb{r}^{n+1}-\vb{r}^n}{\Delta t} = \vb{v}^{n+\frac{1}{2}}
+            \end{equation}
