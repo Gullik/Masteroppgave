@@ -1,0 +1,10 @@
+
+\begin{tikzpicture}%[scale=1, auto,swap]
+    %True nodes
+    \foreach \pos/\name in 	{{(1,0)/1}, 	{(2,0)/2},	{(3,0)/3},
+                             {(4,0)/4},	{(5,0)/5}, {(6,0)/6}, {(7,0)/7}}
+    \node[true] (\name) at \pos {$\name$};
+    %Ghost nodes
+    \node[changed] (0) at (0,0) {$\partial\Omega_0$};
+    \node[changed] (8) at (8,0) {$\partial\Omega_8$};
+\end{tikzpicture}

@@ -43,75 +43,125 @@
 
     \subsection{Plasma Parameters}
 		\label{sec:parameters}
+		\subsubsection{Temperature}
+		A modern view of temperature comes from kinetic theory developed by
+		Maxwell and Boltzmann \citep{swendsen_statistical_2006}. We will not go through it
+		here but a treatment is available in \citet{goldston_introduction_1995}.
+		Temperature is then related to the average kinetic energy of a particle.
+		For an ideal monoatomic gas the kinetic energy is then
+
+		\begin{equation}
+			\bar{E}_k = \frac{1}{2} m v_{th}^2 = \frac{3}{2} kT \label{eq:temperature}
+		\end{equation}
+
+		Here we have introduced \(v_{th} \equiv  \sqrt{kT/m}\) as the thermal velocity, i.e.
+		the average velocity of a particle. It should be mentioned that the fraction in
+		front of the temperature is dependent on the degrees of freedom of the particle.
+		A monoatomic particle can only move in three directions, but a diatomic particle
+		can also vibrate and spin. (Correct?)
+
+		In high energy plasma physics it is also costumary to drop the Boltzmann factor, \(k\),
+		in \cref{eq:temperature}, and express temperature directly in electronVolt, \(eV\).
+		Electronvolt is defined as the energy it takes to move an elementary charge through
+		a potential difference of a \(1\) \si{\volt}, and corresponds to approximately
+		\(11600 \si{\kelvin}\). For the space and athmospheric plasmas we are mostly
+		dealing with here the temperatures are generally low, so we will use the Kelvin scale
+		for temperature.
+
+		If the particles in a plasma collide often compared to the characteristic timescales
+		of energy and particle changes, the particle velocity distribution can be approximated
+		by a maxwellian distribution. It is only then that the concept of
+		temperature is valid \citep{goldston_introduction_1995}.
 
 		\subsubsection{Electron Plasma Frequency}
-
-		\begin{itemize}
-			\item Slab oscillating, plasma frequency falls out
-		\end{itemize}
+		The most important timescale in plasma physics is the plasma frequency,
 
 		\begin{equation}
 			\omega_{pe} \equiv \sqrt{\frac{ne^2}{\epsilon_0 m_e}}
 		\end{equation}
 
+		which corresponds to a typical electrostatic oscillatory frequency.
+		Consider an electrically neutral 1D slab, which is then disturbed, from its
+		neutrality, by an infinitesimal charge density on one side.
+
+		\begin{equation}
+			\sigma = en\delta x
+		\end{equation}
+
+		It will have an equal and opposite charge density on the other side. The slab
+		will then have an electric field due to the charge density, caused by Gauss' Law.
+
+		\begin{equation}
+			\pdv{E_x}{x} = -\frac{\sigma}{\epsilon_0} \qquad\rightarrow\qquad
+			E_x = \frac{-en\delta x}{\epsilon_0}
+		\end{equation}
+
+		Inserting this field as the only force in Newtons law for a single particle yields
+
+		\begin{equation}
+			m\pdv{\delta x}{t} = eE_x = -m\omega_{pe}^2\delta x
+		\end{equation}
+
+		The particle will then oscillate around its equilibrium position with
+		the electron plasma frequency. The same phenomen often happens in plasma as
+		it tries to go back to its equilibrium and is called plasma oscillations,
+		or Langmuir oscillations, see \cref{sec:langmuir} for a treatment of plasma oscillations.
+
+		An otherwise useful timescale is the reciprocal of the plasma frequency,
+		the plasma period
+
 		\begin{equation}
 			\tau_p \equiv 2\pi/\omega_{pe}
 		\end{equation}
 
+		Some researchers prefer to define the \(\tau_p\), without the \(2\pi\) prefactor,
+		as that makes some consepts neater.
+
 		\subsubsection{Debye Shielding}
-		Debye shielding is heuristically the distance at which the electric influence
+		Debye shielding length is the distance at which the electric influence
 		from a particle is shielded out by the surrounding plasma.
 		Consider a charged particle immersed in a plasma bath. The plasma is in
 		a thermodynamically equilibrium, i.e. there is no significant temperature
-		gradients.
-
+		gradients. We artificially place a positively charged ion into the plasma.
+		This ion will then attract electrons and repel positive ions. There will be a tendency
+		for there to be more negativily charged particles, and less positive, near the
+		ion, which in effect will work as an electric shield around the ion. The
+		distance away from a particle where its field, is typically cancelled out is called the
+		Debye Shielding Length, \(\lambda_D\).
 
 
 		\begin{equation}
-			\lambda_D \equiv \sqrt{\frac{\epsilon_0 T}{n e^2}}
+			\lambda_D \equiv \sqrt{\frac{\epsilon_0 kT_e}{n_e e^2}}
 		\end{equation}
+
+		This is a definition that is often used, \citep{goldston_introduction_1995},
+		neglecting the ion influence since they often have a much lower temperature.
+		In cases where we also need to account for ions, a more complete definition can be used
+
+		\begin{equation}
+			\lambda_D \equiv \sqrt{\frac{\epsilon_0 k T_e}{n_e e^2(1+Z \frac{T_e}{T_i})}}
+		\end{equation}
+
+		Due to the earlier argument, and the statistical approach used when deriving it \citep{goldston_introduction_1995},
+		there must be a significant amount particles close to the ion to shield it out.
+
+		It should be noted that the shielding length is related \citep{fitzpatrick_plasma_2014} to the
+		the plasma period and the thermal velocity through
+
+		\begin{equation}
+			\lambda_D \propto \tau_p v_{th}
+		\end{equation}
+
 
 		\subsubsection{Quasineutrality}
 		The assumption of quasi-neutrality is often a valid approximation in plasma
 		physics. By quasi-neutrality we assume that we in the analysis set the electron
 		density equal to the electron density, \(n_e \approx n_i\). This is often called the
-		\textit{"plasma approximation"}, \citep{chen_introduction_1984}. This approximation is often valid on scales
-		much larger than the Debye length due to the following arguement. If a
+		\textit{"plasma approximation"}, see \citep{chen_introduction_1984}. This approximation is often valid on scales
+		much larger than the shielding length due to the following arguement. If a
 		large volume of plasma lost a significant amount of charge a large electric
 		field accompany the density imbalance. This electric field would quickly correct
 		the imbalance.
-
-		\subsubsection{Thermal speed}
-
-		\citet{goldston_introduction_1995}
-
-		\subsubsection{TBR(emoved)}
-        Let us first consider an idealized plasma, with approximately equal number
-        of ions and electrons. Each of the species has mass \(m_s\), where the
-        subscript, \(_s\), signifies specie, and respectively charge \(-e, \; +e\). Then we let the plasma be in a quasi-neutral state
-        so the number density, \(n\), is apprimately equal, \(n_i\approx n_e = n\).
-        Now let's introduce the concept of kinetic temperature \(T_s\), i.e. the random
-        motion of the kinetic energy.
-
-        \[T_s \equiv \frac{1}{3}m_s \left< v_s^2 \right> \]
-
-        With the kinetic temperature we define the thermal speed, \(v_{ts}\), as
-
-        \[ v_{ts} \equiv \sqrt{2T_s}/m_s \]
-
-        here we should note that the electron thermal speed is usually much larger
-        than the ion thermal speed due to the mass proportion between them.
-
-        Time scales in plasma is usually related to the plasma frequency, \(\omega_{pe}\), of the
-        electron as the fastest gyrating particle.
-
-        The reciprocal of the plasma frequency, the plasma period,  is often
-        helpful as well.
-
-        Then we define the Debye length \(\lambda_D\) as the length a typical particle
-        travels in a plasma period, ignoring the ion contribution.
-
-
 
 		\subsubsection{Plasma Classification}
         For a plasma description to be useful the system we consider must have
