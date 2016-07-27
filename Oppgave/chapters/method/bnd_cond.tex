@@ -17,6 +17,60 @@
 	conditions easier to implement and opens the possiblity of using them with other
 	solvers.
 
+	%Color scheme
+	\tikzstyle{true}=[circle,fill=blue!40,minimum size=25pt,inner sep=0pt]
+	\tikzstyle{ghost}=[circle,fill=black!40,minimum size=25pt,inner sep=0pt]
+	\tikzstyle{changed} = [circle,fill=red!40,minimum size=25pt,inner sep=0pt]
+	\tikzstyle{dirichlet} = [circle,fill=red!40,minimum size=25pt,inner sep=0pt]
+	\tikzstyle{periodic} = [circle,fill=green!40,minimum size=25pt,inner sep=0pt]
+	\tikzstyle{numbering} = [circle,minimum size=10pt,inner sep=0pt]
+	\tikzstyle{edges} = [diamond,fill=black!40,minimum size=25pt,inner sep=0pt]
+
+	\begin{figure}
+		\centering
+		\begin{subfigure}[b]{0.9\textwidth}
+			\centering
+			\input{tikz/1Dbnd}
+			\caption{A \(1\) dimensional domain with grid points before the boundary conditions has been applied.
+			The numbers denote the indexes for the values in the grid array. The blue grid points, (\si{1\to 7}) represents
+			the true grid and the grey points, (\si{0,8}), is the ghost cell values. The consepts shown here should easily be
+			expanded to more dimensions.}
+			\label{fig:initial}
+			% \caption{}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.9\textwidth}
+			\centering
+			\input{tikz/periodic}
+			\caption{Here periodic boundary conditions has been applied to the \(1\)D domain above. Here and in the following the
+			red color means a point has been changed. The ghost points at the edges has been set to equal the
+			true grid points at the opposite edge giving periodic boundary conditions.}
+			% \caption{}
+			\label{fig:periodic}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.9\textwidth}
+			\centering
+			\input{tikz/dirichlet}
+			\caption{For Dirichlet boundary conditions we have predetermined values along the edge, this are here represented as the ghost cells
+			being set to a given value defined by \(\partial\Omega_i\). The boundary function can be as simple as setting everything along
+			the edge to a constant, but it could also be a spatially and time varying function. It is also possible to let it correspond to
+			input given by coupled computer model.}
+			% \caption{}
+			\label{fig:dirichlet}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.9\textwidth}
+			\centering
+			\input{tikz/neumann}
+			\caption{Von Neumann boundary conditions specifies what the derivative is on the edge. To achieve that we set the ghost points to
+			a specified value that will give the wanted derivative when a finite difference method swipes over the point. For the left side
+			the function should be set to \(f_0 = u_2 - 2\Delta x A\) and to \(f_8 = u_6 - 2\Delta x A\) for the right side. Here \(A\) is the
+			predetermined values that the derivative should correspond to.}
+			% \caption{}
+			\label{fig:neumann}
+		\end{subfigure}
+		\caption{An overview of 3 boundary conditions applied to a \(1\)D domain.}
+	\end{figure}
+
+
 
 \subsection{Periodic Boundaries}
 	With periodic boundary conditions we want the boundary on one side to be equal
@@ -47,6 +101,12 @@
 	is held. This means that the total charge in the domain must be zero, which
 	is often true in plasma due to quasi-neutrality.
 
+	To ensure a unique discretized solution need to set the integration constant, this can be done
+	by setting a \textit{global constraint} on the solution
+
+	\begin{equation}
+		\sum_{\Omega} \phi = 0 \label{eq:global_constraint}
+	\end{equation}
 
 \subsection{Dirichlet Boundaries}
 	With Dirichlet conditions the boundaries of the potential are known and given by a function,
@@ -97,55 +157,58 @@
 	see \cref{fig:neumann}.
 	This scheme completely avoids any modification of the smoother stencils at the boundaries.
 
+	\subsection{Boundaries in Multigrid}
+	The multigrid algorithm solves the problem on several discretization levels.
+	Due to this we need to represent the boundaries on the coarser grid levels as well.
 
+	\subsubsection{Periodic}
+		Since the periodic boundary conditions can be tougth of to set the domain next
+		a copy of itself the boundary treatment will remain equal on the coarser
+		grids. It should also be mentioned that the \textit{global constraint}, \cref{eq:global_constraint},
+		only needs to be set on the coarsest grids to achieve good convergence
+		rates \citep{trottenberg_multigrid_2000}.
 
+	\subsubsection{Dirichlet}
+		The Dirichlet condition specifies the potential at the boundaries. Since the conditions
+		should apply to the problem at all coarseness levels, we need a restriction
+		operator specific to the boundary.
 
-	%Color scheme
-	\tikzstyle{true}=[circle,fill=blue!40,minimum size=25pt,inner sep=0pt]
-	\tikzstyle{ghost}=[circle,fill=black!40,minimum size=25pt,inner sep=0pt]
-	\tikzstyle{changed} = [circle,fill=red!40,minimum size=25pt,inner sep=0pt]
+		The easiest boundary restriction operator is direct injection, letting each
+		coarse grid point correspond to a grid point on the boundary of the finer grid.
+		This is often sufficient, especially in the case of spatially constant boundaries.
+		If the boundaries constant in time computing time can be saved by computing the boundaries for all levels
+		once at the start of the simulation.
 
+		If the boundaries are more complicated first or second order interpolation
+		could be used to restrict them.
 
-	\begin{figure}
-		\centering
-		\begin{subfigure}[b]{0.9\textwidth}
+	\subsubsection{Neumann}
+		
+
+	\subsection{Mixed Conditions}
+		All the boundary conditions can be implemented with the use of ghost cells,
+		this enables the use of the \(5\)-point stencil for the smoothers. This
+		greatly simplifies mixed boundary conditions, the boundaries are set on the
+		ghost layer of the grid seperately, then the smoother runs. Here it should
+		be noted that the boundaries need to be reset for each halfcycle in GS-RB.
+
+		As can be seen in \cref{fig:mixed} we do not have to care for the corners
+		of the domain, as long as we are using a \(5\)-point stencil. This allows us to not
+		need to care of which boundary conditions takes precedence when they clash.
+		For a higher order, or different, stencils the corner ghost cells may be important
+		and the mixing of boundary conditions need to be given extra care.
+
+		\begin{figure}
 			\centering
-			\input{tikz/1Dbnd}
-			\caption{A \(1\) dimensional domain with grid points before the boundary conditions has been applied.
-			The numbers denote the indexes for the values in the grid array. The blue grid points, (\si{1\to 7}) represents
-			the true grid and the grey points, (\si{0,8}), is the ghost cell values. The consepts shown here should easily be
-			expanded to more dimensions.}
-			\label{fig:initial}
-			% \caption{}
-		\end{subfigure}
-		\begin{subfigure}[b]{0.9\textwidth}
-			\centering
-			\input{tikz/periodic}
-			\caption{Here periodic boundary conditions has been applied to the \(1\)D domain above. Here and in the following the
-			red color means a point has been changed. The ghost points at the edges has been set to equal the
-			true grid points at the opposite edge giving periodic boundary conditions.}
-			% \caption{}
-			\label{fig:periodic}
-		\end{subfigure}
-		\begin{subfigure}[b]{0.9\textwidth}
-			\centering
-			\input{tikz/dirichlet}
-			\caption{For Dirichlet boundary conditions we have predetermined values along the edge, this are here represented as the ghost cells
-			being set to a given value defined by \(\partial\Omega_i\). The boundary function can be as simple as setting everything along
-			the edge to a constant, but it could also be a spatially and time varying function. It is also possible to let it correspond to
-			input given by coupled computer model.}
-			% \caption{}
-			\label{fig:dirichlet}
-		\end{subfigure}
-		\begin{subfigure}[b]{0.9\textwidth}
-			\centering
-			\input{tikz/neumann}
-			\caption{Von Neumann boundary conditions specifies what the derivative is on the edge. To achieve that we set the ghost points to
-			a specified value that will give the wanted derivative when a finite difference method swipes over the point. For the left side
-			the function should be set to \(f_0 = u_2 - 2\Delta x A\) and to \(f_8 = u_6 - 2\Delta x A\) for the right side. Here \(A\) is the
-			predetermined values that the derivative should correspond to.}
-			% \caption{}
-			\label{fig:neumann}
-		\end{subfigure}
-		\caption{An overview of 3 boundary conditions applied to a \(1\)D domain.}
-	\end{figure}
+			\input{tikz/mixed_bnd}
+			\label{fig:mixed}
+			\caption{This is a \(2\)D domain with mixed boundary conditions, along the $x$-axis there are
+			periodic boundary conditions, green ghost points, and the $y$-axis there are dirichlet boundary conditions, red ghost points. If
+			the smoothers are using a 5 point discretization stencil the corners, grey diamonds, are neglected when
+			computing the inner, i.e. true,  grid.}
+		\end{figure}
+
+
+
+
+		%
