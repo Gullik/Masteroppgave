@@ -1,0 +1,43 @@
+\section{Implementation of Boundary Conditions}
+    Since the subdomains already need to exchange the halo, we already had
+    made a suite of function dealing with halo-operations. These functions
+    can get, set, add, etc. N-dimensional slices from the halo. As can be seen in \cref{bnd_method}
+    this is quite similar to the needs of the varying boundary conditions and we
+    will reuse this capability during the implementation of boundary conditions.
+    In addition we will also need methods to restrict the part of the conditions
+    that need to be restricted. Here we will only deal with time-invariant boundary conditions
+    so they can be set, and restricted, once during initializations of the grids.
+    It should be easy to expand it to time varying conditions, just restrict the
+    boundary function each timestep.
+
+    In general the condition types are stored as a \(2\text{Dim}\) array, in the order
+    \(x_{low}, x_{upper}, y_{low}, ...\). Each time the boundary conditions function
+    is called it checks if each subdomain edge is at the total domain boundary.
+    Since the outer subdomains need to do extra computations here, it shouldn't
+    matter if the inner subdomains do some extra calculations. If the subdomain boundary
+    is at the boundary it calls the a function depending on which boundary type
+    the edge is.
+
+    \subsection{Restriction}
+        For now we have choosen to use straight injection, since we will not use any
+        complicated boundary conditions in this project, other developers are welcome
+        to expand it by more restriction algorithms.
+
+    \subsection{Periodic}
+        The periodic boundary conditions are just the same procedure as the halo
+        exchange. To try too keep an even load, between the computational nodes,
+        the halo exchange is also done between the the boundary subdomains.
+
+        To keep the convergence rate good we also need to keep the \textit{global constraint}
+        and \textit{compatibality condition} in mind, see \cref{sec:bnd_periodic}.
+        For this we have a N-dimensional parallel algorithm that neutralizes a grid.
+        This adds up the values from all the subdomain and makes sure the total of the values is \(0\).
+
+    \subsection{Dirichlet}
+        Given that we have a slice, representing the dirichlet conditions on the relevant
+        edges, the conditions are easily set by the use of slice-operations.
+        The outermost slice, i.e. ghost layer, is set to be equal to the boundary slice.
+
+
+
+    \subsection{Neumann}

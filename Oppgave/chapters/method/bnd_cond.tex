@@ -1,4 +1,5 @@
 \section{Boundary conditions}
+	\label{sec:bnd_method}
 	A simulation must necessarily have finite extent, we need to employ boundary condtions
 	to deal with the edges of the simulation. Here we will go through \(3\) different schemes
 	corresponding to periodic boundaries, Dirichlet conditions and Von Neumann conditions.
@@ -73,6 +74,7 @@
 
 
 \subsection{Periodic Boundaries}
+	\label{sec:bnd_periodic}
 	With periodic boundary conditions we want the boundary on one side to be equal
 	to the field on the other side of the plasma. For the \(1\)D case, see \cref{fig:periodic},
 	this can be written as
@@ -110,14 +112,14 @@
 
 \subsection{Dirichlet Boundaries}
 	With Dirichlet conditions the boundaries of the potential are known and given by a function,
-	\(\partial\Omega\). Then a \(1\)D problem, \cref{fig:dirichlet} , is represented by
+	\(\partial \phi = f\). Then a \(1\)D problem, \cref{fig:dirichlet} , is represented by
 
 	\begin{equation}
 		\nabla^2 \phi = -\rho \qquad \Omega = [0,L]
 	\end{equation}
 	with boundaries
 	\begin{equation}
-		\phi(0) = \partial \Omega(0), \qquad \phi(L) =  \partial\Omega(L)
+		\phi(0) =  f(0), \qquad f(L) =   f(L)
 	\end{equation}
 
 
@@ -183,7 +185,12 @@
 		could be used to restrict them.
 
 	\subsubsection{Neumann}
-		
+		The Neumann conditions are dependent on the next to outermost grid point,
+		i.e. grid point \(2\) in \cref{fig:neumann} on the lower side,
+		because of this they will have to be recomputed each time they are used.
+		But still the function \(f\) should be restricted seperately from the
+		finer grid restriction.
+
 
 	\subsection{Mixed Conditions}
 		All the boundary conditions can be implemented with the use of ghost cells,
