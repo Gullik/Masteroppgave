@@ -6,31 +6,6 @@
 	of the fluid model of plasma. Lastly a few different approximations
 	to make the fluid equations closable.
 
-\subsection{Kinetic Theory}
-	Let \(\mathcal{F}_s\) be the exact phase-space density of a particle species,
-	it contains all the positions, velocities for all the particles at
-	all times. By integrating over all velocities and multiplying with the charge
-	for all species we obtain the charge density, \(\rho_c\).
-
-	\[\rho_c = \sum_s e_s \int \mathcal{F}_s(\vb{r},\vb{v},t)\dd[3]{\vb{v}}\]
-
-	Likewise we find he current density, \(\vb{j}\).
-
-	\[\vb{j} = \sum_s e_s \int \vb{v}\mathcal{F}_s(\vb{r},\vb{v},t)\dd[3]{\vb{v}}\]
-
-	Then its seems we can derive all plasma interaction from considering
-	the conservation of the phase-space density, coupled with Maxwells equations.
-	The phase-space conservation is given by what is known as Vlasovs equation \cref{eq:vlasov}
-	\citep{pecseli_waves_2012}).
-
-	\begin{align}
-		\pdv{\mathcal{F}}{t} + \vb{v}\cdot\nabla\mathcal{F}_s + \frac{e_s}{m_s}\left( \vb{E} + v\cross\vb{B} \right) \cdot \nabla_v\mathcal{F}_s = 0 \label{eq:vlasov}
-	\end{align}
-
-	where \(\nabla_v\) is the velocity grad-operator.
-	Unfortunately this expression, combined with Maxwells equations, is only solvable
-	for special simple geometries.
-
 \subsection{Velocity Moments}
 	To investigate plasma as a fluid we have to make certain fluid approximations.
 	The plasma is then characterized by local parameters describing particle
@@ -85,7 +60,7 @@
 
 \subsection{Transport Equation}
 	By multiplying the a momentum function, \( \Phi \), with the Vlasov equation, \cref{eq:vlasov},
-	we obtain the general momentum transport equation. (Need Citation for this, sent mail and asked.)
+	we obtain the general momentum transport equation \citep{shu_physics_2010}.
 
 	\begin{equation}
 		\pdv{n\left< \Phi^n(\vb{v}) \right>}{t} + \nabla \cdot \left( \left< \Phi^n(\vb{v})\vb{v} \right> \right)
@@ -95,7 +70,7 @@
 	This then becomes a conservation equation for the average macroscopic quantity
 	\(\left< \Phi \right>\). By using this equation and inserting in the zeroth, first and second order
 	moment we obtain the fluid equations, \cref{eq:continuity,eq:momentum,eq:pressure}.
-	We refer you to \citetitle{fitzpatrick_plasma_2014} to see a derivation of the fluid
+	We refer you to \citet{fitzpatrick_plasma_2014} to see a derivation of the fluid
 	equations.
 
 
@@ -115,7 +90,7 @@
 	\label{sec:fluid}
 	The generalized fluid equations is given in \cref{eq:continuity,eq:momentum,eq:pressure}, where the three equations
 	describe the conservation of mass, momentum and energy respectively. The collision term is negleted.
-	We refer you to the earlier mentioned \textit{\citetitle{fitzpatrick_plasma_2014}}, although some
+	We refer you to the earlier mentioned \citet{fitzpatrick_plasma_2014}, although some
 	notation differ, for the rather involved derivation to obtain them.
 
 	\begin{subequations}
@@ -148,14 +123,14 @@
 	% \textit{\citetitle{fitzpatrick_plasma_2014}}\citep{fitzpatrick_plasma_2014}
 	% for a treatment of it.
 
-	The first equation equation, \cref{eq:continuity}, is the continuity equation, it states that the total mass
+	The first equation, \cref{eq:continuity}, is the continuity equation, it states that the total mass
 	in a volume	should be preserved. \(\vb{u}_s\) is the flow velocity and \(n_s\) is the number density, i.e.
 	number of particles in a volume. The divergence terms signifies change due to the compressability of the fluid
 	and can in many cases be set to \(0\). The total derivative, i.e. \(\left(\pdv{t} + \vb{u}_s\cdot\nabla \right)\) accounts for
 	change in density in a volume taking into account substance exiting and entering.
 	The momentum equation \cref{eq:momentum} shows that the fluid momentum change, left hand side,
 	is due to pressure gradients, \(\nabla p_s\), visceous forces, \(\nabla \cdot \pi \) and external forces, \(n_s\vb{f}_s\),
-	per unit volume. (NOTE: Should I add in precise mathy definition of viscosity/pressure/heat?)
+	per unit volume.
 	Lastly we have the energy equation, in its pressure form, which shows that changes to thermal
 	energy, \(p = nkT\), is caused by compression, \(p_s\nabla \cdot \vb{u}_s\), visceous effects \(\pi_s : \nabla{\vb{u_s}}\)
 	and heat transport	\(\frac{2}{3}\nabla \cdot \vb{q}_s\).
@@ -169,7 +144,7 @@
 
 	\subsubsection{Local Thermodynamic Equilibrium}
 	A plasma is said to be in a \textit{local thermodynamic equalibrium} (LTE)
-	if the phase-space distribution is locally maxwellian. This means the variations
+	if the phase-space distribution is locally Maxwellian. This means the variations
 	in temperature is slow enough that we can consider it to flow no heat. We can also ignore
 	the viscosity due to there being little local variations to the momentum flow.
 
@@ -178,7 +153,7 @@
 	\end{align}
 
 	Since the viscosity tensor, \(\vb{\pi}\), and the heat flux tensor, \(\vb{q}\)
-	contains odd integrals over the distribution, \textit{\citetitle[see][]{fitzpatrick_plasma_2014}},
+	contains odd integrals over the distribution, see \citet{fitzpatrick_plasma_2014},
 	they dissappear.
 
 	\subsubsection{Cold Plasma}

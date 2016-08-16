@@ -19,7 +19,7 @@
 	\subsection{Gyration}
 		\label{sec:gyration}
 		Let us consider a situation with a single moving particle in a static and isotropic external
- 		magnetic field, the same set up as in \citet{goldston_introduction_1995}.
+ 		magnetic field, a similar set up as in \citet{baumjohann_basic_1997}.
 		Newtons Second law together with \cref{eq:lorentz} then gives
 
 		\begin{align}
@@ -40,7 +40,7 @@
 			\centering
 			\begin{subfigure}{0.45\textwidth}
 				\input{tikz/gyration_fig.tex}
-				\caption{The blue line shows the motion of a particle moving in the presense of a magnetic
+				\caption{The blue line shows the motion of a particle moving in the presence of a magnetic
 				field pointing out of the paper. The particles trajectory is a gyration around the magnetic field lines.}
 				\label{fig:gyration}
 			\end{subfigure}
@@ -54,12 +54,11 @@
 
 
 		In the last equation we also changed the term describing the rotational motion
-		to \(\vb{\omega}_\perp\), which is often used in plasma literature to
-		signify gyration.
+		to \(\vb{\omega}_\perp\), which will from now on signify gyrational motion.
 		This differential equation corresponds to a gyration around the magnetic field lines
 		with the gyration frequency, \(\omega_c = \frac{qB}{m}\), as the frequency. If the particle
 		has parallel velocity it will rotate in a spiral along the magnetic field lines, as illustrated in
-		\cref{fig:gyration}. This spiral effect is often an important part of the reason why
+		\cref{fig:gyration}. This spiral effect is often an important part of why
 		there are often field-aligned currents, such as 'Birkeland Currents' \citep{cummings_field-aligned_1967},
 		transporting plasma along magnetic field lines.
 
@@ -74,8 +73,8 @@
 		m\pdv{v}{t} &= q(\vb{E} + \vb{v}\cross\vb{B}) \label{eq:EcrossB}
 	\end{align}
 
-	In plasmaphysics it is often a good strategy to decompose quantities into
-	parallel and perpendicular, to \(\vb{B}\) quantities. We start by seperating the
+	In plasma physics it is often a good strategy to decompose quantities into
+	parallel and perpendicular, with respect to \(\vb{B}\), quantities. We start by seperating the
 	velocity into \(\vb{v} = \vb{v}_\parallel + \vb{v}_\perp\) and the electric field
 	into \(\vb{E} = \vb{E}_\parallel + \vb{E}_\perp\). Inserting this and using that \(\vb{v}_\parallel\cross\vb{B}=0\)
 	again the equation becomes
@@ -131,7 +130,7 @@
 	\end{align}
 
 	Then we use the previous assumption that the drift velocity is constant,
-	cross the equation with \(\vb{B}\) and perform some algebra, see \citet{goldston_introduction_1995},
+	cross the equation with \(\vb{B}\) and simplify, see \citet{goldston_introduction_1995},
 	to arrive at
 
 	\begin{align}
@@ -143,6 +142,7 @@
 	speed, \cref{fig:EcrossB}.
 
 	This is just an example, and there are many other important concepts found in
-	considering single particles, that we will not go into here, see \citet{goldston_introduction_1995}.
+	considering single particles, that we will not go into here, see \citet{fitzpatrick_plasma_2014},
+	or a different introductionary plasma physics book.
 	Other examples that could be useful include gradient-B drift, curvature drift,
 	polarization drift and magnetic mirroring.

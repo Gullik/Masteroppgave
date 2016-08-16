@@ -1,0 +1,25 @@
+\section{Kinetic Theory}
+    Here we will shortly introduce kinetic theory in relation to plasma physics.
+	Let \(\mathcal{F}_s\) be the exact phase-space density of a particle species,
+	it contains all the positions, velocities for all the particles at
+	all times. By integrating over all velocities and multiplying with the charge
+	for all species we obtain the charge density, \(\rho_c\).
+
+	\[\rho_c = \sum_s e_s \int \mathcal{F}_s(\vb{r},\vb{v},t)\dd[3]{\vb{v}}\]
+
+	Likewise we find the current density, \(\vb{j}\).
+
+	\[\vb{j} = \sum_s e_s \int \vb{v}\mathcal{F}_s(\vb{r},\vb{v},t)\dd[3]{\vb{v}}\]
+
+	Then its seems we can derive all plasma interaction from considering
+	the conservation of the phase-space density, coupled with Maxwells equations.
+	The phase-space conservation is given by what is known as Vlasovs equation \cref{eq:vlasov}
+	\citep{pecseli_waves_2012}).
+
+	\begin{align}
+		\pdv{\mathcal{F}}{t} + \vb{v}\cdot\nabla\mathcal{F}_s + \frac{e_s}{m_s}\left( \vb{E} + v\cross\vb{B} \right) \cdot \nabla_v\mathcal{F}_s = 0 \label{eq:vlasov}
+	\end{align}
+
+	where \(\nabla_v\) is the velocity grad-operator.
+	Unfortunately this expression, combined with Maxwells equations, is only solvable
+	for special simple geometries.

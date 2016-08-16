@@ -14,16 +14,17 @@
     \textit{\citetitle{chen_introduction_1984}} \citep{chen_introduction_1984} can be consulted.
 
 	Plasma is the fourth, lesser known, state of matter. It is similar to a gas
-	in the the particles are free to move, but it has the key distinction that
-	a proportion of its constituent particles are electrically charged.
+	in that the particles are free to move, but it has the key distinction that
+	a part of its constituent particles are electrically charged.
 	\\[1.0cm]
 	\indent \textit{\large"A plasma is a quasineutral gas of charged and neutral particles which exhibits
 	collective behaviour."}
 	\begin{flushright}
 	    \textbf{Francis F. Chen}\\[1.0cm]
 	\end{flushright}
-	The charge causes the particles to be subject to the Lorentz force, \cref{eq:lorentz}, which
-	changes the behaviour of the gas. The plasma state is a typical state,
+	The charge causes the particles to be subject to the Lorentz force, which
+	changes the behaviour of the gas. The plasma state is a typical state of matter
+	and can be found in;
 	sun/stars, northen light, plasma cutters (Welding arcs), argon light tubes, fusion, a lot of various
 	industrial techniques, earth athmosphere. (Make this into a paragraph)
 
@@ -61,26 +62,29 @@
 		can also vibrate and spin. (Correct?)
 
 		In high energy plasma physics it is also costumary to drop the Boltzmann factor, \(k\),
-		in \cref{eq:temperature}, and express temperature directly in electronVolt, \(eV\).
+		in \cref{eq:temperature}, and express temperature directly in electronvolt, \(eV\).
 		Electronvolt is defined as the energy it takes to move an elementary charge through
-		a potential difference of a \(1\) \si{\volt}, and corresponds to approximately
-		\(11600 \si{\kelvin}\). For the space and athmospheric plasmas we are mostly
-		dealing with here the temperatures are generally low, so we will use the Kelvin scale
+		a potential difference of \(1\) \si{\volt}, and corresponds to approximately
+		\(11600 \si{\kelvin}\). For the space and atmospheric plasmas, we are mostly
+		dealing with here, the temperatures are generally low, so we will use the Kelvin scale
 		for temperature.
 
 		If the particles in a plasma collide often compared to the characteristic timescales
 		of energy and particle changes, the particle velocity distribution can be approximated
-		by a maxwellian distribution. It is only then that the concept of
+		by a Maxwellian distribution. It is only then that the concept of
 		temperature is valid \citep{goldston_introduction_1995}.
 
 		\subsubsection{Electron Plasma Frequency}
-		The most important timescale in plasma physics is the plasma frequency,
+		A rather important frequency in plasma physics is the electron plasma frequency,
 
 		\begin{equation}
 			\omega_{pe} \equiv \sqrt{\frac{ne^2}{\epsilon_0 m_e}}
 		\end{equation}
 
-		which corresponds to a typical electrostatic oscillatory frequency.
+		This frequency, \(\omega_{pe}\), is dependent on the number density, \(n\),
+		the fundamental charge, \(e\), the vacuum permittivity, \(\epsilon_0\), and
+		the electron mass, \(m_e\).
+		It can be thought of as a typical electrostatic oscillatory frequency.
 		Consider an electrically neutral 1D slab, which is then disturbed, from its
 		neutrality, by an infinitesimal charge density on one side.
 
@@ -115,27 +119,28 @@
 		\end{equation}
 
 		Some researchers prefer to define the \(\tau_p\), without the \(2\pi\) prefactor,
-		as that makes some consepts neater.
+		as that makes some concepts neater.
 
 		\subsubsection{Debye Shielding}
 		Debye shielding length is the distance at which the electric influence
 		from a particle is shielded out by the surrounding plasma.
 		Consider a charged particle immersed in a plasma bath. The plasma is in
-		a thermodynamically equilibrium, i.e. there is no significant temperature
+		a thermodynamical equilibrium, i.e. there is no significant temperature
 		gradients. We artificially place a positively charged ion into the plasma.
 		This ion will then attract electrons and repel positive ions. There will be a tendency
 		for there to be more negativily charged particles, and less positive, near the
 		ion, which in effect will work as an electric shield around the ion. The
-		distance away from a particle where its field, is typically cancelled out is called the
-		Debye Shielding Length, \(\lambda_D\).
-
+		distance away from a particle where its field, is typically mostly cancelled
+		out is called the Debye Shielding Length, \(\lambda_D\).
 
 		\begin{equation}
 			\lambda_D \equiv \sqrt{\frac{\epsilon_0 kT_e}{n_e e^2}}
 		\end{equation}
 
-		This is a definition that is often used, \citep{goldston_introduction_1995},
+		The above definition is often used, \citep{pecseli_waves_2012},
 		neglecting the ion influence since they often have a much lower temperature.
+		The shielding length is dependent on the ratio between temperature, \(T_e\),
+		and electron density, \(n_e\).
 		In cases where we also need to account for ions, a more complete definition can be used
 
 		\begin{equation}
@@ -154,14 +159,15 @@
 
 
 		\subsubsection{Quasineutrality}
-		The assumption of quasi-neutrality is often a valid approximation in plasma
-		physics. By quasi-neutrality we assume that we in the analysis set the electron
-		density equal to the electron density, \(n_e \approx n_i\). This is often called the
-		\textit{"plasma approximation"}, see \citep{chen_introduction_1984}. This approximation is often valid on scales
-		much larger than the shielding length due to the following arguement. If a
-		large volume of plasma lost a significant amount of charge a large electric
-		field accompany the density imbalance. This electric field would quickly correct
-		the imbalance.
+		The assumption of quasi-neutrality is a common approximation in plasma
+		physics. By quasi-neutrality we assume that the electron
+		density is equal to the ion density, \(n_e \approx n_i\). This is often called the
+		\textit{"plasma approximation"} \citep{chen_introduction_1984}.
+		This approximation is usually valid on length scales much larger than the shielding
+		length. If we had a case where a large volume of plasma lost a significant
+		amount of charge, a large electric field would accompany the density imbalance.
+		This electric field would quickly correct the imbalance, and quasineutrality
+		would be regained.
 
 		\subsubsection{Plasma Classification}
         For a plasma description to be useful the system we consider must have
