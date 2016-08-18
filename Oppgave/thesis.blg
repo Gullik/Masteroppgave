@@ -1,9 +1,15 @@
 [0] Config.pm:327> INFO - This is Biber 2.3
 [0] Config.pm:330> INFO - Logfile is 'thesis.blg'
-[30] biber:287> INFO - === Tue Aug 16, 2016, 15:16:43
-[44] Biber.pm:346> INFO - Reading 'thesis.bcf'
-[102] Biber.pm:689> INFO - Found 0 citekeys in bib section 0
-[102] Utils.pm:147> WARN - The file 'thesis.bcf' does not contain any citations!
-[106] bbl.pm:505> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[106] bbl.pm:596> INFO - Output to thesis.bbl
-[107] Biber.pm:107> INFO - WARNINGS: 1
+[23] biber:287> INFO - === Thu Aug 18, 2016, 15:27:47
+[38] Biber.pm:346> INFO - Reading 'thesis.bcf'
+[96] Biber.pm:689> INFO - Found 1 citekeys in bib section 0
+[100] Biber.pm:3066> INFO - Processing section 0
+[109] Biber.pm:3206> INFO - Looking for bibtex format file 'bibs/bibliography.bib' for section 0
+[114] bibtex.pm:1062> INFO - Decoding LaTeX character macros into UTF-8
+[118] bibtex.pm:923> INFO - Found BibTeX data source 'bibs/bibliography.bib'
+[138] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[139] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[139] Biber.pm:2943> INFO - Sorting list 'nyt' of type 'entry' with scheme 'nyt' and locale 'en-US'
+[139] Biber.pm:2947> INFO - No sort tailoring available for locale 'en-US'
+[140] bbl.pm:505> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[142] bbl.pm:596> INFO - Output to thesis.bbl

@@ -16,5 +16,41 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \sortlist{nyt}{nyt}
+    \entry{press_numerical_1988}{article}{}
+      \name{author}{4}{}{%
+        {{uniquename=0,hash=e25935343805f5bc8cf8924629f02376}{Press}{P\bibinitperiod}{William\bibnamedelima H.}{W\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=67697fa4e8f96fea3d0c4b1f7ed40a54}{Teukolsky}{T\bibinitperiod}{S.\bibnamedelimi A.}{S\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c4198a24a680798147d7bde9ebc609b4}{Vetterling}{V\bibinitperiod}{W.\bibnamedelimi T.}{W\bibinitperiod\bibinitdelim T\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=903fec84c425c443d906d94bab916687}{Flannery}{F\bibinitperiod}{B.\bibnamedelimi P.}{B\bibinitperiod\bibinitdelim P\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{21c96521d50e44757fcf123ac89a147c}
+      \strng{fullhash}{88594c17433d0c09f9cf68e5e9c45428}
+      \field{sortinit}{P}
+      \field{sortinithash}{c0a4896d0e424f9ca4d7f14f2b3428e7}
+      \field{labelyear}{1988}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Cambridge University Press}
+      \field{title}{Numerical recipes in {C}}
+      \field{urlday}{21}
+      \field{urlmonth}{04}
+      \field{urlyear}{2016}
+      \field{volume}{1}
+      \field{year}{1988}
+      \field{pages}{3}
+      \range{pages}{1}
+      \verb{file}
+      \verb [PDF] from numerical-recipes.com:/mn/fys-server-rp1/s2/gullikvk/.zotero/zotero/9dvr81pm.default/zotero/storage/EMUPJZNU/Press et al. - 1988 - Numerical recipes in C.pdf:application/pdf;Snapshot:/mn/fys-server-rp1/s2/gullikvk/.zotero/zotero/9dvr81pm.default/zotero/storage/CDU29FH7/displayAbstract.html:text/html
+      \endverb
+      \verb{url}
+      \verb http://journals.cambridge.org/abstract_S0269964800000565
+      \endverb
+    \endentry
+  \endsortlist
+\endrefsection
 \endinput
 
