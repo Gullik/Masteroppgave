@@ -19,6 +19,222 @@
 
 \refsection{0}
   \sortlist{nyt}{nyt}
+    \entry{alnaes_fenics_2011}{book}{}
+      \name{author}{6}{}{%
+        {{uniquename=0,hash=c6fe4edb1c669196f76891ddc56e7531}{Alnæs}{A\bibinitperiod}{Martin\bibnamedelima Sandve}{M\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=6c258c7873d4d947fdafc20e9f8b910a}{Hake}{H\bibinitperiod}{Johan}{J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=f9d76469b85f39694da3dc8ea4bfd8bf}{Kirby}{K\bibinitperiod}{Robert\bibnamedelima C.}{R\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=0967083410282320ed5fab09db692cfc}{Langtangen}{L\bibinitperiod}{Hans\bibnamedelima Petter}{H\bibinitperiod\bibinitdelim P\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=bae2791f700c5805db2f0fda7977a949}{Logg}{L\bibinitperiod}{Anders}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a4bc5763eb3a57316d5da4058635c123}{Wells}{W\bibinitperiod}{Garth\bibnamedelima N.}{G\bibinitperiod\bibinitdelim N\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {October}%
+      }
+      \strng{namehash}{903967afd3fa04fe45c4aa6bf3072c9c}
+      \strng{fullhash}{b2e41dd0eb9f960eeff06827bad0a19f}
+      \field{sortinit}{A}
+      \field{sortinithash}{b685c7856330eaee22789815b49de9bb}
+      \field{labelyear}{2011}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The {FEniCS} {Manual}}
+      \field{urlday}{21}
+      \field{urlmonth}{04}
+      \field{urlyear}{2016}
+      \field{year}{2011}
+      \verb{file}
+      \verb [PDF] from unam.mx:/mn/fys-server-rp1/s2/gullikvk/.zotero/zotero/9dvr81pm.default/zotero/storage/ZR9WJGUT/Alna es et al. - 2011 - The FEniCS Manual.pdf:application/pdf
+      \endverb
+      \verb{url}
+      \verb http://mmc2.geofisica.unam.mx/acl/edp/Ejemplitos/FEniCs/fenics-manual-2011-10-31.pdf
+      \endverb
+    \endentry
+    \entry{arraras_domain_2015}{article}{}
+      \name{author}{4}{}{%
+        {{uniquename=0,hash=be2e5ec6f57bffcb80a719b7046f1f60}{Arraras}{A\bibinitperiod}{A.}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=cca144fd3ead96672ff66331b2e795ac}{Gaspar}{G\bibinitperiod}{F.\bibnamedelimi J.}{F\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b57162950198687a0dfa2c37518590a0}{Portero}{P\bibinitperiod}{L.}{L\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=89883edd937ec7f77ccdd888ba88a940}{Rodrigo}{R\bibinitperiod}{C.}{C\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{c0cf2314a562913da2881fb7fe996b1f}
+      \strng{fullhash}{355a11f5a10c193609261be4e23227a0}
+      \field{sortinit}{A}
+      \field{sortinithash}{b685c7856330eaee22789815b49de9bb}
+      \field{labelyear}{2015}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Communications in Nonlinear Science and Numerical Simulation}
+      \field{number}{3}
+      \field{title}{Domain decomposition multigrid methods for nonlinear reaction–diffusion problems}
+      \field{urlday}{21}
+      \field{urlmonth}{04}
+      \field{urlyear}{2016}
+      \field{volume}{20}
+      \field{year}{2015}
+      \field{pages}{699\bibrangedash 710}
+      \range{pages}{12}
+      \verb{file}
+      \verb Snapshot:/mn/fys-server-rp1/s2/gullikvk/.zotero/zotero/9dvr81pm.default/zotero/storage/3K2W2KEW/S1007570414003074.html:text/html
+      \endverb
+      \verb{url}
+      \verb http://www.sciencedirect.com/science/article/pii/S1007570414003074
+      \endverb
+    \endentry
+    \entry{birdsall_plasma_2004}{book}{}
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=8dca8af684912398b1b90d7569c1da84}{Birdsall}{B\bibinitperiod}{C.\bibnamedelimi K.}{C\bibinitperiod\bibinitdelim K\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=996baa0e8b9551e2631659e7bd7a2e7c}{Langdon}{L\bibinitperiod}{A.\bibnamedelimi B.}{A\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {CRC Press}%
+      }
+      \strng{namehash}{0e4d38c4dd24fe3921eada76838ada15}
+      \strng{fullhash}{0e4d38c4dd24fe3921eada76838ada15}
+      \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{labelyear}{2004}
+      \field{labelmonth}{10}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Divided into three main parts, the book guides the reader to an understanding of the basic concepts in this fascinating field of research. Part 1 introduces you to the fundamental concepts of simulation. It examines one-dimensional electrostatic codes and electromagnetic codes, and describes the numerical methods and analysis. Part 2 explores the mathematics and physics behind the algorithms used in Part 1. In Part 3, the authors address some of the more complicated simulations in two and three dimensions. The book introduces projects to encourage practical work Readers can download plasma modeling and simulation software — the ES1 program — with implementations for PCs and Unix systems along with the original FORTRAN source code. Now available in paperback, Plasma Physics via Computer Simulation is an ideal complement to plasma physics courses and for self-study.}
+      \field{isbn}{978-1-4822-6306-0}
+      \field{month}{10}
+      \field{title}{Plasma {Physics} via {Computer} {Simulation}}
+      \field{year}{2004}
+      \keyw{Mathematics / Arithmetic,Science / Physics / General,Science / Physics / Mathematical \& Computational}
+    \endentry
+    \entry{buneman_dissipation_1959}{article}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=e3a47eba786fca1226e76a70f83c6bc5}{Buneman}{B\bibinitperiod}{O.}{O\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{e3a47eba786fca1226e76a70f83c6bc5}
+      \strng{fullhash}{e3a47eba786fca1226e76a70f83c6bc5}
+      \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{labelyear}{1959}
+      \field{labelmonth}{08}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The destruction of electron drifts by instabilities is analyzed. The fastest stable drift is calculated (drift energy 0.9kT) and the energy of a faster drift is found to be dissipated into instabilities within, typically, 30 plasma periods. The growth of a local disturbance in this process is shown to take place without effective propagation. The "turbulent" flow pattern created, eventually, under nonlinear conditions is calculated numerically, demonstrating the tendency towards randomization of the initial drift energy. The effect stops "runaway" in about 100 plasma periods after which there is "heating" by "collective collisions" instead.}
+      \field{journaltitle}{Physical Review}
+      \field{month}{08}
+      \field{number}{3}
+      \field{title}{Dissipation of {Currents} in {Ionized} {Media}}
+      \field{urlday}{19}
+      \field{urlmonth}{08}
+      \field{urlyear}{2016}
+      \field{volume}{115}
+      \field{year}{1959}
+      \field{pages}{503\bibrangedash 517}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1103/PhysRev.115.503
+      \endverb
+      \verb{file}
+      \verb APS Snapshot:/mn/fys-server-rp1/s2/gullikvk/.zotero/zotero/9dvr81pm.default/zotero/storage/4JAR3S3F/PhysRev.115.html:text/html
+      \endverb
+      \verb{url}
+      \verb http://link.aps.org/doi/10.1103/PhysRev.115.503
+      \endverb
+    \endentry
+    \entry{chow_survey_2006}{article}{}
+      \name{author}{5}{}{%
+        {{uniquename=0,hash=d393bf9ff9d79edf7a611fd295530eaa}{Chow}{C\bibinitperiod}{Edmond}{E\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=2aeebdd1c9533ce95f52ae5fba40c629}{Falgout}{F\bibinitperiod}{Robert\bibnamedelima D.}{R\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=5cafd85d5e07a099962aea70513a7e32}{Hu}{H\bibinitperiod}{Jonathan\bibnamedelima J.}{J\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=80e6968c86cf6636075bd2bfa626b047}{Tuminaro}{T\bibinitperiod}{Raymond\bibnamedelima S.}{R\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=57c03e4eab1b21d1e643bc0e53ad6c0f}{Yang}{Y\bibinitperiod}{Ulrike\bibnamedelima Meier}{U\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{0593ef34c870e8fabf95aae50703138f}
+      \strng{fullhash}{0ad49ecc7c7b4e00820f36ca978138e8}
+      \field{sortinit}{C}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{labelyear}{2006}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Parallel processing for scientific computing}
+      \field{title}{A survey of parallelization techniques for multigrid solvers}
+      \field{urlday}{21}
+      \field{urlmonth}{04}
+      \field{urlyear}{2016}
+      \field{volume}{20}
+      \field{year}{2006}
+      \field{pages}{179\bibrangedash 201}
+      \range{pages}{23}
+      \verb{file}
+      \verb [PDF] from edmondchow.com:/mn/fys-server-rp1/s2/gullikvk/.zotero/zotero/9dvr81pm.default/zotero/storage/PQZJ6DHU/Chow et al. - 2006 - A survey of parallelization techniques for multigr.pdf:application/pdf
+      \endverb
+      \verb{url}
+      \verb http://www.edmondchow.com/pubs/parmg-survey-siam.pdf
+      \endverb
+    \endentry
+    \entry{dawson_one-dimensional_1962}{article}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=8eff4f600ad6cc866ec36733fca306b9}{Dawson}{D\bibinitperiod}{John}{J\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{8eff4f600ad6cc866ec36733fca306b9}
+      \strng{fullhash}{8eff4f600ad6cc866ec36733fca306b9}
+      \field{sortinit}{D}
+      \field{sortinithash}{78f7c4753a2004675f316a80bdb31742}
+      \field{labelyear}{1962}
+      \field{labelmonth}{04}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{A one-dimensional plasma model consisting of a large number of identical charge sheets embedded in a uniform fixed neutralizing background is investigated by following the sheet motions on a high‐speed computer. The thermalizing properties and ergodic behavior of the system are examined and found to be in agreement with the assumption that one is equally likely to find the system in equal volumes of the available phase space. The velocity distribution, Debye shielding, drag on fast and slow sheets, diffusion in velocity space, the Landau damping of the Fourier modes, the amplitude distribution function for the Fourier modes, and the distribution of electric fields felt by the sheets were obtained for the plasma in thermal equilibrium and compared with theoretically predicted values. In every case, except one, the drag on a slow sheet, the numerical results agreed with theory to within the statistical accuracy of the results. The numerical results for the drag on a slow sheet were about a factor of 2 lower than the theory predicated indicating that the approximations made in the theory are not entirely valid. An understanding of the cause of the discrepancy might lead to a better understanding of collisional processes in plasmas.}
+      \field{issn}{0031-9171}
+      \field{journaltitle}{Physics of Fluids (1958-1988)}
+      \field{month}{04}
+      \field{number}{4}
+      \field{title}{One-{Dimensional} {Plasma} {Model}}
+      \field{urlday}{19}
+      \field{urlmonth}{08}
+      \field{urlyear}{2016}
+      \field{volume}{5}
+      \field{year}{1962}
+      \field{pages}{445\bibrangedash 459}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1063/1.1706638
+      \endverb
+      \verb{file}
+      \verb Full Text PDF:/mn/fys-server-rp1/s2/gullikvk/.zotero/zotero/9dvr81pm.default/zotero/storage/CZPR82R4/Dawson - 1962 - One‐Dimensional Plasma Model.pdf:application/pdf;Snapshot:/mn/fys-server-rp1/s2/gullikvk/.zotero/zotero/9dvr81pm.default/zotero/storage/VX5QZDRA/1.html:text/html
+      \endverb
+      \verb{url}
+      \verb http://scitation.aip.org/content/aip/journal/pof1/5/4/10.1063/1.1706638
+      \endverb
+    \endentry
+    \entry{hackbusch_multigrid_1982}{article}{}
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=01bcfafc59c11a565163fcf9ef2a0907}{Hackbusch}{H\bibinitperiod}{Wolfgang}{W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=114331449f25e3b7253783221adb73cc}{Trottenberg}{T\bibinitperiod}{Ulrich}{U\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{147b453720a94264434a64fef0dc905c}
+      \strng{fullhash}{147b453720a94264434a64fef0dc905c}
+      \field{sortinit}{H}
+      \field{sortinithash}{82012198d5dfa657b8c4a168793268a6}
+      \field{labelyear}{1982}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Multigrid methods}
+      \field{urlday}{21}
+      \field{urlmonth}{04}
+      \field{urlyear}{2016}
+      \field{year}{1982}
+      \verb{url}
+      \verb http://158.69.150.236:1080/jspui/handle/961944/66389
+      \endverb
+    \endentry
     \entry{press_numerical_1988}{article}{}
       \name{author}{4}{}{%
         {{uniquename=0,hash=e25935343805f5bc8cf8924629f02376}{Press}{P\bibinitperiod}{William\bibnamedelima H.}{W\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
@@ -48,6 +264,138 @@
       \endverb
       \verb{url}
       \verb http://journals.cambridge.org/abstract_S0269964800000565
+      \endverb
+    \endentry
+    \entry{shen_efficient_1994}{article}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=58f02d1fc91ed64baed927a1d852c975}{Shen}{S\bibinitperiod}{J.}{J\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{58f02d1fc91ed64baed927a1d852c975}
+      \strng{fullhash}{58f02d1fc91ed64baed927a1d852c975}
+      \field{sortinit}{S}
+      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
+      \field{labelyear}{1994}
+      \field{labelmonth}{11}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This paper presents some efficient algorithms based on the Legendre–Galerkin approximations for the direct solution of the second- and fourth-order elliptic equations. The key to the efficiency of these algorithms is to construct appropriate base functions, which lead to systems with sparse matrices for the discrete variational formulations. The complexities of the algorithms are a small multiple of \$N{^}\{d + 1\} \$ operations for a d-dimensional domain with \$(N - 1){^}d \$ unknowns, while the convergence rates of the algorithms are exponential for problems with smooth solutions. In addition, the algorithms can be effectively parallelized since the bottlenecks of the algorithms are matrix-matrix multiplications.}
+      \field{issn}{1064-8275}
+      \field{journaltitle}{SIAM Journal on Scientific Computing}
+      \field{month}{11}
+      \field{number}{6}
+      \field{title}{Efficient {Spectral}-{Galerkin} {Method} {I}. {Direct} {Solvers} of {Second}- and {Fourth}-{Order} {Equations} {Using} {Legendre} {Polynomials}}
+      \field{urlday}{21}
+      \field{urlmonth}{04}
+      \field{urlyear}{2016}
+      \field{volume}{15}
+      \field{year}{1994}
+      \field{pages}{1489\bibrangedash 1505}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1137/0915089
+      \endverb
+      \verb{file}
+      \verb Full Text PDF:/mn/fys-server-rp1/s2/gullikvk/.zotero/zotero/9dvr81pm.default/zotero/storage/JJCBCQ9W/Shen - 1994 - Efficient Spectral-Galerkin Method I. Direct Solve.pdf:application/pdf;Snapshot:/mn/fys-server-rp1/s2/gullikvk/.zotero/zotero/9dvr81pm.default/zotero/storage/EW6BKNR8/0915089.html:text/html
+      \endverb
+      \verb{url}
+      \verb http://epubs.siam.org/doi/abs/10.1137/0915089
+      \endverb
+    \endentry
+    \entry{stuben_review_2001}{article}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=0f45b08207e9d3210a5038e690578335}{Stüben}{S\bibinitperiod}{Klaus}{K\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{0f45b08207e9d3210a5038e690578335}
+      \strng{fullhash}{0f45b08207e9d3210a5038e690578335}
+      \field{sortinit}{S}
+      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
+      \field{labelyear}{2001}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Computational and Applied Mathematics}
+      \field{number}{1}
+      \field{title}{A review of algebraic multigrid}
+      \field{urlday}{21}
+      \field{urlmonth}{04}
+      \field{urlyear}{2016}
+      \field{volume}{128}
+      \field{year}{2001}
+      \field{pages}{281\bibrangedash 309}
+      \range{pages}{29}
+      \verb{file}
+      \verb [HTML] from sciencedirect.com:/mn/fys-server-rp1/s2/gullikvk/.zotero/zotero/9dvr81pm.default/zotero/storage/2HXJFWVT/S0377042700005161.html:text/html
+      \endverb
+      \verb{url}
+      \verb http://www.sciencedirect.com/science/article/pii/S0377042700005161
+      \endverb
+    \endentry
+    \entry{trottenberg_multigrid_2000}{book}{}
+      \name{author}{3}{}{%
+        {{uniquename=0,hash=114331449f25e3b7253783221adb73cc}{Trottenberg}{T\bibinitperiod}{Ulrich}{U\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=b471cabf81b0b3d2e71a565733d547eb}{Oosterlee}{O\bibinitperiod}{Cornelius\bibnamedelima W.}{C\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d2165f57f15a0a4ba97322a38c3c9cd3}{Schuller}{S\bibinitperiod}{Anton}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Academic press}%
+      }
+      \strng{namehash}{331ba245e4bd1e286e2e7f877d25ea02}
+      \strng{fullhash}{d2a2773cc15fae227db3b9532263fcc6}
+      \field{sortinit}{T}
+      \field{sortinithash}{423d138a005a533b47e6475e39378bf2}
+      \field{labelyear}{2000}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Multigrid}
+      \field{urlday}{21}
+      \field{urlmonth}{04}
+      \field{urlyear}{2016}
+      \field{year}{2000}
+      \verb{file}
+      \verb Snapshot:/mn/fys-server-rp1/s2/gullikvk/.zotero/zotero/9dvr81pm.default/zotero/storage/BR7SBQKS/books.html:text/html
+      \endverb
+      \verb{url}
+      \verb https://www.google.com/books?hl=en&lr=&id=9ysyNPZoR24C&oi=fnd&pg=PP1&dq=trottenberg+2000&ots=rJCHSPzSMY&sig=sin3i-gmWOoykoTFnyHGIPZXT5Q
+      \endverb
+    \endentry
+    \entry{verboncoeur_particle_2005}{article}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=f48a6c465065d8463612feb76aaf56a7}{Verboncoeur}{V\bibinitperiod}{J.\bibnamedelimi P.}{J\bibinitperiod\bibinitdelim P\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{f48a6c465065d8463612feb76aaf56a7}
+      \strng{fullhash}{f48a6c465065d8463612feb76aaf56a7}
+      \field{sortinit}{V}
+      \field{sortinithash}{d18f5ce25ce0b5ca7f924e3f6c04870e}
+      \field{labelyear}{2005}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Particle simulation of plasmas, employed since the 1960s, provides a self-consistent, fully kinetic representation of general plasmas. Early incarnations looked for fundamental plasma effects in one-dimensional systems with 10 2 –10 3 particles in periodic electrostatic systems on computers with \#\#IMG\#\# [http://ej.iop.org/icons/Entities/lsim.gif] lsim 100 kB memory. Recent advances model boundary conditions, such as external circuits to wave launchers, collisions and effects of particle–surface impact, all in fully relativistic three-dimensional electromagnetic systems using 10 6 –10 10 particles on massively parallel computers. While particle codes still enjoy prominance in a number of basic physics areas, they are now often used for engineering devices as well.}
+      \field{issn}{0741-3335}
+      \field{journaltitle}{Plasma Physics and Controlled Fusion}
+      \field{number}{5A}
+      \field{shorttitle}{Particle simulation of plasmas}
+      \field{title}{Particle simulation of plasmas: review and advances}
+      \field{urlday}{21}
+      \field{urlmonth}{07}
+      \field{urlyear}{2016}
+      \field{volume}{47}
+      \field{year}{2005}
+      \field{pages}{A231}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1088/0741-3335/47/5A/017
+      \endverb
+      \verb{file}
+      \verb IOP Full Text PDF:/mn/fys-server-rp1/s2/gullikvk/.zotero/zotero/9dvr81pm.default/zotero/storage/R454BNXN/Verboncoeur - 2005 - Particle simulation of plasmas review and advance.pdf:application/pdf
+      \endverb
+      \verb{url}
+      \verb http://stacks.iop.org/0741-3335/47/i=5A/a=017
       \endverb
     \endentry
   \endsortlist

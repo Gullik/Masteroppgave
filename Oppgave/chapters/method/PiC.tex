@@ -1,4 +1,15 @@
 \section{Particle-in-Cell}
+(Rewrite->explain how a PiC model works, needed pieces...)
+
+    Particle based plasma simulations has been in use since the 1960s, \citep{verboncoeur_particle_2005},
+    and part of this project was to design a massively parrallel implementation,
+    with a focus on the Poisson solver. The first particle based plasma calculations was
+    was done by \cite{dawson_one-dimensional_1962} and \citet{buneman_dissipation_1959}.
+    They computed the electrical force directly between the particles leading
+    to a computational scaling of \(\order{(\#particles)^2}\).
+
+
+
  To investigate the mechanics involved in a wide variety of plasma phenoma,
  computer simulation are used. Particle-in-Cell, PiC, is simulation model that takes a
  particle based approach, where each particle is simulated seperately, or a
@@ -19,3 +30,48 @@
 
     % The problem also need boundary conditions in which we will focus on periodic,
     % Dirichlet and Neumann boundary conditions.
+
+    \subsection{Field Solvers}
+
+    \subsubsection{Spectral Methods}
+    	The spectral methods is based on Fourier transforms of the problem and solving
+    	the problem in it's spectral version, see \citep{shen_efficient_1994}, for an
+    	implementation of an spectral poisson solver. They are efficient solvers that
+    	can be less intricate to implement (?), but can be inaccurate for complex geometries.
+
+    	When looking for a solution with a spectral method we first rewrite the
+    	functions as Fourier series, which for the three-dimensional Poisson equation would be
+
+    	\begin{align}
+    		\nabla^2 \sum A_{j,k,l} e^{i(jx + ky + lz)} &= \sum B_{j,k,l} e^{i(jx + ky + lz)}
+    		\intertext{From there we get a relation between the coefficients}
+    		A_{j,k,l} &= -\frac{B_{j,k,l}}{j^2 + k^2 + l^2}
+    		\intertext{Then we compute the Fourier transform of the right hand side obtaining
+    		the coefficients \(B_{j,k,l}\). We compute all the coefficients \(A_{j,k,l}\)
+    		from the relation between the coefficients. At last we perform a inverse
+    		Fourier transform of the left hand side obtaining the solution.}
+    	\end{align}
+
+    \subsubsection{Finite Element Methods}
+
+    	The finite element is a method to numerically solve a partial differential
+    	equations (PDE) first transforming the problem into a variational problem and
+    	then constructing a mesh and local trial functions, see \cite{alnaes_fenics_2011}
+    	for a more complete discussion.
+
+    	To transform the PDE to a variational problem we first multiply the PDE by a
+    	test function \(v\), then it is integrated using integration by parts on the
+    	second order terms. Then the problem is separated into two parts, the bilinear
+    	form \(a(u,v)\) containing the unknown solution and the test function and the
+    	linear form \(L(v)\) containing only the test function.
+
+    	\begin{align}
+    		a(u,v) = L(v)	\qquad v\epsilon \hat{V}
+    	\end{align}
+
+    	Next we construct discrete local function spaces of that we assume contain
+    	the trialfunctions and testfunctions. The function spaces often consists of
+    	locally defined functions that are \(0\) except in a close neighbourhood of
+    	a mesh point, so the resulting matrix to be solved is sparse and can be computed
+    	quickly. The matrix system is then solved by a suiting linear algebra algorithm,
+    	before the solution is put together.
