@@ -1,19 +1,19 @@
 
-\section{Multigrid}
-	The multi grid, MG, method used to solve the Poisson equation and obtain the
-	electric field is a widely used and highly efficient solver for elliptic equations,
-	having a theoretical scaling of \(\order{N}\) \citep{press_numerical_1988},
-	where \(N\) is the grid points. Here I will go through the main theory and
-	algorithm behind the method, as explained in more detail in \citep{press_numerical_1988,trottenberg_multigrid_2000}
-	as well as go through some of possible algorithms to parallelize the method.
+\section{Multigrid - Expanded}
+	\label{sec:multigrid}
+	Here I will go through the main theory and
+	algorithm behind a multigrid solver, developed as a part of this thesis,
+	as explained in more detail in \citep{press_numerical_1988,trottenberg_multigrid_2000}.
+	This solver is developed with a wholly distributed storage model.
 
+	\subsection{Algorithm}
 	We want to solve a linear elliptic problem,
 		\begin{align}
 			\mathcal{L} u = f
 		\end{align}
 	where \(\mathcal{L}\) is a linear operator, \(u\) is the solution and \(f\) is
-  a source term. In our specific case the operator is given by the laplacian, the
-  source term is given by the charge density and we solve for the electric potential.
+	a source term. In our specific case the operator is given by the laplacian, the
+	source term is given by the charge density and we solve for the electric potential.
 
 	We discretize the equation onto a grid of size \(q\).
 	\begin{align}
@@ -21,14 +21,14 @@
 	\end{align}
 
 	Let the error, \(v_q\) be the difference between the exact solution and an approximate
-  solution to the difference equation (\ref{eq:difference}), \( v_q = u_q - \tilde{u}_q \).
-  Then we define the residual as what is left after using the approximate solution
-  in the equation.
+	solution to the difference equation (\ref{eq:difference}), \( v_q = u_q - \tilde{u}_q \).
+	Then we define the residual as what is left after using the approximate solution
+	in the equation.
 
 	\begin{align}
 		d_q &= \mathcal{L}_q \tilde{u}_q - f_q
 	\end{align}
-
+	%
 	Since \(\mathcal{L}\) is a linear operator the error satisfies the following relation
 
 	\begin{align}
@@ -36,46 +36,40 @@
 		\\
 		\mathcal{L}_q v_q &= - d_q \label{eq:diff_MG}
 	\end{align}
+	%
+	The system can then be solved directly on this level with a chosen discretization.
+	If we then increase the resolution to obtain a better solution, the system
+	becomes exponentially harder to solve. The multigrid method approaches this problem
+	by solving it on several different discretizations levels.
+	We set up a systems of nested coarser regular grids,
+	\(\mathfrak{T}_0 \supset \mathfrak{T}_{1} \supset \cdots \supset \mathfrak{T}_\ell\),
+	where \(0\) is the finest and \(\ell\) is the coarsest grid.
+	Then an iterative solver, which has the property of quickly converging of high frequency errors, i.e.
+	local errors, is used on the finest grid. The remaining error is then transferred
+	to a coarser grid where lower frequency errors are more easily found. The errors
+	found on the coarser levels is then transferred up to the finest level as a correction.
+	To transfer between the discretization coarseness we use restriction, \( \mathcal{R} \),
+	and prolongation, \( \mathcal{P} \), operators. Due to the fewer grid points the problem is
+	faster to solve on the coarser grid levels than on the fine grid.
 
-	In the multigrid methods instead of solving the equation directly here, we set
-	up a system of nested coarser square grids,
-	\(\mathfrak{T}_1 \subset \mathfrak{T}_2 \subset \cdots \subset \mathfrak{T}_\ell\),
-	where \(1\) is the coarsest grid and \(\ell\) is the finest. Then the main thought
-	behind the methods is that instead of solving the problem directly on the initial
-	grid, we use restriction, \( \mathcal{R} \), and interpolation, \( \mathcal{P} \),
-	operators to change the problem between the different grid levels and solve them
-	on there. (Fix previous sentence) Due to the fewer grid points the problem is
-	faster to solver on the coarser grid levels than on the fine grid.
-
-	If we then apply a restriction operator on the residual we go down a level on
-	the grids and the opposite for the interpolation operator.
+	If we apply a restriction operator on a grid we obtain
 
 	\begin{align}
-		\mathcal{R} d_q = d_{q-1} \qquad \text{and} \qquad \mathcal{I} d_q = d_{q + 1}
+		\mathcal{R} d_q = d_{q-1} \qquad \text{and} \qquad \mathcal{P} d_q = d_{q + 1}
 	\end{align}
 
-    \input{tikz/mgV}
+	% %Figure
+	\begin{figure}
+	    \center
+		\input{tikz/mgV}
+		\caption{Schematic overview of the Multigrid cycle. In a three level MG implementation,
+		there is 5 main steps in a cycle that needs to be considered.}
+		\label{fig:MG_schematic}
+	\end{figure}
 
-    The \cref{fig:MG_schematic} shows a schematic overview of the multigrid cycle described here.
-
-
-	% \subsection{Algorithm}
-	% 	A sequential algorithm for a two grid V shaped algorithm, where the coarse
-	% 	grid and fine grid has respectively \(q = 1,2\).
-    %
-	% \begin{itemize}
-	% 	\item Initial approximation. \(\tilde{u}\)
-	% 	\item for \(i < \) nCycles:
-	% 		\begin{itemize}
-	% 			\item Presmooth: \(\hat{u}_2 = S_{pre}(u)_2\)
-	% 			\item Calculate defect: \( d_2 = f_2 - \mathcal{L}\hat{u}_2\)
-	% 			\item Restrict defect: \( d_1 = Rd_2 \)
-	% 			\item Initial guess: 	\( \tilde{u}_1 = 0 \)
-	% 			\item Solve (GS-RB): 	\( L_1 \tilde{u}_1 = d_1 \)
-	% 			\item Interpolate:		\( \tilde{u}_2 = I \tilde{u}_1 \)
-	% 			\item Add correction:	\( u^{new}_2 = \hat{u}_2 + \tilde{u}_2 \)
-	% 		\end{itemize}
-	% \end{itemize}
+	The \cref{fig:MG_schematic} shows a schematic overview of a \(3\)-level
+	version of the multigrid cycle described here. The needed operations on each
+	level is described in greater detail in \cref{sec:mg_impl}.
 
 	\subsection{Smoothing}
         Note-to-self: Should be overview of Smoothers and properties we want them to have.
@@ -213,8 +207,6 @@
             	\end{equation}
 
                 \subsection{Prolongation}
-                    NOTE TO SELF: Should contain overview of different prolongation algorithms/stencils/
-
                     \label{sec:prol_simple}
 
                     Along with the restriction operator described in the previous section, we also need prolongation

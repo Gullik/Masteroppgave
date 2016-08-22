@@ -235,6 +235,31 @@
       \verb http://158.69.150.236:1080/jspui/handle/961944/66389
       \endverb
     \endentry
+    \entry{hjorth-jensen_computational_????}{book}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=f1f1ee5e424a0bb746b54acd9e6851cf}{Hjorth-Jensen}{H\bibinithyphendelim J\bibinitperiod}{Morten}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{f1f1ee5e424a0bb746b54acd9e6851cf}
+      \strng{fullhash}{f1f1ee5e424a0bb746b54acd9e6851cf}
+      \field{sortinit}{H}
+      \field{sortinithash}{82012198d5dfa657b8c4a168793268a6}
+      \field{labelyear}{2016}
+      \field{labelmonth}{08}
+      \field{labelday}{22}
+      \field{datelabelsource}{url}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Computational {Physics} - {Lecture} {Notes} {Fall} 2013}
+      \field{urlday}{22}
+      \field{urlmonth}{08}
+      \field{urlyear}{2016}
+      \verb{file}
+      \verb () - Hjorth-Jensen_lectures2013.pdf:/mn/fys-server-rp1/s2/gullikvk/.zotero/zotero/9dvr81pm.default/zotero/storage/BM3BZKXN/Hjorth-Jensen_lectures2013.html:text/html
+      \endverb
+      \verb{url}
+      \verb http://www.physics.ohio-state.edu/~ntg/6810/readings/Hjorth-Jensen_lectures2013.pdf
+      \endverb
+    \endentry
     \entry{press_numerical_1988}{article}{}
       \name{author}{4}{}{%
         {{uniquename=0,hash=e25935343805f5bc8cf8924629f02376}{Press}{P\bibinitperiod}{William\bibnamedelima H.}{W\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
@@ -264,6 +289,38 @@
       \endverb
       \verb{url}
       \verb http://journals.cambridge.org/abstract_S0269964800000565
+      \endverb
+    \endentry
+    \entry{sgattoni_piccante:_2015}{misc}{}
+      \name{author}{4}{}{%
+        {{uniquename=0,hash=5b349746c29dd521731ec979756bffa7}{Sgattoni}{S\bibinitperiod}{Andrea}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=939a529d73a17916f9df811d3869c77c}{Sinigardi}{S\bibinitperiod}{Stefano}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=dccfdde4b00d3390804464fa0c45a082}{albz}{a\bibinitperiod}{}{}{}{}{}{}}%
+        {{uniquename=0,hash=e48af576b3c27050ca08699d89be77b9}{Fedeli}{F\bibinitperiod}{Luca}{L\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{b0170f1d1d2528a66728cb01aa5d87a6}
+      \strng{fullhash}{c4ad1df9330d960fe56e2942e0143aca}
+      \field{sortinit}{S}
+      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
+      \field{labelyear}{2015}
+      \field{labelmonth}{03}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{a spicy massively parallel fully-relativistic electromagnetic 3D particle-in-cell code}
+      \field{month}{03}
+      \field{note}{DOI: 10.5281/zenodo.16097}
+      \field{shorttitle}{piccante}
+      \field{title}{piccante: {arXiv}:1503.02464}
+      \field{urlday}{22}
+      \field{urlmonth}{08}
+      \field{urlyear}{2016}
+      \field{year}{2015}
+      \verb{file}
+      \verb Snapshot:/mn/fys-server-rp1/s2/gullikvk/.zotero/zotero/9dvr81pm.default/zotero/storage/2RSPBAUM/16097.html:text/html
+      \endverb
+      \verb{url}
+      \verb http://zenodo.org/record/16097
       \endverb
     \endentry
     \entry{shen_efficient_1994}{article}{}
@@ -399,6 +456,7 @@
       \endverb
     \endentry
   \endsortlist
+  \missing{documentation}
 \endrefsection
 \endinput
 

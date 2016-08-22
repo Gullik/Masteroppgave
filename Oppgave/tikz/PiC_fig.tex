@@ -1,11 +1,10 @@
-\begin{figure}
-\center
-\begin{tikzpicture}[%
+
+\begin{tikzpicture}[
     >=triangle 60,              % Nice arrows; your taste may be different
     start chain=going below,    % General flow is top-to-bottom
-    node distance=6mm and 45mm, % Global setup of box spacing
+    node distance=10mm and 25mm, % Global setup of box spacing
     every join/.style={norm},   % Default linetype for connecting boxes
-    ]
+    scale=0.1]
 % -------------------------------------------------
 % A few box styles
 % <on chain> *and* <on grid> reduce the need for manual relative
@@ -28,19 +27,16 @@
 }
 % -------------------------------------------------
 % Start by placing the nodes
-\node[term] (move) {Move particles};
+\node[term] (move) {Mover};
 \node[coord] (center) {};
-\node[term]	(field) {Solve for \(E\)};
-\node[term, right =of center] (density) {Charge density \(\rho\)};
-\node[term, left =of center] (force) { Force to particles };
+\node[term]	(field) {Solver};
+\node[term, right =of center] (density) {Distribute};
+\node[term, left =of center] (force) {Accelerate};
 
 %Lines
-\draw [*->, lcnorm, yshift = -1em] (move.east) -- (density.west);  %MAke curved if time
-\draw [*->, lcnorm] (density.west) -- (field.east);  %MAke curved if time
-\draw [*->, lcnorm] (field.west) -- (force.east);  %MAke curved if time
-\draw [*->, lcnorm] (force.east) -- (move.west);  %MAke curved if time
+\draw [*->, lcnorm, yshift = -1em] (move.east) -- (density);  %MAke curved if time
+\draw [*->, lcnorm] (density) -- (field.east);  %MAke curved if time
+\draw [*->, lcnorm] (field.west) -- (force);  %MAke curved if time
+\draw [*->, lcnorm] (force) -- (move.west);  %MAke curved if time
 
 \end{tikzpicture}
-\caption{Schematic overview of the PIC method}
-\label{fig:schematic}
-\end{figure}

@@ -1,23 +1,27 @@
 	\section{Grid Structs and Partitioning}
+		In this section our overall parallelization strategy is discussed as well
+		as the storage needs for the grids.
 
 	\subsection{Data structures}
 	The fields and quantities in our PiC model is discretized on a threedimensional
 	grid and comes to use several places in the method. In the multigrid calculation
 	we also have a use for several grids of varying spatial coarseness. So it will
-	be useful for us to organize the data so we have the grid stored as an
+	be useful for us to organize the data so that we have the grid stored as an
 	independent structure available for the program, while the multigrid part uses
-	an extended version where it also has access to the different coarser subgrids.
-	There will also be several types of grid, all with the same specifications,
-	but storing different quantities, so we will use a grid template that all the
-	grids of the same size shares, while we will have a seperate struct containing
-	the quantities in the grid and the specifications.
-
-
+	an extended version where it also has access to the different subgrids of different
+	coarseness. Each multigrid struct will have an array of different subgrids,
+	where the first is a pointer to the fine grid used in the rest of the calculations,
+	this makes it easy to select a grid level to perform an algorithm on.
 
 	\subsection{Domain partitioning}
-		As earlier discussed, in \ref{sec:grid_partitioning}, the physical domain
-		covered by our model will be divided onto several processors that each take
-		care of a subdomain. The subdomains are dependent on each other and we need
+		We have chosen to divide the physical domain onto the different processors that each take
+		care of a physical subdomain. This is known as Domain Partitioning, and suits
+		our distribution algorithm as well as the multigrid method, see \cref{sec:grid_partitioning}
+		for the consequences of Domain Partitioning for multigrids. Since each
+		subdomain only needs to store the particles, and grids, on its physical subdomain
+		the model can be upscaled in principle without any additional need for memory storage,
+		by adding more processors.
+		The subdomains are dependent on each other and we need
 		some communication between them, which we solve by letting each subdomain
 		also store the edge of the neighboring subdomain. Depending on the boundary
 		conditions it could also be useful to store an extra set of values on the
@@ -42,7 +46,8 @@
 			N_{Tot} = N^d + N_G + N_O = N^d + 2dN^{d-1}
 		\end{align}
 
-		For the 2 dimensional case, in \cref{fig:domain_part}, that adds up to \(N_{Tot} = 8^2 + 2\times4\times 8 = 128\).
+		For the 2 dimensional case, in \cref{fig:domain_part}, that adds up to
+		\(N_{Tot} = 8^2 + 2\times4\times 8 = 128\).
 
 		\subsection{Several subdomains}
 		In the case where we introduce several subdomain, in addition to storing the
@@ -72,7 +77,6 @@
 		we should not let the coarsest multigrid level be to small. We also don't need
 		the spatial extent of the grid to be equal on all sides, but it was done here
 		to keep the computations simple.
-
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
 	%%%		Tikz picture

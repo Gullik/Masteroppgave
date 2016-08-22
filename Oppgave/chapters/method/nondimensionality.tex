@@ -2,7 +2,7 @@
     For most numerical code significant computational gains can be achieved
     relatively easy by smart normalization. With a succesful normalization most
     of the multiplications with constants will dissappear. Numerical errors
-    due to machine precision are smallest close to unity, \(\order{1}\), (Find Citation) so we
+    due to machine precision are smallest close to unity, \(\order{1}\), \citep{hjorth-jensen_computational_????} so we
     want to work with numbers as close to unity as we can. As a sidebenefit it also
     makes the code easier to write and cleaner to read. Consider a single particle,
     with mass \(m\) and charge \(q\), in an electric field \(\vb{E}\). Its equation of motion is then
@@ -107,8 +107,6 @@
             \tilde \rho = \frac{\rho}{n_0e}
         \end{equation}
 
-        (NOTE TO SELF: I think Sigvalds notes had an error in his dimensionless E and B)
-
     \subsection{Normalization PinC}
         It should be mentioned that the normalization scheme for PinC was mostly worked
         out by Sigvald Marholm, and I am mostly repeating his work here. It is still
@@ -119,24 +117,85 @@
         than particles in a simulation a multiplication should preferably be done to
         a field instead of each particle. From now on we will omit the \(~\) on dimensionless
         quantities and consider all quantities dimensionless.
-\\ \\
-        (NOTE TO SELF: I think Sigvald had maybe erroneously used \(\frac{(\Delta t)^2}{\Delta x \Delta y \Delta z}\) during the normalization of
-        \(\vb{E}\), this is not the same as \(\frac{(\Delta t)^2}{\Delta \vb{r}}\), but there are more errors.)
-\\ \\(ExtraNote TO SELF: Not sure if this was actually correct and how it was implemented, or
-        where the discretization normalization of E is.)
-\\ \\(ExtraEaxtraNOTE TO SELF: Why was not gNormalizeE used??)
-\\ \\ (NOTE TO SELF: Fix problem with E normalization, tomorrow. Write time (Also discovered problem with rho sign (+-), appearent if only
-    one specie, can be because I don't have a rho neutralize function, should write that sometime))
 
         \subsection{Mover}
             We use the Leapfrog algorithm from \textit{\citetitle{birdsall_plasma_2004}} \citep{birdsall_plasma_2004}
             book. This has the perks of second order accuracy and stability for oscillatory motion
-            with the same number of function calls as Euler integration. It is
-            a momentum conserving algorithm. Here we assume that we have a solver
-            that will give us an electric field.
+            with the same number of function calls as Euler integration. It should
+            be mentioned that the Leapfrog algorithm preserves momentum, but the
+            energy can drift.
 
-            The finite difference discretization of a leapfrog step is given by
+            \noindent The finite-difference discretization of a leapfrog step is given by
 
             \begin{equation}
                 \frac{\vb{r}^{n+1}-\vb{r}^n}{\Delta t} = \vb{v}^{n+\frac{1}{2}}
             \end{equation}
+
+            \noindent By discretizing time as \(\bar{t}= t/\Delta t\) and the position and velocity as
+
+            \begin{equation}
+                    \bar{\vb{r}} = \left( \frac{x}{\Delta x}, \frac{y}{\Delta y}, \frac{y}{\Delta y} \right)
+            \end{equation}
+
+            \begin{equation}
+                \bar{\vb{v}} = \Delta t (\delta \vb{r})^{-1} \vb{v}
+            \end{equation}
+
+            \noindent we obtain the simpler step equation
+            \begin{equation}
+                \bar{\vb{r}}^{n+1} = \bar{\vb{r}}^{n} + \bar{\vb{v}}^{n+\frac{1}{2}}
+            \end{equation}
+
+        \subsection{Accelerator}
+            The accelerator sets a new velocity to the particles. For an case with
+            no magnetic field the equation of motion becomes
+
+            \begin{equation}
+                \pdv{\vb{v}}{t} = \frac{q_s}{m_s} \vb{E}
+            \end{equation}
+%
+            Discretizing the equation and normalizing the electric field as
+            \begin{equation}
+                \bar{\vb{E}} = \frac{\Delta t^2}{\Delta \vb{r}} \frac{q_0}{m_0}\vb{E}
+            \end{equation}
+%
+            the velocity step for a particle species is given by
+
+            \begin{equation}
+                \bar{\vb{v}}^{n+\frac{1}{2}} =  \bar{\vb{v}}^{n-\frac{1}{2}} + \xi_s\xi_{s-1}\cdots \xi_1\bar{\vb{E}}
+            \end{equation}
+            %
+            where the specie specific normalization coefficient is:
+
+            \begin{equation}
+                \xi_s = \frac{q_s/m_s}{q_{s-1}/m_{s-1}}
+            \end{equation}
+%
+            By applying the cooefficient directly to the electric field
+            this enables us to accelerate each particle with \(1\) addition.
+
+        \subsection{Distribute}
+            The interpolation of the charged particles onto a charge density grid
+            is handled by the distribute module. For each particle the charge is distributed
+            to the nearby grid points according distance. We will not go into the details of
+            the implementation here, only mention the resulting normalization.
+
+            The normalized charge density at grid point \(j\) is given by adding together
+            the contribution from each particle species
+
+            \begin{equation}
+                \bar{\rho}_j = \sum_i \omega_{ij} \bar{q}_i
+            \end{equation}
+            %
+            \(\bar{q}_i\) is the normalized charge for each particle given by
+
+            \begin{equation}
+                \bar{q}_i = \frac{\Delta t^2}{\Delta V} \frac{q_0}{m_0} q_i
+            \end{equation}
+            %
+            where \(\Delta V = \trace{(\Delta \vb{r})}\).
+
+        \subsection{Solver}
+            Due to normalization already inherent in the charge distribution, \(\bar{\rho}_j\),  and
+            in the application of the electric field, \(\bar{\vb{E}}\), to each particle the
+            solver can disregard the normalization.

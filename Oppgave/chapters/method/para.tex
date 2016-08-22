@@ -2,13 +2,13 @@
 	For the parallelization of an algorithm there is two obvious issues that need
 	to be addressed to ensure that the algorithm retains a high degree of parallelization;
 	communication overhead and load imbalance \citep{hackbusch_multigrid_1982}.
-  Communication overhead means the time the computational nodes spend communicating
-  with each other, if that is longer than the actual time spent computing the speed
-  of the algorithm will suffer, and load imbalance appears if some nodes need to
-  do more work than others causing some nodes to stand idle.
+	Communication overhead means the time the computational nodes spend communicating
+	with each other, if that is longer than the actual time spent computing the speed
+	of the algorithm will suffer, and load imbalance appears if some nodes need to
+	do more work than others causing some nodes to stand idle.
 
 	Here we will focus on multigrid of a 3D cubic grid, where each grid level has
-  half the number of grid points. We will use grid
+	half the number of grid points. We will use grid
 	partitioning to divide the domain, GS-RB (Gauss-Seidel Red-Black) as both a
 	smoother and a coarse grid solver.
 
@@ -27,8 +27,8 @@
 		With domain partitioning we divide the grid \(\mathcal{T}\) into geometric
 		subgrids, then we can let each processes handle one subgrid each. As we will
 		see it can be useful when using the GS-RB smoothing, as well as other parts
-    of a PiC program, to extend the subgrids with layers of ghost cells. The GS-RB
-    algorithm will directly need the adjacent nodes, in its neighbour subdomain.
+	    of a PiC program, to extend the subgrids with layers of ghost cells. The GS-RB
+	    algorithm will directly need the adjacent nodes, in its neighbour subdomain.
 
 	\subsection{Distributed and accumulated data}
 		(Remove? Not actually relevant for our implementation)
