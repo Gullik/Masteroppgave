@@ -1,21 +1,56 @@
 \section{Numerical Simulations}
-	As there are several theoretical branches within the field of plasma physics,
-	magnetohydrodynamics, kinetic theory (Note to self:  Need better overview, and citations),
-	that are suited to investigate plasma physics at different scales and different phenonema,
-	there are also different approaches to conduct numerical plasma studies.
-	Plasma simulation codes can be classified along the extent they are using a
-	kinetic kinetic or fluid description of the plasma. Kinetic codes include
-	Vlasov simulations (cite), Fokker-Planck simulations (Cite) and particle codes like the
-	Particle-in-Cell code, that the development of, was a large part of this master thesis.
-	Plasma fluid simulations are called MHD and are based on magnetohydrodynamical theory, (mention some).
-	In the fluid description some of the detailed physics is averaged out and this causes
-	MHD codes to be unsuited to study results depending on some small scale phenomena.
-	Their advantage is that due to the reduced detail they can simulate on a much larger scale.
-	Kinetic simulations generally have more detail and capture more physics (rewrite),
-	and as a tradeof they are restricted to simulate over a physical domain due to
-	limited computation power and memory storage.
-	Since the relevant timescales vary vastly between ions and electrons a multitude
-	of hybrid codes has also been developed. (Search for multitude of hybrid codes and ref).
-	These types of codes can e.g. treat some of the species as fluids and some as
-	particles capturing the wanted phenomena. Particle based codes can also be combined
-	with molecular dynamics code, if the algorithm is unsuited in a regime.
+
+	While mathematical analysis of plasma is helpful to improve our
+	understanding of the physics, many situations doesn't fall neatly into convenient
+	assumptions or is untractable. Then we have experiments and computer simulations
+	to further help us understand. All of these methods work in symbiosis and is interdependent
+	on each other. Numerical simluations can be thought of as cheap easily repetable
+	experiments, but it also has the advantage of being applied to situations that no
+	experiment can reproduce. Modelling generally needs to be validated against
+	against experiments and has a foundation built upon theory. As the computational
+	resources have improved more  sophisticated simulations have been possible.
+	Plasma simulations vary from fluid descriptions, as MHD codes, to kinetic descriptions,
+	as Particle-in-Cell and Vlasov codes, with hybrid codes inbetween as well.
+	This thesis focuses on the development of a Particle-in-Cell code, but here we will give a brief
+	overview of other modelling approaches as well.
+	%
+	% As there are several theoretical branches within the field of plasma physics,
+	% magnetohydrodynamics, kinetic theory (Note to self:  Need better overview, and citations),
+	% that are suited to investigate plasma physics at different scales and different phenonema,
+	% there are also different approaches to conduct numerical plasma studies.
+	% Plasma simulation codes can be classified along the extent they are using a
+	% kinetic kinetic or fluid description of the plasma. Kinetic codes include
+	% Vlasov simulations (cite), Fokker-Planck simulations (Cite) and particle codes like the
+	% Particle-in-Cell code, that the development of, was a large part of this master thesis.
+	% Plasma fluid simulations are called MHD and are based on magnetohydrodynamical theory, (mention some).
+	% In the fluid description some of the detailed physics is averaged out and this causes
+	% MHD codes to be unsuited to study results depending on some small scale phenomena.
+	% Their advantage is that due to the reduced detail they can simulate on a much larger scale.
+	% Kinetic simulations generally have more detail and capture more physics (rewrite),
+	% and as a tradeof they are restricted to simulate over a physical domain due to
+	% limited computation power and memory storage.
+	% Since the relevant timescales vary vastly between ions and electrons a multitude
+	% of hybrid codes has also been developed. (Search for multitude of hybrid codes and ref).
+	% These types of codes can e.g. treat some of the species as fluids and some as
+	% particles capturing the wanted phenomena. Particle based codes can also be combined
+	% with molecular dynamics code, if the algorithm is unsuited in a regime.
+
+	\subsubsection{MHD}
+		Magnetohydrodynamical codes solve the one-fluid equations, given in \cref{sec:MHD},
+		with various approaches and has
+		similarities to Computational Fluid Dynamics. For the fluid equations
+		to be a good approximations the dynamics needs to happen at much larger scales
+		than the Debye Shielding Length. This approach has been widely used in large scale
+		plasma simulations such as astrophysics, \citep{hawley_numerical_1995} and space physics
+		\citep{watanabe_global_1990}.
+
+	\subsubsection{Particle-in-Cell}
+		Particle-in-Cell models the particles directly, this has the advantage that
+		few approximations are done, but computational increases fast with more particles.
+
+	\subsubsection{Vlasov}
+		Vlasov codes takes the kinetic description as the starting point and is often used
+		in plasma laser modelling \citep{bertrand_nonperiodic_1990}. It has an advantage over
+		PiC in low density zones, where there is often too few particles for PiC.
+
+		(Add more on MHD, PiC an Vlasov, uninspired now)

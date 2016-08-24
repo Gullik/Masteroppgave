@@ -31,10 +31,12 @@
 	    algorithm will directly need the adjacent nodes, in its neighbour subdomain.
 
 	\subsection{Distributed and accumulated data}
-		(Remove? Not actually relevant for our implementation)
-		During the parallel execution of the code there can be useful to keep track
-		of the different data structures and what needs to be accumulated over all
-		the computational nodes and what only needs to be distributed on the individual computational nodes.
+		One possible strategy to implement a parallel multigrid solver is to keep
+		some of the quantities distributed, ie, they are only stored locally
+		on the local computational nodes, while the other are accumulated and
+		shared between the nodes. Below follows an overview of which quantities
+		needs only be accessed locally and which needs a global presence
+		during a parallel execution of the code. (Where did I read this again??)
 
 		\begin{itemize}
 			\item \(u\) solution (\(\Phi\))
@@ -42,16 +44,24 @@
 			\item \(d\) defect
 			\item \(f\) source term (\(\rho\))
 			\item \(\mathcal{L}\) differential operator
-			\item \(\mathcal{P}\) interpolation operator
+			\item \(\mathcal{P}\) prolongation operator
 			\item \(\mathcal{R}\) restriction operator
 			\item \( \va{u}\) Bold means accumulated vector
 			\item \( \tilde{\va{ u }} \) is the temporary smoothed solution
 		\end{itemize}
 
 		\begin{itemize}
-			\item Accumulated vectors:	\(\va{u}_q\), \( \hat{\va{u}}_q \), \(\tilde{\va{u}}_q\), \(\hat{\va{w}}_q\) \(\va{w}_{q-1}\), \(\va{I}\),\(\va{R}\)
-			\item Distributed vectors:  \( f_q \), \(d_q\), \(d_{q-1}\)
+			\item Accumulated quantities:	\(\va{u}_q\), \( \hat{\va{u}}_q \), \(\tilde{\va{u}}_q\), \(\hat{\va{w}}_q\) \(\va{w}_{q-1}\), \(\mathcal{P}\),\(\mathcal{R}\)
+			\item Distributed quantities:  \( f_q \), \(d_q\), \(d_{q-1}\)
 		\end{itemize}
+
+		To avoid the accumulated quantities, which can cause memory issues, we have instead
+		gone for a strategy where all the quantities are only locally distributed.
+		Instead of gathering the all of the accumulated quantities, each of the subdomains
+		gathers only the needed part of the quantities from its neighboring subdomains.
+		With this strategy the local memory needs should not increase as the number
+		of processors grow.
+
 		% Algorithm: P is the number of processes
 		% \begin{itemize}
 		% 	\item If (q == 1): Solve: \(\sum_{s=1}^P\mathcal{L}_{s,1} \va{u}_1 = \sum_{s=1}^Pf_{s,1}\)
@@ -70,20 +80,22 @@
 
 
 	\subsection{Smoothing}
-		% Will use G-S with R-B ordering, supposedly good parallel properties \citep{chow_survey_2006}. Follow algorithm I in \cite{adams_distributed_2001} (alternatively try to implement the more complicated version)?
+		% Will use G-S with R-B ordering, supposedly good parallel properties \citep{chow_survey_2006}.
+		% Follow algorithm I in \cite{adams_distributed_2001} (alternatively try to implement the more complicated version)?
 
 		We have earlier divided the grid into subgrids, with overlap, as described
 		in subsection \ref{sec:grid_partitioning} and given each processor
-		responsibility for a subgrid. Then do a a GS-RB method we start with an
-		approximation of \(u^{n}_{i,j}\). Then we will obtain the next iteration by
-		the following formula
+		responsibility for a subgrid. We broadly follow the algorithm in \cite{adams_distributed_2001}.
+		A GS-RB algorithm start with a
+		guess, or approximation, of the solution \(u^{n}_{i,j}\). Then we will obtain the next iteration by
+		the following formula, for a \(2\)D case,
 
 		\begin{align}
 			u^{n+1}_{i,j} &= \frac{1}{4}\left( u^n_{i+1,j} + u^{n +1}_{i-1,j} + u^{n}_{i, j+1} + u^{n+1}_{i,j-1}  \right) - \frac{\Delta^2 \rho_{i,j}}{4}
 		\end{align}
 
-		We can see that the for the inner subgrid we will have no problems since we
-		have all the surrounding grid points. On the edges we will need the adjacent
+		We can see that for the inner subgrid we will have no problems since
+		all the surrounding grid points are known. On the edges we will need the adjacent
 		grid points that are kept in the other processors. To avoid the algorithm
 		from asking neighboring subgrids for adjacent grid points each time it
 		reaches a edge we instead update the entire neighboring column at the start.
@@ -111,7 +123,8 @@
 		\citep{hackbusch_multigrid_1982}.
 
 	\subsection{Interpolation}
-		For the interpolation we will use bilinear interpolation:
+		For the interpolation we will use a bilinear, or trilinear, interpolation stencil,
+		which for \(2\) dimensions is:
 
 		\begin{align}
 			\mathcal{P} &= \frac{1}{4}
@@ -129,64 +142,6 @@
 		information.
 
 
-	\subsection{Smoothing}
-		% Will use G-S with R-B ordering, supposedly good parallel properties \citep{chow_survey_2006}. Follow algorithm I in \cite{adams_distributed_2001} (alternatively try to implement the more complicated version)?
-
-		We have earlier divided the grid into subgrids, with overlap, as described
-		in subsection \ref{sec:grid_partitioning} and given each processor
-		responsibility for a subgrid. Then do a a GS-RB method we start with an
-		approximation of \(u^{n}_{i,j}\). Then we will obtain the next iteration by
-		the following formula
-
-		\begin{align}
-			u^{n+1}_{i,j} &= \frac{1}{4}\left( u^n_{i+1,j} + u^{n +1}_{i-1,j} + u^{n}_{i, j+1} + u^{n+1}_{i,j-1}  \right) - \frac{\Delta^2 \rho_{i,j}}{4}
-		\end{align}
-
-		We can see that the for the inner subgrid we will have no problems since we
-		have all the surrounding grid points. On the edges we will need the adjacent
-		grid points that are kept in the other processors. To avoid the algorithm
-		from asking neighboring subgrids for adjacent grid points each time it
-		reaches a edge we instead update the entire neighboring column at the start.
-		So we will have a 1-row overlap between the subgrids, that need to be updated
-		for each iteration.
-
-
-	\subsection{Restriction}
-		For the transfer down a grid level, to the coarser grid we will use a half
-		weighting stencil. In two dimensions it will be the following
-
-		\begin{align}
-			\mathcal{R} &= \frac{1}{8}
-			\begin{bmatrix}
-				0 & 1 & 0
-				\\
-				1 & 4 & 1
-				\\
-				0 & 1 & 0
-			\end{bmatrix}
-		\end{align}
-
-		With the overlap of the subgrids we will have the necessary information to
-		perform the restriction without needing communication between the processors
-		\citep{hackbusch_multigrid_1982}.
-
-	\subsection{Interpolation}
-		For the interpolation we will use bilinear interpolation:
-
-		\begin{align}
-			\mathcal{P} &= \frac{1}{4}
-			\begin{bmatrix}
-				1 & 2 & 1
-				\\
-				2 & 4 & 2
-				\\
-				1 & 2 & 1
-			\end{bmatrix}
-		\end{align}
-
-		Since the interpolation is always done after GS-RB iterations the the outer
-		part overlapped part of the grid updated, and we can have all the necessary
-		information.
 
 
 	\subsection{Scaling}
@@ -220,8 +175,9 @@
 		local solution method is used on a local problem it is only the grid points
 		at the boundary that needs the information from grid points on the other
 		processors. Since the edges has lower dimensionality than the inner grid
-		points. So when the problem is is increasing the time for computation grows
-		faster than the time for communication, and a parallel algorithm often has a
+		points it the inner domain outgrows the edges. As the size of the subdomains is increasing
+		the computational time increases
+		faster than the time for communication. This causes a parallel algorithm to often have
 		higher parallel efficiency on a larger problem. This is called the Boundary-Volume effect.
 
 		\subsubsection{Parallel complexity}
@@ -250,3 +206,64 @@
 			\caption{The parallel complexities of sequential and parallel multigrid cycles}
 			\label{tab:parallel_complexity}
 		\end{table}
+
+
+
+		% \subsection{Smoothing}
+		% 	% Will use G-S with R-B ordering, supposedly good parallel properties \citep{chow_survey_2006}. Follow algorithm I in \cite{adams_distributed_2001} (alternatively try to implement the more complicated version)?
+		%
+		% 	We have earlier divided the grid into subgrids, with overlap, as described
+		% 	in subsection \ref{sec:grid_partitioning} and given each processor
+		% 	responsibility for a subgrid. Then do a a GS-RB method we start with an
+		% 	approximation of \(u^{n}_{i,j}\). Then we will obtain the next iteration by
+		% 	the following formula
+		%
+		% 	\begin{align}
+		% 		u^{n+1}_{i,j} &= \frac{1}{4}\left( u^n_{i+1,j} + u^{n +1}_{i-1,j} + u^{n}_{i, j+1} + u^{n+1}_{i,j-1}  \right) - \frac{\Delta^2 \rho_{i,j}}{4}
+		% 	\end{align}
+		%
+		% 	We can see that the for the inner subgrid we will have no problems since we
+		% 	have all the surrounding grid points. On the edges we will need the adjacent
+		% 	grid points that are kept in the other processors. To avoid the algorithm
+		% 	from asking neighboring subgrids for adjacent grid points each time it
+		% 	reaches a edge we instead update the entire neighboring column at the start.
+		% 	So we will have a 1-row overlap between the subgrids, that need to be updated
+		% 	for each iteration.
+		%
+		%
+		% \subsection{Restriction}
+		% 	For the transfer down a grid level, to the coarser grid we will use a half
+		% 	weighting stencil. In two dimensions it will be the following
+		%
+		% 	\begin{align}
+		% 		\mathcal{R} &= \frac{1}{8}
+		% 		\begin{bmatrix}
+		% 			0 & 1 & 0
+		% 			\\
+		% 			1 & 4 & 1
+		% 			\\
+		% 			0 & 1 & 0
+		% 		\end{bmatrix}
+		% 	\end{align}
+		%
+		% 	With the overlap of the subgrids we will have the necessary information to
+		% 	perform the restriction without needing communication between the processors
+		% 	\citep{hackbusch_multigrid_1982}.
+		%
+		% \subsection{Interpolation}
+		% 	For the interpolation we will use bilinear interpolation:
+		%
+		% 	\begin{align}
+		% 		\mathcal{P} &= \frac{1}{4}
+		% 		\begin{bmatrix}
+		% 			1 & 2 & 1
+		% 			\\
+		% 			2 & 4 & 2
+		% 			\\
+		% 			1 & 2 & 1
+		% 		\end{bmatrix}
+		% 	\end{align}
+		%
+		% 	Since the interpolation is always done after GS-RB iterations the the outer
+		% 	part overlapped part of the grid updated, and we can have all the necessary
+		% 	information.

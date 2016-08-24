@@ -2,12 +2,13 @@
 	\label{sec:bnd_method}
 	A simulation must necessarily have finite extent, we need to employ boundary condtions
 	to deal with the edges of the simulation. Here we will go through \(3\) different schemes
-	corresponding to periodic boundaries, Dirichlet conditions and Von Neumann conditions.
+	corresponding to periodic boundaries, depicted in \cref{fig:bnd}, Dirichlet conditions and Von Neumann conditions.
 	Periodic conditions is used when we want to simulate an infinite plasma sheet.
 	It is fitting to use when the plasma sheet is of a much larger extent than the
-	length scale of the phenomen we want to investigate. (Rewrite sentence)
+	length scale of the phenomena we want to investigate, or when we the investegated
+	dynamics happen away from the edges.
 	Dirichlet conditions is useful when the voltage on the edge of the simulation
-	can be known beforehand, as it is often in laboratory experiments (citation?).
+	can be known beforehand, as it is often in laboratory experiments.
 	When the electric field, or alternatively gradient of the voltage, along the edges is known
 	von Neumann conditions should be used. The boundary conditions must also be coupled
 	with fitting boundary conditions applied to the particles in a full PiC simulation.
@@ -69,6 +70,7 @@
 			\label{fig:neumann}
 		\end{subfigure}
 		\caption{An overview of 3 boundary conditions applied to a \(1\)D domain.}
+		\label{fig:bnd}
 	\end{figure}
 
 
@@ -208,11 +210,11 @@
 		\begin{figure}
 			\centering
 			\input{tikz/mixed_bnd}
-			\label{fig:mixed}
 			\caption{This is a \(2\)D domain with mixed boundary conditions, along the $x$-axis there are
 			periodic boundary conditions, green ghost points, and the $y$-axis there are dirichlet boundary conditions, red ghost points. If
 			the smoothers are using a 5 point discretization stencil the corners, grey diamonds, are neglected when
 			computing the inner, i.e. true,  grid.}
+			\label{fig:mixed}
 		\end{figure}
 
 

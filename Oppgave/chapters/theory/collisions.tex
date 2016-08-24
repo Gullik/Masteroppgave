@@ -1,0 +1,68 @@
+\section{Collisions: MCC-Null Model}
+    First we will go through the Monte Carlo Collisional model and then show how
+    the Null-Collision scheme can reduce the amount of arithmetic operations.
+    To avoid spending computational time on the neutral particles we consider
+    them as background species.
+    We assume for simplicity that the neutral particles are
+    uniformly distributed, with a normal velocity distribution.
+
+    Particle species \(s\) has \(N\) type of collisions with a target species. Each particle
+    has kinetic energy
+
+    \begin{equation}
+        \varepsilon_i = \frac{1}{2}m_s \left(v_x + v_y +v_z \right)
+    \end{equation}
+    %
+    The collisional cross section \(\sigma_j\) for each type of collision is dependent on the
+    kinetic energy of the particle and the total cross section is given by adding
+    together all the types of collisions.
+
+    \begin{equation}
+        \sigma_T(\varepsilon_i) = \sum_j^N \sigma_j(\varepsilon_i)
+    \end{equation}
+    %
+    The probability that a particle has a collision with a target species, in one timestep, is
+    be dependent on the collisional cross section, distance travelled, \(\Delta r_i = v_i\Delta t\), and the
+    density of the target specie, \( n_t(\vec{r_i}) \) by the following relation.
+
+    \begin{equation}
+        P_i = 1-\exp{-v_i\Delta t \sigma_T(\varepsilon_i) n_t(\vec{r_i} }
+    \end{equation}
+
+    In a Monte Carlo model we say that a collision has taken place for a particle if a random number
+    \(r = [0,1]\), is smaller than \(P_i\).
+    To compute \(P_i\) for each particle, we need to find \(\varepsilon_i\), all the cross sections
+    \(\sigma_j\), and the density \(n_t(\vec{r_i}\). This demands many floating point operations for
+    each particle, so we will use a Null-Collisional model to only compute the collisional
+    probability for a subset of the particles. We compute a maximal collisional frequency
+    \begin{equation}
+        \nu'= \max({v_i\Delta t \sigma_T(\varepsilon_i)})\max({n_t(n_t)})
+    \end{equation}
+    %
+    and consider if it was a dummy or one of the proper collisions, if \(r\) is smaller
+    than the resulting constant \(P_{Null} =  1-\exp{\nu'}\).
+
+    The maximum collisional frequency may need to be recomputed each timestep due
+    to the density of the target specie,  \(n_t\), changing. The algorithm for
+    each particle is then.
+    \\ \\
+    \begin{table}
+        \begin{algorithmic}
+            \For{Each particle}
+                \If {$r \leq P_{Null}$}\\
+                    \begin{tabular}{r c l l}
+                        & \(r\) &\(\leq \nu_0(\varepsilon_i)/\nu' \qquad\)
+                        & Type 0
+                        \\
+                        \(\nu_0(\varepsilon_i)/\nu' \leq\) & \(r\) & \( \leq (\nu_0(\varepsilon_i) + \nu_1(\varepsilon_i))/\nu'\)
+                        & Type 1
+                        \\
+                        & \(\vdots\) &
+                        \\
+                        \(\sum_j(\nu_j(\varepsilon_i))/\nu' \leq\) & r & & Type Null
+                    \end{tabular}
+                \EndIf
+            \EndFor
+        \end{algorithmic}
+        \caption{Algorithm to select a particle collisions (Need to be improved)}
+    \end{table}

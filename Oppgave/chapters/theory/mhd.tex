@@ -1,6 +1,48 @@
 \section{Magnetohydrodynamics}
+    \label{sec:MHD}
     In a plasma there are usually several types of species, then it follows that
     each specie needs its own set of fluid equations. Magnetohydrodynamics, (MDH),
     is an attempt to simplify this situation by combining it into one electrically
     conducting fluid. Conventional MHD assumes local thermodynamical equilibrium,
     negligable electron inertia and quasi-neutrality \citep{goldston_introduction_1995}.
+    This simplifies Maxwell's equations to
+
+    \begin{subequations}
+		\begin{equation}
+			\nabla \cross \vb{B} = \mu_0 \vb{j}
+		\end{equation}
+		\begin{equation}
+			\nabla \cross \vb{E} = -\pdv{\vb{B}}{t}  \label{eq:mhd_eCurl}
+		\end{equation}
+		\begin{equation}
+			\nabla \cdot \vb{B} = \nabla \cdot \vb{E} = 0
+		\end{equation}
+	\end{subequations}
+%
+    The MHD fluid can be considered a neutral fluid with a current running through it
+    \citep{hockney_computer_1988}. The current is described by the conductivity \(\sigma\)
+    and the bulk velocity \(\vb{v}\) and is given as
+
+    \begin{equation}
+        \vb{j} = \sigma \left(  \right)
+    \end{equation}
+%
+    With the condition that the condictivity is high and a finite current \cref{eq:mhd_eCurl}
+    becomes
+
+    \begin{equation}
+        \pdv{\vb{B}}{t} = \nabla \cross \left( \vb{v} \cross \vb{B} \right)
+    \end{equation}
+%
+    Then it remains to close the MHD equations by continuity and momentum conservation,
+    where \(rho\) is the mass density and \(p\) is the scalar pressure.
+
+    \begin{subequations}
+		\begin{equation}
+			\pdv{\rho}{t} = \nabla \cdot (\rho \vb{v})
+		\end{equation}
+		\begin{equation}
+            \rho \pdv{\vb{v}}{t} = - \nabla p + \vb{j} \cross \vb{B}
+		\end{equation}
+	\end{subequations}
+%

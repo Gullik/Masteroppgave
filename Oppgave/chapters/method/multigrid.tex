@@ -51,11 +51,12 @@
 	To transfer between the discretization coarseness we use restriction, \( \mathcal{R} \),
 	and prolongation, \( \mathcal{P} \), operators. Due to the fewer grid points the problem is
 	faster to solve on the coarser grid levels than on the fine grid.
-
-	If we apply a restriction operator on a grid we obtain
+	%
+	Applying the restriction and prolongation operators on the grid changes gives us
+	the same grid discretized on a different level.
 
 	\begin{align}
-		\mathcal{R} d_q = d_{q-1} \qquad \text{and} \qquad \mathcal{P} d_q = d_{q + 1}
+		\mathcal{R} d_q = d_{q+1} \qquad \text{and} \qquad \mathcal{P} d_q = d_{q - 1}
 	\end{align}
 
 	% %Figure
@@ -67,12 +68,27 @@
 		\label{fig:MG_schematic}
 	\end{figure}
 
-	The \cref{fig:MG_schematic} shows a schematic overview of a \(3\)-level
-	version of the multigrid cycle described here. The needed operations on each
+	\cref{fig:MG_schematic} shows a schematic overview of a \(3\)-level
+	version of a multigrid V cycle. The needed operations on each
 	level is described in greater detail in \cref{sec:mg_impl}.
 
+	\subsubsection{V Cycle}
+		TBD
+	\subsubsection{W Cycle}
+		TBD
+	\subsubsection{FMG}
+		TBD
+
 	\subsection{Smoothing}
-        Note-to-self: Should be overview of Smoothers and properties we want them to have.
+		The multigrid method want iterative solvers as smoothers converges fast for the high frequency
+		errors. The low frequency convergence, i.e. the long range interaction, is improved
+		by lso solving it with coarser discretization. In this project we
+		also wanted smoothers with good parallel scaling properties. We arrived at
+		using Gauss-Seidel with Red and Black ordering. We ended with \(1\)st order
+		discretization of the Laplacian operator, as a compromise between simplicity
+		in the program and the computational efficiency of hardcoded parts of the algorithms
+		dealing with the Halo, i.e. ghost layers. It may be that higher order discretizations
+		will yield better convergence and the project has some plans to expand to incorporate it.
 
 		Relaxation methods, such as Gauss-Seidel, work by looking for the setting up
 		the equation as a diffusion equation, and then solve for the equilibrium solution.
@@ -88,7 +104,7 @@
 			the largest stable timestep \(\Delta t = \Delta^2 / (2\cdot d))\), we
 			arrive at Jacobi's method, which is an averaging of the neighbors in
 			addition to a contribution from the source term. By using the already
-			updated values for in the calculation of the \(u^{new}\) we arrive at the
+			updated values for the calculation of the \(u^{new}\) we arrive at the
 			method called Gauss-Seidel which for two dimensions is the following}
 			u^{n+1}_{i,j} &= \frac{1}{4}\left( u^n_{i+1,j} + u^{n +1}_{i-1,j} + u^{n}_{i, j+1} + u^{n+1}_{i,j-1}  \right) - \frac{\Delta^2 \rho_{i,j}}{4}
 		\end{align}
@@ -102,9 +118,9 @@
     	The main iterative PDE solver, in this version of the multigrid program, is a Gauss-Seidel
     	Red-Black, in addition a Jacobian solver was developed as a stepping stone and for testing purposes.
     	It is a modification of the Jacobian method, where the updated values are used where available, which lead
-    	to it converging twice as fast \cite{press_numerical_1988}.
+    	to it converging twice as fast \citep{press_numerical_1988}.
 
-    	Our problem is given by \(\nabla^2 \phi= -\rho\), one way to think of the jacobian method is as
+    	Our problem is given by \(\nabla^2 \phi= -\rho\), one way to think of the Jacobian method is as
     	a diffusion problem, and with the equilibrium solution as our wanted solution. If we then discretize the
     	diffusion problem by a Forward-Time-Centralized-Space scheme, we arrive at the Jacobian method, which is shown explicitly below
     	for 1 dimension.
@@ -132,7 +148,7 @@
      							\phi^n_{j,k,l+1} + \phi^{n+1}_{j,k,l-1} + \Delta x^2 \rho_{j,k,l} \right)
     	\end{equation}
 
-    	Here we have implemented a different version of the Gauss-Seidel algorithm called Red and Black ordering, which has conseptual similarities
+    	Here we have implemented a different version of the Gauss-Seidel algorithm called Red and Black ordering, which has conceptual similarities
     	to the leapfrog algorithm, where usually position and velocity is computed at \(t\) and \( t+(\delta t)/2 \). Every other grid point is labeled a
     	red point, and the remaining is black. When updating a red node only black nodes are used, and when updating black nodes only
     	red nodes are used. Then a whole cycle consists of two halfsteps which calculates the red and black nodes seperately.
@@ -149,111 +165,114 @@
     	\end{itemize}
 
         \subsection{Restriction}
-            Note to self: Overview of restriction stencils/methods/algorithms/order\\
+        	\label{sec:restr_simple}
+        	The multigrid method (MG) has several grids of different resolution, and we need to
+         	convert the problem between the diffrent grids during the overarching the MG-algorithm.
+         	The restriction algorithm has the task of translating from a fine grid to a coarser grid.
+			Direct insertion is the simplest way to do this, where coarse grid points
+			corresponds directly to its representation on the fine grid.
+        	In this implementation we chose to use a half weight stencil, which works well together
+			with the \(1\) layer Halo, to restrict a quantity from a fine
+        	grid to a coarse grid. A higher order restriction algorithm could later
+			be implemented if thought useful. The coarse grid values is obtained by giving half weighting to
+        	the fine grid point corresponding directly to the coarse grid point, and gives the remaining
+        	half to the adjacent fine grid values, see \eqref{eq:restriction_stencils}, for 1D,
+        	2D and 3D examples.
 
-            	\label{sec:restr_simple}
-            	The multigrid method (MG) has several grids of different resolution, and we need to
-             	convert the problem between the diffrent grids during the overarching the MG-algorithm.
-             	The restriction algorithm has the task of translating from a fine grid to a coarser grid.
-            	In this implementation we use a half weight stencil to restrict a quantity from a fine
-            	grid to a coarse grid. To get the coarse grid value it gives half weighting to
-            	the fine grid point corresponding directly to the coarse grid point, and gives the remaining
-            	half to the adjacent fine grid values, see \eqref{eq:restriction_stencils}, for 1D,
-            	2D and 3D examples.
+        	\begin{equation}
+        		\begin{aligned}
+        			\mathcal{R}_{1\text{D}} &= \frac{1}{4}
+        			\begin{bmatrix}
+        				1 & 2 & 1
+        			\end{bmatrix}
+        			\\
+        			\mathcal{R}_{2\text{D}} &= \frac{1}{8}
+        			\begin{bmatrix}
+        				0 & 1 & 0
+        				\\
+        				1 & 4 & 1
+        				\\
+        				0 & 1 & 0
+        			\end{bmatrix}
+        			\\
+        			\mathcal{R}_{3\text{D}} &= \frac{1}{12} \left(
+        			\begin{bmatrix}
+        				0 & 0 & 0
+        				\\
+        				0 & 1 & 0
+        				\\
+        				0 & 0 & 0
+        			\end{bmatrix}
+        			,
+        			\begin{bmatrix}
+        				0 & 1 & 0
+        				\\
+        				1 & 6 & 1
+        				\\
+        				0 & 1 & 0
+        			\end{bmatrix}
+        			,
+        			\begin{bmatrix}
+        				0 & 0 & 0
+        				\\
+        				0 & 1 & 0
+        				\\
+        				0 & 0 & 0
+        			\end{bmatrix}
+        			\right)
+        			\label{eq:restriction_stencils}
+        		\end{aligned}
+        	\end{equation}
 
-            	\begin{equation}
-            		\begin{aligned}
-            			\mathcal{R}_{1\text{D}} &= \frac{1}{4}
-            			\begin{bmatrix}
-            				1 & 2 & 1
-            			\end{bmatrix}
-            			\\
-            			\mathcal{R}_{2\text{D}} &= \frac{1}{8}
-            			\begin{bmatrix}
-            				0 & 1 & 0
-            				\\
-            				1 & 4 & 1
-            				\\
-            				0 & 1 & 0
-            			\end{bmatrix}
-            			\\
-            			\mathcal{R}_{3\text{D}} &= \frac{1}{12} \left(
-            			\begin{bmatrix}
-            				0 & 0 & 0
-            				\\
-            				0 & 1 & 0
-            				\\
-            				0 & 0 & 0
-            			\end{bmatrix}
-            			,
-            			\begin{bmatrix}
-            				0 & 1 & 0
-            				\\
-            				1 & 6 & 1
-            				\\
-            				0 & 1 & 0
-            			\end{bmatrix}
-            			,
-            			\begin{bmatrix}
-            				0 & 0 & 0
-            				\\
-            				0 & 1 & 0
-            				\\
-            				0 & 0 & 0
-            			\end{bmatrix}
-            			\right)
-            			\label{eq:restriction_stencils}
-            		\end{aligned}
-            	\end{equation}
+        \subsection{Prolongation}
+            \label{sec:prol_simple}
 
-                \subsection{Prolongation}
-                    \label{sec:prol_simple}
+            Along with the restriction operator described in the previous section, we also need prolongation
+            operator to go from a coarse grid to a finer grid. As in the restriction
+			operator direct insertion is the simplest algorithm.	Here we will use bilinear interpolation,
+			as advised in \cite{trottenberg_multigrid_2000}, for
+            two dimensions and trilinear interpolation for 3 dimensions. In bilinear interpolation seperate
+            linear interpolation is done in the x- y- and z-direction, then those are combined to give a result
+            on the wanted spot. (Note to self: Add source here) The same concept is expanded to give trilinear
+            interpolation. The two and three dimensional stencils is given in \eqref{eq:prolongation_stencils}
 
-                    Along with the restriction operator described in the previous section, we also need prolongation
-                    operator to go from a coarse grid to a finer grid.	Here we will use bilinear interpolation, for
-                    two dimensions and trilinear interpolation for 3 dimensions. In bilinear interpolation seperate
-                    linear interpolation is done in the x- and y-direction, then those are combined to give a result
-                    on the wanted spot. (Note to self: Add source here) The same concept is expanded to give trilinear
-                    interpolation. The two and three dimensional stencils is given in \eqref{eq:prolongation_stencils}
-
-
-                    \begin{equation}
-                        \centering
-                        \begin{aligned}
-                            \mathcal{P}_{2\text{D}} &= \frac{1}{4}
-                            \begin{bmatrix}
-                                1 & 2 & 1
-                                \\
-                                2 & 4 & 2
-                                \\
-                                1 & 2 & 1
-                            \end{bmatrix}
-                            \\
-                            \mathcal{P}_{3\text{D}} &= \frac{1}{8} \left(
-                            \begin{bmatrix}
-                                1 & 2 & 1
-                                \\
-                                2 & 4 & 2
-                                \\
-                                1 & 2 & 1
-                            \end{bmatrix}
-                            ,
-                            \begin{bmatrix}
-                                2 & 4 & 2
-                                \\
-                                4 & 8 & 4
-                                \\
-                                2 & 4 & 2
-                            \end{bmatrix}
-                            ,
-                            \begin{bmatrix}
-                                2 & 2 & 1
-                                \\
-                                2 & 4 & 2
-                                \\
-                                1 & 2 & 1
-                            \end{bmatrix}
-                            \right)
-                            \label{eq:prolongation_stencils}
-                        \end{aligned}
-                    \end{equation}
+            \begin{equation}
+                \centering
+                \begin{aligned}
+                    \mathcal{P}_{2\text{D}} &= \frac{1}{4}
+                    \begin{bmatrix}
+                        1 & 2 & 1
+                        \\
+                        2 & 4 & 2
+                        \\
+                        1 & 2 & 1
+                    \end{bmatrix}
+                    \\
+                    \mathcal{P}_{3\text{D}} &= \frac{1}{8} \left(
+                    \begin{bmatrix}
+                        1 & 2 & 1
+                        \\
+                        2 & 4 & 2
+                        \\
+                        1 & 2 & 1
+                    \end{bmatrix}
+                    ,
+                    \begin{bmatrix}
+                        2 & 4 & 2
+                        \\
+                        4 & 8 & 4
+                        \\
+                        2 & 4 & 2
+                    \end{bmatrix}
+                    ,
+                    \begin{bmatrix}
+                        2 & 2 & 1
+                        \\
+                        2 & 4 & 2
+                        \\
+                        1 & 2 & 1
+                    \end{bmatrix}
+                    \right)
+                    \label{eq:prolongation_stencils}
+                \end{aligned}
+            \end{equation}
