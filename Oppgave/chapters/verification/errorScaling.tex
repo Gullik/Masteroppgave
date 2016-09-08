@@ -1,0 +1,40 @@
+\section{Scaling of the error compared to discretization}
+The solver is solving a discretized problem, due to this the solution will not
+be exact. The error will be of second order, \(\order{h^2}\), dependent on the
+stepssize, \(h\), due to the first order solver, see \cref{sec:GSRB}.
+
+
+To investigate that the error the of the solver follows a second order improvement
+as the stepsize decreases we construct a sinusoidal rho as a test case.
+
+\begin{equation}
+    \rho(x) = \sin{\left(\frac{x}{2\pi}\right)}      \qquad ; \qquad x\epsilon[0,2\pi]
+\end{equation}
+
+This \(\rho\) is analytically solvable for the Poisson equation so we can compute the
+\(2\)-norm of the error, \(\norm{err}_2\). Then we gradually decrease the stepsize
+and obtain and compare the norm of the numerical solutions. Since the normalization in PinC
+is normally done outside the multigrid solver, \(rho\) had to be suitably scaled
+to the stepsize. We expect the error proportional to \(h^2\), so by taking the logarithm
+we obtain
+
+\begin{equation}
+    \log(err(h)) = 2\log(Ch)
+\end{equation}
+
+where \(C\) is a constant dependent on \(\rho\).
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width = \textwidth]{figures/verification/errorScaling/errorloglog}
+
+    \end{subfigure}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width = \textwidth]{figures/verification/errorScaling/errorEloglog}
+    \end{subfigure}
+    \caption{Logarithmic plot of the 2-norm of the error of the potential \(\phi\), left figure, and the
+    x-component of the electric field. The solver was run on a scaled sinus-shaped charge distribution.
+    Both of the plots show a straight line of the error, on the logarithmic plots, with a slope
+    of \(2.00\). This correspond to maximal error of \(\order{h^2}\)}
+\end{figure}
