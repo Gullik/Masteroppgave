@@ -15,7 +15,7 @@ This \(\rho\) is analytically solvable for the Poisson equation so we can comput
 \(2\)-norm of the error, \(\norm{err}_2\). Then we gradually decrease the stepsize
 and obtain and compare the norm of the numerical solutions. Since the normalization in PinC
 is normally done outside the multigrid solver, \(rho\) had to be suitably scaled
-to the stepsize. We expect the error proportional to \(h^2\), so by taking the logarithm
+to the stepsize. We expect the error proportional to the squared stepsize, \(err(h) \approx Ch^2\), so by taking the logarithm
 we obtain
 
 \begin{equation}

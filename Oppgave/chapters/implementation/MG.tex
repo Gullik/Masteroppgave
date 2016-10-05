@@ -1,9 +1,11 @@
 
 \section{General idea}
 	\label{sec:mg_impl}
-	When an iterative solver solves a problem, it starts with an initial guess then for each cycle it improves the guess to come closer to the
-	wanted solution. The difference between the guess and the correct solution, the residual, does not necessarily converge equally fast for different frequencies.
-	A solver can be very efficient on reducing the local error, while it takes many cycles to reduce the errors due to distant influence.
+	An iterative solver solves a problem bystarting with an initial guess, then it performs an algorithm
+	improving the guess and repeats with the improved guess. The difference between
+	the guess and the correct solution, the residual, does not necessarily converge equally fast for different frequencies.
+	An iterative solver can be very efficient on reducing the local error,
+	while the errors due to distant influence is reduced slowly.
 	A multigrid solver attacks this problem by applying iterative methods on different discretizations of the problem, by solving on a very coarse grids
 	the error due to distant influence will be reduced faster, while solving on a fine grid reduces the local error fast. So by solving on both
 	fine and coarse grids the needed cycles will be reduced. To implement a multigrid algorithm we then need algorithms to solver the problem on a grid \cref{sec:GSRB},
@@ -23,26 +25,41 @@
 		defect and correction respectively. A subscript means the grid level, where \(0\) si the finest level, while the superscript \(0\) implies an initial guess is used. Hats and tildes are also
 	 	used to signify the stage the solution is in, with a hat meaning the solution is smoothed and a tilde meaning the correction from the grid below is added.
 
-		The operations necessary on a level in a multigrid cycle is given in \cref{tab:recursive}
-		\begin{table}[h]
-		\begin{tabular}	{l | c}
-			\(1\): Smooth &\( \widehat{\phi}_l = \mathcal{S}(\phi_l, \rho_l)\)
-			\\
-			\(2\): Residual &	\(d_l = \nabla^2\widehat{\phi}_l - \rho_l\)
-			\\
-			\(3\): Restrict &\(\rho_{l+1} = \mathcal{R}d_l \) \nonumber
-			\\
-			\(4\): Go down, recieve correction & \(\omega_l = \mathcal{I} \phi_{l+1}\)
-			\\
-			\(5\): Add correction	&\(\widetilde{\phi}_l = \widehat{\phi}_l + \omega_l\)
-			\\
-			\(6\): Smooth	&\(\phi_l = \mathcal{S}(\widetilde{\phi}_l, \rho_l)\)
-			\\
-			\(7\): Interpolate correction &\( \omega_{l-1} = \mathcal{I} \phi_l\)
-		\end{tabular}
-		\caption{The operations done on each level in the multigrid cycle.}
-		\label{tab:recursive}
-		\end{table}
+		The overarching algorithm is shown in \cref{algo:mg_recursive}
+		\begin{algorithm}
+			\caption{Multigrid V cycle}
+	        \begin{algorithmic}
+				\If {level = coarest}
+				\State
+				\begin{tabular}	{l | c}
+					Solve &\( \widehat{\phi}_l = \mathcal{S}(\phi_l, \rho_l)\)
+					\\
+					Interpolate correction &\( \omega_{l-1} = \mathcal{I} \phi_l\)
+				\end{tabular}
+				\Else
+	            \For{each level}
+					\State
+					\begin{tabular}	{l | c}
+						Smooth &\( \widehat{\phi}_l = \mathcal{S}(\phi_l, \rho_l)\)
+						\\
+						Residual &	\(d_l = \nabla^2\widehat{\phi}_l - \rho_l\)
+						\\
+						Restrict &\(\rho_{l+1} = \mathcal{R}d_l \) \nonumber
+						\\
+						Go down, recieve correction & \(\omega_l = \text{MG}( \phi_{l+1}\))
+						\\
+						Add correction	&\(\widetilde{\phi}_l = \widehat{\phi}_l + \omega_l\)
+						\\
+						Smooth	&\(\phi_l = \mathcal{S}(\widetilde{\phi}_l, \rho_l)\)
+						\\
+						Interpolate correction &\( \omega_{l-1} = \mathcal{I} \phi_l\)
+					\end{tabular}
+	            \EndFor
+				\EndIf
+	        \end{algorithmic}
+			\label{algo:mg_recursive}
+	    \end{algorithm}
+
 
 		\begin{figure}
 			\centering
