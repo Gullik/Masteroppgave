@@ -181,6 +181,7 @@
 		higher parallel efficiency on a larger problem. This is called the Boundary-Volume effect.
 
 		\subsubsection{Parallel complexity}
+			\label{sec:para_comp}
 			The complexities, as in needed computational work, of sequential and
 			parallel MG cycles is calculated in \cite{hackbusch_multigrid_1982} and is
 			shown in \cref{tab:parallel_complexity}. In the table we can see that in
@@ -203,7 +204,7 @@
 				\\
 				& W & $\order{N}$ & \( \order{\sqrt{N} \log{N}} \)
 			\end{tabular}
-			\caption{The parallel complexities of sequential and parallel multigrid cycles}
+			\caption{The parallel complexities of sequential and parallel multigrid cycles. (NOTE TO SELF: See also \cite{zhukov_parallel_2014})}
 			\label{tab:parallel_complexity}
 		\end{table}
 
