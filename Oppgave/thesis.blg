@@ -1,17 +1,21 @@
 [0] Config.pm:327> INFO - This is Biber 2.3
 [0] Config.pm:330> INFO - Logfile is 'thesis.blg'
-[23] biber:287> INFO - === Sat Oct 15, 2016, 16:05:06
-[38] Biber.pm:346> INFO - Reading 'thesis.bcf'
-[95] Biber.pm:689> INFO - Found 6 citekeys in bib section 0
-[98] Biber.pm:3066> INFO - Processing section 0
-[108] Biber.pm:3206> INFO - Looking for bibtex format file 'bibs/bibliography.bib' for section 0
-[116] bibtex.pm:1062> INFO - Decoding LaTeX character macros into UTF-8
-[121] bibtex.pm:923> INFO - Found BibTeX data source 'bibs/bibliography.bib'
-[143] Utils.pm:147> WARN - ISBN '978-1-4419-3201-3 978-1-4757-5595-4' in entry 'chen_introduction_1984' is invalid - run biber with '--validate_datamodel' for details.
-[189] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[189] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[189] Biber.pm:2943> INFO - Sorting list 'nyt' of type 'entry' with scheme 'nyt' and locale 'en-US'
-[189] Biber.pm:2947> INFO - No sort tailoring available for locale 'en-US'
-[195] bbl.pm:505> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[196] bbl.pm:596> INFO - Output to thesis.bbl
-[199] Biber.pm:107> INFO - WARNINGS: 1
+[22] biber:287> INFO - === Wed Oct 19, 2016, 13:29:18
+[39] Biber.pm:346> INFO - Reading 'thesis.bcf'
+[96] Biber.pm:689> INFO - Found 35 citekeys in bib section 0
+[100] Biber.pm:3066> INFO - Processing section 0
+[109] Biber.pm:3206> INFO - Looking for bibtex format file 'bibs/bibliography.bib' for section 0
+[117] bibtex.pm:1062> INFO - Decoding LaTeX character macros into UTF-8
+[123] bibtex.pm:923> INFO - Found BibTeX data source 'bibs/bibliography.bib'
+[147] Utils.pm:147> WARN - ISBN '978-1-4419-3201-3 978-1-4757-5595-4' in entry 'chen_introduction_1984' is invalid - run biber with '--validate_datamodel' for details.
+[178] Utils.pm:147> WARN - ISBN '978-3-540-43594-5 978-3-540-47789-1' in entry 'falgout_hypre:_2002' is invalid - run biber with '--validate_datamodel' for details.
+[181] Utils.pm:147> WARN - I didn't find a database entry for 'documentation' (section 0)
+[181] Utils.pm:147> WARN - I didn't find a database entry for 'Press1987' (section 0)
+[181] Utils.pm:147> WARN - I didn't find a database entry for 'Kacem2012' (section 0)
+[433] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[434] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[434] Biber.pm:2943> INFO - Sorting list 'nyt' of type 'entry' with scheme 'nyt' and locale 'en-US'
+[434] Biber.pm:2947> INFO - No sort tailoring available for locale 'en-US'
+[480] bbl.pm:505> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[488] bbl.pm:596> INFO - Output to thesis.bbl
+[494] Biber.pm:107> INFO - WARNINGS: 5
