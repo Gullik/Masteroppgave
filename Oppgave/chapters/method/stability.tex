@@ -1,0 +1,81 @@
+\section{Stability}
+    \label{sec:stability}
+    A numerical model often has numerical stability criterias that need to be fulfilled
+    for the model to work. This is caused by the inherent discretization of the problem
+    in a numerical method. Here we will investigate an harmonic oscillator and a
+    wave to find the stability criterias for the time and spatial discretization.
+
+    \subsection{Time Stability Criterion}
+        \label{sec:time_stability}
+        A one-dimensional harmonic oscillator, i.e. a pendulum in gravity, is described by
+        \begin{equation}
+            \pdv[2]{x}{t} = - \omega_0^2 x
+        \end{equation}
+        %
+        and has a solution of the form
+        %
+        \begin{equation}
+            x(t) = C e^{-i\omega t} \label{eq:harmonic_sol}
+        \end{equation}
+        %
+        Then we replace the temporal derivative with a centered finite difference.
+        %
+        \begin{equation}
+            \frac{x^{n+\Delta t} - 2 x^{n} + x^{n-\Delta t}}{\Delta t^2} = -\omega_0^2 x^n
+        \end{equation}
+        %
+        Inserting the harmonic solution in place of the \(x^n\), \(x^{n+ \Delta t}\) and \(x^{n-\Delta t}\).
+        \begin{equation}
+            \frac{ e^{-i\omega (t + \Delta t)} -2e^{-i\omega t} + e^{-i\omega (t - \Delta t)}}{\Delta t^2} = -\omega_0^2 e^{-i\omega t}
+        \end{equation}
+        %
+        Using Eulers relation, (\(e^{-ix} = \cos(x) + i\sin{x}\)), this yields
+        %
+        \begin{equation}
+            2\cos(\omega \Delta t)- 2 = -\omega_0 \Delta t
+        \end{equation}
+        %
+        which can be reshuffled to
+        %
+        \begin{equation}
+                \sin(\frac{\omega \Delta t}{2}) = \pm \frac{\omega_0 \Delta t}{2}
+        \end{equation}
+        %
+        In the case, \(\frac{\omega_0 \Delta t}{2} > 1\), \(\omega\) has an imaginary component
+        and the numerical solution is unstable.
+
+    \subsection{Spatial Stability Criterion}
+        A 1-dimensional wave equation is described by:
+        %
+        \begin{equation}
+                \pdv[2]{\varphi}{t} = c^2 \pdv{\varphi}{x}
+        \end{equation}
+        %
+        Applying a centered difference
+        \begin{equation}
+            \frac{\varphi^{n + \Delta t}_{j} - 2 \varphi^{n}_{j} + ^{n - \Delta t}_{j}}{\Delta t^2}
+            =
+            c^2\frac{\varphi^n_{j+\Delta x} - 2\varphi^n_{j} + \varphi^n_{j-\Delta x}}{\Delta x^2}
+        \end{equation}
+        %
+        Let us assume sinusoidal waves, \(\varphi^n_j = e^{i(\omega t  - \tilde{k}j\Delta x)}\).
+        %
+        \begin{equation}
+            \frac{e^{i\omega \Delta t} - 2 +e^{-i\omega \Delta t} }{\Delta t^2}
+            = c^2 \frac{e^{-i\tilde k \Delta x} - 2 + e^{i\tilde k \Delta x}}{\Delta x ^2}
+        \end{equation}
+        %
+        Which can be rewritten to
+        %
+        \begin{equation}
+            \cos(\omega \Delta t) = \left(c\frac{\Delta t}{\Delta x}\right)^2\left(\cos(\tilde k \Delta x) - 1 \right) + 1
+        \end{equation}
+        %
+        \(\omega\) needs an imaginary part if \( \left(c\frac{\Delta t}{\Delta x}\right)>1\), this is called the \textit{Courant-Lewy Stability criterion}
+        \citep{courant_uber_1869}. In general for more dimensions it becomes
+        \begin{equation}
+            \Delta t \leq \frac{1}{c} \left(\sum_i\Delta x_i^-2\right)^{-\frac{1}{2}}
+        \end{equation}
+
+    \subsection{Finite Grid Instability}
+        \label{sec:finite_grid_instability}

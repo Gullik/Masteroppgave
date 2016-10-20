@@ -1,0 +1,46 @@
+\section{Plasma Oscillation}
+\begin{itemize}
+    \item Plasma oscillates
+    \item Randomly distributed plasma, with random velocities (Vel Causing a bug->Fix)
+    \item Compute fitting Temperature and Debye length
+\end{itemize}
+
+    \subsection{Input parameters}
+        \subsubsection{Timestep}
+        First we need to ensure that the simulation is does not violate the time-
+        stability criterion, \cref{sec:time_stability}, \(\Delta t \leq 2\omega_{pe}\).
+        For computational reasons each particle in the program represents many real particles
+        and we can adjust the number, of real particles represented, to ensure
+        that the electron plasma frequency is \(1\).
+
+        \begin{equation}
+            \omega_{pe}^2 = \frac{nq^2_e}{m\epsilon_0} = \left(\frac{N}{V}\right)\left(\frac{q_{e*}}{m_{e*} }\right)q_{e*}
+        \end{equation}
+
+        Here \((N/V)\) is just the number of electron super-particles divided by the volume,
+        \(q_e\) and \(m_e\), represents super-particles and needs to be multiplied by the number
+        of particles in a super-particle, \(\kappa\).
+
+        \begin{equation}
+            \omega_{pe}^2 = \left(\frac{N}{V}\right)\left(\frac{e}{m_e}\right)\kappa e
+        \end{equation}
+
+        Since we want the electron plasma frequency to be \(1\), \(\kappa\) is set to
+
+        \begin{equation}
+            \kappa = \frac{Vm_e}{Ne^2}
+        \end{equation}
+
+        Now the time is given in units of \(\omega_{pe}\) and we use \(\Delta t = 0.2 < 2\) easily.
+
+        \subsubsection{Spatial-step}
+        The spatial step need to satisfy the finite grid instability condition,
+        \(\Delta x < \varsigma \lambda_{Se}\), \cref{sec:finite_grid_instability}.
+        We use a similar procedure as in normalizing the time with regards to \(\omega_{pe}\)
+        to normalize the length with regards to \(\lambda_{Se}\). The we end up with
+        the temperature, or its other representation as thermal velocity, as the parameter we can adjust to make sure that it satisfies the
+        condition.
+
+        \begin{equation}
+            \lambda_{Se}^2 = \frac{\epsilon_0 kT_e}{nq^2_e}
+        \end{equation}
