@@ -1,0 +1,13 @@
+\begin{tikzpicture}[scale=0.6]
+	\node[circ node, gray] at (2,5){};
+	\fill[color=gray] (2,5) circle (2pt);
+	\node at (1.2,5){\(\vb B\)};
+	\node at (3.8,2.5){\(e\)};
+	\node at (8.8,2.5){\(i\)};
+	\draw (4,2.5) circle (2cm);
+	\draw (9,2.5) circle (1.2cm);
+	\draw[thick, blue, ->] (4,2.5) node[left, black] {} -- ++(45:2) node[coordinate] (A) {} node[midway,below, black] {\(\rho_c\)};
+	\draw[thick,black,->] (A) -- ++(-45:1.5cm) node[right,above, black]{\(\vb v_{\perp}\)};
+	\draw[thick, blue, ->] (9,2.5) node[left, black] {} -- ++(45:1.2) node[coordinate] (B) {} node[midway,below, black] {\(\rho_c\)};
+	\draw[thick,black,->] (B) -- ++(135:1.5cm) node[right, black]{\(\vb v_{\perp}\)};
+\end{tikzpicture}
