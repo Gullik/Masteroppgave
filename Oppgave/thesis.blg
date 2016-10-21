@@ -1,17 +1,15 @@
 [0] Config.pm:327> INFO - This is Biber 2.3
 [0] Config.pm:330> INFO - Logfile is 'thesis.blg'
-[23] biber:287> INFO - === Thu Oct 20, 2016, 15:55:30
+[23] biber:287> INFO - === Fri Oct 21, 2016, 11:45:13
 [39] Biber.pm:346> INFO - Reading 'thesis.bcf'
-[97] Biber.pm:689> INFO - Found 7 citekeys in bib section 0
-[100] Biber.pm:3066> INFO - Processing section 0
-[109] Biber.pm:3206> INFO - Looking for bibtex format file 'bibs/bibliography.bib' for section 0
-[116] bibtex.pm:1062> INFO - Decoding LaTeX character macros into UTF-8
-[121] bibtex.pm:923> INFO - Found BibTeX data source 'bibs/bibliography.bib'
-[142] Utils.pm:147> WARN - ISBN '978-1-4419-3201-3 978-1-4757-5595-4' in entry 'chen_introduction_1984' is invalid - run biber with '--validate_datamodel' for details.
-[193] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[193] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[193] Biber.pm:2943> INFO - Sorting list 'nyt' of type 'entry' with scheme 'nyt' and locale 'en-US'
-[193] Biber.pm:2947> INFO - No sort tailoring available for locale 'en-US'
-[201] bbl.pm:505> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[202] bbl.pm:596> INFO - Output to thesis.bbl
-[205] Biber.pm:107> INFO - WARNINGS: 1
+[98] Biber.pm:689> INFO - Found 1 citekeys in bib section 0
+[102] Biber.pm:3066> INFO - Processing section 0
+[111] Biber.pm:3206> INFO - Looking for bibtex format file 'bibs/bibliography.bib' for section 0
+[118] bibtex.pm:1062> INFO - Decoding LaTeX character macros into UTF-8
+[123] bibtex.pm:923> INFO - Found BibTeX data source 'bibs/bibliography.bib'
+[155] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[155] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[155] Biber.pm:2943> INFO - Sorting list 'nyt' of type 'entry' with scheme 'nyt' and locale 'en-US'
+[156] Biber.pm:2947> INFO - No sort tailoring available for locale 'en-US'
+[157] bbl.pm:505> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[159] bbl.pm:596> INFO - Output to thesis.bbl

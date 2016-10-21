@@ -1,0 +1,21 @@
+In this chapter we will go through different methods we used to verify the multigrid
+solver, as well as scaling measurements. Modular parts of the solver is tested with unittests
+where feasible. In addition the whole solver is tested with both analytically solvable
+test cases and randomly generated fields.
+
+
+\subsection{Error Quantification}
+	\label{sec:errorQuant}
+    (NOTE TO SELF: Tidy up)
+	In order to evaluate solutions we will primarily look at the normalized 2-norm of the error, \cref{eq:2norm},
+	and the residual, \cref{eq:barRes}. The \(\norm{ err }_2\) is computed from comparing the numerical
+	solution \(\hat{\phi}\) to an analytical solution \(\phi\) and normalized with regards to grid points, \(N\).
+	The residual is found by inserting the numerical solution into the Poisson equation, the remaining
+	part is then the residual, and shows the difference of the current numerical solution
+	and the optimal numerical solution.
+	%
+	\begin{align}
+		\norm{ err }_2&= \sqrt{\frac{\sum \left(\hat\phi - \phi\right)^2}{N}}  \label{eq:2norm}
+		\\
+		\bar{r} &= \frac{1}{N}\left( \sum_i{ \nabla^2 \hat{\phi}_i + \rho_i  }  \right) \label{eq:barRes}
+	\end{align}
