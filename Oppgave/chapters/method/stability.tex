@@ -79,3 +79,16 @@
 
     \subsection{Finite Grid Instability}
         \label{sec:finite_grid_instability}
+        The particles in a PiC simulation moves in a continuous space, while they are
+        represented on a discrete grid for the field calculations. This reduction allows
+        a \textit{Finite Grid Instability} to appear, due to a loss of information \citep{lapenta_particle_????}.
+        % Intuitively a finer grid should produce a better result, as it gives a better approximation of
+        % the actual charge distribution.
+        The numerical analysis of the instability is complicated and we refer to
+        \citet{birdsall_plasma_2004,hockney_computer_1988} for a complete picture.
+        The instability introduces the following additional constraint on the grid resolution,
+        \begin{equation}
+            \Delta x < \varsigma \lambda_D
+        \end{equation}
+        %
+        For a CiC

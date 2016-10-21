@@ -39,7 +39,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Tikz settings
-\usetikzlibrary{shapes,arrows,chains}
 % =================================================
 % Set up a few colours
 \colorlet{lcfree}{Green3}
@@ -59,8 +58,74 @@
   \end{pgfonlayer}{marx}
   }
 \providecommand{\cmark}[2][]{\relax}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+% TikZ environment initialisation
+\usetikzlibrary{calc,fadings,decorations.pathreplacing,decorations.markings}
+\usetikzlibrary{shapes,arrows,chains}
+% \usetikzlibrary{fadings,shapes.arrows,shadows}
+% \usetikzlibrary{arrows,external,pgfplots.groupplots,positioning}
+% \usetikzlibrary{intersections}
+\usetikzlibrary{decorations.pathmorphing,patterns}
+% Setting colours used
+\definecolor{royalBlue}{RGB}{65,105,225}
+\definecolor{cadred}{RGB}{227,0,34}
+\definecolor{slateGray}{RGB}{119,136,153}
+
+% TikZ style def.
+\tikzset{
+    %Define style for boxes
+    >=stealth,
+    punkt/.style={
+           rectangle,
+           rounded corners,
+           draw=white, very thick,
+           text width=10em,
+           minimum height=2em,
+           text centered},
+    % Define arrow style
+    pil/.style={
+           ->,
+           >=stealth,
+           thick,
+           shorten <=2pt,
+           shorten >=2pt},
+    % Define a box style for grid
+    box/.style={
+          rectangle,
+          draw=black,
+          thin,
+          minimum size=0.1cm},
+    circ node/.style={
+          circle,
+          draw,
+          inner sep=4pt},
+    % style to apply some styles to each segment of a path
+    spring1/.style={
+      decoration={
+        aspect=1,
+        segment length=1.448cm,
+        % segment length=0.38cm,
+        amplitude=0.3cm,
+        coil,
+      },
+    },
+    spring2/.style={
+      decoration={
+        aspect=0.399,
+        segment length=0.601cm,
+        amplitude=0.75cm,
+        coil,
+      },
+    },
+    % style to add an arrow in the middle of a path
+    mid arrow/.style={postaction={decorate,decoration={
+          markings,
+          mark=at position .3 with {\arrow[#1]{stealth}}
+    }}},
+    extended line/.style={shorten >=-#1,shorten <=-#1},
+}
+% TikZ environment initialisation END
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %% references
 \usepackage[style=authoryear,

@@ -1,34 +1,16 @@
-<<<<<<< HEAD
 [0] Config.pm:318> INFO - This is Biber 1.8
 [0] Config.pm:321> INFO - Logfile is 'thesis.blg'
-[41] biber:275> INFO - === ma. okt. 17, 2016, 14:32:29
-[41] Biber.pm:333> INFO - Reading 'thesis.bcf'
-[77] Biber.pm:630> INFO - Found 7 citekeys in bib section 0
-[86] Biber.pm:3053> INFO - Processing section 0
-[96] Biber.pm:3190> INFO - Looking for bibtex format file 'bibs/bibliography.bib' for section 0
-[102] bibtex.pm:933> INFO - Decoding LaTeX character macros into UTF-8
-[110] bibtex.pm:808> INFO - Found BibTeX data source 'bibs/bibliography.bib'
-[148] Biber.pm:2939> INFO - Overriding locale 'en_US.UTF-8' default tailoring 'variable = shifted' with 'variable = non-ignorable'
-[148] Biber.pm:2945> INFO - Sorting 'entry' list 'nyt' keys
-[148] Biber.pm:2949> INFO - No sort tailoring available for locale 'en_US.UTF-8'
-[160] bbl.pm:482> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[161] bbl.pm:555> INFO - Output to thesis.bbl
-=======
-[0] Config.pm:327> INFO - This is Biber 2.3
-[0] Config.pm:330> INFO - Logfile is 'thesis.blg'
-[23] biber:287> INFO - === Sat Oct 15, 2016, 16:05:06
-[38] Biber.pm:346> INFO - Reading 'thesis.bcf'
-[95] Biber.pm:689> INFO - Found 6 citekeys in bib section 0
-[98] Biber.pm:3066> INFO - Processing section 0
-[108] Biber.pm:3206> INFO - Looking for bibtex format file 'bibs/bibliography.bib' for section 0
-[116] bibtex.pm:1062> INFO - Decoding LaTeX character macros into UTF-8
-[121] bibtex.pm:923> INFO - Found BibTeX data source 'bibs/bibliography.bib'
-[143] Utils.pm:147> WARN - ISBN '978-1-4419-3201-3 978-1-4757-5595-4' in entry 'chen_introduction_1984' is invalid - run biber with '--validate_datamodel' for details.
-[189] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[189] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[189] Biber.pm:2943> INFO - Sorting list 'nyt' of type 'entry' with scheme 'nyt' and locale 'en-US'
-[189] Biber.pm:2947> INFO - No sort tailoring available for locale 'en-US'
-[195] bbl.pm:505> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[196] bbl.pm:596> INFO - Output to thesis.bbl
-[199] Biber.pm:107> INFO - WARNINGS: 1
->>>>>>> 58e6e0e301c107af71b4f4d78583a1f7ba26fb6d
+[35] biber:275> INFO - === to. okt. 20, 2016, 18:20:35
+[35] Biber.pm:333> INFO - Reading 'thesis.bcf'
+[72] Biber.pm:630> INFO - Found 30 citekeys in bib section 0
+[81] Biber.pm:3053> INFO - Processing section 0
+[91] Biber.pm:3190> INFO - Looking for bibtex format file 'bibs/bibliography.bib' for section 0
+[97] bibtex.pm:933> INFO - Decoding LaTeX character macros into UTF-8
+[105] bibtex.pm:808> INFO - Found BibTeX data source 'bibs/bibliography.bib'
+[107] Utils.pm:169> WARN - Duplicate entry key: 'lapenta_particle_????' in file 'bibs/bibliography.bib', skipping ...
+[212] Biber.pm:2939> INFO - Overriding locale 'en_US.UTF-8' default tailoring 'variable = shifted' with 'variable = non-ignorable'
+[212] Biber.pm:2945> INFO - Sorting 'entry' list 'nyt' keys
+[212] Biber.pm:2949> INFO - No sort tailoring available for locale 'en_US.UTF-8'
+[269] bbl.pm:482> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[274] bbl.pm:555> INFO - Output to thesis.bbl
+[275] Biber.pm:105> INFO - WARNINGS: 1

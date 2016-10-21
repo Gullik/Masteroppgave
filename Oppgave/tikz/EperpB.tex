@@ -1,0 +1,15 @@
+\begin{tikzpicture}[scale = 0.6]
+    \node[circ node, gray] at (0,5){};
+    \fill[color=gray] (0,5) circle (2pt);
+    \node at (-1,5){\(\vb B\)};
+    \draw[red,pil] (-0.3,0) to node[left,black]{\(\vb E\)} (-0.3,4);
+% 	\foreach \x in {0,...,10}
+% 		\foreach \y in {0,...,5}
+% 			{
+% 			\fill[color=gray] (\x,\y) circle (1pt);
+% 			\node [circ node,gray] at (\x,\y){};
+% 			}
+	\draw[mid arrow,spring1,decorate](0.5,1.0) to node[pos=0.03,black]{\(i\:\:\;\;\;\;\)} (10.05,1.0);
+	\draw[postaction={decorate,decoration={markings,mark=at position .7 with
+        {\arrowreversed{stealth}}}},spring2,decorate](10.05,3.8) to node[pos=0.97,black]{\(e\:\:\;\;\;\;\)} (0.5,3.8);
+\end{tikzpicture}
