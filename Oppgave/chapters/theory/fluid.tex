@@ -3,21 +3,22 @@
 	from a Kinetic Theory perspective. First the Vlasov equation is introduced,
 	then it is explained how the fluid equations can be obtained by taking different
 	order moments of the Vlasov equation. This can help understand the limitations
-	of the fluid model of plasma. Lastly a few different approximations
+	of the fluid model of plasma. Lastly a few different approximations are introduced
 	to make the fluid equations closable.
 
 \subsection{Velocity Moments}
 	To investigate plasma as a fluid we have to make certain fluid approximations.
 	The plasma is then characterized by local parameters describing particle
 	density, kinetic temperature, flow velocity and so on. These parameters refer
-	to a small volume of plasma, in contrast with the discussions earlier \cref{sec:single_particle}.
+	to a small volume of plasma, in contrast with the discussions earlier about single particle
+ 	motion, \cref{sec:single_particle}.
 	The time evolution is then governed by the fluid equation, but unfortunately the resulting
 	equations are generally less tractable than the usual hydrodynamical
-	equations.
+	equations. This is due to the need to close them with Maxwell's equations.
 
-	The usual quantity known as the momemt is given by mass times velocity,
-	here we will introduce a more general form of moment where the usual moment
-	is the first order moment. This will help understand how the fluid
+	The first order moment is given by mass times velocity, in introductionary physics literature
+	this is usually reffered to as the moment.
+	Here we will introduce a more general form of moment. This will help understand how the fluid
 	equations result from averaging over different moments of the general
 	transport equation. The zeroth, first and second order moment is respectively
 	given by
@@ -59,7 +60,7 @@
 	\end{equation}
 
 \subsection{Transport Equation}
-	By multiplying the a momentum function, \( \Phi \), with the Vlasov equation, \cref{eq:vlasov},
+	By multiplying the moment function, \( \Phi \), with the Vlasov equation, \cref{eq:vlasov},
 	we obtain the general momentum transport equation \citep{shu_physics_2010}.
 
 	\begin{equation}
@@ -68,10 +69,10 @@
 	\end{equation}
 
 	This then becomes a conservation equation for the average macroscopic quantity
-	\(\left< \Phi \right>\). By using this equation and inserting in the zeroth, first and second order
-	moment we obtain the fluid equations, \cref{eq:continuity,eq:momentum,eq:pressure}.
-	We refer you to \citet{fitzpatrick_plasma_2014} to see a derivation of the fluid
-	equations.
+	\(\left< \Phi \right>\). By multiplying this equation with the moments the fluid
+	equations can be obtained, see \cref{sec:fluid}.
+
+
 
 
 	% To simplify matters we can average over an ensemble to obtain the
@@ -88,10 +89,12 @@
 
 \subsection{Fluid Equations}
 	\label{sec:fluid}
+	From the Vlasov equation and the zeroth, first and second order
+	moment we obtain the fluid equations.
 	The generalized fluid equations is given in \cref{eq:continuity,eq:momentum,eq:pressure}, where the three equations
-	describe the conservation of mass, momentum and energy respectively. The collision term is negleted.
-	We refer you to the earlier mentioned \citet{fitzpatrick_plasma_2014}, although some
-	notation differ, for the rather involved derivation to obtain them.
+	describe the conservation of mass, momentum and energy respectively. The collision term is neglected.
+	We refer to \citet{fitzpatrick_plasma_2014}, although some
+	notation differ, for the rather involved derivation to obtain these equations.
 
 	\begin{subequations}
 		\begin{equation}
@@ -125,18 +128,18 @@
 
 	The first equation, \cref{eq:continuity}, is the continuity equation, it states that the total mass
 	in a volume	should be preserved. \(\vb{u}_s\) is the flow velocity and \(n_s\) is the number density, i.e.
-	number of particles in a volume. The divergence terms signifies change due to the compressability of the fluid
+	number of particles in a volume. The divergence terms signify change due to the compressability of the fluid
 	and can in many cases be set to \(0\). The total derivative, i.e. \(\left(\pdv{t} + \vb{u}_s\cdot\nabla \right)\) accounts for
 	change in density in a volume taking into account substance exiting and entering.
 	The momentum equation \cref{eq:momentum} shows that the fluid momentum change, left hand side,
 	is due to pressure gradients, \(\nabla p_s\), visceous forces, \(\nabla \cdot \pi \) and external forces, \(n_s\vb{f}_s\),
 	per unit volume.
 	Lastly we have the energy equation, in its pressure form, which shows that changes to thermal
-	energy, \(p = nkT\), is caused by compression, \(p_s\nabla \cdot \vb{u}_s\), visceous effects \(\pi_s : \nabla{\vb{u_s}}\)
+	energy, \(p = nkT\), are caused by compression, \(p_s\nabla \cdot \vb{u}_s\), visceous effects \(\pi_s : \nabla{\vb{u_s}}\)
 	and heat transport	\(\frac{2}{3}\nabla \cdot \vb{q}_s\).
-	The fluid equations is in general not closeable and adding higher order moments
+	The fluid equations are in general not closeable and adding higher order moments
 	always introduces more unknowns. Due to this one generally uses different closing
-	schemes, some of which is described in the next section, to make them tractable.
+	schemes to make them tractable. Some of these schemes are described in the next section.
 
 \subsection{Plasma States}
 	Plasma can be classified according to which	approximations and simplifications
@@ -145,7 +148,7 @@
 	\subsubsection{Local Thermodynamic Equilibrium}
 	A plasma is said to be in a \textit{local thermodynamic equalibrium} (LTE)
 	if the phase-space distribution is locally Maxwellian. This means the variations
-	in temperature is slow enough that we can consider it to flow no heat. We can also ignore
+	in temperature are slow enough that we can neglect heat conduction in the plasma. We can also ignore
 	the viscosity due to there being little local variations to the momentum flow.
 
 	\begin{align}
@@ -157,9 +160,9 @@
 	they dissappear.
 
 	\subsubsection{Cold Plasma}
-	In what we consider a cold plasma the pressure, \(p\), and viscosity, \(\pi\), is set to zero.
-	This can be useful if the velocities of interest far exceed the thermal velocities.
-	(ADD MORE)
+	In a cold plasma the temperature is set to \(0\), this causes the pressure, \(p\), and viscosity, \(\pi\), to be zero.
+	This can be useful if the velocities of interest far exceed the thermal velocities. 
+
 
 
 	\subsubsection{Isothermal}

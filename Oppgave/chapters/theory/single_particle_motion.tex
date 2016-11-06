@@ -8,12 +8,12 @@
 	the other particles which greatly simplifies the situation. The Lorentz
 	force, \cref{eq:lorentz}, governs the dynamics of a charged particle in a plasma,
 	provided that other forces, e.g. gravity, are neglible.
-	The Lorentz force consist of a combination of the velocity, \(\vb{v}\), electric field, \(\vb{E}\), and
-	magnetic field \(\vb{B}\).
+	The Lorentz force is due to charged particles in the electric field, \(\vb{E}\), and charged particles
+	moving across the magnetic field \(\vb{B}\)
  	\begin{align}
 		\vb{F} = q\left(\vb{E} + \vb{v}\cross\vb{B}\right) \label{eq:lorentz}
 	\end{align}
-	To simplify matters we will only consider particles in static electromagnetic field,
+	To simplify matters we will only consider particles in static electric and magnetic fields,
 	as that is often a valid approximation on the time and spatial scales of interest.
 
 	\subsection{Gyration}
@@ -27,7 +27,7 @@
 			\intertext{We should note that the velocity component parallel to the magnetic field, is not affected by the field and
 			will remain constant, \(\pdv{\vb{v}_\parallel}{t}=0\). The cross product of two parallel vectors is always zero,
 			so \(\vb{v}_\parallel\cross \vb{B}=0\). Using these two notions we can write the equation only in terms
-			of the perpendicular, in respect to \(\vb{B}\), velocity.}
+			of the perpendicular, with respect to \(\vb{B}\), velocity.}
 			m\pdv{\vb{v}_\perp}{t} &= q\vb{v_\perp}\cross\vb{B} \label{eq:perp_gyration}
 			\intertext{Then we perform a temporal derivative.}
 			\pdv[2]{\vb{v}_\perp}{t} &= \frac{q}{m} \pdv{\vb{v}_\perp}{t}\cross \vb{B}
@@ -57,8 +57,8 @@
 		In the last equation we also changed the term describing the rotational motion
 		to \(\vb{\omega}_\perp\), which will from now on signify gyrational motion.
 		This differential equation corresponds to a gyration around the magnetic field lines
-		with the gyration frequency, \(\omega_c = \frac{qB}{m}\), as the frequency. If the particle
-		has parallel velocity it will rotate in a spiral along the magnetic field lines, as illustrated in
+		with the gyration frequency, \(\omega_c = \frac{qB}{m}\), as the frequency. The particles are free to
+		move parallel to the magnetic field lines causing a spiralling motion along the magnetic field lines, as illustrated in
 		\cref{fig:gyration}. This spiral effect is often an important part of why
 		there are often field-aligned currents, such as 'Birkeland Currents' \citep{cummings_field-aligned_1967},
 		transporting plasma along magnetic field lines.
@@ -66,7 +66,7 @@
 
 
 	\subsection{E-cross-B Drift}
-	A drift called E-cross-B drift appears when a particle is moving within static and isotrop
+	A drift called E-cross-B drift can appear when a particle is moving within static and isotrop
 	electric and magnetic fields. The equation of motion, neglecting all forces
 	except the electromagnetic, is then
 
@@ -140,10 +140,11 @@
 
 	As we can see the E-cross-B drift is independent of particle charge and mass,
 	which means both the ions and electrons will be drifting in the same direction and
-	speed, \cref{fig:EcrossB}.
+	speed perpendicular to the electric and magnetic fields, \cref{fig:EcrossB}.
 
-	This is just an example, and there are many other important concepts found in
+	This is an example of some effects on single particle motion in electric and magnetic fields, and there are many other important concepts found in
 	considering single particles, that we will not go into here, see \citet{fitzpatrick_plasma_2014},
-	or a different introductionary plasma physics book.
-	Other examples that could be useful include gradient-B drift, curvature drift,
-	polarization drift and magnetic mirroring.
+	or other introductionary plasma physics book.
+	Other examples that could be useful to know about is gradient-B drift, curvature drift,
+	polarization drift and magnetic mirroring. The motions of single particles are necessary
+	to understand the collective behaviour of large amounts of particles constituting a plasma.
