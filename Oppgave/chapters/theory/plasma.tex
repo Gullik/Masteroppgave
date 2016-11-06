@@ -1,7 +1,7 @@
 \section{Plasma}
 	\label{sec:plasma}
 	This section presents a short overview of basic plasma theory, it can serve as a
-	quick reminder if already familiar with the subject, and necessary
+	quick reminder for those already familiar with the subject, and necessary
 	background to understand the numerical simulations in this work.
     % If you, the reader, is already familiar with plasma physics this section could serve as
     % as a quick reminder about important basic plasma theory. Or it could hopefully
@@ -24,12 +24,12 @@
 	\end{flushright}
 	The charge causes the particles to be subject to the Lorentz force, which
 	changes the behaviour of the gas. The plasma state is a typical state of matter
-	and can be found in;
-	sun/stars, northen light, plasma cutters (Welding arcs), argon light tubes, fusion, a lot of various
-	industrial techniques, earth athmosphere. (Make this into a paragraph)
+	and appears in various environments, i.e. the sun, and other stars, the upper parts of Earth's atmosphere,
+ 	and has many industrial applications as plasma cutters , argon light tubes, fusion.
 
-	Plasma are fun because of (Intriguing physics, useful for industrial applications,
-	solar storms, the ever elusive fusion, space craft, predicting solar storms)
+	A greater understanding of the mechanism governing a plasma's behaviour can help
+	us predict spaceweather, improve design of spacecraft and instruments affacted by plasma.
+
 
 	\begin{figure}
 		\begin{center}
@@ -37,7 +37,7 @@
 			\missingfigure[figwidth=\textwidth]{Plasma Regimes}
 		\end{center}
 		\caption{Plasmas occurs both in the hot and dense condiotions in necessary for fusion, as
-		well as in the cold and sparse interstellar environment. [NOTE MAKE BETTER FIGURE]
+		well as in the cold and sparse interstellar environment.
 		}
 	\end{figure}
 
@@ -57,10 +57,10 @@
 		\end{equation}
 
 		Here we have introduced \(v_{th} \equiv  \sqrt{kT/m}\) as the thermal velocity, i.e.
-		the average velocity of a particle. It should be mentioned that the fraction in
+		the average velocity of a particle considering only \(1\) dimension. It should be mentioned that the fraction in
 		front of the temperature is dependent on the degrees of freedom of the particle.
 		A monoatomic particle can only move in three directions, but a diatomic particle
-		can also vibrate and spin. (Correct?)
+		can also vibrate and spin.
 
 		In high energy plasma physics it is also costumary to drop the Boltzmann factor, \(k\),
 		in \cref{eq:temperature}, and express temperature directly in electronvolt, \(eV\).
@@ -76,7 +76,7 @@
 		temperature is valid \citep{goldston_introduction_1995}.
 
 		\subsubsection{Electron Plasma Frequency}
-		A rather important frequency in plasma physics is the electron plasma frequency,
+		A rather important frequency in plasma physics is the electron plasma frequency \citep{chen_introduction_1984},
 
 		\begin{equation}
 			\omega_{pe} \equiv \sqrt{\frac{ne^2}{\epsilon_0 m_e}}
@@ -131,8 +131,7 @@
 		This ion will then attract electrons and repel positive ions. There will be a tendency
 		for there to be more negativily charged particles, and less positive, near the
 		ion, which in effect will work as an electric shield around the ion. The
-		distance away from a particle where its field, is typically mostly cancelled
-		out is called the Debye Shielding Length, \(\lambda_D\).
+		distance away from a particle, where its field is reduced by a factor \(1/e\), called the Debye Shielding Length, \(\lambda_D\).
 
 		\begin{equation}
 			\lambda_D \equiv \sqrt{\frac{\epsilon_0 kT_e}{n_e e^2}}
@@ -141,7 +140,8 @@
 		The above definition is often used, \citep{pecseli_waves_2012},
 		neglecting the ion influence since they often have a much lower temperature.
 		The shielding length is dependent on the ratio between temperature, \(T_e\),
-		and electron density, \(n_e\).
+		and electron density, \(n_e\). In a varmer plasma the particles will move quickly
+		and efficiently shield any charges, so the \(\lambda_D\) becomes smaller. While
 		In cases where we also need to account for ions, a more complete definition can be used
 
 		\begin{equation}
@@ -151,16 +151,16 @@
 		Due to the earlier argument, and the statistical approach used when deriving it \citep{goldston_introduction_1995},
 		there must be a significant amount particles close to the ion to shield it out.
 
-		It should be noted that the shielding length is related \citep{fitzpatrick_plasma_2014} to the
+		It should be noted that the shielding length is related \citep{fitzpatrick_plasma_2014} to
 		the plasma period and the thermal velocity through
 
 		\begin{equation}
-			\lambda_D \propto \tau_p v_{th}
+			\lambda_D \omega_{pe} = v_{th}
 		\end{equation}
 
 
 		\subsubsection{Quasineutrality}
-		The assumption of quasi-neutrality is a common approximation in plasma
+		The assumption of quasi-neutrality is a crucial approximation for collective phenomen in plasma
 		physics. By quasi-neutrality we assume that the electron
 		density is equal to the ion density, \(n_e \approx n_i\). This is often called the
 		\textit{"plasma approximation"} \citep{chen_introduction_1984}.
@@ -171,12 +171,17 @@
 		would be regained.
 
 		\subsubsection{Plasma Classification}
-        For a plasma description to be useful the system we consider must have
+        For a plasma description to be applicable the system we consider must have
         a typical length scale, \(L\), and time scale, \(\tau\), larger than the Debye length and plasma
         period respectively.
 
         \[\frac{\lambda_D}{L} \ll 1  \qquad{} \qquad \frac{\tau_p}{\tau} \ll 1 \]
-
+		%
+		A plasma treatment aims to describe the collective behaviour of many particles.
+		If the length scale is smaller than the \(\lambda_D\) the charges from
+		individual particles are not effectively shielded out and the trajectories of each particle should
+		be considered. On a shorter timescale than the \(\tau_{pe}\) the plasma oscillation is can be averaged
+		out and needs treatment.
 
 
 
