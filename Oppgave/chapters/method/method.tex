@@ -1,8 +1,9 @@
 
+(REWRITE)
 
 As the previous chapter described the need for numerical plasma models this chapter
-goes through the needed theory behind our implementation of a PiC model, pinc.
-This chapter focuses mostly on the multigrid module that was my main responsibility.
+goes through the theory behind a Particle-In-Cell model, with a focus on
+multigrid as a Poisson solver.
 First there is a general overview of a PiC model and the different building blocks
 needed. Then there is an overview of the normalization scheme designed to minimize
 floating point operations, FLOPS. Domain partitioning as a strategy to parallelize

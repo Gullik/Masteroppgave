@@ -27,11 +27,11 @@
 }
 % -------------------------------------------------
 % Start by placing the nodes
-\node[term] (move) {Mover};
+\node[term] (move) {Particle Mover};
 \node[coord] (center) {};
 \node[term]	(field) {Solver};
 \node[term, right =of center] (density) {Distribute};
-\node[term, left =of center] (force) {Accelerate};
+\node[term, left =of center] (force) {Projection};
 
 %Lines
 \draw [*->, lcnorm, yshift = -1em] (move.east) -- (density);  %MAke curved if time

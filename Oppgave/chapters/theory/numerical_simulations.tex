@@ -1,14 +1,16 @@
 \section{Numerical Simulations}
 
-	While mathematical analysis of plasma is helpful to improve our
-	understanding of the physics, many situations doesn't fall neatly into convenient
-	assumptions or is untractable. Then we have experiments and computer simulations
-	to further help us understand. All of these methods work in symbiosis and is interdependent
-	on each other. Numerical simluations can be thought of as cheap easily repetable
+	The mathematical description of plasma is helpful to improve our
+	understanding of the physics, many problems doesn't fall neatly into convenient
+	assumptions or are untractable. Then we need to turn to experiments and computer simulations
+	solve them. All of these methods work in symbiosis and is interdependent
+	on each other. Numerical simulations bears many similarities to
 	experiments, but it also has the advantage of being applied to situations that no
-	experiment can reproduce. Modelling generally needs to be validated against
+	experiment can reproduce. In addition physical experiments often has constraints on what can
+ 	be measured directly, while numerical experiments have all the wanted data readily available.
+	Modelling generally needs to be validated against
 	against experiments and has a foundation built upon theory. As the computational
-	resources have improved more  sophisticated simulations have been possible.
+	resources have improved, more sophisticated simulations have been possible.
 	Plasma simulations vary from fluid descriptions, as MHD codes, to kinetic descriptions,
 	as Particle-in-Cell and Vlasov codes, with hybrid codes inbetween as well.
 	This thesis focuses on the development of a Particle-in-Cell code, but here we will give a brief
@@ -39,18 +41,18 @@
 		Magnetohydrodynamical codes solve the one-fluid equations, given in \cref{sec:MHD},
 		with various approaches and has
 		similarities to Computational Fluid Dynamics. For the fluid equations
-		to be a good approximations the dynamics needs to happen at much larger scales
+		to be a reasonable description of plasma, the dynamics needs to happen at much larger scales
 		than the Debye Shielding Length. This approach has been widely used in large scale
-		plasma simulations such as astrophysics, \citep{hawley_numerical_1995} and space physics
-		\citep{watanabe_global_1990}.
+		plasma simulations such as astrophysics, see \citet{hawley_numerical_1995} where an MHD approach is discussed with regards to astrophysical problems,
+ 		and space physics, see \citet{watanabe_global_1990} for an investigation of the solar wind-magnetsphere interaction.
 
 	\subsubsection{Particle-in-Cell}
 		Particle-in-Cell models the particles directly, this has the advantage that
 		few approximations are done, but computational increases fast with more particles.
+		Numerical PiC codes has been used extensively to research charging- and wake-effect on spacecraft
+		operating in the upper earth atmosphere \citep{}.
 
 	\subsubsection{Vlasov}
-		Vlasov codes takes the kinetic description as the starting point and is often used
+		Vlasov codes takes the kinetic description as the starting point and are often used
 		in plasma laser modelling \citep{bertrand_nonperiodic_1990}. It has an advantage over
 		PiC in low density zones, where there is often too few particles for PiC.
-
-		(Add more on MHD, PiC an Vlasov, uninspired now)
