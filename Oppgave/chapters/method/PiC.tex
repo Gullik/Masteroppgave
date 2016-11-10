@@ -71,16 +71,16 @@
     	The spectral methods is based on rewriting the problem into a sum of bases functions
 		frequencies and solving the problem on the basis functions form, see \citet{israeli_accurate_2005} for an
     	implementation of an spectral Poisson solver. Often the basis functions chosen are
- 		sinusoidal, allowing the Fourier Transform to be used. Other basis functions can also be used,
-		\see \citet{shen_efficient_1994}. They are efficient solvers that
+ 		sinusoidal, allowing the Fourier Transform to be used. Other basis functions can also be used as in
+		\citet{shen_efficient_1994}. They are efficient solvers that
     	can be less intricate to implement, but can be inaccurate for complex geometries.
 
     	When looking for a solution with a spectral method we first rewrite the
-    	functions as Fourier series, which for the three-dimensional Poisson equation would be
+    	problem in the form of the basis functions, in this case sinusoids, which for the three-dimensional Poisson equation would be
 
     	\begin{align}
     		\nabla^2 \sum A_{j,k,l} e^{i(jx + ky + lz)} &= \sum B_{j,k,l} e^{i(jx + ky + lz)}
-    		\intertext{From there we get a relation between the coefficients}
+    		\intertext{where \(A_{j,k,l}\) and \(B_{j,k,l}\) are the coeffecients of the sinusoids.From there we get a relation between the coefficients}
     		A_{j,k,l} &= -\frac{B_{j,k,l}}{j^2 + k^2 + l^2}
     		\intertext{Then we compute the Fourier transform of the right hand side obtaining
     		the coefficients \(B_{j,k,l}\). We compute all the coefficients \(A_{j,k,l}\)
@@ -90,22 +90,21 @@
 
     \subsubsection{Finite Element Methods}
 
-    	The finite element, (FEM), is a method to numerically solve a partial differential
+    	The finite element (FEM) is a method to numerically solve a partial differential
     	equations (PDE) first transforming the problem into a variational problem and
     	then constructing a mesh and local trial functions, see \cite{alnaes_fenics_2011}
     	for a more complete discussion. FEM is similar to a spectral solver, with the main difference
-		that it's basis functions are only locally nonzero.
+		that FEM's basis functions are only locally nonzero.
 
     	To transform the PDE to a variational problem we first multiply the PDE by a
     	test function \(v\), then it is integrated using integration by parts on the
     	second order terms. Then the problem is separated into two parts, the bilinear
-    	form \(a(u,v)\) containing the unknown solution and the test function and the
+    	form \(a(u,v)\) containing the unknown solution and the test function, as well as the
     	linear form \(L(v)\) containing only the test function.
 
     	\begin{align}
     		a(u,v) = L(v)	\qquad v\epsilon \hat{V}
     	\end{align}
-
 
     	Next we construct discrete local function spaces of that we assume contain
     	the trialfunctions and testfunctions. The function space, \(\hat{V}\), often consists of
@@ -120,7 +119,7 @@
         The multigrid method used to solve the Poisson equation and obtain the
         electric field is a widely used and highly efficient solver for elliptic equations,
         having a theoretical scaling of \(\order{N}\) \citep{press_numerical_1988},
-        where \(N\) is the grid points. It is very well suited to simple geometries
+        where \(N\) is the number of grid points. It is very well suited to simple geometries
         that can easily be translated to coarser problems. Due to this it we have chosen
         to use it as the solver in our PiC model.
         The multigrid method is based on iterative
