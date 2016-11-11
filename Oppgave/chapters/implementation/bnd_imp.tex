@@ -10,7 +10,7 @@
     It should be easy to expand it to time varying conditions, just restrict the
     boundary function each timestep.
 
-    In general the condition types are stored as a \(2\text{Dim}\) array, in the order
+    In general the condition types are stored as a \(2-\)dimensional array, in the order
     \(x_{low}, x_{upper}, y_{low}, ...\). Each time the boundary conditions function
     is called it checks if each subdomain edge is at the total domain boundary.
     Since the outer subdomains need to do extra computations here, it shouldn't

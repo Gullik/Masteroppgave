@@ -1,17 +1,16 @@
-\section{Particle-in-Cell}
 
     Particle based plasma simulations have been in use since the 1960s, \citep{verboncoeur_particle_2005},
     and part of this project was to design a massively parrallel implementation,
     with a focus on the Poisson solver.
     The aim of this chapter is to describe simple and fast PiC model, with good scaling properties, as a baseline
-    and rather add in extra functionality later. Due to this it uses an electrostatic model and
+    and rather add in extra functionality later. Due to this it we focus on an electrostatic model and
     ignores relativistic effects, which makes it faster and more suited to certain tasks, such as
 	space plasmas and plasma discharges.
     For an example of a modern relativistic full electromagnetic model see
     \citet{sgattoni_piccante:_2015}.
 
     The first particle based plasma calculations was
-    was done by \cite{dawson_one-dimensional_1962} and \citet{buneman_dissipation_1959}.
+    done by \citet{dawson_one-dimensional_1962} and \citet{buneman_dissipation_1959}.
     They computed the electrical force directly between the particles leading
     to a computational scaling of \(\order{(\#particles)^2}\).
     Since a large number of particles is often wanted the PiC method seeks to improve
@@ -20,15 +19,14 @@
 	distribution. For an electrostatic model, which this thesis focuses on, this is usually done by solving the Poisson
     equation, \cref{eq:poisson}, over the whole domain, \(\Omega\).
 	%
-    The input to the solver is the charge density, \(\rho\), and the output is the potential, \(\phi\).
-
-    \begin{align}
-        \nabla ^2 \phi &= -\rho \qquad \text{in} \qquad \Omega \label{eq:poisson}
-    \end{align}
 
 	A PiC model has \(4\) main components: the mover, the weighting scheme, the field solver
 	and the distributer. See \cref{fig:schematic} for an overview of the PiC cycle.
 	The mover is responsible for moving the particles and updating the velocities of the particles.
+    The input to the solver is the charge density, \(\rho\), and the output is the potential, \(\phi\).
+    \begin{align}
+        \nabla ^2 \phi &= -\rho \qquad \text{in} \qquad \Omega \label{eq:poisson}
+    \end{align}
     The distribute module computes a charge distribution from the particle distribution,
 	This is often done with \(1\)st order interpolation, resulting in second order accuracy. Different order
 	interpolation can also be used.
@@ -57,17 +55,20 @@
 		the cross product.
 		%
 		While the aforementioned movers are explicit, based on a forward discretization of the time,
- 		implicit algorithms are also well developed \citep{friedman_direct_1981}, although not covered here.
- 		Implicit allgorithms impose less restrictions on the choice of the spatial resolution.
+ 		various projects project using partial and full implicit algorithms also exist \citep{friedman_direct_1981,lapenta_particle_????}.
+		Since implicit algorithms allows a relaxation of the stability restrictions, to be introduced later, they allow
+		the model to resolve closer to the investigated phenomena.
 
 
     \subsection{Field Solvers}
 	\label{sec:solvers}
     The Poisson equation, \cref{eq:Poisson}, is a well known and investigated problem.
     Here we will mention some advantages and disadvantages of different possible
-    field solvers before we describe our choice of a multigrid solver.
+    field solvers before we describe our choice of a multigrid solver. It should also
+	be mentioned that a implicit methods require a different approach, with the preconditioned Jacobian-Free-Newton-Krylov as the most promising approach.
+	\citet{lapenta_particle_2012} can be consulted for an overview.
 
-    \subsubsection{Spectral Methods} (NOTE TO SELF: Shen no fourier transform, find different source, Name what \(A and B\) are.)
+    \subsubsection{Spectral Methods}
     	The spectral methods is based on rewriting the problem into a sum of bases functions
 		frequencies and solving the problem on the basis functions form, see \citet{israeli_accurate_2005} for an
     	implementation of an spectral Poisson solver. Often the basis functions chosen are
@@ -80,7 +81,8 @@
 
     	\begin{align}
     		\nabla^2 \sum A_{j,k,l} e^{i(jx + ky + lz)} &= \sum B_{j,k,l} e^{i(jx + ky + lz)}
-    		\intertext{where \(A_{j,k,l}\) and \(B_{j,k,l}\) are the coeffecients of the sinusoids.From there we get a relation between the coefficients}
+    		\intertext{where \(A_{j,k,l}\) and \(B_{j,k,l}\) are the coeffecients of the sinusoids, or otherwise the basisfunctions.
+			From there we get a relation between the coefficients}
     		A_{j,k,l} &= -\frac{B_{j,k,l}}{j^2 + k^2 + l^2}
     		\intertext{Then we compute the Fourier transform of the right hand side obtaining
     		the coefficients \(B_{j,k,l}\). We compute all the coefficients \(A_{j,k,l}\)
@@ -120,14 +122,13 @@
         electric field is a widely used and highly efficient solver for elliptic equations,
         having a theoretical scaling of \(\order{N}\) \citep{press_numerical_1988},
         where \(N\) is the number of grid points. It is very well suited to simple geometries
-        that can easily be translated to coarser problems. Due to this it we have chosen
-        to use it as the solver in our PiC model.
+        that can easily be translated to coarser problems.
         The multigrid method is based on iterative
         solvers such as Gauss-Seidel, \cref{sec:GSRB}, these have the property
         that they quickly eliminate local errors in the solution, while far
         away influences takes longer to incorporate. Multigrid algorithms tries
         to lessen this problem by transforming this problem to a coarser grid
         so the distant errors gets solved in fewer iterations. Due to this it needs
-        algorithms to transfer the problem between coarser and finer grids, which
+        operators to transfer the problem between coarser and finer grids, which
         is called restrictors and prolongators. The multigrid algorithm is described in
         more detail in \cref{sec:multigrid}.

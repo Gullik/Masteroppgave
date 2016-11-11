@@ -1,20 +1,20 @@
-	\section{Grid Structs and Partitioning}
+	\subsection{Grid Structs and Partitioning}
 		In this section our overall parallelization strategy is discussed as well
 		as the storage needs for the grids.
 
-	\subsection{Data structures}
-	The fields and quantities in our PiC model is discretized on a threedimensional
-	grid and comes to use several places in the method. In the multigrid calculation
-	we also have a use for several grids of varying spatial coarseness. So it will
+	\subsubsection{Data structures}
+	The fields and quantities in PinC are discretized on a threedimensional
+	grid. In the multigrid calculation
+	several grids of varying spatial coarseness are used. So it will
 	be useful for us to organize the data so that we have the grid stored as an
 	independent structure available for the program, while the multigrid part uses
-	an extended version where it also has access to the different subgrids of different
+	an extended version where it also has access to different subgrids of different
 	coarseness. Each multigrid struct will have an array of different subgrids,
 	where the first is a pointer to the fine grid used in the rest of the calculations,
 	this makes it easy to select a grid level to perform an algorithm on.
 
-	\subsection{Domain partitioning}
-		We have chosen to divide the physical domain onto the different processors that each take
+	\subsubsection{Domain partitioning}
+		We have chosen to divide the physical domain onto different processors so that each takes
 		care of a physical subdomain. This is known as Domain Partitioning, and suits
 		our distribution algorithm as well as the multigrid method, see \cref{sec:grid_partitioning}
 		for the consequences of Domain Partitioning for multigrids. Since each
@@ -27,11 +27,11 @@
 		conditions it could also be useful to store an extra set of values on the
 		outer domain boundary as well, which will be called ghost points, \(N_G\).
 		The extra grid points due the the overlap between the subdomains we will call
-		overlap points, \(N_O\). Let us for simplicity sake consider a regular domain,
-		with equal extent in all dimensions, with \(N\) grid points per dimension,
+		overlap points, \(N_O\). Let us for simplicity consider a regular domain,
+		with equal size in all dimensions, with \(N\) grid points per dimension,
 		\(d\) and consider how many grid values we need to store as a singular domain
-		and the grid values needed when it is divided amongst several processors, a
-		2 dimensional case is depicted in \cref{fig:domain_part}.
+		and the grid values needed when it is divided amongst several processors, such
+		a 2 dimensional case is depicted in \cref{fig:domain_part}.
 
 		\subsection{Singular domain}
 		In the case where the whole domain is worked on by one process we need \(N^d\)
@@ -46,15 +46,15 @@
 			N_{Tot} = N^d + N_G + N_O = N^d + 2dN^{d-1}
 		\end{align}
 
-		For the 2 dimensional case, in \cref{fig:domain_part}, that adds up to
+		For the 2 dimensional case, shown in \cref{fig:domain_part}, that adds up to
 		\(N_{Tot} = 8^2 + 2\times4\times 8 = 128\).
 
 		\subsection{Several subdomains}
 		In the case where we introduce several subdomain, in addition to storing the
 		grid values and the ghost points we also need to store an overlap between the
 		subdomains. If we take our whole domain \(\Omega\) and divide in up into several
-		small domains \(\Omega_S\), the smaller domains only takes a subsection of the
-		grid points. For simplicity case, and equal load on processors, we let the
+		small domains \(\Omega_S\), the smaller domains only takes a subset of the
+		grid points. For simplicity, and for equal load on processors, we let the
 		subdomains as well be regular, with the whole domain being a multiple of the
 		subdomains. Our whole domain has \(N\) grid points in each direction, if we
 		then divide that domain into \(\#\Omega\) domains, then each of those subdomains

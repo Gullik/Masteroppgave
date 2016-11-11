@@ -1,11 +1,13 @@
-\section{Stability}
+\subsection{Stability}
     \label{sec:stability}
-    A numerical model often has numerical stability criterias that need to be fulfilled
-    for the model to work. This is caused by the inherent discretization of the problem
+    A PiC model has stability criteria that need to be fulfilled
+    for the model to work correctly. This is caused by the inherent discretization of the problem
     in a numerical method. Here we will investigate an harmonic oscillator and a
     wave to find the stability criterias for the time and spatial discretization.
+	A short discussion on the finite grid instability, caused by representing the
+ 	charge distribution as a mesh, is included as well.
 
-    \subsection{Time Stability Criterion}
+    \subsubsection{Time Stability Criterion}
         \label{sec:time_stability}
         A one-dimensional harmonic oscillator, i.e. a pendulum in gravity, is described by
         \begin{equation}
@@ -35,7 +37,7 @@
             2\cos(\omega \Delta t)- 2 = -\omega_0 \Delta t
         \end{equation}
         %
-        which can be reshuffled to
+        which can be rearranged into
         %
         \begin{equation}
                 \sin(\frac{\omega \Delta t}{2}) = \pm \frac{\omega_0 \Delta t}{2}
@@ -44,7 +46,7 @@
         In the case, \(\frac{\omega_0 \Delta t}{2} > 1\), \(\omega\) has an imaginary component
         and the numerical solution is unstable.
 
-    \subsection{Spatial Stability Criterion}
+    \subsubsection{Spatial Stability Criterion}
         A 1-dimensional wave equation is described by:
         %
         \begin{equation}
@@ -53,7 +55,7 @@
         %
         Applying a centered difference
         \begin{equation}
-            \frac{\varphi^{n + \Delta t}_{j} - 2 \varphi^{n}_{j} + ^{n - \Delta t}_{j}}{\Delta t^2}
+            \frac{\varphi^{n + \Delta t}_{j} - 2 \varphi^{n}_{j} + \varphi^{n - \Delta t}_{j}}{\Delta t^2}
             =
             c^2\frac{\varphi^n_{j+\Delta x} - 2\varphi^n_{j} + \varphi^n_{j-\Delta x}}{\Delta x^2}
         \end{equation}
@@ -77,18 +79,23 @@
             \Delta t \leq \frac{1}{c} \left(\sum_i\Delta x_i^-2\right)^{-\frac{1}{2}}
         \end{equation}
 
-    \subsection{Finite Grid Instability}
+    \subsubsection{Finite Grid Instability}
         \label{sec:finite_grid_instability}
-        The particles in a PiC simulation moves in a continuous space, while they are
+        The particles in a PiC simulation move in a continuous space, while they are
         represented on a discrete grid for the field calculations. This reduction allows
-        a \textit{Finite Grid Instability} to appear, due to a loss of information \citep{lapenta_particle_????}.
+        a \textit{Finite Grid Instability} to appear, due to a loss of information of representing a number of particles by a few grid points \citep{lapenta_particle_????}.
+		This will cause aliasing of properties on a smaller scale than the stepsize.
         % Intuitively a finer grid should produce a better result, as it gives a better approximation of
         % the actual charge distribution.
         The numerical analysis of the instability is complicated and we refer to
-        \citet{birdsall_plasma_2004,hockney_computer_1988} for a complete picture.
+        \citet{birdsall_plasma_2004,hockney_computer_1988} for a the original work.
         The instability introduces the following additional constraint on the grid resolution,
         \begin{equation}
             \Delta x < \varsigma \lambda_D
         \end{equation}
         %
-        For a CiC
+        The constant \(\varsigma\) is of order one and varies according to the details of the implementation.
+		For a Cloud-in-Cell (CiC) scheme, i.e. first order weigthing, \(\varsigma \approx \pi\).
+		This means that the stepsize needs to resolve on a much smaller scale than the
+		Debye Shielding length. Violatin of this criteria will cause the simulated plasma
+		to unphysically heat, increasing \(\lambda_D\), untill the condition is fullfilled.

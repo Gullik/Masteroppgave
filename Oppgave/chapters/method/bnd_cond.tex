@@ -3,17 +3,17 @@
 	A simulation must necessarily have finite extent, we need to employ boundary condtions
 	to deal with the edges of the simulation. Here we will go through \(3\) different schemes
 	corresponding to periodic boundaries, depicted in \cref{fig:bnd}, Dirichlet conditions and Von Neumann conditions.
-	Periodic conditions is used when we want to simulate an infinite plasma sheet.
-	It is fitting to use when the plasma sheet is of a much larger extent than the
-	length scale of the phenomena we want to investigate, or when we the investegated
+	Periodic conditions  used when we want to simulate an infinite plasma sheet.
+	It is usually used when the plasma sheet is of a much larger extent than the
+	length scale of the phenomena we want to investigate, or when the investigated
 	dynamics happen away from the edges.
-	Dirichlet conditions is useful when the voltage on the edge of the simulation
+	Dirichlet conditions are useful when the voltage on the edge of the simulation
 	can be known beforehand, as it is often in laboratory experiments.
 	When the electric field, or alternatively gradient of the voltage, along the edges is known
 	von Neumann conditions should be used. The boundary conditions must also be coupled
 	with fitting boundary conditions applied to the particles in a full PiC simulation.
 	Particle conditions include periodic, bouncing and absorbing boundaries.
-	To maintain the design aim of inherent modularity of our PiC model, the boundary conditions
+	To maintain the design aim of inherent modularity of our PinC model, the boundary conditions
 	are defined using ghost points, avoiding different discretization stencils at
 	the boundary. This reduces the complexity the smoothers, makes the boundary
 	conditions easier to implement and opens the possiblity of using them with other
@@ -35,7 +35,7 @@
 			\input{tikz/1Dbnd}
 			\caption{A \(1\) dimensional domain with grid points before the boundary conditions has been applied.
 			The numbers denote the indexes for the values in the grid array. The blue grid points, (\(1-7\)) represents
-			the true grid and the grey points, ($0$ and $8$), is the ghost cell values. The concepts illustrated here should easily be
+			the true grid and the grey points, ($0$ and $8$), is the ghost cell values. The concepts illustrated here can easily be
 			expanded to more dimensions.}
 			\label{fig:initial}
 			% \caption{}
@@ -180,7 +180,7 @@
 		The easiest boundary restriction operator is direct injection, letting each
 		coarse grid point correspond to a grid point on the boundary of the finer grid.
 		This is often sufficient, especially in the case of spatially constant boundaries.
-		If the boundaries constant in time computing time can be saved by computing the boundaries for all levels
+		If the boundaries are constant in time, the computing time can be saved by computing the boundaries for all levels
 		once at the start of the simulation.
 
 		If the boundaries are more complicated first or second order interpolation
@@ -216,8 +216,3 @@
 			computing the inner, i.e. true,  grid.}
 			\label{fig:mixed}
 		\end{figure}
-
-
-
-
-		%

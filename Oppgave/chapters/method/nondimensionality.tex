@@ -2,7 +2,7 @@
     For most numerical code significant computational gains can be achieved
     relatively easy by smart normalization. With a succesful normalization most
     of the multiplications with constants will dissappear. Numerical errors
-    due to machine precision are smallest close to unity, \(\order{1}\), \citep{hjorth-jensen_computational_????} so we
+    due to machine precision are smallest close to unity \(\order{1}\) \citep{hjorth-jensen_computational_????} so we
     want to work with numbers as close to unity as we can. As a sidebenefit it also
     makes the code easier to write and cleaner to read. Consider a single particle,
     with mass \(m\) and charge \(q\), in an electric field \(\vb{E}\). Its equation of motion is then
@@ -12,7 +12,7 @@
     \end{align}
 
     To compute the acceleration of this particle completely naive would at each point
-    cost \(1\) multiplications and \(1\) division, \(m/q*E\). If we instead use smartly normalized
+    cost \(1\) multiplications and \(1\) division, \(m/q*E\). If we instead use normalized
     values the equation could look like this
 
     \begin{align}
@@ -52,7 +52,7 @@
 		Next we need the velocity, which is the temporal derivative of
 		the position. This is normalized by transforming the position to the
 		nondimensional position, by \cref{eq:pos_nondim}, as well as changing the temporal derivative
-		to a nondimensional temporal, by \cref{eq:time_nondim}.
+		to a nondimensional temporal derivate, by \cref{eq:time_nondim}.
 
 		\begin{equation}
 			\pdv{\vb{r}}{t} = v \quad \rightarrow  \quad \pdv{\tilde{\vb{r}}}{\tilde t} = \tilde{\vb{v}} = \frac{\vb{v}}{v_{th}}
@@ -113,14 +113,14 @@
         included here to give complete understanding of our PiC implementation.
         The general aim of the normalization scheme is to reduce the number of
         floating point operations on the particles. Since there are usually
-        fewer grid points, i.e. values for fields such as \(\rho\) and \(\vb{E}\),
+        fewer grid points (i.e. values for fields such as \(\rho\) and \(\vb{E}\))
         than particles in a simulation a multiplication should preferably be done to
-        a field instead of each particle. From now on we will omit the \(~\) on dimensionless
+        a field instead of each particle. From now on we will omit the tilde on dimensionless
         quantities and consider all quantities dimensionless.
 
         \subsection{Mover}
             We use the Leapfrog algorithm from \textit{\citetitle{birdsall_plasma_2004}} \citep{birdsall_plasma_2004}
-            book. This has the perks of second order accuracy and stability for oscillatory motion
+            book. This has the advantage of second order accuracy and stability for oscillatory motion
             with the same number of function calls as Euler integration. It should
             be mentioned that the Leapfrog algorithm preserves momentum, but the
             energy can drift.
@@ -147,7 +147,7 @@
             \end{equation}
 
         \subsection{Accelerator}
-            The accelerator sets a new velocity to the particles. For an case with
+            The accelerator sets a new velocity to the particles. For a case with
             no magnetic field the equation of motion becomes
 
             \begin{equation}

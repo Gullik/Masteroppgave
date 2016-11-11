@@ -1,10 +1,23 @@
 
-\section{Multigrid - Expanded}
+\section{Multigrid}
 	\label{sec:multigrid}
-	Here I will go through the main theory and
-	algorithm behind a multigrid solver, developed as a part of this thesis,
-	as explained in more detail in \citep{press_numerical_1988,trottenberg_multigrid_2000}.
-	This solver is developed with a wholly distributed storage model.
+	Here we will go through the main theory and
+	algorithm behind the multigrid solver, developed as a part of this thesis.
+	See also \citep{press_numerical_1988,trottenberg_multigrid_2000}.
+	This solver is developed for the wholly distributed storage model.
+
+	\subsection{General idea}
+		\label{sec:mg_impl}
+		An iterative solver solves a problem by starting with an initial guess, then it performs an algorithm
+		improving the guess and repeats with the improved guess. The difference between
+		the guess and the correct solution, the residual, does not necessarily converge equally fast for different frequencies.
+		An iterative solver can be very efficient on reducing the local error,
+		while the errors due to distant influence is reduced slowly.
+		A multigrid solver attacks this problem by applying iterative methods on different discretizations of the problem, by solving on a very coarse grids
+		the error due to distant influence will be reduced faster, while solving on a fine grid reduces the local error fast. So by solving on both
+		fine and coarse grids the needed cycles will be reduced. To implement a multigrid algorithm we then need algorithms to solve the problem on a grid ,
+		restriction and prolongation, see \cref{sec:GSRB,sec:restr_simplesec:prol_simple}, operators to transfer the problem between grids, as well as a method to compute the residual.
+
 
 	\subsection{Algorithm}
 	We want to solve a linear elliptic problem,
@@ -12,7 +25,7 @@
 			\mathcal{L} u = f
 		\end{align}
 	where \(\mathcal{L}\) is a linear operator, \(u\) is the solution and \(f\) is
-	a source term. In our specific case the operator is given by the laplacian, the
+	a source term. In our specific case the operator is given by the Laplacian, the
 	source term is given by the charge density and we solve for the electric potential.
 
 	We discretize the equation onto a grid of size \(q\).
@@ -39,21 +52,21 @@
 	%
 	The system can then be solved directly on this level with a chosen discretization.
 	If we then increase the resolution to obtain a better solution, the system
-	becomes exponentially harder to solve. The multigrid method approaches this problem
+	becomes harder to solve. The multigrid method approaches this problem
 	by solving it on several different discretizations levels.
 	We set up a systems of nested coarser regular grids,
 	\(\mathfrak{T}_0 \supset \mathfrak{T}_{1} \supset \cdots \supset \mathfrak{T}_\ell\),
-	where \(0\) is the finest and \(\ell\) is the coarsest grid.
+	where \(\mathfrak{T}_0\) is the finest and \(\mathfrak{T}_\ell\) is the coarsest grid.
 	Then an iterative solver, which has the property of quickly converging of high frequency errors, i.e.
 	local errors, is used on the finest grid. The remaining error is then transferred
 	to a coarser grid where lower frequency errors are more easily found. The errors
-	found on the coarser levels is then transferred up to the finest level as a correction.
+	found on the coarser levels are then transferred up to the finest level as a correction.
 	To transfer between the discretization coarseness we use restriction, \( \mathcal{R} \),
 	and prolongation, \( \mathcal{P} \), operators. Due to the fewer grid points the problem is
 	faster to solve on the coarser grid levels than on the fine grid.
 	%
-	Applying the restriction and prolongation operators on the grid changes gives us
-	the same grid discretized on a different level.
+	Applying the restriction and prolongation operators on the grid gives us
+	the grid discretized on a different level.
 
 	\begin{align}
 		\mathcal{R} d_q = d_{q+1} \qquad \text{and} \qquad \mathcal{P} d_q = d_{q - 1}
@@ -72,27 +85,86 @@
 	version of a multigrid V cycle. The needed operations on each
 	level is described in greater detail in \cref{sec:mg_impl}.
 
-	\subsubsection{V Cycle}
-		TBD
+	\subsubsection{V-Cycle}
+		The simplest multigrid cycle is called a V-cycle, which starts at the finest grid, goes down to the coarsest grid and then goes back up
+		to the finest grid.	First the problem is smoothed on the finest level, then we compute the residual, or the rest after inserting the guess solution
+		in the equation. The residual is then used as the source term for the next level, and we restrict it down as the source term for the next
+		coarser level and repeat untill we reach the coarsest level. When we reach the coarsest level the problem is solved there and we obtain a correction
+		term. The correction term is prolongated to the next finer level and added to the solution there, improving the solution, following by a new smoothing
+		to obtain a new correction. This continue untill we reach the finest level again and a multigrid cycle is completed, see \cref{fig:MG_schematic} for a 3
+		level schematic.
+
+		In the following description of the steps in the MG method, we will use \(\phi\), \(\rho\), \(d\) and \(\omega\) to signify the solution, source,
+		defect and correction respectively. A subscript means the grid level, where \(0\) si the finest level, while the superscript \(0\) implies an initial guess is used. Hats and tildes are also
+	 	used to signify the stage the solution is in, with a hat meaning the solution is smoothed and a tilde meaning the correction from the grid below is added.
+
+		The overarching algorithm is shown in \cref{algo:mg_recursive}
+		\begin{algorithm}
+			\caption{Multigrid V cycle}
+	        \begin{algorithmic}
+				\If {level = coarest}
+				\State
+				\begin{tabular}	{l | c}
+					Solve &\( \widehat{\phi}_l = \mathcal{S}(\phi_l, \rho_l)\)
+					\\
+					Interpolate correction &\( \omega_{l-1} = \mathcal{I} \phi_l\)
+				\end{tabular}
+				\Else
+	            \For{each level}
+					\State
+					\begin{tabular}	{l | c}
+						Smooth &\( \widehat{\phi}_l = \mathcal{S}(\phi_l, \rho_l)\)
+						\\
+						Residual &	\(d_l = \nabla^2\widehat{\phi}_l - \rho_l\)
+						\\
+						Restrict &\(\rho_{l+1} = \mathcal{R}d_l \) \nonumber
+						\\
+						Go down, receive correction & \(\omega_l = \text{MG}( \phi_{l+1}\))
+						\\
+						Add correction	&\(\widetilde{\phi}_l = \widehat{\phi}_l + \omega_l\)
+						\\
+						Smooth	&\(\phi_l = \mathcal{S}(\widetilde{\phi}_l, \rho_l)\)
+						\\
+						Interpolate correction &\( \omega_{l-1} = \mathcal{I} \phi_l\)
+					\end{tabular}
+	            \EndFor
+				\EndIf
+	        \end{algorithmic}
+			\label{algo:mg_recursive}
+	    \end{algorithm}
+
+
+		\begin{figure}
+			\centering
+			\include{tikz/mgAlgorithm}
+			\caption{The functions used in \(2\) grid deep multigrid. The algorithm follows the }
+		\end{figure}
+
+		At the coarsest level the the problem is solved directly and the correction is propageted upward.
+
 	\subsubsection{W Cycle}
-		TBD
-	\subsubsection{FMG}
-		TBD
+		The W-cycle is similar to the V-cycle, with the difference that it spends longer than on the coarser grids,
+		obtaining a better solution before returning to the finest grid.
+
+	\subsubsection{Full Multigrid}
+		Full Multigrid (FMG) is a multigrid cycle where the source term is known at all the levels.
+		This is achieved usually by an interpolation scheme, or reuse the restriction algorithm,
+		on the source term. Then the problem is first solved at the coarsest level before going up to the finest level.
 
 	\subsection{Smoothing}
-		(NOTE TO SELF: Mention 'chebyshev' polynomial as smoothing! And 'Lim' See zhukov)
-		The multigrid method want iterative solvers as smoothers converges fast for the high frequency
+		% (NOTE TO SELF: Mention 'chebyshev' polynomial as smoothing! And 'Lim' See zhukov)
+		The multigrid method prefers iterative solvers as smoothers which converges fast for high frequency
 		errors. The low frequency convergence, i.e. the long range interaction, is improved
-		by lso solving it with coarser discretization. In this project we
+		by also solving it with coarser discretization. In this project we
 		also wanted smoothers with good parallel scaling properties. We arrived at
 		using Gauss-Seidel with Red and Black ordering. We ended with \(1\)st order
 		discretization of the Laplacian operator, as a compromise between simplicity
 		in the program and the computational efficiency of hardcoded parts of the algorithms
-		dealing with the Halo, i.e. ghost layers. It may be that higher order discretizations
+		dealing with the Halo, i.e. the ghost layers. It may be that the higher order discretizations
 		will yield better convergence and the project has some plans to expand to incorporate it.
 
 		Relaxation methods, such as Gauss-Seidel, work by looking for the setting up
-		the equation as a diffusion equation, and then solve for the equilibrium solution.
+		the equation as a diffusion equation, and then solving for the equilibrium solution.
 
 		So suppose we want to solve the elliptic equation
 		\begin{align}
@@ -119,31 +191,32 @@
     	The main iterative PDE solver, in this version of the multigrid program, is a Gauss-Seidel
     	Red-Black, in addition a Jacobian solver was developed as a stepping stone and for testing purposes.
     	It is a modification of the Jacobian method, where the updated values are used where available, which lead
-    	to it converging twice as fast \citep{press_numerical_1988}.
+    	to the convergence increasing by a factor of two \citep{press_numerical_1988}.
 
-    	Our problem is given by \(\nabla^2 \phi= -\rho\), one way to think of the Jacobian method is as
+    	Our problem is given by \(\nabla^2 \phi= -\rho\). One way to think of the Jacobian method is as
     	a diffusion problem, and with the equilibrium solution as our wanted solution. If we then discretize the
     	diffusion problem by a Forward-Time-Centralized-Space scheme, we arrive at the Jacobian method, which is shown explicitly below
     	for 1 dimension.
 
      	\begin{align}
     		\pdv{\phi}{t} &= \nabla^2 \phi + \rho
-    		\intertext{The subscript \(j\) indicates the spatial coordinate, and the superscript \(n\) is the 'temporal' component.}
+			\intertext{Discretizing this we obtain:}
     		\frac{\phi^{n+1}_{j} - \phi^{n+1}_{j}}{\Delta t} &= \frac{\phi^n_{j+1} - 2 \phi^n_{j} + \phi^n_{j-1}}{\Delta x^2} + \rho_j
+    		\intertext{The subscript \(j\) indicates the spatial coordinate, and the superscript \(n\) is the 'temporal' component.}
     		\intertext{This is numerically stable if \( \Delta t/\Delta x^2 \le 1/2 \), so using the timestep \( \Delta t = \Delta x^2/2 \) we get}
     		\phi^{n+1}_j &= \phi^{n}_j + \frac{1}{2}\left( \phi^n_{j+1} - 2 \phi^n_{j} + \phi^n_{j-1} \right) + \frac{\Delta x^2}{2} \rho_j
     		\intertext{Then we arrive at the Jacobian method}
     		\phi^{n+1}_j &= \frac{1}{2}\left(  \phi^n_{j+1} +\phi^n_{j-1} + \Delta x^2 \rho_j \right)
-    		\intertext{The Gauss-Seidel method uses updated values, where available, and is given by}
+    		\intertext{The Gauss-Seidel method uses updated values of \(\phi\) where they are available.}
     		\phi^{n+1}_j &= \frac{1}{2}\left(  \phi^n_{j+1} +\phi^{n+1}_{j-1} + \Delta x^2 \rho_j \right)
     	\end{align}
 
-    	Following the same procedure we get the Gauss-Seidel method for for 2 and 3 dimensions.
+    	Following the same procedure, we get the Gauss-Seidel method for for \(2\)
 
     	\begin{equation}
     		\phi^{n+1}_{j,k} = \frac{1}{4} \left( \phi^n_{j+1,k} +\phi^{n+1}_{j-1,k} + \phi^n_{j,k+1} + \phi^{n+1}_{j,k-1} + \Delta x^2 \rho_{j,k} \right)
     	\end{equation}
-
+		and  \(3\) dimensions.
     	\begin{equation}
     		\phi^{n+1}_{j,k,l} = \frac{1}{8} \left( \phi^n_{j+1,k,l} +\phi^{n+1}_{j-1,k,l} + \phi^n_{j,k+1,l} + \phi^{n+1}_{j,k-1,l} +
      							\phi^n_{j,k,l+1} + \phi^{n+1}_{j,k,l-1} + \Delta x^2 \rho_{j,k,l} \right)
@@ -156,12 +229,12 @@
 
     	\begin{itemize}
     		\item For all red points:
-    			\[\phi^{n+1/2}_{j,k,l} = \frac{1}{8} \left( \phi^n_{j+1,k,l} +\phi^{n}_{j-1,k,l} + \phi^n_{j,k+1,l} + \phi^{n}_{j,k-1,l} +
+    			\[\phi^{n+1}_{j,k,l} = \frac{1}{8} \left( \phi^{n}_{j+1,k,l} +\phi^{n}_{j-1,k,l} + \phi^n_{j,k+1,l} + \phi^{n}_{j,k-1,l} +
     	 							\phi^n_{j,k,l+1} + \phi^{n}_{j,k,l-1} + \Delta x^2 \rho_{j,k,l} \right)
     			\]
     		\item For all black points:
-    		\[\phi^{n+1}_{j,k,l} = \frac{1}{8} \left( \phi^{n+1/2}_{j+1,k,l} +\phi^{n+1/2}_{j-1,k,l} + \phi^{n+1/2}_{j,k+1,l} + \phi^{n+1/2}_{j,k-1,l} +
-    							\phi^{n+1/2}_{j,k,l+1} + \phi^{n+1/2}_{j,k,l-1} + \Delta x^2 \rho_{j,k,l} \right)
+    		\[\phi^{n+2}_{j,k,l} = \frac{1}{8} \left( \phi^{n+1}_{j+1,k,l} +\phi^{n+1}_{j-1,k,l} + \phi^{n+1}_{j,k+1,l} + \phi^{n+1}_{j,k-1,l} +
+    							\phi^{n+1}_{j,k,l+1} + \phi^{n+1}_{j,k,l-1} + \Delta x^2 \rho_{j,k,l} \right)
     		\]
     	\end{itemize}
 
@@ -230,11 +303,11 @@
 
             Along with the restriction operator described in the previous section, we also need prolongation
             operator to go from a coarse grid to a finer grid. As in the restriction
-			operator direct insertion is the simplest algorithm.	Here we will use bilinear interpolation,
+			operator direct insertion is the simplest algorithm. Here we will use bilinear interpolation,
 			as advised in \cite{trottenberg_multigrid_2000}, for
             two dimensions and trilinear interpolation for 3 dimensions. In bilinear interpolation seperate
             linear interpolation is done in the x- y- and z-direction, then those are combined to give a result
-            on the wanted spot. (Note to self: Add source here) The same concept is expanded to give trilinear
+            on the wanted spot. The same concept is expanded to give trilinear
             interpolation. The two and three dimensional stencils is given in \eqref{eq:prolongation_stencils}
 
             \begin{equation}

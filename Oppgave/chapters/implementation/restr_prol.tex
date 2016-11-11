@@ -14,8 +14,7 @@
 	the fine grid index is incremented twice.
 
 	Along the x-axis each incrementation is the number of values stored in the grid, which for scalars
-	is \(1\) (This is only used for scalars, so now the 1 is hardcoded, I will need to test
-	if using \(size[0]\) instead affects speed), and 2 for the fine index. The fine index will in addition
+	is \(1\), and 2 for the fine index. The fine index will in addition
 	need to skip 1 row each time, each time the y-axis is incremented, due to the finer resolution and 1 layer each time
 	the z-axis is incremented.
 

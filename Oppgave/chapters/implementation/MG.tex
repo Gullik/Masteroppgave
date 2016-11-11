@@ -1,84 +1,4 @@
 
-\section{General idea}
-	\label{sec:mg_impl}
-	An iterative solver solves a problem bystarting with an initial guess, then it performs an algorithm
-	improving the guess and repeats with the improved guess. The difference between
-	the guess and the correct solution, the residual, does not necessarily converge equally fast for different frequencies.
-	An iterative solver can be very efficient on reducing the local error,
-	while the errors due to distant influence is reduced slowly.
-	A multigrid solver attacks this problem by applying iterative methods on different discretizations of the problem, by solving on a very coarse grids
-	the error due to distant influence will be reduced faster, while solving on a fine grid reduces the local error fast. So by solving on both
-	fine and coarse grids the needed cycles will be reduced. To implement a multigrid algorithm we then need algorithms to solver the problem on a grid \cref{sec:GSRB},
-	restriction	\cref{sec:restr_simple} and prolongation \cref{sec:prol_simple} operators to transfer the problem between grids, as well as a method to compute the residual.
-
-
-	\subsection{V-cycle}
-		The simplest multigrid cycle is called a V-cycle, which starts at the finest grid, goes down to the coarsest grid and then goes back up
-		to the finest grid.	First the problem is smoothed on the finest level, then we compute the residual, or the rest after inserting the guess solution
-		in the equation. The residual is then used as the source term for the next level, and we restrict it down as the source term for the next
-		coarser level and repeat untill we reach the coarsest level. When we reach the coarsest level the problem is solved there and we obtain a correction
-		term. The correction term is prolongated to the next finer level and added to the solution there, improving the solution, following by a new smoothing
-		to obtain a new correction. This continue untill we reach the finest level again and a multigrid cycle is completed, see \cref{fig:MG_schematic} for a 3
-		level schematic.
-
-		In the following description of the steps in the MG method, we will use \(\phi\), \(\rho\), \(d\) and \(\omega\) to signify the solution, source,
-		defect and correction respectively. A subscript means the grid level, where \(0\) si the finest level, while the superscript \(0\) implies an initial guess is used. Hats and tildes are also
-	 	used to signify the stage the solution is in, with a hat meaning the solution is smoothed and a tilde meaning the correction from the grid below is added.
-
-		The overarching algorithm is shown in \cref{algo:mg_recursive}
-		\begin{algorithm}
-			\caption{Multigrid V cycle}
-	        \begin{algorithmic}
-				\If {level = coarest}
-				\State
-				\begin{tabular}	{l | c}
-					Solve &\( \widehat{\phi}_l = \mathcal{S}(\phi_l, \rho_l)\)
-					\\
-					Interpolate correction &\( \omega_{l-1} = \mathcal{I} \phi_l\)
-				\end{tabular}
-				\Else
-	            \For{each level}
-					\State
-					\begin{tabular}	{l | c}
-						Smooth &\( \widehat{\phi}_l = \mathcal{S}(\phi_l, \rho_l)\)
-						\\
-						Residual &	\(d_l = \nabla^2\widehat{\phi}_l - \rho_l\)
-						\\
-						Restrict &\(\rho_{l+1} = \mathcal{R}d_l \) \nonumber
-						\\
-						Go down, recieve correction & \(\omega_l = \text{MG}( \phi_{l+1}\))
-						\\
-						Add correction	&\(\widetilde{\phi}_l = \widehat{\phi}_l + \omega_l\)
-						\\
-						Smooth	&\(\phi_l = \mathcal{S}(\widetilde{\phi}_l, \rho_l)\)
-						\\
-						Interpolate correction &\( \omega_{l-1} = \mathcal{I} \phi_l\)
-					\end{tabular}
-	            \EndFor
-				\EndIf
-	        \end{algorithmic}
-			\label{algo:mg_recursive}
-	    \end{algorithm}
-
-
-		\begin{figure}
-			\centering
-			\include{tikz/mgAlgorithm}
-			\caption{The functions used in \(2\) grid deep multigrid. The algorithm follows the }
-		\end{figure}
-
-		At the coarsest level the the problem is solved directly and the correction is propageted upward.
-
-		\subsection{Updating the Halo}
-		All of the subgrids has a halo of ghostslayers around it, which is used to simplify boundary conditions and subdomain communication. Each computational node
-		represents a subdomain of the whole, with the neighboring node being the boundary. So between two subdomains each subdomain updates the boundary according to
-		the neigbouring subdomain. In addition the halo is used to facilitate boundary conditions on the whole domain. For some of the grid operators
-		the ghost are not used, while some of them need updated values. All of the iterative solvers, that are used
-		for smoothing, need updated values of the of the solution, \(\phi\). The prolongation and residual operators need updated values
-		for the solution \(\phi\), and the restrictor need updated residual values, \(\rho\), as long as direct insertion is not used. (NOTE TO SELF: belong in paralellization part)
-		We also need to take into account that the smoothers outputs an updated halo for \(\phi\), to avoid
-		unnecessarily communication between the processors.
-
 		\subsection{Implementation}
 			In general there are \(4\) different quantities, the source, the solution, the residual and the correction, we need to keep track of.
 			On each grid level the residual is computed, then it is set as the source term for the next level and then it is not used more.
@@ -87,8 +7,8 @@
 			of a V-cycle. The functions takes the current level, the bottom of the cycle as well as the end point of the cycle. So several different cycles
 			can be built from the functions. A W cycle can be built a V cycle that starts at the finest level and stops at a mid level, and then a new V-cycle is started at
 			the mid level that ends at the finest level. A full multigrid algorithm (FMG) can also be implemented by first restricting the original source term down to the coarsest
-			level and then run a V-cycle that ends at the finest level.
-			(Note: there will be a a general mgSolver function pointer that can be set to prebuilt cycles, so the cycle can be set from the input file)
+			level and then run a V-cycle that ends at the finest level. The choice between different cycles can be selected in the input file,
+			and more type of cycles can easily be constructed if needed.
 
 			The regular V cycle algorithm is quite straightforward, first it restricts and computes itself down to the bottom level,
 			then it solves it directly on the bottom level. Then the correction is brought up and improved through the grid up to the top level.
