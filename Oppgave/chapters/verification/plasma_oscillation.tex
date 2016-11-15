@@ -47,27 +47,40 @@
             \lambda_{Se}^2 = \frac{\epsilon_0 kT_e}{nq^2_e}
         \end{equation}
 
+		To make sure that
+
 		\subsubsection{Simulation}
 			We ran a simulation for \(10\tau_{pe}\), on a \(64,64,64\) size grid. The particles
 			was first randomly distributed and given a maxwellian velocity distribution.
-			Then they were slightly perturbed to create an imbalance. 
+			Then they were slightly perturbed to create an imbalance.
 
 			\begin{table}
+					\center
 			\begin{tabular}{c|c|c|c|c}
-				Size 			&	Stepsize &	Timestep &\#Particles per cell
+				Size 			&	Stepsize &	Timestep &\#Particles per cell	& \(v_{th}\) (electrons, ions)
 				\\ \hline
-				\((64,64,64)\)	& \(0.2\)	& \(0.1\)  	&	\(64\)
+				\((64,64,64)\)	& \(0.2\)	& \(0.1\)  	&	\(64\)	& 		\(0.002, 0.00046\)
 			\end{tabular}
 			\caption{Key settings for the langmuir wave oscillation. The complete settings are
 			stored as an input file, langmuirWarm, in the PINC directory.}
 			\end{table}
 
-			% \(\tau_p \approx 100(\2pi/\omega_{pe})\)
-			% (NOTE TO SELF: NEED TO DISCUSS WITH Sigvald, don't understand \(v_th\) normalization, or alternatively find out)
+			The simulation were set to run for \(100\) timesteps, where each timestep represents \(0.1omega_{pe}^{-1}\).
+			\begin{equation}
+				\tau_p \equiv 2\pi/\omega_{pe}
+			\end{equation}
+			Using the plasma period this gives \(10/2\pi\approx 1.6\) periods.
 
 		\begin{figure}
+			\label{fig:oscillation}
 			\includegraphics[width = \textwidth]{figures/verification/langmuirWave/energyPlot}
 			\caption{This shows the time-evolution of the energy in an perturbed plasma. The energies are
-			in normalized units and \(\Delta x = 0.1 \omega_{pe}\). The total energy has a maximum variation of \(0.22\%\). In the timespan
-			of \(10\omega_{pe}\) the plasma oscillates over \(3\) times.}
+			in normalized units and \(\Delta x = 0.1 \lambda_{De}\). The total energy has a maximum variation of \(0.22\%\). In the timespan
+			of \(10\omega_{pe}\) the plasma oscillates over \(1.6\) times.}
 		\end{figure}
+
+		The \cref{fig:oscillation} shows the energy fluctuations for a plasma oscillation, the total energy
+		is stable conserved, with a maximal variation of \(0.22\%\). The potential energy starts large
+		and then it sinks as the potential energy is converted to kinetic energy. This is due to the particles
+		attempting to neutralize the fields. The particles overshoots equilibrium position and the kinetic
+		energy starts to convert back to potential energy.

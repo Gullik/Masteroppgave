@@ -18,13 +18,8 @@
 
 
 \refsection{0}
-<<<<<<< HEAD
-  \sortlist{entry}{nyt}
+  \sortlist{nyt}{nyt}
     \entry{birdsall_plasma_2004}{book}{}
-      \name{labelname}{2}{}{%
-        {{uniquename=0,hash=8dca8af684912398b1b90d7569c1da84}{Birdsall}{B\bibinitperiod}{C.\bibnamedelimi K.}{C\bibinitperiod\bibinitdelim K\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=996baa0e8b9551e2631659e7bd7a2e7c}{Langdon}{L\bibinitperiod}{A.\bibnamedelimi B.}{A\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
-      }
       \name{author}{2}{}{%
         {{uniquename=0,hash=8dca8af684912398b1b90d7569c1da84}{Birdsall}{B\bibinitperiod}{C.\bibnamedelimi K.}{C\bibinitperiod\bibinitdelim K\bibinitperiod}{}{}{}{}}%
         {{uniquename=0,hash=996baa0e8b9551e2631659e7bd7a2e7c}{Langdon}{L\bibinitperiod}{A.\bibnamedelimi B.}{A\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
@@ -38,10 +33,12 @@
       \strng{namehash}{0e4d38c4dd24fe3921eada76838ada15}
       \strng{fullhash}{0e4d38c4dd24fe3921eada76838ada15}
       \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
       \field{labelyear}{2004}
       \field{labelmonth}{10}
       \field{datelabelsource}{}
-      \field{labeltitle}{Plasma {Physics} via {Computer} {Simulation}}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
       \field{abstract}{Divided into three main parts, the book guides the reader to an understanding of the basic concepts in this fascinating field of research. Part 1 introduces you to the fundamental concepts of simulation. It examines one-dimensional electrostatic codes and electromagnetic codes, and describes the numerical methods and analysis. Part 2 explores the mathematics and physics behind the algorithms used in Part 1. In Part 3, the authors address some of the more complicated simulations in two and three dimensions. The book introduces projects to encourage practical work Readers can download plasma modeling and simulation software — the ES1 program — with implementations for PCs and Unix systems along with the original FORTRAN source code. Now available in paperback, Plasma Physics via Computer Simulation is an ideal complement to plasma physics courses and for self-study.}
       \field{isbn}{978-1-4822-6306-0}
       \field{month}{10}
@@ -49,12 +46,26 @@
       \field{year}{2004}
       \keyw{Mathematics / Arithmetic,Science / Physics / General,Science / Physics / Mathematical \& Computational}
     \endentry
+    \entry{_more_????}{misc}{}
+      \field{sortinit}{M}
+      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
+      \field{labelyear}{2016}
+      \field{labelmonth}{11}
+      \field{labelday}{15}
+      \field{datelabelsource}{url}
+      \field{labeltitlesource}{title}
+      \field{title}{More about {Abel} - {University} of {Oslo}}
+      \field{urlday}{15}
+      \field{urlmonth}{11}
+      \field{urlyear}{2016}
+      \verb{file}
+      \verb More about Abel - University of Oslo:/mn/fys-server-rp1/s2/gullikvk/.zotero/zotero/9dvr81pm.default/zotero/storage/IXNBBEJG/index.html:text/html
+      \endverb
+      \verb{url}
+      \verb http://www.uio.no/english/services/it/research/hpc/abel/more/index.html
+      \endverb
+    \endentry
     \entry{zhukov_parallel_2014}{article}{}
-      \name{labelname}{3}{}{%
-        {{uniquename=0,hash=d7db856e38ba740b9bb020331210fbf1}{Zhukov}{Z\bibinitperiod}{V.\bibnamedelimi T.}{V\bibinitperiod\bibinitdelim T\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=86145c6f1f375bc522e7bb6a298ae3fb}{Novikova}{N\bibinitperiod}{N.\bibnamedelimi D.}{N\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=f9267846884bf73fa9fddc9a2f97c67b}{Feodoritova}{F\bibinitperiod}{O.\bibnamedelimi B.}{O\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
-      }
       \name{author}{3}{}{%
         {{uniquename=0,hash=d7db856e38ba740b9bb020331210fbf1}{Zhukov}{Z\bibinitperiod}{V.\bibnamedelimi T.}{V\bibinitperiod\bibinitdelim T\bibinitperiod}{}{}{}{}}%
         {{uniquename=0,hash=86145c6f1f375bc522e7bb6a298ae3fb}{Novikova}{N\bibinitperiod}{N.\bibnamedelimi D.}{N\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
@@ -66,10 +77,12 @@
       \strng{namehash}{41824120b22726d90a2ed6b9ea7cb18c}
       \strng{fullhash}{4d24673c0cff0a382b9176bf13730ad9}
       \field{sortinit}{Z}
+      \field{sortinithash}{fdda4caaa6b5fa63e0c081dcb159543a}
       \field{labelyear}{2014}
       \field{labelmonth}{07}
       \field{datelabelsource}{}
-      \field{labeltitle}{Parallel multigrid method for solving elliptic equations}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
       \field{abstract}{The proposed algorithm represents an efficient parallel implementation of the Fedorenko multigrid method and is intended for solving three-dimensional elliptic equations. Scalability is provided by the use of the Chebyshev iterations for solution of the coarsest grid equations and for construction of the smoothing procedures. The calculation results are given: they confirm the efficiency of the algorithm and scalability of the parallel code.}
       \field{issn}{2070-0482, 2070-0490}
       \field{journaltitle}{Mathematical Models and Computer Simulations}
@@ -82,46 +95,15 @@
       \field{volume}{6}
       \field{year}{2014}
       \field{pages}{425\bibrangedash 434}
+      \range{pages}{10}
       \verb{doi}
       \verb 10.1134/S2070048214040103
       \endverb
       \verb{file}
-      \verb Snapshot:/home/gullik/.zotero/zotero/ui33ctdv.default/zotero/storage/ES83UCJI/S2070048214040103.html:text/html
+      \verb Snapshot:/mn/fys-server-rp1/s2/gullikvk/.zotero/zotero/9dvr81pm.default/zotero/storage/ES83UCJI/S2070048214040103.html:text/html
       \endverb
       \verb{url}
       \verb http://link.springer.com/article/10.1134/S2070048214040103
-=======
-  \sortlist{nyt}{nyt}
-    \entry{press_numerical_1988}{article}{}
-      \name{author}{4}{}{%
-        {{uniquename=0,hash=e25935343805f5bc8cf8924629f02376}{Press}{P\bibinitperiod}{William\bibnamedelima H.}{W\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=67697fa4e8f96fea3d0c4b1f7ed40a54}{Teukolsky}{T\bibinitperiod}{S.\bibnamedelimi A.}{S\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=c4198a24a680798147d7bde9ebc609b4}{Vetterling}{V\bibinitperiod}{W.\bibnamedelimi T.}{W\bibinitperiod\bibinitdelim T\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=903fec84c425c443d906d94bab916687}{Flannery}{F\bibinitperiod}{B.\bibnamedelimi P.}{B\bibinitperiod\bibinitdelim P\bibinitperiod}{}{}{}{}}%
-      }
-      \strng{namehash}{21c96521d50e44757fcf123ac89a147c}
-      \strng{fullhash}{88594c17433d0c09f9cf68e5e9c45428}
-      \field{sortinit}{P}
-      \field{sortinithash}{c0a4896d0e424f9ca4d7f14f2b3428e7}
-      \field{labelyear}{1988}
-      \field{datelabelsource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Cambridge University Press}
-      \field{title}{Numerical recipes in {C}}
-      \field{urlday}{21}
-      \field{urlmonth}{04}
-      \field{urlyear}{2016}
-      \field{volume}{1}
-      \field{year}{1988}
-      \field{pages}{3}
-      \range{pages}{1}
-      \verb{file}
-      \verb [PDF] from numerical-recipes.com:/home/gullik/.zotero/zotero/ui33ctdv.default/zotero/storage/EMUPJZNU/Press et al. - 1988 - Numerical recipes in C.pdf:application/pdf;Snapshot:/home/gullik/.zotero/zotero/ui33ctdv.default/zotero/storage/CDU29FH7/displayAbstract.html:text/html
-      \endverb
-      \verb{url}
-      \verb http://journals.cambridge.org/abstract_S0269964800000565
->>>>>>> 45314dfd1dcaec64dca76571438e4ee771d0d907
       \endverb
     \endentry
   \endsortlist
