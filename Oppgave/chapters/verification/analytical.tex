@@ -1,9 +1,7 @@
 \section{Multigrid Solver}
-	To test the solver itself we employ a couple different techniques. First we
-	create a charge distribution by differentiating a known potential, and then
-	running the solver and check the difference to the original potential.
+	To test the solver itself we employ a couple different techniques.
 
-	For the second test we use a charge distribution with a known analytical solution,
+	For the main test we use a charge distribution with a known analytical solution,
 	and we then we compare the numerical solution to the analytical solution.
 
 	Since constructed solutions can often behave to nice, we will also perform
@@ -38,7 +36,7 @@
 \subsection{Analytical Solutions}
 	We use a few different constructed charge density fields, which is analytically solvable,
 	to test the performance and correctness of the solver. All the simulations here are ran on
-	a grid of the size \( 128, 64, 64 \) divided into \(1,2,2\) subdomains, with pinc
+	a grid of the size \( 128, 64, 64 \) divided into \(1,2,2\) subdomains, with PINC
 	version 36ad.
 		It uses \(5\) cycles when presmoothing, solving on the coarsest grid and postsmoothing, the
 	MG solver is instructed to run for \(100\) MG V-cycles with \(2\) grid levels.
@@ -61,18 +59,18 @@
 
 	\begin{figure}
 		\centering
-			\begin{subfigure}[b]{0.32\textwidth}
+			\begin{subfigure}[b]{0.6\textwidth}
 				\includegraphics[width = \textwidth]{figures/verification/analytical/sinusoidal/rho.pdf}
 			\end{subfigure}
-			\begin{subfigure}[b]{0.32\textwidth}
+			\begin{subfigure}[b]{0.6\textwidth}
 				\includegraphics[width = \textwidth]{figures/verification/analytical/sinusoidal/numerical.pdf}
 			\end{subfigure}
-			\begin{subfigure}[b]{0.32\textwidth}
+			\begin{subfigure}[b]{0.6\textwidth}
 				\includegraphics[width = \textwidth]{figures/verification/analytical/sinusoidal/residual.pdf}
 			\end{subfigure}
 		\caption{This a \(x,y\)-plane from the grids cut along \(z_l = 32\), from the sinusoidal test case described in \cref{sec:sinusoidal}.
-		The left plot shows the charge distribution, the center plot shows the numerical solution of the potential and the plot to the right depicts
-		the residual.}
+		The top plot shows the charge distribution, the center plot shows the numerical solution of the potential and the bottom plot depicts
+		the residual. All the units are in normalized dimensionless units.}
 		\label{fig:sinusoidal}
 	\end{figure}
 
@@ -97,13 +95,13 @@
 	\begin{figure}
 		\centering
         % \missingfigure{Blank}
-			\begin{subfigure}[b]{0.32\textwidth}
+			\begin{subfigure}[b]{0.6\textwidth}
 				\includegraphics[width = \textwidth]{figures/verification/analytical/heaviside/rho.pdf}
 			\end{subfigure}
-			\begin{subfigure}[b]{0.32\textwidth}
+			\begin{subfigure}[b]{0.6\textwidth}
 				\includegraphics[width = \textwidth]{figures/verification/analytical/heaviside/numerical.pdf}
 			\end{subfigure}
-			\begin{subfigure}[b]{0.32\textwidth}
+			\begin{subfigure}[b]{0.6\textwidth}
 				\includegraphics[width = \textwidth]{figures/verification/analytical/heaviside/residual.pdf}
 			\end{subfigure}
 		\caption{As earlier this is a \(x,y\)-plane cut along \(x_k=32\), of the grid. The plots show the charge distribution,
@@ -123,16 +121,35 @@
 		\begin{figure}
 			\centering
             % \missingfigure{Blank}
-			\begin{subfigure}[b]{0.32\textwidth}
+			\begin{subfigure}[b]{0.6\textwidth}
 				\includegraphics[width = \textwidth]{figures/verification/analytical/random/rho.pdf}
 			\end{subfigure}
-			\begin{subfigure}[b]{0.32\textwidth}
+			\begin{subfigure}[b]{0.6\textwidth}
 				\includegraphics[width = \textwidth]{figures/verification/analytical/random/numerical.pdf}
 			\end{subfigure}
-			\begin{subfigure}[b]{0.32\textwidth}
+			\begin{subfigure}[b]{0.6\textwidth}
 				\includegraphics[width = \textwidth]{figures/verification/analytical/random/residual.pdf}
 			\end{subfigure}
 			\caption{As earlier this is a \(x,y\)-plane cut along \(x_k=32\), of the grid. The plots show the charge distribution,
-			numerical solution and the solution, from left to right.}
+			numerical solution and the solution, from top to bottom. It is visible that the potential shows more structure than
+			the \(\rho\), since the integration smooths the original problem.}
 			\label{fig:random}
 		\end{figure}
+
+	\subsection{Additional Tests}
+		In addition to the tests on shown in this section, we also ran the same tests
+		obtaining similar results on various sizes and directions. Since we wanted to be sure that the program
+		was working independently of the how the domain was divided into subdomains, we also performed
+		tests on different subdomain divisions.
+
+
+	\subsection{ND vs 3D algorithms}
+		PINC is built to have two sets of algorithms, one N-dimensional and one 3-dimensional.
+		The N-dimensional algorithms is meant to be used in cases where one want to do 1- and 2-dimensional
+		simulations as well as a test for the 3-dimensional algorithm. The 3-dimensional algorithm
+		is generally slightly faster than the N-dimensional due to some extra capabilities in hardcoding
+		certain parts. On a laptop, using two 'Intel(R) Core(TM) i7-4710MQ CPU @ 2.50GHz' processors, we
+		ran the multigrid solver on a \(128,128,128\) size problem, with both the \(3\)D and ND algorithms.
+ 		The ND algorithms used \(80.08\)s to solve it to the given tolerance, while the \(3\)D algorithms
+ 		used \(78.75\)s achieving only a slight speedup. This is likely due to most of the
+		computational time being spent on the interprocessor communication.

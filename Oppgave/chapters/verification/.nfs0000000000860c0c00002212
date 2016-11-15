@@ -37,7 +37,7 @@
 \subsection{Analytical Solutions}
 	We use a few different constructed charge density fields, which is analytically solvable,
 	to test the performance and correctness of the solver. All the simulations here are ran on
-	a grid of the size \( 128, 64, 64 \) divided into \(1,2,2\) subdomains, with pinc
+	a grid of the size \( 128, 64, 64 \) divided into \(1,2,2\) subdomains, with PINC
 	version 36ad.
 		It uses \(5\) cycles when presmoothing, solving on the coarsest grid and postsmoothing, the
 	MG solver is instructed to run for \(100\) MG V-cycles with \(2\) grid levels.

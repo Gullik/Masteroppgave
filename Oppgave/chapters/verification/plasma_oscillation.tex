@@ -1,9 +1,11 @@
 \section{Plasma Oscillation}
-\begin{itemize}
-    \item Plasma oscillates
-    \item Randomly distributed plasma, with random velocities (Vel Causing a bug->Fix)
-    \item Compute fitting Temperature and Debye length
-\end{itemize}
+	\label{sec:langmuir_verification}
+	As a test of the validity of our PiC program, we can use the Langmuir
+	oscillation, described in \cref{sec:langmuir}.
+	This test is inspired by a case set up in \citet{birdsall_plasma_2004},
+	and modified to fit with our normalization and discretizations.
+	To verify that the oscillation is properly simulated we will look at oscillations in the energy.
+
 
     \subsection{Input parameters}
         \subsubsection{Timestep}
@@ -44,3 +46,28 @@
         \begin{equation}
             \lambda_{Se}^2 = \frac{\epsilon_0 kT_e}{nq^2_e}
         \end{equation}
+
+		\subsubsection{Simulation}
+			We ran a simulation for \(10\tau_{pe}\), on a \(64,64,64\) size grid. The particles
+			was first randomly distributed and given a maxwellian velocity distribution.
+			Then they were slightly perturbed to create an imbalance. 
+
+			\begin{table}
+			\begin{tabular}{c|c|c|c|c}
+				Size 			&	Stepsize &	Timestep &\#Particles per cell
+				\\ \hline
+				\((64,64,64)\)	& \(0.2\)	& \(0.1\)  	&	\(64\)
+			\end{tabular}
+			\caption{Key settings for the langmuir wave oscillation. The complete settings are
+			stored as an input file, langmuirWarm, in the PINC directory.}
+			\end{table}
+
+			% \(\tau_p \approx 100(\2pi/\omega_{pe})\)
+			% (NOTE TO SELF: NEED TO DISCUSS WITH Sigvald, don't understand \(v_th\) normalization, or alternatively find out)
+
+		\begin{figure}
+			\includegraphics[width = \textwidth]{figures/verification/langmuirWave/energyPlot}
+			\caption{This shows the time-evolution of the energy in an perturbed plasma. The energies are
+			in normalized units and \(\Delta x = 0.1 \omega_{pe}\). The total energy has a maximum variation of \(0.22\%\). In the timespan
+			of \(10\omega_{pe}\) the plasma oscillates over \(3\) times.}
+		\end{figure}

@@ -13,7 +13,7 @@ as the stepsize decreases we construct a sinusoidal rho as a test case.
 
 This \(\rho\) is analytically solvable for the Poisson equation so we can compute the
 \(2\)-norm of the error, \(\norm{err}_2\). Then we gradually decrease the stepsize
-and obtain and compare the norm of the numerical solutions. Since the normalization in PinC
+and obtain and compare the norm of the numerical solutions. Since the normalization in PINC
 is normally done outside the multigrid solver, \(rho\) had to be suitably scaled
 to the stepsize. We expect the error proportional to the squared stepsize, \(err(h) \approx Ch^2\), so by taking the logarithm
 we obtain
