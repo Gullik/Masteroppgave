@@ -10,10 +10,24 @@
 	where \(r_m, r_0\) are the \(2\)-norm of a the residual after \(m\) multigrid runs
  	and the inital residual. We presume that each run of the multigrid solver will
 	remove a proportion of the remaining residual.
-	The tests are done on a \(128^3\) grid on a sinusoidal
-	problem, and the smoothers run for an equal number of runs on each level.
+	The tests are done on a sinusoidal
+	problem for varying grid sizes. The smoothers run for \(100\) cycles on each of the \(5\) multigrid levels.
 	%
-	(Table of convergence rate numbers)
+	\begin{table}
+	\centering
+		\begin{tabular}{c|c|c}
+			Grid 		& \(p\)
+			\\ \hline
+			\(64^3\)	& \(0.149\)
+			\\ \hline
+			\(128^3\)	& \(0.192\)
+			\\ \hline
+			\(256^3\)	& \(0.203\)
+		\end{tabular}
+		\caption{The convergence rate for the multigrid solver, running on \(5\) levels. The convergence rate becomes
+		worse for larger grids.}
+	\end{table}
 	%
-	\citeauthor{zhukov_parallel_2014} found convergence rates of \(p \approx 0.15\) and \(p \approx 0.17\)
-	using a multigrid solver with a Chebyshev algorithm to smooth.
+	\citeauthor{zhukov_parallel_2014} found convergence rates, \(p\), between  \( 0.095 \text{ and } 0.155\)
+	using a multigrid solver with a Chebyshev algorithms to smooth. While the convergence rates found here were
+	worse, this is to be expected with the much simpler Gauss-Seidel smoothers.

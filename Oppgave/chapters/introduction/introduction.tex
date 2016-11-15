@@ -1,1 +1,20 @@
-Hello estimeed and non-estimeed readers
+
+	As the computational capabilities of supercomputers increases, it is becoming more
+	viable to simulate larger plasmas in more detail. This can help us foresee space-weather
+ 	and predict the effects of plasma phenomenon on spacecraft. Particle-in-Cell is one widely used
+	method to simulate space plasma \citep{lapenta_particle_2012}.	To efficiently use
+	massive parallel computer the Particle-in-Cell method need efficient parallel
+	field solvers. For the electrostatic case Multigrid solver are well suited to
+	solve the Poisson equation. This thesis follows the development of a parallel
+	multigrid solver to accompany the new Particle-in-Cell model PINC.
+
+ 	The thesis first introduces plasma and gives an overview the theoretical background, in \cref{sec:theory}.
+	Plasma as a state is defined, single particle motion in charged field is introduced and the fluid
+	description of plasma shown. The fundamental Langmuir Oscillation is derived from the fluid
+	description before a short overview of ways to numerically simulate plasma.
+	The next chapter, \cref{sec:Method} gives an overview of the PiC method and our implementation
+	is introduced. The theory behind the parallel multigrid is discussed afterwards.
+	The implementation chapter, \cref{sec:impl}, gives the details behind the actual implementation
+	of the multigrid solver.
+	The verification and performance of both PINC and the multigrid solver is discussed in the \cref{sec:ver_perf},
+	before a summary and proposals for further developments follows \cref{sec:summ}.

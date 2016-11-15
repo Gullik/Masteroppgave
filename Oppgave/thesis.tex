@@ -13,96 +13,87 @@
 \input{preamble}
 
 \author{Gullik Vetvik Killie}
-\title{A Parallel Multigrid Poisson Solver for a new Particle-in-Cell
+\title{A Parallel Multigrid Poisson Solver for PINC, a new Particle-in-Cell
     Model}
 \date{June 2015}
 
 \begin{document}
-% \maketitle
-% \input{chapters/abstract}
+\maketitle
+\input{chapters/abstract}
 %
 \tableofcontents
-% \section{To-do list}
-% \input{chapters/todo}
-% \section{Outline}
-%     \input{chapters/outline}
 
-% \chapter{Introduction}
-%     \input{chapters/introduction/introduction}
+\chapter{Introduction}
+    \input{chapters/introduction/introduction}
 
-% \chapter{Theoretical Background}
-%     \input{chapters/theory/plasma}
-%     \input{chapters/theory/single_particle_motion}
-%     \input{chapters/theory/kinetic}
-%     \input{chapters/theory/fluid}
-%     \input{chapters/theory/langmuir_oscillations}
-%     \input{chapters/theory/mhd}
-%     \input{chapters/theory/numerical_simulations}
-% %
-% \chapter{Method}
-%     \input{chapters/method/method}
-% 	\section{Particle-in-Cell}
-%     \input{chapters/method/PiC}
-%     \input{chapters/method/stability}
-% 	\section{PinC}
-% 	\input{chapters/method/pinc}
-%     \input{chapters/method/nondimensionality}
-%     \input{chapters/method/multigrid}
-%     \input{chapters/method/grid_part}
-%     \input{chapters/method/bnd_cond}
-%     \input{chapters/method/para}
+\chapter{Theoretical Background}
+	\label{sec:theory}
+    \input{chapters/theory/plasma}
+    \input{chapters/theory/single_particle_motion}
+    \input{chapters/theory/kinetic}
+    \input{chapters/theory/fluid}
+    \input{chapters/theory/langmuir_oscillations}
+    \input{chapters/theory/mhd}
+    \input{chapters/theory/numerical_simulations}
 %
-% \chapter{Implementation}
-%     \input{chapters/implementation/MG}
-%     \input{chapters/implementation/restr_prol}
-%     \input{chapters/implementation/GS}
-%     \input{chapters/implementation/bnd_imp}
-%
-% \chapter{Implementation}
-%     \input{chapters/implementation/MG}
-%     \input{chapters/implementation/restr_prol}
-%     \input{chapters/implementation/GS}
-%     \input{chapters/implementation/bnd_imp}
+\chapter{Method}
+	\label{sec:Method}
+    \input{chapters/method/method}
+	\section{Particle-in-Cell}
+    \input{chapters/method/PiC}
+    \input{chapters/method/stability}
+	\section{PinC}
+	\input{chapters/method/pinc}
+    \input{chapters/method/nondimensionality}
+    \input{chapters/method/multigrid}
+    \input{chapters/method/grid_part}
+    \input{chapters/method/bnd_cond}
+    \input{chapters/method/para}
 
-\chapter{Verification}
+\chapter{Implementation}
+	\label{sec:impl}
+    \input{chapters/implementation/MG}
+    \input{chapters/implementation/restr_prol}
+    \input{chapters/implementation/GS}
+    \input{chapters/implementation/bnd_imp}
+
+\chapter{Verification and Performance}
+	\label{sec:ver_perf}
+	\section{Verification}
     \input{chapters/verification/verification}
     \input{chapters/verification/quantification}
     \input{chapters/verification/analytical}
     \input{chapters/verification/errorScaling}
     \input{chapters/verification/langmuir_verification}
     \input{chapters/verification/plasma_oscillation}
-%
-\chapter{Performance/Results}
+	\section{Performance}
     \input{chapters/performance/performance}
     \input{chapters/performance/convergenceRate}
     \input{chapters/performance/scalingMG}
-    \input{chapters/performance/scalingPiC}
+    % \input{chapters/performance/scalingPiC}
+
+\chapter{Summary and Conclusion}
+	\label{sec:summ}
+	\input{chapters/conclusion/conclusion}
 
 
-
-% \chapter{Discussion}
-%   \input{chapters/discussion}
 %
-% \chapter{Conclusions}
-%   \input{chapters/conclusions}
-%
-% \appendix
+\appendix
 % \chapter{Further Development}
 %     \input{chapters/appendix/further}
 %
 % \chapter{Notation}
 %     \input{chapters/appendix/notation}
 %
-% \chapter{Unittests}
-%     \input{chapters/appendix/unittests}
+\chapter{Unittests}
+    \input{chapters/appendix/unittests}
 %
-% \chapter{Examples}
-%     \input{chapters/appendix/V_example}
-% %
+\chapter{Examples}
+    \input{chapters/appendix/V_example}
 % \chapter{Optional methods}
 %     \input{chapters/appendix/alt_methods}
-% \chapter{Multigrid Libraries}
-%     \input{chapters/appendix/multigrid_libraries}
+\chapter{Multigrid Libraries}
+    \input{chapters/appendix/multigrid_libraries}
 
 % \chapter{Code}
 %     \input{chapters/appendix/code_snippets}
