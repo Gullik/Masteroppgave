@@ -39,3 +39,6 @@
         The outermost slice, i.e. ghost layer, is set to be equal to the boundary slice.
 
     \subsection{Neumann}
+		Neumann conditions are dependent the outer edge of the true domain, due to this they
+		need to be reset at the finest level for each timestep and restricted down. Elsewise they are handled as
+		the Dirichlet conditions.
