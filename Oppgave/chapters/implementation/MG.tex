@@ -1,20 +1,22 @@
 
-		\subsection{Implementation}
-			In general there are \(4\) different quantities, the source, the solution, the residual and the correction, we need to keep track of.
-			On each grid level the residual is computed, then it is set as the source term for the next level and then it is not used more.
-			The correction, the improvement to the finer grid, is only used when going to a finer grid. Due to this we can save some memory by
-			letting the correction and the residual share the same memory, so both are stored in the mgRes struct. There are a regular as well as a recursive implementation
-			of a V-cycle. The functions takes the current level, the bottom of the cycle as well as the end point of the cycle. So several different cycles
-			can be built from the functions. A W cycle can be built a V cycle that starts at the finest level and stops at a mid level, and then a new V-cycle is started at
-			the mid level that ends at the finest level. A full multigrid algorithm (FMG) can also be implemented by first restricting the original source term down to the coarsest
-			level and then run a V-cycle that ends at the finest level. The choice between different cycles can be selected in the input file,
-			and more type of cycles can easily be constructed if needed.
+\subsection{Implementation}
+	In general there are \(4\) different quantities, the source, the solution, the residual and the correction, we need to keep track of.
+	On each grid level the residual is computed, then it is set as the source term for the next level and then it is not used more.
+	The correction, the improvement to the finer grid, is only used when going to a finer grid. Due to this we can save some memory by
+	letting the correction and the residual share the same memory, so both are stored in the mgRes struct. There are a regular as well as a recursive implementation
+	of a V-cycle. The functions takes the current level, the bottom of the cycle as well as the end point of the cycle. So several different cycles
+	can be built from the functions. A W cycle can be built a V cycle that starts at the finest level and stops at a mid level, and then a new V-cycle is started at
+	the mid level that ends at the finest level. A full multigrid algorithm (FMG) can also be implemented by first restricting the original source term down to the coarsest
+	level and then run a V-cycle that ends at the finest level. The choice between different cycles can be selected in the input file,
+	and more type of cycles can easily be constructed if needed.
 
-			The regular V cycle algorithm is quite straightforward, first it restricts and computes itself down to the bottom level,
-			then it solves it directly on the bottom level. Then the correction is brought up and improved through the grid up to the top level.
-			See \cref{sec:mg_V_regular} for an example code.
+	The regular V cycle algorithm is quite straightforward, first it restricts and computes itself down to the bottom level,
+	then it solves it directly on the bottom level. Then the correction is brought up and improved through the grid up to the top level.
+	See \cref{sec:mg_V_regular} for an example code.
 
-			The recursive algorithm uses an algorithm more similar to the one described in \cref{tab:recursive}. First it computes the steps necessary
-			so the grid below has an updated source term, then it calls itself on a lower level. After recieving the correction from
-			the lower level it is improved and sent to the level above. If the function is at the bottom level, it solves the problem directly and sends
-			the correction up. See \cref{sec:mg_V_recursive} for an example code.
+	The recursive algorithm uses an algorithm more similar to the one described in \cref{tab:recursive}. First it computes the steps necessary
+	so the grid below has an updated source term, then it calls itself on a lower level. After recieving the correction from
+	the lower level it is improved and sent to the level above. If the function is at the bottom level, it solves the problem directly and sends
+	the correction up. See \cref{sec:mg_V_recursive} for an example code.
+
+	% \subsubsection{Recursive algorithm}
