@@ -1,6 +1,6 @@
 \section{Langmuir Oscillations}
 	\label{sec:langmuir}
-
+	The simplest example of plasma collective phenomena can be obtained from the fluid description.
 	Plasma oscillations, also called Langmuir oscillations, is the basic resulting
 	oscillation	that happens as a plasma tries to reach a stable equilibrium, due to
 	a small perturbation of its density.
@@ -11,12 +11,11 @@
 	Here we will consider an one specie plasma fluid consisting of electrons under local thermal equilibrium, LTE.
 	The electron density, \(n_0\) and pressure, \(p_0\), is initally homogenous.
  	The fluid has a vanishing flow, \(\va{u}_0 = 0\), and no initial potential gradient \(\phi_0 = 0\).
-	The ele
- 	See \citet{pecseli_waves_2012} for a another discussion.
+ 	See \citet{pecseli_waves_2012} for a more detailed discussion.
 
 	A small perturbation of the electron density will cause the electric field
 	to try to restore the equilibrium. When the electrons reach the equilibrium
-	position they will have a kinetic energy and will overshoot.This will cause
+	position they will have a kinetic energy and will overshoot. This will cause
 	a new perturbation away from the equilibrium.
 
 	Under the LTE conditions the fluid equations simplify to
@@ -58,7 +57,7 @@
 	second order terms of perturbation of a quantity will be much smaller than the value
 	of the quantity, \(q \gg\tilde q \tilde q\). So even though we may miss some processes
 	by doing this, we can drop the second order perturbation terms.
-	This process is called linearization.
+	This process is called linearization \citep{pecseli_waves_2012}.
 
 	Inserting the perturbation and linearizing the equations we get:
 
@@ -88,10 +87,13 @@
  	and \(\pdv{}{t} \rightarrow -i\omega\), we can solve for the dispersion relation.
 
 	\begin{align}
-	\epsilon(\omega, k) = 1 + \frac{5}{3} \lambda_{se}^2k ^2 -  \frac{\omega^2}{\omega_{pe}^2}
+	\epsilon(\omega, k) = 1 + \frac{5}{3} \lambda_{De}^2k ^2 -  \frac{\omega^2}{\omega_{pe}^2} \label{eq:disp}
 	\end{align}
 
-	Here the electron debye length, \(\lambda_{D}\), and the plasma frequency, \(\omega_{pe}\), have been inserted.
+	Here the electron Debye length, \(\lambda_{De}\), and the plasma frequency, \(\omega_{pe}\), have been inserted.
+	In the limit of short \(k\), or vanishing temperature, we can see that the dispersion relation simplifies to \(\omega = \omega_{pe}\), which
+	we have also derived from the simplified perspective of a cold plasma slab (\cref{sec:frequency}).
+	We will use the Langmuir oscillations in benchmarking our numerical model in this thesis.
 
 % \section{Langmuir Oscillations}
 % 	REDO, You have already done this in a neater way before!!!!!!!!!!!!

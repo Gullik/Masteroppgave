@@ -3,9 +3,9 @@
 \section{Single Particle Motion}
 	\label{sec:single_particle}
 	To better understand the collective motion of plasma it is useful to consider
-	the motions of the single particles that the plasma consists of. By at first
+	the motions of single particles that the plasma consists of. By at first
 	treating only one particle we can ignore the electromagnetic influence from
-	the other particles which greatly simplifies the situation. The Lorentz
+	other particles which greatly simplifies the situation. The Lorentz
 	force, \cref{eq:lorentz}, governs the dynamics of a charged particle in a plasma,
 	provided that other forces, e.g. gravity, are neglible.
 	The Lorentz force is due to charged particles in the electric field, \(\vb{E}\), and charged particles
@@ -19,8 +19,8 @@
 	\subsection{Gyration}
 		\label{sec:gyration}
 		Let us consider a situation with a single moving particle in a static and isotropic external
- 		magnetic field, a similar set up as in \citet{baumjohann_basic_1997}.
-		Newtons Second law together with \cref{eq:lorentz} then gives
+ 		magnetic field, i.e. \(\vb{E = 0}\), \(\vb{B}\neq 0\), a similar set up as in \citet{baumjohann_basic_1997}.
+		Newton's Second law together with \cref{eq:lorentz} then gives
 
 		\begin{align}
 			m\pdv{\vb{v}}{t} &= q\vb{v}\cross\vb{B} \label{eq:simple_gyration}
@@ -40,30 +40,27 @@
 			\centering
 			\begin{subfigure}{0.45\textwidth}
 				\input{tikz/gyration.tex}
-				\caption{The trajectories of an electron, left, and a positive ion, right, is shown
-				  The particles trajectory is a gyration around the magnetic field lines.}
+				\caption{The trajectories of an electron, left, and a positive ion, right, are shown.
+					In both cases the trajectories of particles are are gyrating around the magnetic field lines.
+				  }
 				\label{fig:gyration}
 			\end{subfigure}
 			\begin{subfigure}{0.45\textwidth}
 				\input{tikz/EperpB}
-				\caption{Here we can see a particle experiencing the E-cross-B drift. The motion consists of a gyration
-				as well a constant drift along the \(x\)-axis.}
+				\caption{Here we can see examples of particles experiencing the E-cross-B drift. The particle motion consists of a gyration
+				as well a constant drift in the \(E\cross B\) direction.}
 				\label{fig:EcrossB}
 			\end{subfigure}
 		\end{figure}
 
-
-
-		In the last equation we also changed the term describing the rotational motion
+		In the last equation we also changed the term, \(v_\perp\), describing the rotational motion,
 		to \(\vb{\omega}_\perp\), which will from now on signify gyrational motion.
 		This differential equation corresponds to a gyration around the magnetic field lines
 		with the gyration frequency, \(\omega_c = \frac{qB}{m}\), as the frequency. The particles are free to
 		move parallel to the magnetic field lines causing a spiralling motion along the magnetic field lines, as illustrated in
-		\cref{fig:gyration}. This spiral effect is often an important part of why
-		there are often field-aligned currents, such as 'Birkeland Currents' \citep{cummings_field-aligned_1967},
+		\cref{fig:gyration}. The high mobility along mangetic field lines is often an important part of why
+		there are field-aligned currents, such as 'Birkeland Currents' \citep{cummings_field-aligned_1967},
 		transporting plasma along magnetic field lines.
-
-
 
 	\subsection{E-cross-B Drift}
 	A drift called E-cross-B drift can appear when a particle is moving within static and isotrop
@@ -75,30 +72,30 @@
 	\end{align}
 
 	In plasma physics it is often a good strategy to decompose quantities into
-	parallel and perpendicular, with respect to \(\vb{B}\), quantities. We start by seperating the
+	parallel and perpendicular, with respect to \(\vb{B}\). We start by seperating the
 	velocity into \(\vb{v} = \vb{v}_\parallel + \vb{v}_\perp\) and the electric field
 	into \(\vb{E} = \vb{E}_\parallel + \vb{E}_\perp\). Inserting this and using that \(\vb{v}_\parallel\cross\vb{B}=0\)
-	again the equation becomes
+	the equation, \cref{eq:EcrossB}, becomes
 
 	\begin{equation}
 		m\pdv{}{t}\left( \va{v}_\parallel + \va{v}_\perp \right) =
 		q \left( \va{E}_\perp + \va{E}_\parallel + \left( \va{v}_\perp\right)  \cross \va{B}\right)
 	\end{equation}
 
-	The parallel motion consist of an acceleration caused by the parallel part of the electric field and
-	is given by
+	The parallel motion consists of an acceleration caused by the parallel part of the electric field and
+	is given by:
 	\begin{equation}
 		m\pdv{\va{v}_\parallel}{t} = q \va{E}_\parallel
 	\end{equation}
 
-	The remaining part of the equation describes the perpendicular motion.
+	The remaining part of the equation describes the perpendicular motion:
 
 	\begin{equation}
 		m\pdv{\va{v}_\perp}{t}  = q \left( \va{E}_\perp +  \left( \va{v}_\perp\right)  \cross \va{B}\right)
 	\end{equation}
 
-	Now we assume there is a time-invariant drift \(\vb{v}_D\), i.e. not dependent on time, and
-	then we seperate the perpendicular motion into a drift and gyration,
+	Now we assume that there is a time-invariant drift \(\vb{v}_D\), i.e. not dependent on time, and
+	we seperate the perpendicular motion into a drift and gyration,
 	\(\va{v} = \va{v}_\parallel + \va{\omega}_\perp + \va{v}_D\).
 
 	\begin{equation}
@@ -138,13 +135,13 @@
 		\vb{v}_D &= \frac{\vb{E}\cross\vb{B}}{B^2}
 	\end{align}
 
-	As we can see the E-cross-B drift is independent of particle charge and mass,
-	which means both the ions and electrons will be drifting in the same direction and
-	speed perpendicular to the electric and magnetic fields, \cref{fig:EcrossB}.
+	As we can see the E-cross-B drift is independent of the particle charge and mass,
+	which means that both the ions and electrons will be drifting in the same direction and
+	speed perpendicular to the electric and magnetic fields, as it is also shown in \cref{fig:EcrossB}.
 
-	This is an example of some effects on single particle motion in electric and magnetic fields, and there are many other important concepts found in
-	considering single particles, that we will not go into here, see \citet{fitzpatrick_plasma_2014},
-	or other introductionary plasma physics book.
-	Other examples that could be useful to know about is gradient-B drift, curvature drift,
-	polarization drift and magnetic mirroring. The motions of single particles are necessary
-	to understand the collective behaviour of large amounts of particles constituting a plasma.
+	The \(E\times B\) drift is an example of a single particle motion in electric and magnetic fields. There are many other important concepts and drifts when
+	considering single particle motion, such as gradient-B drift, curvature drift,
+	polarization drift and magnetic mirroring. We will not present them here and refer to \citet{fitzpatrick_plasma_2014},
+	or other introductionary plasma physics book for details.
+	We note that the understanding of motions of single particles is necessary
+	to study the collective behaviour of large amounts of particles constituting a plasma.

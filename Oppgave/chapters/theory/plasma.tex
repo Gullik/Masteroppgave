@@ -24,58 +24,60 @@
 	\end{flushright}
 	The charge causes the particles to be subject to the Lorentz force, which
 	changes the behaviour of the gas. The plasma state is a typical state of matter
-	and appears in various environments, i.e. the sun, and other stars, the upper parts of Earth's atmosphere,
- 	and has many industrial applications as plasma cutters , argon light tubes, fusion.
+	and appears in various environments, i.e. the Sun, and other stars, the upper parts of Earoth's atmosphere,
+ 	and has many industrial applications as plasma cutters, argon light tubes or fusion.
+	The extent of of plasma density and temperature can extend over several orders of magnitude as shown in \cref{fig:plasma_density}.
 
-	A greater understanding of the mechanism governing a plasma's behaviour can help
-	us predict spaceweather, improve design of spacecraft and instruments affacted by plasma.
-
+	A better understanding of the mechanism governing a plasma's behaviour can help
+	us predict spaceweather, improve design of spacecraft and instruments affacted by plasma, future fusion devices and plasma technologies.
 
 	\begin{figure}
+		\label{fig:plasma_density}
 		\begin{center}
-			% \includegraphics[width = 0.5\textwidth]{figures/theory/plasma_density}
-			\missingfigure[figwidth=\textwidth]{Plasma Regimes}
+			\includegraphics[width = 0.5\textwidth]{figures/theory/plasma/plasma_density}
+			% \missingfigure[figwidth=\textwidth]{Plasma Regimes}
 		\end{center}
-		\caption{Plasmas occurs both in the hot and dense condiotions in necessary for fusion, as
-		well as in the cold and sparse interstellar environment.
+		\caption{Plasmas occurs both in the hot and dense conditions in necessary for fusion, as
+		well as in the cold and sparse interstellar environment. Figure after \citet{goldston_introduction_1995}.
 		}
 	\end{figure}
 
 
 
     \subsection{Plasma Parameters}
+		In this section we introduce basic plasma parameters that are also of concern for plasma simulations, which
+		are the temperature, plasma frequency and Debye length. We also introduce the concept of quasineutrality.
 		\label{sec:parameters}
 		\subsubsection{Temperature}
 		A modern view of temperature comes from kinetic theory developed by
-		Maxwell and Boltzmann \citep{swendsen_statistical_2006}. We will not go through it
-		here but a treatment is available in \citet{goldston_introduction_1995}.
-		Temperature is then related to the average kinetic energy of a particle.
+		Maxwell and Boltzmann \citep{swendsen_statistical_2006}. We here provide only the final result
+		of the detailed treatment that can be found in \citet{goldston_introduction_1995}.
+		Temperature, \(T\), is then related to the average kinetic energy of a particle, \(E_k\).
 		For an ideal monoatomic gas the kinetic energy is then
 
 		\begin{equation}
-			\bar{E}_k = \frac{1}{2} m v_{th}^2 = \frac{3}{2} kT \label{eq:temperature}
+			\bar{E}_k = \frac{1}{2} m v_{th}^2 = \frac{3}{2} kT, \label{eq:temperature}
 		\end{equation}
-
+		where \(m\) is the mass and \(k\) is the Boltzmann constant.
 		Here we have introduced \(v_{th} \equiv  \sqrt{kT/m}\) as the thermal velocity, i.e.
-		the average velocity of a particle considering only \(1\) dimension. It should be mentioned that the fraction in
+		the average velocity of a particle considering only one dimension. It should be mentioned that the fraction in
 		front of the temperature is dependent on the degrees of freedom of the particle.
 		A monoatomic particle can only move in three directions, but a diatomic particle
 		can also vibrate and spin.
-
-		In high energy plasma physics it is also costumary to drop the Boltzmann factor, \(k\),
-		in \cref{eq:temperature}, and express temperature directly in electronvolt, \(eV\).
-		Electronvolt is defined as the energy it takes to move an elementary charge through
-		a potential difference of \(1\) \si{\volt}, and corresponds to approximately
-		\(11600 \si{\kelvin}\). For the space and atmospheric plasmas, we are mostly
-		dealing with here, the temperatures are generally low, so we will use the Kelvin scale
-		for temperature.
 
 		If the particles in a plasma collide often compared to the characteristic timescales
 		of energy and particle changes, the particle velocity distribution can be approximated
 		by a Maxwellian distribution. It is only then that the concept of
 		temperature is valid \citep{goldston_introduction_1995}.
 
+		In high energy plasma physics it is also costumary to drop the Boltzmann factor, \(k\),
+		in \cref{eq:temperature}, and express temperature directly in electronvolt, \(eV\).
+		Electronvolt is defined as the energy it takes to move an elementary charge through
+		a potential difference of \(1\) \si{\volt}, and corresponds to approximately
+		\(11600 \si{\kelvin}\).
+
 		\subsubsection{Electron Plasma Frequency}
+		\label{sec:frequency}
 		A rather important frequency in plasma physics is the electron plasma frequency \citep{chen_introduction_1984},
 
 		\begin{equation}
@@ -101,14 +103,14 @@
 			E_x = \frac{-en\delta x}{\epsilon_0}
 		\end{equation}
 
-		Inserting this field as the only force in Newtons law for a single particle yields
+		Inserting this field as the only force in Newtons' law for a single particle yields
 
 		\begin{equation}
 			m\pdv{\delta x}{t} = eE_x = -m\omega_{pe}^2\delta x
 		\end{equation}
 
 		The particle will then oscillate around its equilibrium position with
-		the electron plasma frequency. The same phenomen often happens in plasma as
+		the electron plasma frequency. The same phenomenon often happens in plasma as
 		it tries to go back to its equilibrium and is called plasma oscillations,
 		or Langmuir oscillations, see \cref{sec:langmuir} for a treatment of plasma oscillations.
 
@@ -119,8 +121,7 @@
 			\tau_p \equiv 2\pi/\omega_{pe}
 		\end{equation}
 
-		Some researchers prefer to define the \(\tau_p\), without the \(2\pi\) prefactor,
-		as that makes some concepts neater.
+		Some researchers prefer to define the \(\tau_p\), without the \(2\pi\) prefactor \citep{fitzpatrick_plasma_2014}.
 
 		\subsubsection{Debye Shielding}
 		Debye shielding length is the distance at which the electric influence
@@ -128,10 +129,11 @@
 		Consider a charged particle immersed in a plasma bath. The plasma is in
 		a thermodynamical equilibrium, i.e. there is no significant temperature
 		gradients. We artificially place a positively charged ion into the plasma.
-		This ion will then attract electrons and repel positive ions. There will be a tendency
-		for there to be more negativily charged particles, and less positive, near the
-		ion, which in effect will work as an electric shield around the ion. The
-		distance away from a particle, where its field is reduced by a factor \(1/e\), called the Debye Shielding Length, \(\lambda_D\).
+		This ion will then attract electrons and repel positive ions. As a result There will
+		be more negatively charged particles, and fewer positively charged particles, near the
+		ion. This will form an electric shield around the ion. The
+		distance away from a particle, where its field is reduced by a factor \(1/e\),
+		is called the Debye Shielding Length, \(\lambda_D\), defined as:
 
 		\begin{equation}
 			\lambda_D \equiv \sqrt{\frac{\epsilon_0 kT_e}{n_e e^2}}
@@ -139,9 +141,9 @@
 
 		The above definition is often used, \citep{pecseli_waves_2012},
 		neglecting the ion influence since they often have a much lower temperature.
-		The shielding length is dependent on the ratio between temperature, \(T_e\),
-		and electron density, \(n_e\). In a varmer plasma the particles will move quickly
-		and efficiently shield any charges, so the \(\lambda_D\) becomes smaller. While
+		The shielding length is dependent on the ratio between the electron temperature, \(T_e\),
+		and electron density, \(n_e\). In a warmer plasma the particles will move quickly
+		and efficiently shield any charges, so the \(\lambda_D\) becomes smaller.
 		In cases where we also need to account for ions, a more complete definition can be used
 
 		\begin{equation}
@@ -160,7 +162,7 @@
 
 
 		\subsubsection{Quasineutrality}
-		The assumption of quasi-neutrality is a crucial approximation for collective phenomen in plasma
+		The assumption of quasi-neutrality is a crucial approximation for collective phenomena in plasma
 		physics. By quasi-neutrality we assume that the electron
 		density is equal to the ion density, \(n_e \approx n_i\). This is often called the
 		\textit{"plasma approximation"} \citep{chen_introduction_1984}.
@@ -180,8 +182,7 @@
 		A plasma treatment aims to describe the collective behaviour of many particles.
 		If the length scale is smaller than the \(\lambda_D\) the charges from
 		individual particles are not effectively shielded out and the trajectories of each particle should
-		be considered. On a shorter timescale than the \(\tau_{pe}\) the plasma oscillation is can be averaged
-		out and needs treatment.
+		be considered. On a timescale shorter than \(\tau_{pe}\), the collective plasma oscillation cannot be observed.
 
 
 

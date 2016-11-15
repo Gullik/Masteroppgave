@@ -1,5 +1,9 @@
 \section{Kinetic Theory}
-    Here we will shortly introduce kinetic theory in relation to plasma physics.
+    % Here we will shortly introduce kinetic theory in relation to plasma physics.
+	In the previous section we provided examples of single particle motion. To deal with collective
+	phenomena we need to account for large amount of particles simultaneously.
+	This can be done with the kinetic theory that we will introduce here.
+
 	To consider a large amount of particles we consider a charge and current density
 	instead of the individual particles.
 	Let \(\mathcal{F}_s\) be the exact phase-space density of a particle species,
@@ -15,13 +19,13 @@
 
 	Then its seems we can derive all plasma interaction from considering
 	the conservation of the phase-space density, coupled with Maxwells equations.
-	The phase-space conservation is given by what is known as Vlasovs equation \cref{eq:vlasov}
+	The phase-space conservation is given by what is known as the Vlasov equation \cref{eq:vlasov}
 	\citep{pecseli_waves_2012}).
 
 	\begin{align}
 		\pdv{\mathcal{F}}{t} + \vb{v}\cdot\nabla\mathcal{F}_s + \frac{e_s}{m_s}\left( \vb{E} + v\cross\vb{B} \right) \cdot \nabla_v\mathcal{F}_s = 0 \label{eq:vlasov}
 	\end{align}
 
-	where \(\nabla_v\) is the velocity grad-operator.
+	where \(\nabla_v = \left(\pdv{v_x} \hat{i} + \pdv{v_y} \hat{j} + \pdv{v_z} \hat{k}\right)\) is the velocity grad-operator.
 	Unfortunately this expression, combined with Maxwells equations, is only solvable
 	for special simple geometries.

@@ -1,8 +1,9 @@
 \section{Fluid Description}
-	This section aims to provide an overview of the derivation of the fluid equations
-	from a Kinetic Theory perspective. First the Vlasov equation is introduced,
-	then it is explained how the fluid equations can be obtained by taking different
-	order moments of the Vlasov equation. This can help understand the limitations
+	In another limit one can consider plasma as conducting fluids. Here we are not interested
+	in single particle motion anymore, but in the motion of a small volume of plasma.
+	This section provides an overview of the derivation of the fluid equations
+	from the kinetic theory, by taking different
+	order moments of the Vlasov equation. This can help in understanding the limitations
 	of the fluid model of plasma. Lastly a few different approximations are introduced
 	to make the fluid equations closable.
 
@@ -14,14 +15,14 @@
  	motion, \cref{sec:single_particle}.
 	The time evolution is then governed by the fluid equation, but unfortunately the resulting
 	equations are generally less tractable than the usual hydrodynamical
-	equations. This is due to the need to close them with Maxwell's equations.
+	equations. This is because they need to be closed with Maxwell's equations.
 
 	The first order moment is given by mass times velocity, in introductionary physics literature
-	this is usually reffered to as the moment.
+	this is usually refered to as the moment \citep{fitzpatrick_plasma_2014}.
 	Here we will introduce a more general form of moment. This will help understand how the fluid
 	equations result from averaging over different moments of the general
-	transport equation. The zeroth, first and second order moment is respectively
-	given by
+	transport equation \citep{pecseli_waves_2012,fitzpatrick_plasma_2014}. The zeroth, first and second order moments are respectively
+	given by:
 
 	\begin{subequations}
 		\begin{equation}
@@ -49,7 +50,7 @@
 	by density.
 
 	\begin{equation}
-			m\vb{v} = \int m \vb{v} \mathcal{F} \dd\vb{v}
+			m\vb{v} =\frac{1}{n} \int m \vb{v} \mathcal{F} \dd\vb{v}
 	\end{equation}
 
 	We can in fact find the mean of any order moment by integrating the
@@ -90,11 +91,11 @@
 \subsection{Fluid Equations}
 	\label{sec:fluid}
 	From the Vlasov equation and the zeroth, first and second order
-	moment we obtain the fluid equations.
-	The generalized fluid equations is given in \cref{eq:continuity,eq:momentum,eq:pressure}, where the three equations
+	moments we obtain the fluid equations.
+	The generalized fluid equations are given in \cref{eq:continuity,eq:momentum,eq:pressure}, where the three equations
 	describe the conservation of mass, momentum and energy respectively. The collision term is neglected.
 	We refer to \citet{fitzpatrick_plasma_2014}, although some
-	notation differ, for the rather involved derivation to obtain these equations.
+	notation differ, for the rather involved derivation of these equations.
 
 	\begin{subequations}
 		\begin{equation}
@@ -131,7 +132,7 @@
 	number of particles in a volume. The divergence terms signify change due to the compressability of the fluid
 	and can in many cases be set to \(0\). The total derivative, i.e. \(\left(\pdv{t} + \vb{u}_s\cdot\nabla \right)\) accounts for
 	change in density in a volume taking into account substance exiting and entering.
-	The momentum equation \cref{eq:momentum} shows that the fluid momentum change, left hand side,
+	The momentum equation, \cref{eq:momentum}, shows that the fluid momentum change (left hand side)
 	is due to pressure gradients, \(\nabla p_s\), visceous forces, \(\nabla \cdot \pi \) and external forces, \(n_s\vb{f}_s\),
 	per unit volume.
 	Lastly we have the energy equation, in its pressure form, which shows that changes to thermal
@@ -139,17 +140,12 @@
 	and heat transport	\(\frac{2}{3}\nabla \cdot \vb{q}_s\).
 	The fluid equations are in general not closeable and adding higher order moments
 	always introduces more unknowns. Due to this one generally uses different closing
-	schemes to make them tractable. Some of these schemes are described in the next section.
+	schemes to make them tractable.
 
-\subsection{Plasma States}
-	Plasma can be classified according to which	approximations and simplifications
-	that are valid for them. Here we will go through some of the most used approximations.
-
-	\subsubsection{Local Thermodynamic Equilibrium}
-	A plasma is said to be in a \textit{local thermodynamic equalibrium} (LTE)
-	if the phase-space distribution is locally Maxwellian. This means the variations
+	One example is the \textit{local thermodynamic equalibrium} (LTE).
+	A plasma is said to be in LTE if the phase-space distribution is locally Maxwellian. This means the variations
 	in temperature are slow enough that we can neglect heat conduction in the plasma. We can also ignore
-	the viscosity due to there being little local variations to the momentum flow.
+	the viscosity due to there being little local variations to the momentum flow:
 
 	\begin{align}
 		\mathcal{F}_m = \frac{n}{(2\pi )^{3/2}v_t^3} \exp{-\frac{(v-u)^2}{2v_t^2}}
@@ -159,14 +155,9 @@
 	contains odd integrals over the distribution, see \citet{fitzpatrick_plasma_2014},
 	they dissappear.
 
-	\subsubsection{Cold Plasma}
+	Another ways of closing the set of equations is to assume cold plasma or isothermal plasma.
 	In a cold plasma the temperature is assumed to be \(0\), this causes the pressure, \(p\), and viscosity, \(\pi\), to be zero.
 	This can be useful if the velocities of interest far exceed the thermal velocities.
-
-
-
-	\subsubsection{Isothermal}
-	An isothermal plasma is one where we assume an infinite heat conductivity,
-	this means the temperatures is constant in all space and time. This can be used to
-	describe macroscopic plasma.
-	(ADD MORE)
+	In isothermal plasma we assume infinite heat conductivity.
+	This means the temperatures is constant in all space and time and can be useful in
+	describing large scale plasma.
