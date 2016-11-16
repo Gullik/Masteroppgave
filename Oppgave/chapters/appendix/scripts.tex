@@ -1,0 +1,224 @@
+\section{PINC framework}
+\begin{lstlisting}[language=python, caption = Framework to more easily run PINC with various settings]
+
+import subprocess
+import numpy as np
+
+class Pinc(dict):
+	def __init__(self, pinc="./mpinc.sh", ini="langmuirWarm.ini", path="../.."):
+		# All commands will be executed from "path"
+
+		self.pinc = pinc
+		self.ini = ini
+		self.path = path
+
+	def run(self):
+		cmd = self.pinc + " " + self.ini
+		for key in self:
+			cmd += " " + key + "=" + self.parse(key)
+		self.runCommand(cmd)
+
+	def runCommand(self, cmd):
+		cmd = "cd " + self.path + "; " + cmd
+		subprocess.call(cmd,shell=True)
+
+	def clean(self):
+		self.runCommand("rm -f data/*.h5")
+		self.runCommand("rm -f data/*.txt")
+
+	def parse(self, key):
+		value = self[key]
+		if isinstance(value,(list,np.ndarray)):
+			string = str(value[0])
+			if(len(value) > 1):
+				for l in range(1,len(value)):
+					string += "," + str(value[l])
+			return string
+		elif isinstance(value,(int,float)):
+			return str(value)
+		else:
+			return value
+		\end{lstlisting}
+
+
+\section{Multigrid Parameter Optimizer}
+\label{sec:optimizer}
+\begin{lstlisting}[language=python, caption = Optimizer script]
+	from pincClass import *
+import subprocess
+import h5py
+import numpy as np
+import sys as sys
+
+if(len(sys.argv) > 1):
+	path = "../../" + sys.argv[1]
+else:
+	path = "../../local.ini"
+pinc = PINC(iniPath = path)
+
+#Setting up wanted needed ini file
+pinc.mode 		= "mgRun"
+pinc.mgCycles 		= 1
+pinc.startTime		= -1
+
+class Settings:
+	def __init__(self, nPre = 10, nPost = 10,
+					nCoarse = 10, mgLevels = 3):
+		self.nPre    	= nPre
+		self.nPost   	= nPost
+		self.nCoarse 	= nCoarse
+		self.mgLevels	= mgLevels
+		#Store results
+		self.mgCycles 	= 0
+		self.time 		= float('Inf')
+
+	def copy(self, copy):
+		self.nPre 		= copy.nPre
+		self.nPost		= copy.nPost
+		self.nCoarse	= copy.nCoarse
+		self.mgLevels 	= copy.mgLevels
+
+	def setPinc(self, pinc):
+		pinc.preCycles 			= self.nPre
+		pinc.postCycles			= self.nPost
+		pinc.coarseCycles		= self.nCoarse
+		pinc.mgLevels 			= self.mgLevels
+		pinc.startTime 			+= 1
+
+
+def formatTimeCycles(fileName, nRuns):
+	data = h5py.File(fileName,'r')
+	time = np.array(data['time'][nRuns,1])
+	mgCycles= np.array(data['cycles'][nRuns,1])
+	data.close()
+
+	return time, mgCycles
+
+
+def nCycleOptimize(count, nTries, nRun, bestRun, currentRun, pinc):
+	pTime = float('Inf')
+	preInc = 1
+	for j in range(0,nTries): #nCoarse
+		# print "Hello"
+		if(count>0):
+			nRun = nCycleOptimize(count -1, nTries, nRun, bestRun, currentRun, pinc)
+		##Run, retrieve time and cycles used
+		currentRun.setPinc(pinc)
+		pinc.runMG()
+		time, mgCycles = formatTimeCycles('test_timer.xy.h5',nRun)
+
+		#Check if best run
+		if(time < bestRun.time):
+			bestRun.copy(currentRun)
+			bestRun.time = time
+			bestRun.mgCycles = mgCycles
+
+		if(preInc == 1):
+			if(time < pTime):
+				pTime = time
+				if(count == 2):
+					currentRun.nCoarse *= 2
+				if(count == 1):
+					currentRun.nPre *= 2
+				if(count == 0):
+					currentRun.nPost *=2
+			else:
+				if(count == 2):
+					currentRun.nCoarse *= 0.5
+				if(count == 1):
+					currentRun.nPre *= 0.5
+				if(count == 0):
+					currentRun.nPost *=0.5
+				preInc = -1
+		else:
+			if(time < pTime):
+				pTime = time
+				if(count == 2):
+					currentRun.nCoarse *= 0.5
+				if(count == 1):
+					currentRun.nPre *= 0.5
+				if(count == 0):
+					currentRun.nPost *=0.5
+			else:
+				break
+		nRun += 1
+	return nRun
+
+
+bestRun = Settings()
+currentRun = Settings(10,10,10,5)
+
+pinc.clean()
+nTries 	= 100
+nRun	= 0
+preInc 	= 1
+
+
+
+for i in range(1):	#mgLevels
+
+	# nRun = nCoarseOpt(nTries, nRun, bestRun, currentRun, pinc)
+	nRun = nCycleOptimize(2 ,nTries, nRun, bestRun, currentRun, pinc)
+
+	currentRun.mgLevels += 1
+
+
+print "\nBest runtime \t= "	, bestRun.time*1.e-9, "s"
+print "\nProposed run:"
+print "mgCycles \t= "		, bestRun.mgCycles
+print "mgLevels \t= "		, bestRun.mgLevels
+print "nPreSmooth \t= "		, bestRun.nPre
+print "nPostSmooth \t= "	, bestRun.nPost
+print "nCoarseSolve \t= "	, bestRun.nCoarse
+
+\end{lstlisting}
+
+\subsection{V-cycle, code}
+\label{sec:mg_V}
+\begin{lstlisting}[language=c, caption = Implementation of an recursive V-cycle]
+void inline static mgVRecursive(int level, int bottom, int top, Multigrid *mgRho, Multigrid *mgPhi,
+								Multigrid *mgRes, const MpiInfo *mpiInfo){
+
+//Solve and return at coarsest level
+if(level == bottom){
+	gInteractHalo(setSlice, mgPhi->grids[level], mpiInfo);
+	mgRho->coarseSolv(mgPhi->grids[level], mgRho->grids[level], mgRho->nCoarseSolve, mpiInfo);
+	mgRho->prolongator(mgRes->grids[level-1], mgPhi->grids[level], mpiInfo);
+	return;
+}
+
+//Gathering info
+int nPreSmooth = mgRho->nPreSmooth;
+int nPostSmooth= mgRho->nPostSmooth;
+
+Grid *phi = mgPhi->grids[level];
+Grid *rho = mgRho->grids[level];
+Grid *res = mgRes->grids[level];
+
+//Boundary
+gInteractHalo(setSlice, rho, mpiInfo);
+gBnd(rho,mpiInfo);
+
+//Prepare to go down
+mgRho->preSmooth(phi, rho, nPreSmooth, mpiInfo);
+mgResidual(res, rho, phi, mpiInfo);
+gInteractHalo(setSlice, res, mpiInfo);
+gBnd(res, mpiInfo);
+
+//Go down
+mgRho->restrictor(res, mgRho->grids[level + 1]);
+mgVRecursive(level + 1, bottom, top, mgRho, mgPhi, mgRes, mpiInfo);
+
+//Prepare to go up
+gAddTo( phi, res );
+gInteractHalo(setSlice, phi,mpiInfo);
+gBnd(phi,mpiInfo);
+mgRho->postSmooth(phi, rho, nPostSmooth, mpiInfo);
+
+//Go up
+if(level > top){
+	mgRho->prolongator(mgRes->grids[level-1], phi, mpiInfo);
+}
+return;
+}
+\end{lstlisting}

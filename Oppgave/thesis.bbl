@@ -1132,24 +1132,6 @@
       \endverb
       \keyw{0644 Numerical methods,0654 Plasmas,2712 Electric fields,2794 Instruments and techniques,7855 Spacecraft sheaths,wakes,charging,double-probe technique,instruments and techniques,plasma simulation,spacecraft wakes and charging,spurious electric fields,wire boom instrument}
     \endentry
-    \entry{_more_????}{misc}{}
-      \field{sortinit}{M}
-      \field{labelyear}{2016}
-      \field{labelmonth}{11}
-      \field{labelday}{15}
-      \field{datelabelsource}{url}
-      \field{labeltitle}{More about {Abel} - {University} of {Oslo}}
-      \field{title}{More about {Abel} - {University} of {Oslo}}
-      \field{urlday}{15}
-      \field{urlmonth}{11}
-      \field{urlyear}{2016}
-      \verb{file}
-      \verb More about Abel - University of Oslo:/home/gullik/.zotero/zotero/ui33ctdv.default/zotero/storage/IXNBBEJG/index.html:text/html
-      \endverb
-      \verb{url}
-      \verb http://www.uio.no/english/services/it/research/hpc/abel/more/index.html
-      \endverb
-    \endentry
     \entry{pecseli_waves_2012}{book}{}
       \name{labelname}{1}{}{%
         {{uniquename=0,hash=546f007bbdd1aeef99e90f2a3768fe22}{Pécseli}{P\bibinitperiod}{Hans\bibnamedelima L.}{H\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%

@@ -1,9 +1,15 @@
 
-In this chapter we will go through different methods we used to verify the multigrid
+In this chapter we will go through different methods we used to test and verify the multigrid
 solver, as well as scaling measurements. Modular parts of the solver is tested with unittests
 where feasible. In addition the whole solver is tested with both analytically solvable
 test cases and randomly generated fields.
 
+We also investigate the performance and scaling of the solver in the parallel environment.
+This is to obtain a better understanding of how the field resolution can be scaled
+up without hampering the perfomance of the particle-in-cell simulation to much.
+We are interested in both how well the solver performs on a larger
+number of processors, as well as the perfomance impact of the different
+parameters in the solver.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %			OUTDATED

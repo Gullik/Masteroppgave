@@ -3,7 +3,7 @@
 		as the storage needs for the grids.
 
 	\subsubsection{Data structures}
-	The fields and quantities in PINC are discretized on a threedimensional
+	The fields and quantities in PINC are discretized on a \(3\)-dimensional
 	grid. In the multigrid calculation
 	several grids of varying spatial coarseness are used. So it will
 	be useful for us to organize the data so that we have the grid stored as an
@@ -26,11 +26,11 @@
 		also store the edge of the neighboring subdomain. Depending on the boundary
 		conditions it could also be useful to store an extra set of values on the
 		outer domain boundary as well, which will be called ghost points, \(N_G\).
-		The extra grid points due the the overlap between the subdomains we will call
+		The extra grid points due the overlap between the subdomains we will call
 		overlap points, \(N_O\). Let us for simplicity consider a regular domain,
 		with equal size in all dimensions, with \(N\) grid points per dimension,
 		\(d\) and consider how many grid values we need to store as a singular domain
-		and the grid values needed when it is divided amongst several processors, such
+		and the grid values needed when it is divided amongst several processors. Such
 		a 2 dimensional case is depicted in \cref{fig:domain_part}.
 
 		\subsection{Singular domain}
@@ -40,7 +40,7 @@
 		boundary. Given that we have one layer of ghost points on all the boundaries,
 		and there is 2 boundaries per dimension, the total number of ghost points is
 		given by \(N_G = 2dN\). Since there is only 1 domain we don't need to account
-		for any overlap between subdomains and the total grid points we need to store is:
+		for any overlap between subdomains and the total number of grid points we need to store is:
 
 		\begin{align}
 			N_{Tot} = N^d + N_G + N_O = N^d + 2dN^{d-1}
@@ -50,7 +50,7 @@
 		\(N_{Tot} = 8^2 + 2\times4\times 8 = 128\).
 
 		\subsection{Several subdomains}
-		In the case where we introduce several subdomain, in addition to storing the
+		In the case where we introduce several subdomains, in addition to storing the
 		grid values and the ghost points we also need to store an overlap between the
 		subdomains. If we take our whole domain \(\Omega\) and divide in up into several
 		small domains \(\Omega_S\), the smaller domains only takes a subset of the
@@ -72,9 +72,8 @@
 		\end{align}
 
 		For the 2 dimensional case discussed earlier we need \( N_{Tot,S} = 4^2 + 2\times2\times4^1 = 32\).
-
-		Since the effect of the subdomain boundaries increase the coarser the grid is
-		we should not let the coarsest multigrid level be to small. We also don't need
+		Since the effect of the subdomain boundaries increases the coarser the grid is,
+		we should not let the coarsest multigrid level be too small. We also don't need
 		the spatial extent of the grid to be equal on all sides, but it was done here
 		to keep the computations simple.
 

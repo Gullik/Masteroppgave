@@ -1,11 +1,10 @@
 \section{Multigrid Solver}
-	To test the solver itself we employ a couple different techniques.
+	To test the solver itself we employ a couple of different techniques.
+	For the main test we use a charge distribution with known analytical solution,
+	and we then compare the numerical solution to the analytical solution.
 
-	For the main test we use a charge distribution with a known analytical solution,
-	and we then we compare the numerical solution to the analytical solution.
-
-	Since constructed solutions can often behave to nice, we will also perform
-	a third test on a randomized charge distribution, here we will only look at the
+	Since constructed solutions can often behave too nice, we will also perform
+	another test with a randomized charge distribution, here we will only look at the
 	residual since we cannot compute the error due to not having an analytical solution.
 	We expect the residual to approach \(0\).
 
@@ -34,7 +33,7 @@
 
 
 \subsection{Analytical Solutions}
-	We use a few different constructed charge density fields, which is analytically solvable,
+	We use a few different constructed charge density fields, which are analytically solvable,
 	to test the performance and correctness of the solver. All the simulations here are ran on
 	a grid of the size \( 128, 64, 64 \) divided into \(1,2,2\) subdomains, with PINC
 	version 36ad.
@@ -45,7 +44,7 @@
 	\label{sec:sinusoidal}
 	A sinusoidal source term, \(\rho\) can be useful to test the solver since
 	it can be constructed to have very simple derivatives and integrals. Here
-	we use a sinusoidal function that has two positive tops and two negative tops
+	we use a sinusoidal function that has two positive maxima and two negative maxima
 	over the total domain. We want the sinus function to go over \(1\) period
 	over the domain, so we normalize the argument by dividing the grid point
 	value, \(x_j, y_k, z_l\), by the domain length in the direction, \(L_x, L_y, L_z\).
@@ -68,25 +67,25 @@
 			\begin{subfigure}[b]{0.6\textwidth}
 				\includegraphics[width = \textwidth]{figures/verification/analytical/sinusoidal/residual.pdf}
 			\end{subfigure}
-		\caption{This a \(x,y\)-plane from the grids cut along \(z_l = 32\), from the sinusoidal test case described in \cref{sec:sinusoidal}.
+		\caption{The \(x,y\)-plane is depicted from the grids cut along \(z_l = 32\), from the sinusoidal test case described in \cref{sec:sinusoidal}.
 		The top plot shows the charge distribution, the center plot shows the numerical solution of the potential and the bottom plot depicts
-		the residual. All the units are in normalized dimensionless units.}
+		the residual. All the quantities are in normalized dimensionless units. x, y and z are given in grid points.}
 		\label{fig:sinusoidal}
 	\end{figure}
 
-	The \cref{fig:sinusoidal} shows the results from running the MG-solver on the test sinusoidal test case described here.
+	Fig. \ref{fig:sinusoidal} shows the results from running the MG-solver on the test sinusoidal test case described here.
 	As can be expected the potential mirrors the charge distribution, except with an opposite sign and a larger amplitude.
-	A decently large grid was simulated and the mean residual was found to be: \(\bar{r} \approx 0.0312\).
+	A decently large grid was simulated and the mean residual was found to be: \(\bar{r} \approx 0.031\).
 
 
 	\subsubsection{Heaviside Function}
-		The solver is also tested with a charge distribution governed by a Heaviside
+		The solver is also tested with a charge distribution described by a Heaviside
 		function. This is also suited to testing since the charge distribution is then
 		constant planes, and we expect second order polynomial when integrating them.
 		In the test case there are two planes with the value \(-1\) and two
 		planes with \(1\). In \cref{fig:heaviside} the test case, as well as the solution and residual is
 		shown, and we can see the polynomials in the solution. The mean residual \(\bar{r}\) was
-		\(0.00677\).
+		\(0.0068\).
 
 	\begin{align}
 		\rho_(x_j,y_k,z_l) &= \begin{cases} 1  & y_j \epsilon (0, 32), (64,96)\\ -1  & y_j \epsilon (33, 65), (97,127) \end{cases}
@@ -112,17 +111,18 @@
 	\end{figure}
 
 	\subsection{Random Charge distribution}
-		To hopefully avoid some problems, that could appear due to the earlier test
-		cases being to constructed being to orderly, a test with a randomized
-		charge distribution is also included. The \cref{fig:random} shows the
-		charge distribution, numerical potential and the residual. The mean residual was
-			found to be \(\bar{r} \approx 0.00388\).
+		To ensure that the solver performs well for less regular charge distributions, we carry out a test with
+ 		randomized charge distribution. We use a standard random number generator from
+ 		the gnu scientific library. Fig. \ref{fig:random} shows the
+		charge distribution, numerical potential and the residual for this case. The mean residual was
+		found to be \(\bar{r} \approx 0.0039\), which is even smaller than for other more regular
+		cases. This confirms that the solver performs well and accurately.
 		%
 		\begin{figure}
 			\centering
             % \missingfigure{Blank}
 			\begin{subfigure}[b]{0.6\textwidth}
-				\includegraphics[width = \textwidth]{figures/verification/analytical/random/rho.pdf}
+				\includegraphics[width = \textwidth]{figures/verification/analytical/random/rho-1}
 			\end{subfigure}
 			\begin{subfigure}[b]{0.6\textwidth}
 				\includegraphics[width = \textwidth]{figures/verification/analytical/random/numerical.pdf}
@@ -140,7 +140,8 @@
 		In addition to the tests on shown in this section, we also ran the same tests
 		obtaining similar results on various sizes and directions. Since we wanted to be sure that the program
 		was working independently of the how the domain was divided into subdomains, we also performed
-		tests on different subdomain divisions.
+		tests on different subdomain divisions. There were no difference between different subdivisions and directions,
+		which confirms that the merging between subdomains works well. These results are not shown here.
 
 
 	\subsection{ND vs 3D algorithms}

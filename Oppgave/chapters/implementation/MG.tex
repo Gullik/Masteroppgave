@@ -1,26 +1,40 @@
+Presently PINC is not publicly available, contact 4DSpace at UiO for access\footnote{www.mn.uio.no/4dspace}.
+The model has been implemented in the language c, and is the common git repository
+within 4DSpace strategic Research Initiative at the University of Oslo.
+The module for the Poisson solver is about \(2000\) and is a part of the PINC code which is
+still under development. For this reason the code is not explicitly included in this thesis.
+However once the code is completed it will be released publicly.
 
-\subsection{Implementation}
-	In general there are \(4\) different quantities, the source, the solution, the residual and the correction, we need to keep track of.
-	On each grid level the residual is computed, then it is set as the source term for the next level and then it is not used more.
-	The correction, the improvement to the finer grid, is only used when going to a finer grid. Due to this we can save some memory by
-	letting the correction and the residual share the same memory, so both are stored in the mgRes struct. There are a regular as well as a recursive implementation
-	of a V-cycle. The functions takes the current level, the bottom of the cycle as well as the end point of the cycle. So several different cycles
-	can be built from the functions. A W cycle can be built a V cycle that starts at the finest level and stops at a mid level, and then a new V-cycle is started at
+\section{Implementation}
+	In general there are \(4\) different quantities, that we need to keep track of: the source, the solution, the residual and the correction.
+	On each grid level the residual is computed, then it is set as the source term for the next level and then it is not used anymore.
+	The correction,which is the improvement to the finer grid, is only used when going to a finer grid. Due to this we can save some memory by
+	letting the correction and the residual share the same memory, so both are stored in the same structure. There is a \textbf{regular} as well as a \textbf{recursive} implementation
+	of the V-cycle, see \cref{fig:V_c}. The functions take the current level, the bottom of the cycle as well as the end point of the cycle. Thus, several different cycles
+	can be built from the functions. A W cycle, see \cref{sec:algorithm}, can be built from a V cycle that starts at the finest level and stops at a mid level, and then a new V-cycle is started at
 	the mid level that ends at the finest level. A full multigrid algorithm (FMG) can also be implemented by first restricting the original source term down to the coarsest
-	level and then run a V-cycle that ends at the finest level. The choice between different cycles can be selected in the input file,
+	level and then run a V-cycle that ends at the finest level. The choice between different cycles can be selected in the input file of PINC,
 	and more type of cycles can easily be constructed if needed.
 
-	The regular V cycle algorithm is quite straightforward, first it restricts and computes itself down to the bottom level,
+	The \textbf{regular} V cycle algorithm is quite straightforward, first it computes the residual and restrict it down to the bottom level,
 	then it solves it directly on the bottom level. Then the correction is brought up and improved through the grid up to the top level.
 	See \cref{sec:mg_V_regular} for an example code.
 
-	The recursive algorithm uses an algorithm more similar to the one described in \cref{tab:recursive}. First it computes the steps necessary
-	so the grid below has an updated source term, then it calls itself on a lower level. After recieving the correction from
+	The \textbf{recursive} algorithm uses an algorithm similar to the one described in \cref{sec:V_cycle}. First it computes the steps necessary
+	so the grid below has an updated source term, then it calls itself on a lower level. After receiving the correction from
 	the lower level it is improved and sent to the level above. If the function is at the bottom level, it solves the problem directly and sends
-	the correction up. See \cref{sec:mg_V_recursive} for an example code.
+	the correction up.
 
 	It should also be mentioned that there are both \(3\)-dimensional algorithms, as well as a set of recursive \(N\)-dimensional algorithms
 	that are built to handle \(2-\) and \(1-\)dimensional simulations. The \(N-\)dimensional algorithms were easier to maintain than seperate algorithms
-	for \(1\) and \(2\) dimensions. 
+	for \(1\) and \(2\) dimensions.
+
+	\begin{figure} %(NOTE ref it)
+		\centering
+		\include{tikz/mgAlgorithm}
+		\caption{The functions used in \(2\) grid deep multigrid. The algorithm follows the steps needed for a complete V cycle.}
+		\label{fig:V_c}
+	\end{figure}
+
 
 	% \subsubsection{Recursive algorithm}

@@ -13,10 +13,11 @@
 
 
 	To investigate the scaling properties we will run set up a standard problem,
-	and solve it with increasing resolutions. We start with a \(32^3\) grid on
+	and solve it with increasing resolutions. We keep the size of the domain unchanged but increase the resolution (reducing the spacing). We start with a \(32^3\) grid on
  	\(1^3\) computaional core, then we increase the problemsize to \(64^3\) on \(2^3\)
 	and so on. These tests were run on Abel, UiO's computer cluster, and the technical details
-	can be found at the web page \citep{_more_????}. The results are shown on c\ref{fig:scalingMG}.
+	can be found at the web page \footnote{http://www.uio.no/english/services/it/research/hpc/abel/more/index.html (Accessed 2016-11-15)}.
+	The results are shown on c\ref{fig:scalingMG}.
 	%
 	\begin{figure}
 		% \begin{subfigure{\textwith}
@@ -29,10 +30,10 @@
 	%
 	%Comments
 	From \cref{sec:para_comp} we expect theoretical optimal scaling of \(\log{N}\log{\varepsilon}\).
-	While this was not achieved, the settings was not optimized in these runs, for the various problem sizes and
+	While this was not achieved, the settings were not optimized in these runs, for the various problem sizes and
 	this may have caused it to scale worse than it should. When more processors are used the speed of
 	the interprocessor communcation may have slowed down, as the processors are not part of the
-	same cluster. The main problem with the test was that the subdomains was very small so
+	same node. The main problem with the test was that the subdomains was very small so
 	the communication costs dominated. The communication costs scales linearly \citep{jung_parallelization_1997}, so
 	for the coarse grids of the \(5\)-level multigrid the solver scaled close to linearly.
 

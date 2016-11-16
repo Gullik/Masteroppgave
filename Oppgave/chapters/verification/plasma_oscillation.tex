@@ -9,7 +9,7 @@
 
     \subsection{Input parameters}
         \subsubsection{Timestep}
-        First we need to ensure that the simulation is does not violate the time-
+        First we need to ensure that the simulation does not violate the time-
         stability criterion, \cref{sec:time_stability}, \(\Delta t \leq 2\omega_{pe}\).
         For computational reasons each particle in the program represents many real particles
         and we can adjust the number, of real particles represented, to ensure
@@ -20,7 +20,7 @@
         \end{equation}
 
         Here \((N/V)\) is just the number of electron super-particles divided by the volume,
-        \(q_e\) and \(m_e\), represents super-particles and needs to be multiplied by the number
+        \(q_{e*}\) and \(m_{e*}\), represent super-particles and need to be multiplied by the number
         of particles in a super-particle, \(\kappa\).
 
         \begin{equation}
@@ -37,21 +37,21 @@
 
         \subsubsection{Spatial-step}
         The spatial step need to satisfy the finite grid instability condition,
-        \(\Delta x < \varsigma \lambda_{Se}\), \cref{sec:finite_grid_instability}.
+        \(\Delta x < \varsigma \lambda_{De}\), \cref{sec:finite_grid_instability}.
         We use a similar procedure as in normalizing the time with regards to \(\omega_{pe}\)
-        to normalize the length with regards to \(\lambda_{Se}\). The we end up with
+        to normalize the length with regards to \(\lambda_{De}\). The we end up with
         the temperature, or its other representation as thermal velocity, as the parameter we can adjust to make sure that it satisfies the
         condition.
 
         \begin{equation}
-            \lambda_{Se}^2 = \frac{\epsilon_0 kT_e}{nq^2_e}
+            \lambda_{De}^2 = \frac{\epsilon_0 kT_e}{nq^2_e}
         \end{equation}
 
 		% To make sure that
 
 		\subsubsection{Simulation}
-			We ran a simulation for \(10\tau_{pe}\), on a \(64,64,64\) size grid. The particles
-			was first randomly distributed and given a maxwellian velocity distribution.
+			We ran a simulation for \(10\omega_{pe}^{-1}\), on a \(64,64,64\) size grid. The particles
+			were first randomly distributed and given a Maxwellian velocity distribution.
 			Then they were slightly perturbed to create an imbalance.
 
 			\begin{table}
@@ -61,11 +61,11 @@
 				\\ \hline
 				\((64,64,64)\)	& \(0.2\)	& \(0.1\)  	&	\(64\)	& 		\(0.002, 0.00046\)
 			\end{tabular}
-			\caption{Key settings for the langmuir wave oscillation. The complete settings are
+			\caption{Key settings for the Langmuir wave oscillation. The complete settings are
 			stored as an input file, langmuirWarm, in the PINC directory.}
 			\end{table}
 
-			The simulation were set to run for \(100\) timesteps, where each timestep represents \(0.1omega_{pe}^{-1}\).
+			The simulation was set to run for \(100\) timesteps, where each timestep represents \(0.1\omega_{pe}^{-1}\).
 			\begin{equation}
 				\tau_p \equiv 2\pi/\omega_{pe}
 			\end{equation}
@@ -83,4 +83,7 @@
 		is stable conserved, with a maximal variation of \(0.22\%\). The potential energy starts large
 		and then it sinks as the potential energy is converted to kinetic energy. This is due to the particles
 		attempting to neutralize the fields. The particles overshoots equilibrium position and the kinetic
-		energy starts to convert back to potential energy.
+		energy starts to convert back to potential energy. Thus, the PINC with the multigrid solver developed in this thesis,
+		can simulate collective plasma phenomena and accurately reproduce Langmuir Oscillations, which we discussed in \cref{sec:langmuir} and
+		which are the fundamental oscillations in plasma \citep{pecseli_waves_2012,chen_introduction_1984}.
+ 

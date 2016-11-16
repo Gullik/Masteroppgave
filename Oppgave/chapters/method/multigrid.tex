@@ -3,7 +3,7 @@
 	\label{sec:multigrid}
 	Here we will go through the main theory and
 	algorithm behind the multigrid solver, developed as a part of this thesis.
-	See also \citep{press_numerical_1988,trottenberg_multigrid_2000}.
+	See also \citet{press_numerical_1988,trottenberg_multigrid_2000} for the general description.
 	This solver is developed for the wholly distributed storage model.
 
 	\subsection{General idea}
@@ -13,13 +13,14 @@
 		the guess and the correct solution, the residual, does not necessarily converge equally fast for different frequencies.
 		An iterative solver can be very efficient on reducing the local error,
 		while the errors due to distant influence is reduced slowly.
-		A multigrid solver attacks this problem by applying iterative methods on different discretizations of the problem, by solving on a very coarse grids
-		the error due to distant influence will be reduced faster, while solving on a fine grid reduces the local error fast. So by solving on both
-		fine and coarse grids the needed cycles will be reduced. To implement a multigrid algorithm we then need algorithms to solve the problem on a grid ,
+		A multigrid solver attacks this problem by applying iterative methods on different discretizations of the problem. By solving the problem on very coarse grids
+		the error due to distant influence will be reduced faster, while solving on a fine grid reduces the local error fast. Thus, by solving the problem on both
+		fine and coarse grids the needed cycles will be reduced. To implement a multigrid algorithm we then need algorithms to solve the problem on a grid,
 		restriction and prolongation, see \cref{sec:GSRB,sec:restr_simplesec:prol_simple}, operators to transfer the problem between grids, as well as a method to compute the residual.
 
 
 	\subsection{Algorithm}
+	\label{sec:algorithm}
 	We want to solve a linear elliptic problem,
 		\begin{align}
 			\mathcal{L} u = f
@@ -33,8 +34,8 @@
 		\mathcal{L}_q u_q &= f_q \label{eq:difference}
 	\end{align}
 
-	Let the error, \(v_q\) be the difference between the exact solution and an approximate
-	solution to the difference equation (\ref{eq:difference}), \( v_q = u_q - \tilde{u}_q \).
+	Let the error, \(v_q\) be the difference between the exact solution,\(u_q\), and an approximate
+	solution, \(\tilde{u}_q\), to the difference equation (\ref{eq:difference}), \( v_q = u_q - \tilde{u}_q \).
 	Then we define the residual as what is left after using the approximate solution
 	in the equation.
 
@@ -54,7 +55,7 @@
 	If we then increase the resolution to obtain a better solution, the system
 	becomes harder to solve. The multigrid method approaches this problem
 	by solving it on several different discretizations levels.
-	We set up a systems of nested coarser regular grids,
+	We set up a system of nested coarser regular grids,
 	\(\mathfrak{T}_0 \supset \mathfrak{T}_{1} \supset \cdots \supset \mathfrak{T}_\ell\),
 	where \(\mathfrak{T}_0\) is the finest and \(\mathfrak{T}_\ell\) is the coarsest grid.
 	Then an iterative solver, which has the property of quickly converging of high frequency errors, i.e.
@@ -66,7 +67,7 @@
 	faster to solve on the coarser grid levels than on the fine grid.
 	%
 	Applying the restriction and prolongation operators on the grid gives us
-	the grid discretized on a different level.
+	the grid discretized on a different level:
 
 	\begin{align}
 		\mathcal{R} d_q = d_{q+1} \qquad \text{and} \qquad \mathcal{P} d_q = d_{q - 1}
@@ -86,12 +87,13 @@
 	level is described in greater detail in \cref{sec:mg_impl}.
 
 	\subsubsection{V-Cycle}
+		\label{sec:V_cycle}
 		The simplest multigrid cycle is called a V-cycle, which starts at the finest grid, goes down to the coarsest grid and then goes back up
-		to the finest grid.	First the problem is smoothed on the finest level, then we compute the residual, or the rest after inserting the guess solution
+		to the finest grid \citep{press_numerical_1988}. First the problem is smoothed on the finest level, then we compute the residual, or the rest after inserting the guess solution
 		in the equation. The residual is then used as the source term for the next level, and we restrict it down as the source term for the next
-		coarser level and repeat untill we reach the coarsest level. When we reach the coarsest level the problem is solved there and we obtain a correction
+		coarser level and repeat until we reach the coarsest level. When we reach the coarsest level the problem is solved there and we obtain a correction
 		term. The correction term is prolongated to the next finer level and added to the solution there, improving the solution, following by a new smoothing
-		to obtain a new correction. This continue untill we reach the finest level again and a multigrid cycle is completed, see \cref{fig:MG_schematic} for a 3
+		to obtain a new correction. This is continued until we reach the finest level again and a multigrid cycle is completed, see \cref{fig:MG_schematic} for a 3
 		level schematic.
 
 		In the following description of the steps in the MG method, we will use \(\phi\), \(\rho\), \(d\) and \(\omega\) to signify the solution, source,
@@ -133,17 +135,10 @@
 			\label{algo:mg_recursive}
 	    \end{algorithm}
 
-
-		\begin{figure}
-			\centering
-			\include{tikz/mgAlgorithm}
-			\caption{The functions used in \(2\) grid deep multigrid. The algorithm follows the }
-		\end{figure}
-
 		At the coarsest level the the problem is solved directly and the correction is propageted upward.
 
 	\subsubsection{W Cycle}
-		The W-cycle is similar to the V-cycle, with the difference that it spends longer than on the coarser grids,
+		The W-cycle is similar to the V-cycle, with the difference that it spends longer time on the coarser grids,
 		obtaining a better solution before returning to the finest grid.
 
 	\subsubsection{Full Multigrid}
@@ -170,11 +165,11 @@
 		\begin{align}
 			\mathcal{L}u &= \rho
 			\intertext{Then we set it up as a diffusion equation}
-			\pdv{u}{t} &= \mathcal{L}u - \rho
+			\pdv{u}{t} &= \mathcal{L}u - \rho.
 			\intertext{By starting with an initial guess for what \(u\) could be the
 			equation will relax into the equilibrium solution \(\mathcal{L}u = \rho\).
 			By using a Forward-Time-Centered-Space scheme to discretize, along with
-			the largest stable timestep \(\Delta t = \Delta^2 / (2\cdot d))\), we
+			the largest stable timestep \(\Delta t = \Delta^2 / (2\cdot d)\), we
 			arrive at Jacobi's method, which is an averaging of the neighbors in
 			addition to a contribution from the source term. By using the already
 			updated values for the calculation of the \(u^{new}\) we arrive at the
@@ -211,18 +206,18 @@
     		\phi^{n+1}_j &= \frac{1}{2}\left(  \phi^n_{j+1} +\phi^{n+1}_{j-1} + \Delta x^2 \rho_j \right)
     	\end{align}
 
-    	Following the same procedure, we get the Gauss-Seidel method for for \(2\)
+    	Following the same procedure, we get the Gauss-Seidel method for for \(2\) dimensions:
 
     	\begin{equation}
     		\phi^{n+1}_{j,k} = \frac{1}{4} \left( \phi^n_{j+1,k} +\phi^{n+1}_{j-1,k} + \phi^n_{j,k+1} + \phi^{n+1}_{j,k-1} + \Delta x^2 \rho_{j,k} \right)
     	\end{equation}
-		and  \(3\) dimensions.
+		and  \(3\) dimensions:
     	\begin{equation}
     		\phi^{n+1}_{j,k,l} = \frac{1}{8} \left( \phi^n_{j+1,k,l} +\phi^{n+1}_{j-1,k,l} + \phi^n_{j,k+1,l} + \phi^{n+1}_{j,k-1,l} +
-     							\phi^n_{j,k,l+1} + \phi^{n+1}_{j,k,l-1} + \Delta x^2 \rho_{j,k,l} \right)
+     							\phi^n_{j,k,l+1} + \phi^{n+1}_{j,k,l-1} + \Delta x^2 \rho_{j,k,l} \right).
     	\end{equation}
 
-    	Here we have implemented a different version of the Gauss-Seidel algorithm called Red and Black ordering, which has conceptual similarities
+    	Here we have implemented a different version of the Gauss-Seidel (similar to a chess board) algorithm called Red and Black ordering, which has conceptual similarities
     	to the leapfrog algorithm, where usually position and velocity is computed at \(t\) and \( t+(\delta t)/2 \). Every other grid point is labeled a
     	red point, and the remaining is black. When updating a red node only black nodes are used, and when updating black nodes only
     	red nodes are used. Then a whole cycle consists of two halfsteps which calculates the red and black nodes seperately.
@@ -244,21 +239,21 @@
          	convert the problem between the diffrent grids during the overarching the MG-algorithm.
          	The restriction algorithm has the task of translating from a fine grid to a coarser grid.
 			Direct insertion is the simplest way to do this, where coarse grid points
-			corresponds directly to its representation on the fine grid.
+			correspond directly to its representation on the fine grid.
         	In this implementation we chose to use a half weight stencil, which works well together
 			with the \(1\) layer Halo, to restrict a quantity from a fine
         	grid to a coarse grid. A higher order restriction algorithm could later
-			be implemented if thought useful. The coarse grid values is obtained by giving half weighting to
+			be implemented if thought useful. The coarse grid values are obtained by giving half weighting to
         	the fine grid point corresponding directly to the coarse grid point, and gives the remaining
         	half to the adjacent fine grid values, see \eqref{eq:restriction_stencils}, for 1D,
-        	2D and 3D examples.
+        	2D and 3D examples:
 
         	\begin{equation}
         		\begin{aligned}
         			\mathcal{R}_{1\text{D}} &= \frac{1}{4}
         			\begin{bmatrix}
         				1 & 2 & 1
-        			\end{bmatrix}
+        			\end{bmatrix},
         			\\
         			\mathcal{R}_{2\text{D}} &= \frac{1}{8}
         			\begin{bmatrix}
@@ -267,7 +262,7 @@
         				1 & 4 & 1
         				\\
         				0 & 1 & 0
-        			\end{bmatrix}
+        			\end{bmatrix},
         			\\
         			\mathcal{R}_{3\text{D}} &= \frac{1}{12} \left(
         			\begin{bmatrix}
@@ -293,7 +288,7 @@
         				\\
         				0 & 0 & 0
         			\end{bmatrix}
-        			\right)
+        			\right).
         			\label{eq:restriction_stencils}
         		\end{aligned}
         	\end{equation}
@@ -301,14 +296,14 @@
         \subsection{Prolongation}
             \label{sec:prol_simple}
 
-            Along with the restriction operator described in the previous section, we also need prolongation
+            Along with the restriction operator described in the previous subsection, we also need prolongation
             operator to go from a coarse grid to a finer grid. As in the restriction
-			operator direct insertion is the simplest algorithm. Here we will use bilinear interpolation,
-			as advised in \cite{trottenberg_multigrid_2000}, for
-            two dimensions and trilinear interpolation for 3 dimensions. In bilinear interpolation seperate
-            linear interpolation is done in the x- y- and z-direction, then those are combined to give a result
+			operator, direct insertion is the simplest algorithm. Here we will use bilinear interpolation,
+			as advised in \citet{trottenberg_multigrid_2000}, for
+            two dimensions and trilinear interpolation for 3 dimensions. In the bilinear interpolation a seperate
+            linear interpolation is done in the x- y- and z-directions, then those are combined to give a result
             on the wanted spot. The same concept is expanded to give trilinear
-            interpolation. The two and three dimensional stencils is given in \eqref{eq:prolongation_stencils}
+            interpolation. The two and three dimensional stencils are given in \eqref{eq:prolongation_stencils}
 
             \begin{equation}
                 \centering

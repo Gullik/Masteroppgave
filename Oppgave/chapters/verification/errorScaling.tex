@@ -1,11 +1,11 @@
 \section{Scaling of the error compared to discretization}
-The charge density is represented by a discretized grid, due to this a numerical solution
+The charge density is represented on a discretized grid and due to this a numerical solution
 will have an inherent error.
 The error will be of second order, \(\order{h^{-2}}\), dependent on the
 stepssize, \(\Delta x\), due to the first order solver, see \cref{sec:GSRB}.
 
-To investigate that the error the of the solver follows a second order improvement
-as the stepsize decreases we construct a sinusoidal \(rho\) as a test case.
+To investigate that the error of the solver follows a second order improvement
+as the stepsize decreases we construct a sinusoidal \(\rho\) as a test case.
 
 \begin{equation}
     \rho(x) = \sin{\left(\frac{x}{2\pi}\right)}; \qquad x\epsilon[0,2\pi] \label{eq:sinus_errorScaling}
@@ -13,7 +13,7 @@ as the stepsize decreases we construct a sinusoidal \(rho\) as a test case.
 
 This \(\rho\) is analytically solvable for the Poisson equation so we can compute the
 \(2\)-norm of the error, \(\norm{err}_2\). Then we gradually decrease the stepsize
-and obtain and compare the norm of the numerical solutions. Since the normalization in PINC
+and compare the norm of numerical solutions. Since the normalization in PINC
 is normally done outside the multigrid solver, \(rho\) had to be suitably scaled
 to the stepsize. We expect the error to be proportional to the squared stepsize, \(err(h) \approx Ch^2\), where \(C\) is a constant dependent on the geometry of the problem.
 By taking the logarithm we obtain
@@ -22,7 +22,7 @@ By taking the logarithm we obtain
     \log(err(h)) = 2\log(Ch)
 \end{equation}
 
-\cref{fig:errorScaling} shows the
+Fig. \ref{fig:errorScaling} shows the
 the measured error when solving the sinusoidal charge distribution, \cref{eq:sinus_errorScaling},
 for both the potential, \(\phi\), and the electric field, \(E_x\).
 The problem was solved with different discretizations on a \(3\)-dimensional domain,
@@ -43,6 +43,6 @@ subdomain configurations and with the sinus shape along the other axes.
     x-component of the electric field. The solver was run on a scaled sinus-shaped charge distribution.
     Both of the plots show a straight line of the error, on the logarithmic plots, with a slope
     of \(2.00\). This corresponds to the error scaling with order \(-2\) as a function of the
-	stepsize. All the units are in PINC normalized units.}
+	stepsize as expected. All the units are in PINC normalized units.}
     \label{fig:errorScaling}
 \end{figure}

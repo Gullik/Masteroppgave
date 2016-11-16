@@ -1,10 +1,10 @@
 
     Particle based plasma simulations have been in use since the 1960s, \citep{verboncoeur_particle_2005},
-    and part of this project was to design a massively parrallel implementation,
+    and the goal of this project was to design, and implement, a massively parallel code,
     with a focus on the Poisson solver.
-    The aim of this chapter is to describe simple and fast PiC model, with good scaling properties, as a baseline
-    and rather add in extra functionality later. Due to this it we focus on an electrostatic model and
-    ignores relativistic effects, which makes it faster and more suited to certain tasks, such as
+    The aim here is to describe simple and fast PiC model, with good scaling properties, as a baseline
+    and rather add in extra functionality later. Thus, we focus on an electrostatic model and
+    we ignore relativistic effects, which makes it faster and more suited to certain tasks, such as
 	space plasmas and plasma discharges.
     For an example of a modern relativistic full electromagnetic model see
     \citet{sgattoni_piccante:_2015}.
@@ -13,33 +13,32 @@
     done by \citet{dawson_one-dimensional_1962} and \citet{buneman_dissipation_1959}.
     They computed the electrical force directly between the particles leading
     to a computational scaling of \(\order{(\#particles)^2}\).
-    Since a large number of particles is often wanted the PiC method seeks to improve
+    Since a large number of particles is often needed, the PiC method seeks to improve
     the scaling by computing the force on the particles from an electric field instead.
-    The electric field is computed from the charge distribution obtained from the plasma particle
+    The electric field is computed on a grid from the charge distribution obtained from the plasma particle
 	distribution. For an electrostatic model, which this thesis focuses on, this is usually done by solving the Poisson
     equation, \cref{eq:poisson}, over the whole domain, \(\Omega\).
 	%
 
-	A PiC model has \(4\) main components: the mover, the weighting scheme, the field solver
-	and the distributer. See \cref{fig:schematic} for an overview of the PiC cycle.
+	A PiC model has \(4\) main components: the mover, the weighting scheme (distribute), the field solver
+	and the projection. See \cref{fig:schematic} for an overview of the PiC cycle.
 	The mover is responsible for moving the particles and updating the velocities of the particles.
-    The input to the solver is the charge density, \(\rho\), and the output is the potential, \(\phi\).
+    The input to the solver, in the electrostatic case, is the charge density, \(\rho\), and the output is the potential, \(\phi\).
     \begin{align}
-        \nabla ^2 \phi &= -\rho \qquad \text{in} \qquad \Omega \label{eq:poisson}
+        \epsilon_0 \nabla ^2 \phi &= -\rho \qquad \text{in} \qquad \Omega \label{eq:poisson}
     \end{align}
-    The distribute module computes a charge distribution from the particle distribution,
+    The distribute module computes a charge distribution on a grid from the particle distribution,
 	This is often done with \(1\)st order interpolation, resulting in second order accuracy. Different order
 	interpolation can also be used.
-    The solver then computes the electric field. For an electrostatic case a multigrid algorithm is
-	often used but there described in \cref{sec:solvers}.
+    The solver then computes the electric field.
     Lastly the fields are projected onto the particles.
 
     \begin{figure}
         \center
         \input{tikz/PiC_fig}
-        \caption{Schematic overview of the PIC cycle. The mover moves all the particles and updates the velocities.
-        Next the charges are distributed to a charge density grid by a distribute algorithm. The solver then
-        obtains the electric field, and magnetic field in a full electromagnetic model. Lastly the field values are
+        \caption{Schematic overview of the electrostatic PIC cycle. The mover moves all the particles and updates their velocities.
+        Next the particle charges are distributed to a charge density grid. The solver then
+        obtains the electric field on the grid (and magnetic field in a full electromagnetic model when also the currents are weigthed to the grid). Lastly the field values are
 		projected onto the particles.}
         \label{fig:schematic}
     \end{figure}
@@ -50,27 +49,27 @@
 		An often used mover is the \textit{Leapfrog} algorithm \citep{birdsall_plasma_2004},
  		derived from a forward finite difference discretization of the timestep. Then the
  		velocity is shifted half a timestep forward improving the accuracy, with no extra computations needed compared
-		with \textit{Euler} integration. When the magnetic force also needs to be considered
+		with the \textit{Euler} integration. When the magnetic force also needs to be considered
 		the most used algorithm is the  \textit{Boris} algorithm \citep{qin_why_2013}, employing rotations to effieciently deal with
 		the cross product.
 		%
 		While the aforementioned movers are explicit, based on a forward discretization of the time,
- 		various projects project using partial and full implicit algorithms also exist \citep{friedman_direct_1981,lapenta_particle_????}.
-		Since implicit algorithms allows a relaxation of the stability restrictions, to be introduced later, they allow
+ 		various projects based on partial and full implicit algorithms also exist \citep{friedman_direct_1981,lapenta_particle_????}.
+		Since implicit algorithms allows a relaxation of the stability restrictions (to be introduced later) they allow
 		the model to resolve closer to the investigated phenomena.
 
 
     \subsection{Field Solvers}
 	\label{sec:solvers}
-    The Poisson equation, \cref{eq:Poisson}, is a well known and investigated problem.
-    Here we will mention some advantages and disadvantages of different possible
+    The Poisson equation, \cref{eq:poisson}, is a well known and investigated problem.
+    Here we will mention some advantages and disadvantages of different
     field solvers before we describe our choice of a multigrid solver. It should also
 	be mentioned that a implicit methods require a different approach, with the preconditioned Jacobian-Free-Newton-Krylov as the most promising approach.
 	\citet{lapenta_particle_2012} can be consulted for an overview.
 
     \subsubsection{Spectral Methods}
-    	The spectral methods is based on rewriting the problem into a sum of bases functions
-		frequencies and solving the problem on the basis functions form, see \citet{israeli_accurate_2005} for an
+    	The spectral methods are based on rewriting the problem into a sum of base functions
+		and solving the problem on the basis functions form, see \citet{israeli_accurate_2005} for an
     	implementation of an spectral Poisson solver. Often the basis functions chosen are
  		sinusoidal, allowing the Fourier Transform to be used. Other basis functions can also be used as in
 		\citet{shen_efficient_1994}. They are efficient solvers that
@@ -81,19 +80,19 @@
 
     	\begin{align}
     		\nabla^2 \sum A_{j,k,l} e^{i(jx + ky + lz)} &= \sum B_{j,k,l} e^{i(jx + ky + lz)}
-    		\intertext{where \(A_{j,k,l}\) and \(B_{j,k,l}\) are the coeffecients of the sinusoids, or otherwise the basisfunctions.
+    		\intertext{where \(A_{j,k,l}\) and \(B_{j,k,l}\) are the coeffecients of the sinusoids, or otherwise the basis functions.
 			From there we get a relation between the coefficients}
     		A_{j,k,l} &= -\frac{B_{j,k,l}}{j^2 + k^2 + l^2}
     		\intertext{Then we compute the Fourier transform of the right hand side obtaining
     		the coefficients \(B_{j,k,l}\). We compute all the coefficients \(A_{j,k,l}\)
-    		from the relation between the coefficients. At last we perform a inverse
+    		from the relation between the coefficients. At last we perform an inverse
     		Fourier transform of the left hand side obtaining the solution.}
     	\end{align}
 
     \subsubsection{Finite Element Methods}
 
     	The finite element (FEM) is a method to numerically solve a partial differential
-    	equations (PDE) first transforming the problem into a variational problem and
+    	equations (PDE), by first transforming the problem into a variational problem and
     	then constructing a mesh and local trial functions, see \cite{alnaes_fenics_2011}
     	for a more complete discussion. FEM is similar to a spectral solver, with the main difference
 		that FEM's basis functions are only locally nonzero.
@@ -109,7 +108,7 @@
     	\end{align}
 
     	Next we construct discrete local function spaces of that we assume contain
-    	the trialfunctions and testfunctions. The function space, \(\hat{V}\), often consists of
+    	the trial functions and test functions. The function space, \(\hat{V}\), often consists of
     	locally defined functions that are \(0\) except in a close neighbourhood of
     	a mesh point, so the resulting matrix to be solved is sparse and can be computed
     	quickly. The matrix system is then solved by a suiting linear algebra algorithm,
@@ -126,9 +125,9 @@
         The multigrid method is based on iterative
         solvers such as Gauss-Seidel, \cref{sec:GSRB}, these have the property
         that they quickly eliminate local errors in the solution, while far
-        away influences takes longer to incorporate. Multigrid algorithms tries
-        to lessen this problem by transforming this problem to a coarser grid
+        away influences takes longer to incorporate. Multigrid algorithms try
+        to lessen this problem by transforming it into a coarser grid
         so the distant errors gets solved in fewer iterations. Due to this it needs
         operators to transfer the problem between coarser and finer grids, which
-        is called restrictors and prolongators. The multigrid algorithm is described in
+        is called restrictors and prolongators. The multigrid algorithm is a topic of this thesis and is described in
         more detail in \cref{sec:multigrid}.

@@ -18,13 +18,13 @@
 	\subsection{Grid Partition}
 		\label{sec:grid_partitioning}
 		There are several well explored options for how a multigrid method can be
-		parallized, for example Domain Decomposition \citep{arraras_domain_2015} ,
+		parallized, for example Domain Decomposition \citep{arraras_domain_2015},
 		Algebraic Multigrid \citep{stuben_review_2001}, see \citet{chow_survey_2006}
 		for a survey of different techniques. Here we will focus on Geometric
 		Multigrid (GMG) with domain decomposition used for the parallelization, as
 		described in the books \citet{trottenberg_multigrid_2000,hackbusch_multigrid_1982}.
 
-		With the domain partitioning we divide the grid \(\mathcal{\Omega}\) into geometric
+		With the domain partitioning we divide the grid into geometric
 		subgrids, then we can let each processes handle one subgrid each. As we will
 		see it can be useful when using the GS-RB smoothing, as well as other parts
 	    of a PiC program, to extend the subgrids with layers of ghost cells. The GS-RB
@@ -32,13 +32,13 @@
 
 	\subsection{Distributed and accumulated data}
 		One possible strategy to implement a parallel multigrid solver is to keep
-		some of the quantities distributed, ie, they are only stored locally
+		some of the quantities distributed, i.e. they are only stored locally
 		on the local computational nodes, while the other are accumulated and
-		shared between the nodes. Below follows an overview of which quantities
-		need only be accessed locally and which need a global presence
-		during a parallel execution of the code. In PINC the accumulated quantities
+		shared between the nodes. In PINC the accumulated quantities
  		are all stored only locally, but the processors obtain the needed information
-		from the nearby subdomains when needed.
+		from the nearby subdomains when needed. Below follows an overview of which quantities
+		need only be accessed locally and which need a global presence
+		during a parallel execution of the code.
 	\\	\\
 		\begin{tabular} {c c}
 			\(u\) & solution (\(\Phi\))
@@ -103,9 +103,8 @@
 		grid points that are kept in the other processors. To avoid the algorithm
 		from asking neighboring subgrids for adjacent grid points each time it
 		reaches a edge we instead update the entire neighboring column at the start.
-		So we will have a 1-row overlap between the subgrids, that need to be updated
+		So we will have a 1-row overlap between the subgrids, that needs to be updated
 		for each iteration.
-
 
 	\subsection{Restriction}
 		For the transfer down a grid level, to the coarser grid we will use a half
@@ -141,9 +140,10 @@
 			\end{bmatrix}
 		\end{align}
 
-		Since the interpolation is always done after GS-RB iterations the the outer
+		Since the interpolation is always done after GS-RB iterations the outer
 		part overlapped part of the grid updated, and we can have all the necessary
-		information.
+		information. We note again that the is N-dimensional and the stencils are different for the
+		1D, 2D and 3D cases. However for clarity we present here a 2D case.
 
 	\subsection{Scaling}
 		\subsubsection{Volume-Boundary effect}
@@ -171,20 +171,20 @@
 		need for communication, like on \(1\) processor, the algorithm is perfectly
 		parallel efficient. In our case the whole grid is diveded into several subgrids,
 		which is assigned to different processors. In many cases the time used for
-		computation is roughly scaling with the interior grid points, while the
+		computation is roughly scaling with the number of interior grid points, while the
 		communication time is scaling with the boundaries of the subgrids. If a
 		local solution method is used on a local problem it is only the grid points
 		at the boundary that need the information from grid points on the other
-		processors. Since the edges has lower dimensionality than the inner grid
-		points, the boundary grows slower than the inner domain. As the size of the subdomains is increasing
+		processors. Since the edges have lower dimensionality than the inner grid
+		points, the boundary grows slower than the inner domain. As the size of the subdomains is increasing,
 		the computational time increases
 		faster than the time for communication. This causes a parallel algorithm to often have
-		higher parallel efficiency on a larger problem. This is called the Boundary-Volume effect.
+		higher parallel efficiency on a larger problem. This is called the Boundary-Volume effect \citep{trottenberg_multigrid_2000}.
 
 		\subsubsection{Parallel complexity}
 			\label{sec:para_comp}
 			The computational complexity of sequential and
-			parallel MG cycles are calculated in \cite{hackbusch_multigrid_1982} and are
+			parallel MG cycles are calculated in \citet{hackbusch_multigrid_1982} and are
 			shown in \cref{tab:parallel_complexity}. In the table we can see that in
 			the parallel case there is a substantial increase in the complexity in the
 			case of \(W\) cycles compared to \(V\) cycles. In the sequential case the
@@ -215,10 +215,10 @@
 		represents a subdomain of the whole, with the neighboring node being the boundary. So between two subdomains each subdomain updates the boundary according to
 		the neigbouring subdomain. In addition the halo is used to facilitate boundary conditions on the whole domain. For some of the grid operators
 		the ghost are not used, while some of them need updated values. All of the iterative solvers, that are used
-		for smoothing, need updated values of the of the solution, \(\phi\). The prolongation and residual operators need updated values
+		for smoothing, need updated values of the solution, \(\phi\). The prolongation and residual operators need updated values
 		for the solution \(\phi\), and the restrictor need updated residual values, \(\rho\), as long as direct insertion is not used.
 		We also need to take into account that the smoothers outputs an updated halo for \(\phi\), to avoid
-		unnecessarily communication between the processors.
+		unnecessary communication between the processors.
 
 
 

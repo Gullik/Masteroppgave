@@ -1,17 +1,18 @@
 
 	\section{Smoothers}
 		\subsubsection{Jacobi's method}
-		The implementation of the jacobian algorithm is straightforward, but it has the downside of slow convergence and
-		bad smoothing properties, in addition to needing an additional grid values. When \(\phi^{n+1}_{i}\) is computed
-		we need access to the previous value \(\phi^n_{i-1}\), and more values in higher dimensions, so either the previous values
+		The implementation of the Jacobian algorithm, which was described in \cref{sec:GSRB}, is straightforward, but it has the downside of slow convergence and
+		bad smoothing properties, in addition to the need of additional grid values. When \(\phi^{n+1}_{i}\) is computed
+		we need access to the previous value \(\phi^n_{i-1}\), so either the previous values
 		need to stored seperately, or \(\phi^{n+1}_{i}\) can be computed on a new grid and then copied over after completing the cycle.
-		In this implementation we computed on a temporary grid and then copied over, since it was mostly for debugging purposes and
+		In this implementation we computed the solution on a temporary grid and then copied over, since it was mostly for debugging purposes in the early development, and
 		efficiency was not a concern.
 
 		The computation is done by starting at index \(g=0\), computing the surrounding grid indexes, \(gj, gjj,...\), where \(gj\)
 		is the next grid point along the x-axis, and \(gjj\) is the previous value. Then the entire grid is looped trough over, incrementing
 		both \(g\) and the surrounding grid indexes \(gj, gjj,...\). The computation on the ghost layers will be incorrect but those will be overwritten
-		when swapping halos. See \ref{sec:jacobian} for an example code in 2D.
+		when swapping halos. As mentioned Jacobi's method was used for development and testing, but in the final version we use the Gauss-Seidel Red and Black ordering.
+
 
 		\subsubsection{Gauss-Seidel Red and Black}
 		In the implementation of Gauss-Seidel algorithm we use a clever ordering of the computations,
@@ -22,8 +23,9 @@
 
 		A cycle is then divided into 2 halfcycles, where each halfcycle computes \(\phi^{n+1}\) for the red and black points respectively.
 
+
 		\begin{enumerate}
-			\item for(int c = 0; c<nCycles; c++)
+			\item for(int c = 0; c \(<\) nCycles; c++)
 				\begin{itemize}
 					\item Cycle through red points and compute \(\phi^{n+1}\)
 					\item Swap Halo
@@ -32,11 +34,9 @@
 				\end{itemize}
 		\end{enumerate}
 
-		For the 2 dimensional case the cycling is done first for the odd rows and even rows seperately, due
+		For the 2 dimensional case the iteration is done first for the odd rows and even rows seperately, due
 		to the similarity between all the red points in the odd rows, and between the red points in the even rows.
-		Then the cycling could be generalized into a static inline function used for all the cycling. See \ref{sec:GS_RB_2D} for the 2D implementation.
-
-
+		Then the cycling could be generalized into a static inline function used for all the cycling.
 
 		%Figure
 		\tikzstyle{red}=[circle,fill=red!70,minimum size=10pt,inner sep=0pt]
@@ -106,20 +106,20 @@
 				\foreach \pos/\name in {{(8,1)/}}
 				\node[black] (\name) at \pos {$\name$};
 			\end{tikzpicture}
-			\caption{Red and Black ordering}
+			\caption{This figure shows the Red and Black ordering, utlized by the GS-RB algorithm. Each color is done seperately.}
 			\label{fig:RB_ordering}
 			\end{subfigure}
 	\end{figure}
 
-	For the 3 dimensional case there is now did two different takes on the problem, one where the iteration through the grid is streamlined, but needing
-	several loops through the grid taking care of a subgroup of the grid points each loop. The other algorithm uses one loop through the grid,
+	For the 3 dimensional case there are two different approaches to the problem, one where the iteration through the grid is streamlined, but needs
+	several loops through the grid to take care of a subset of the grid points each loop. The other algorithm uses one loop through the grid,
 	with different conditions on the edges to make it go through the correct grid points in each line.
 
 	When the loops are streamlined the edges the loop go through the entire grid, but when it reaches and edge in it either needs to add or subtract \(1\) to
 	the iterator index. In \label{eq:RB_loop} we want to do a red pass, computing all the red values, the grid is cycled through increasing by 2 each time.
 	Then it will access up the indexes, \(36, 38, 40,42, \cdots\). In the second row we want it to use the index \(43\), instead of \(42\), so we need to
 	increase it by \(1\) when it reaches the edge. When it reaches the end of the second line, we want it to increase from \(47\) to \(48\),
-	so then we need to subtract \(1\). In the next layer we need to shift the behaviour on the edges to the opposite. See
+	so then we need to subtract \(1\). In the next layer we need to shift the behaviour on the edges to the opposite.
 
 	\[
 	\begin{matrix}

@@ -2,7 +2,7 @@
 	\label{sec:bnd_method}
 	A simulation must necessarily have finite extent, we need to employ boundary condtions
 	to deal with the edges of the simulation. Here we will go through \(3\) different schemes
-	corresponding to periodic boundaries, depicted in \cref{fig:bnd}, Dirichlet conditions and Von Neumann conditions.
+	corresponding to periodic boundaries, depicted in \cref{fig:bnd}, Dirichlet conditions and von Neumann conditions.
 	Periodic conditions  used when we want to simulate an infinite plasma sheet.
 	It is usually used when the plasma sheet is of a much larger extent than the
 	length scale of the phenomena we want to investigate, or when the investigated
@@ -95,7 +95,7 @@
 	in a Domain Partitioning parallelization scheme, so often the same algorithm and code
 	can be reused to achieve periodic boundary conditions.
 
-	Solutions for the contineous problem with periodic boundary conditions exists only if
+	Solutions for the continuous problem with periodic boundary conditions exist only if
 	the \textit{compatibility condition} \citep{trottenberg_multigrid_2000}
 
 	\begin{equation}
@@ -105,7 +105,7 @@
 	is held. This means that the total charge in the domain must be zero, which
 	is often true in plasma due to quasi-neutrality.
 
-	To ensure a unique discretized solution need to set the integration constant, this can be done
+	To ensure a unique discretized solution, one needs to set the integration constant. This can be done
 	by setting a \textit{global constraint} on the solution
 
 	\begin{equation}
@@ -125,8 +125,8 @@
 	\end{equation}
 
 
-\subsection{Neumann Boundaries}
-	Now we assume we know the gradient of the potential along the boundary, \(\nabla\phi_{\partial \Omega} = f\).
+\subsection{von Neumann Boundaries}
+	Let us assume that we know the gradient of the potential along the boundary, \(\nabla\phi_{\partial \Omega} = f\).
 	This is often used in hydrodynamics to represent reflecting boundaries.
 	Then our \(1\)D example problem will look like
 
@@ -139,8 +139,8 @@
 	\end{equation}
 
 	The boundary condition is then stated as a gradient and we need to approximate it
-	to \(\phi\) to use it in the poisson equation, \cref{eq:1D_poisson}.
-	We do this by a \(2\)nd order central difference to the gradient.
+	to \(\phi\) to use it in the Poisson equation, \cref{eq:1D_poisson}.
+	We do this by the \(2\)nd order central difference to the gradient.
 
 	\begin{equation}
 		\pdv{\phi(x)}{x} = \frac{\phi(x +\Delta x ) - \phi(x -\Delta x )}{2\Delta x} = f(x)
@@ -156,7 +156,7 @@
 	\end{equation}
 
 	With our discretization, where the internal cell sizes are \(1\), the \(\phi(-\Delta x)\)
-	correspond directly to a ghost cell. So we can implement the Neumann boundary conditions
+	corresponds directly to a ghost cell. So we can implement the von Neumann boundary conditions
 	easily by setting the ghost cells equal to \cref{eq:neumann_lower,eq:neumann_upper},
 	see \cref{fig:neumann}.
 	This scheme completely avoids any modification of the smoother stencils at the boundaries.
@@ -166,7 +166,7 @@
 	Due to this we need to represent the boundaries on the coarser grid levels as well.
 
 	\subsubsection{Periodic}
-		Since the periodic boundary conditions can be tougth of to set the domain next
+		Since the periodic boundary conditions can be thought of to set the domain next
 		a copy of itself the boundary treatment will remain equal on the coarser
 		grids. It should also be mentioned that the \textit{global constraint}, \cref{eq:global_constraint},
 		only needs to be set on the coarsest grids to achieve good convergence
@@ -186,8 +186,8 @@
 		If the boundaries are more complicated first or second order interpolation
 		could be used to restrict them.
 
-	\subsubsection{Neumann}
-		The Neumann conditions are dependent on the next to outermost grid point,
+	\subsubsection{von Neumann}
+		The von Neumann conditions are dependent on the next to outermost grid point,
 		i.e. grid point \(2\) in \cref{fig:neumann} on the lower side,
 		because of this they will have to be recomputed each time they are used.
 		But still the function \(f\) should be restricted seperately from the
@@ -196,13 +196,13 @@
 
 	\subsection{Mixed Conditions}
 		All the boundary conditions can be implemented with the use of ghost cells,
-		this enables the use of the \(5\)-point stencil for the smoothers. This
+		this enables the use of the \(7\)-point in 3D (and \(5\) pint in 2D), stencil for the smoothers. This
 		greatly simplifies mixed boundary conditions, the boundaries are set on the
 		ghost layer of the grid seperately, then the smoother runs. Here it should
 		be noted that the boundaries need to be reset for each halfcycle in GS-RB.
 
 		As can be seen in \cref{fig:mixed} we do not have to care for the corners
-		of the domain, as long as we are using a \(5\)-point stencil. This allows us to not
+		of the domain, as long as we are using a  \(7\)-point stencil. This allows us to not
 		need to care of which boundary conditions takes precedence when they clash.
 		For a higher order, or different, stencils the corner ghost cells may be important
 		and the mixing of boundary conditions need to be given extra care.
@@ -211,7 +211,7 @@
 			\centering
 			\input{tikz/mixed_bnd}
 			\caption{This is a \(2\)D domain with mixed boundary conditions, along the $x$-axis there are
-			periodic boundary conditions, green ghost points, and the $y$-axis there are dirichlet boundary conditions, red ghost points. If
+			periodic boundary conditions, green ghost points, and the $y$-axis there are Dirichlet boundary conditions, red ghost points. If
 			the smoothers are using a 5 point discretization stencil the corners, grey diamonds, are neglected when
 			computing the inner, i.e. true,  grid.}
 			\label{fig:mixed}

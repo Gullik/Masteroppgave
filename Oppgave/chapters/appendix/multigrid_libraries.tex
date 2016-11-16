@@ -1,6 +1,6 @@
 
 
-Efficient computation of the poisson equation, or other elliptic equations, is a common problem with many applications, and there exists several predeveloped and optimized libraries to help solve it. These include Parallel Particle Mesh (PPM) \citep{sbalzarini_ppm_2006}, Hypre \citep{falgout_hypre:_2002}, Muelu (??), METIS \citep{_fast_????} and PETCs \citep{_manual.pdf_????} amongst others. There is also PiC libraries that can be used PICARD and VORPAL to mention two.
+Efficient computation of the poisson equation, or other elliptic equations, is a common problem with many applications, and there exists several predeveloped and optimized libraries to help solve it. These include Parallel Particle Mesh (PPM) \citep{sbalzarini_ppm_2006}, Hypre \citep{falgout_hypre:_2002}, Muelu (), METIS \citep{_fast_????} and PETCs \citep{_manual.pdf_????} amongst others. There is also PiC libraries that can be used PICARD and VORPAL to mention two.
 
 If we want to have an efficient integration of a multigrid library into our PiC model we need to consider how easy it is to use with our scalar and field structures. To have an effiecient program we need to avoid having the program convert data between our structures and the library structures. Since our PiC implementation uses the same datastructures for the scalar fields in several other parts, than the solution to the poisson equation, we could have an efficiency problem in the interface between our program and the library.
 
@@ -12,10 +12,10 @@ We could also consider that only part of the multigrid algorithm uses building b
 Parallel Particle Mesh is a library designed for particle based approaches to physical problems, written in Fortran. As a part of the library it includes a structured geometric multigrid solver which follows a similar algorithm to the algorithm we have implemented in our project implemented in both 2 and 3 dimensions. For the 3 dimensional case the laplacian is discretized with a \(7\)-point stencil, then it uses a RB-SOR (Red and Black Succesive Over-Relaxation), which equals GS-RB with the relaxation parameter \(\omega\) set as \(1\), as a smoother. The full-weighting scheme is used for restriction and trilinear interpolation for the prolongation, both are described in \citep{trottenberg_multigrid_2000}. It has implementations for both V and W multigrid cycles. To divide up the domains between the computational nodes it uses the METIS library. The efficiency of the parallel multigrid implementation was tested
 
 \section{Hypre}
-Hypre is a library developed for solving sparse linear systems on massive parallel computers. It has support for c and Fortran. Amongst the algorithms included is both structured multigrid as well as element-based algebraic multigrid. The multigrid algorithms scales well on up to \(100 000\) cores, for a detailed overview see Baker et al 2012. (bibtex files started to argue, will fix).
+Hypre is a library developed for solving sparse linear systems on massive parallel computers. It has support for c and Fortran. Amongst the algorithms included is both structured multigrid as well as element-based algebraic multigrid. The multigrid algorithms scales well on up to \(100 000\) cores, for a detailed overview see Baker et. al. (2012).
 
 \section{MueLo - Algebraic Multigrid Solver}
-MueLo is an algebraic multigrid solver, and is a part of the TRILINOS project and has the advantage that it works in conjunction with the other libraries there. It is written as an object oriented solver in cpp. For a investigation into the scaling properties see Lin et. al. 2014.
+MueLo is an algebraic multigrid solver, and is a part of the TRILINOS project and has the advantage that it works in conjunction with the other libraries there. It is written as an object oriented solver in cpp. For a investigation into the scaling properties see Lin et. al. (2014).
 
 
 \section{METIS - Graph Partitioning Library}

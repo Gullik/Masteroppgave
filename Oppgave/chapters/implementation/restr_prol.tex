@@ -3,24 +3,24 @@
 
 \section{Restriction}
 	In our implementation we first cycle through all of the true coarse grid points, then
-	the two main tasks is to find the specific fine grid point corresponding to the specific
+	the two main tasks are to find the specific fine grid point corresponding to the specific
  	coarse grid point, and finding the indexes of the fine grid points surrounding the grid point.
 
-	Since the value in both grids are stored in a first order lexicographical array, we should treat the
+	Since the values in both grids are stored in the first order lexicographical array, we should treat the
 	grid points in the same fashion, so the values are stored close to each other in the array.
-	The first dimension is treated first, then the next is dimension is incremented followed by
-	treating the first dimension again, then increment the next and so on. The fine grid has twice the
-	resolution of the coarse grid, so for each time the coarse grid index is incremented,
+	The first dimension is treated first, then the next dimension is incremented followed by
+	treating the first dimension again, then increment the next and so on. The finer grid has twice the
+	resolution of the coarser grid one level below, so for each time the coarse grid index is incremented,
 	the fine grid index is incremented twice.
 
-	Along the x-axis each incrementation is the number of values stored in the grid, which for scalars
+	Along the x-axis each incrementation is by the number of values stored in the grid, which for scalars
 	is \(1\), and 2 for the fine index. The fine index will in addition
 	need to skip 1 row each time, each time the y-axis is incremented, due to the finer resolution and 1 layer each time
 	the z-axis is incremented.
 
 	At the edges of the grid we have ghost layers, which have equal thickness for both the grids, so the
-	coarse grid needs to increment over the ghost values, in the x-direction, each time y is incremented.
-	When z is incremented the index need to skip over a row of ghost values. The fine index follows
+	coarse grid needs to be incremented over the ghost values, in the x-direction, each time y is incremented.
+	When z is incremented the index needs to skip over a row of ghost values. The fine index follows
 	the same procedure as the coarse index when dealing with the ghost layers.
 
 	When correct fine grid index is found, corresponding to a coarse grid index, the stencil needs to be applied around
@@ -36,7 +36,7 @@
 
 	%Citation Numerical Recipes in C
 	The algorithm implemented for the interpolation is based on the method, described in
-	\cite{press_numerical_1988}, has the following steps, which is also shown for a 2D case in \ref{fig:prolongation}.
+	\citet{press_numerical_1988}, has the following steps, which is also shown for a 2D case in \cref{fig:prolongation}.
 
  	\begin{enumerate}
 		\item Direct insertion: Coarse$\rightarrow$ Fine
@@ -46,7 +46,7 @@
 	\end{enumerate}
 
 	The interpolation should always first be done on the highest dimension, because the grid values are stored further
-	apart along the highest axis in the memory, and the each succesive interpolation needs to apply to more grid points. (Note to self: should test)
+	apart along the highest axis in the memory, and the each succesive interpolation needs to apply to more grid points.
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
 	%%%		Tikz picture

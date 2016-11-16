@@ -1,14 +1,11 @@
 
-As the previous chapter described the need for numerical plasma models this chapter
-goes through the theory behind a Particle-In-Cell model, with a focus on
-multigrid as a Poisson solver.
+The previous chapter provided the basic concepts in plasma physics and emphasized the need for numerical plasma models.
+This chapter goes through the theory behind a Particle-In-Cell (PiC) model, with a focus on
+the multigrid Poisson solver.
 First there is a general overview of a PiC model and the different building blocks
-needed. The stability criterions enforced on a PiC model is then introduced.
+needed. The stability criteria needed in a PiC model are then introduced.
 Next we go into a more detailed overview of the PINC model, this thesis was a part of
 building.
-Then there is an overview of the normalization scheme designed to minimize
-floating point operations, FLOPS. Domain partitioning as a strategy to parallelize
-the model is then considered. How the multigrid solver works and is structured follows,
-before the parallelization issues for the multigrid solver are considered.
-Lastly there is an overview of boundary conditions and the special considerations
-they have in a multigrid solver.
+Then there is an overview of the normalization scheme, in PINC, designed to minimize
+floating point operations. Domain partitioning as a strategy to parallelize
+the model is then considered. We continue with providing details on the multigrid solver including boundary conditions.

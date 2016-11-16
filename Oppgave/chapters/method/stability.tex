@@ -2,49 +2,50 @@
     \label{sec:stability}
     A PiC model has stability criteria that need to be fulfilled
     for the model to work correctly. This is caused by the inherent discretization of the problem
-    in a numerical method. Here we will investigate an harmonic oscillator and a
-    wave to find the stability criterias for the time and spatial discretization.
+    in a numerical method. Here we will investigate a harmonic oscillator and a
+    wave to find the stability criteria for the time and spatial discretization.
 	A short discussion on the finite grid instability, caused by representing the
- 	charge distribution as a mesh, is included as well.
+ 	charge distribution on a mesh, is included as well.
 
     \subsubsection{Time Stability Criterion}
         \label{sec:time_stability}
-        A one-dimensional harmonic oscillator, i.e. a pendulum in gravity, is described by
+        A one-dimensional harmonic oscillator (e.g. a pendulum in a gravity field) is described by
         \begin{equation}
-            \pdv[2]{x}{t} = - \omega_0^2 x
+            \pdv[2]{x}{t} = - \omega_0^2 x,
         \end{equation}
         %
         and has a solution of the form
         %
         \begin{equation}
-            x(t) = C e^{-i\omega t} \label{eq:harmonic_sol}
+            x(t) = C e^{-i\omega t} \label{eq:harmonic_sol}.
         \end{equation}
         %
-        Then we replace the temporal derivative with a centered finite difference.
+        Then we replace the temporal derivative with a centered finite difference:
         %
         \begin{equation}
-            \frac{x^{n+\Delta t} - 2 x^{n} + x^{n-\Delta t}}{\Delta t^2} = -\omega_0^2 x^n
+            \frac{x^{n+\Delta t} - 2 x^{n} + x^{n-\Delta t}}{\Delta t^2} = -\omega_0^2 x^n.
         \end{equation}
         %
-        Inserting the harmonic solution in place of the \(x^n\), \(x^{n+ \Delta t}\) and \(x^{n-\Delta t}\).
+        Inserting the harmonic solution in place of the \(x^n\), \(x^{n+ \Delta t}\) and \(x^{n-\Delta t}\), we obtain:
         \begin{equation}
-            \frac{ e^{-i\omega (t + \Delta t)} -2e^{-i\omega t} + e^{-i\omega (t - \Delta t)}}{\Delta t^2} = -\omega_0^2 e^{-i\omega t}
+            \frac{ e^{-i\omega (t + \Delta t)} -2e^{-i\omega t} + e^{-i\omega (t - \Delta t)}}{\Delta t^2} = -\omega_0^2 e^{-i\omega t}.
         \end{equation}
         %
-        Using Eulers relation, (\(e^{-ix} = \cos(x) + i\sin{x}\)), this yields
+        Using Eulers relation, (\(e^{-ix} = \cos(x) + i\sin{x}\)), this yields:
         %
         \begin{equation}
-            2\cos(\omega \Delta t)- 2 = -\omega_0 \Delta t
+            2\cos(\omega \Delta t)- 2 = -\omega_0 \Delta t,
         \end{equation}
         %
         which can be rearranged into
         %
         \begin{equation}
-                \sin(\frac{\omega \Delta t}{2}) = \pm \frac{\omega_0 \Delta t}{2}
+                \sin(\frac{\omega \Delta t}{2}) = \pm \frac{\omega_0 \Delta t}{2}.
         \end{equation}
         %
-        In the case, \(\frac{\omega_0 \Delta t}{2} > 1\), \(\omega\) has an imaginary component
-        and the numerical solution is unstable.
+        It is clear that when \(\frac{\omega_0 \Delta t}{2} > 1\), \(\omega\) has an imaginary component
+        and the numerical solution is unstable. This puts limits on the timestep which should be much smaller then
+		the characteristic timescale in a system, which in our case \(\Delta t \ll \omega_{pe}^{-1}\).
 
     \subsubsection{Spatial Stability Criterion}
         A 1-dimensional wave equation is described by:
@@ -79,16 +80,18 @@
             \Delta t \leq \frac{1}{c} \left(\sum_i\Delta x_i^-2\right)^{-\frac{1}{2}}
         \end{equation}
 
+		If this condition is not fullfilled, aliasing will appear and the wave propagation will be represented correctly.
+
     \subsubsection{Finite Grid Instability}
         \label{sec:finite_grid_instability}
         The particles in a PiC simulation move in a continuous space, while they are
         represented on a discrete grid for the field calculations. This reduction allows
         a \textit{Finite Grid Instability} to appear, due to a loss of information of representing a number of particles by a few grid points \citep{lapenta_particle_????}.
-		This will cause aliasing of properties on a smaller scale than the stepsize.
+		This will cause aliasing of properties on a smaller scale than the resolution.
         % Intuitively a finer grid should produce a better result, as it gives a better approximation of
         % the actual charge distribution.
         The numerical analysis of the instability is complicated and we refer to
-        \citet{birdsall_plasma_2004,hockney_computer_1988} for a the original work.
+        \citet{birdsall_plasma_2004,hockney_computer_1988} for original works.
         The instability introduces the following additional constraint on the grid resolution,
         \begin{equation}
             \Delta x < \varsigma \lambda_D
@@ -97,5 +100,5 @@
         The constant \(\varsigma\) is of order one and varies according to the details of the implementation.
 		For a Cloud-in-Cell (CiC) scheme, i.e. first order weigthing, \(\varsigma \approx \pi\).
 		This means that the stepsize needs to resolve on a much smaller scale than the
-		Debye Shielding length. Violatin of this criteria will cause the simulated plasma
+		Debye Shielding length. Violation of this criteria will cause the simulated plasma
 		to unphysically heat, increasing \(\lambda_D\), untill the condition is fullfilled.

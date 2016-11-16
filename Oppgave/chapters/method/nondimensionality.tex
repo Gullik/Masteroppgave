@@ -1,5 +1,5 @@
-\section{Normalization}
-    For most numerical code significant computational gains can be achieved
+\subsection{Normalization}
+    For most numerical codes significant computational gain can be achieved
     relatively easy by smart normalization. With a succesful normalization most
     of the multiplications with constants will dissappear. Numerical errors
     due to machine precision are smallest close to unity \(\order{1}\) \citep{hjorth-jensen_computational_????} so we
@@ -11,7 +11,7 @@
         m\pdv[2]{\vb{r}}{t} &= q\vb{E}
     \end{align}
 
-    To compute the acceleration of this particle completely naive would at each point
+    To compute the acceleration of this particle in completely naive way, would at each point
     cost \(1\) multiplications and \(1\) division, \(m/q*E\). If we instead use normalized
     values the equation could look like this
 
@@ -20,11 +20,11 @@
     \end{align}
 
     where \(\tilde {\vb{r}}\) and \(\tilde{\vb{E}}\) is normalized so the dimensionality of the
-    equation works out. Here we get away with no multiplications and no divisions,
+    equation works out. Here we have no multiplications and no divisions,
     but we do have the added task of transforming our variables first to the normalized variables
-    and then back to the original after the simulation has run.
+    and then back to the original for diagnostics.
 
-    \subsection{Non-dimensionality PINC}
+    \subsubsection{Non-dimensionality PINC}
         A good dimensionalizing strategy is to first remove
         dimensionality from the fundamental quantities, and then work out the
         normalizations necessary for the derived quantities.
@@ -80,7 +80,7 @@
  			 \right)
 		\end{equation}
 
-        This suggests that we use the following nondimensionalized fields
+        This suggests that we use the following nondimensional fields
 
         \begin{equation}
             \tilde{\vb{E}} = \frac{e}{v_{th}\omega_{pe}m_e}\vb{E} \quad{\text{and}} \quad \tilde{\vb{B}} = \frac{e}{\omega_{pe}m_e}\vb{B}
@@ -107,7 +107,7 @@
             \tilde \rho = \frac{\rho}{n_0e}
         \end{equation}
 
-    \subsection{Normalization PINC}
+    \subsubsection{Normalization PINC}
         It should be mentioned that the normalization scheme for PINC was mostly worked
         out by Sigvald Marholm, and I am mostly repeating his work here. It is still
         included here to give complete understanding of our PiC implementation.
@@ -118,14 +118,14 @@
         a field instead of each particle. From now on we will omit the tilde on dimensionless
         quantities and consider all quantities dimensionless.
 
-        \subsection{Mover}
-            We use the Leapfrog algorithm from \textit{\citetitle{birdsall_plasma_2004}} \citep{birdsall_plasma_2004}
-            book. This has the advantage of second order accuracy and stability for oscillatory motion
+        \subsubsection{Mover}
+            We use the standard Leapfrog algorithm \citep{birdsall_plasma_2004}.
+			This has the advantage of second order accuracy and stability for oscillatory motion
             with the same number of function calls as Euler integration. It should
             be mentioned that the Leapfrog algorithm preserves momentum, but the
             energy can drift.
 
-            \noindent The finite-difference discretization of a leapfrog step is given by
+            \noindent The finite-difference discretization of a leapfrog timestep is given by
 
             \begin{equation}
                 \frac{\vb{r}^{n+1}-\vb{r}^n}{\Delta t} = \vb{v}^{n+\frac{1}{2}}
@@ -146,7 +146,7 @@
                 \bar{\vb{r}}^{n+1} = \bar{\vb{r}}^{n} + \bar{\vb{v}}^{n+\frac{1}{2}}
             \end{equation}
 
-        \subsection{Accelerator}
+        \subsubsection{Accelerator}
             The accelerator sets a new velocity to the particles. For a case with
             no magnetic field the equation of motion becomes
 
@@ -172,12 +172,12 @@
             \end{equation}
 %
             By applying the cooefficient directly to the electric field
-            this enables us to accelerate each particle with \(1\) addition.
+            this enables us to accelerate each particle with only \(1\) addition.
 
-        \subsection{Distribute}
+        \subsubsection{Distribute}
             The interpolation of the charged particles onto a charge density grid
             is handled by the distribute module. For each particle the charge is distributed
-            to the nearby grid points according distance. We will not go into the details of
+            to the nearby grid points according to the distance to the grid points. We will not go into the details of
             the implementation here, only mention the resulting normalization.
 
             The normalized charge density at grid point \(j\) is given by adding together
@@ -195,7 +195,7 @@
             %
             where \(\Delta V = \trace{(\Delta \vb{r})}\).
 
-        \subsection{Solver}
-            Due to normalization already inherent in the charge distribution, \(\bar{\rho}_j\),  and
+        \subsubsection{Solver}
+            Due to normalization being already inherent in the charge distribution, \(\bar{\rho}_j\),  and
             in the application of the electric field, \(\bar{\vb{E}}\), to each particle the
             solver can disregard the normalization.

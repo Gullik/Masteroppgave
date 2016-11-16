@@ -3,7 +3,7 @@
 	\subsection{V-cycle, code}
 	\label{sec:mg_V}
 	\begin{lstlisting}[language=c, caption = Implementation of an recursive V-cycle]
-void inline static mgVRecursive(int level, int bottom, int top, Multigrid *mgRho, Multigrid *mgPhi,
+	void inline static mgVRecursive(int level, int bottom, int top, Multigrid *mgRho, Multigrid *mgPhi,
  									Multigrid *mgRes, const MpiInfo *mpiInfo){
 
 	//Solve and return at coarsest level

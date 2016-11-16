@@ -3,28 +3,26 @@
 	The main object of this project was to develop a new parallel multigrid solver
 	for use in PINC.
 
-	The verification section goes through the different ways the
+	The verification section goes through different ways the
 	solver was tested. The main tests were done on charge distributions
-	with known analytical solutions. The numerical solutions where confirmed to
- 	agree with the analytical solutions. These type of tests where done for various
+	with known analytical solutions. The numerical solutions were confirmed to
+ 	agree with the analytical solutions. These type of tests were done for various
 	dimensions and subdivisions of the domain. The \(N\)-dimensional algorithms were
 	then tested and compared with the specialized \(3\)-dimensional algorithms. For the chosen
 	parameters the \(N\)-dimensional algorithms were almost as fast as the \(3\)D version, this may not be true
 	for all configurations. Unfortunately the capability of the solver to use different boundary conditions, and mix them,
- 	was not well tested due to bad time management.
+ 	was not well tested due to limited time and debugging of PINC to make it functional.
 	The \(\order{h^2}\) scaling of the \(1\)st order discretization of the solver
  	was then verified by measuring how the error decreased as the resolution increased.
 	Next we wanted to look at the whole PINC program. It then confirmed to work correctly
-	with a simulation of a Langmuir Oscillation.
+	with a simulation of a Langmuir oscillation.
 
-	Since PINC is made to performon a supercomputer we wanted to see how well it
+	Since PINC is made to perform on a supercomputer we wanted to see how well it
 	performs and scales on a multiple processors. First we measured the convergence rate of the algorithm,
-	which was found to be For this we used UiO's supercomputer Abel.
+	which was found to be between \(0.149\) and \(0.203\). For this we used UiO's supercomputer Abel.
 	Due to bad choices in multigrid parameters, using \(5\) multigrid levels on small grids, the communication
 	dominated the computational time. Due to time constraints further scaling measurements with better
 	parameters were not conducted.
-
-
 
 \section{Concluding Remarks and Further Proposals}
 	While the multigrid solver was shown to work and produce the correct results the scalability
@@ -32,7 +30,7 @@
 	to scale well. A multigrid algorithm based on Gauss-Seidel should scale better than the performed tests show,
 	as \citet{jung_parallelization_1997} showed. It should also be considered to implement the \textit{processor-block Gauss-Seidel}
 	from \citet{adams_parallel_2003}. Further additions to increase the possible use of PINC include
-	the possiblity to have objects in the plasma, which can be used to model the effects surrounding space craft
+	the possiblity to have objects in the plasma, which can be used to model the effects surrounding spacecraft
 	and dust particles \citep{miloch_wake_2010,miyake_plasma_2013,ergun_spacecraft_2010}. Collisions
 	between particles will enable further studies of instabilities of plasma streams \citep{brackbill_particle_1995}.
-	Another way PINC can be further developed is with full implicit algorithms.  
+	Another way PINC can be further developed is with full implicit algorithms. Some of these suggestions are under planning and development.
