@@ -1,0 +1,14 @@
+[0] Config.pm:318> INFO - This is Biber 1.8
+[0] Config.pm:321> INFO - Logfile is 'MSC_Presentation_Gullik_Killie.blg'
+[39] biber:275> INFO - === on. jan. 18, 2017, 12:19:53
+[39] Biber.pm:333> INFO - Reading 'MSC_Presentation_Gullik_Killie.bcf'
+[75] Biber.pm:630> INFO - Found 2 citekeys in bib section 0
+[92] Biber.pm:3053> INFO - Processing section 0
+[104] Biber.pm:3190> INFO - Looking for bibtex format file 'bib.bib' for section 0
+[105] bibtex.pm:933> INFO - Decoding LaTeX character macros into UTF-8
+[105] bibtex.pm:808> INFO - Found BibTeX data source 'bib.bib'
+[134] Biber.pm:2939> INFO - Overriding locale 'en_US.UTF-8' default tailoring 'variable = shifted' with 'variable = non-ignorable'
+[134] Biber.pm:2945> INFO - Sorting 'entry' list 'nyt' keys
+[134] Biber.pm:2949> INFO - No sort tailoring available for locale 'en_US.UTF-8'
+[137] bbl.pm:482> INFO - Writing 'MSC_Presentation_Gullik_Killie.bbl' with encoding 'UTF-8'
+[137] bbl.pm:555> INFO - Output to MSC_Presentation_Gullik_Killie.bbl

@@ -1,16 +1,16 @@
 [0] Config.pm:318> INFO - This is Biber 1.8
 [0] Config.pm:321> INFO - Logfile is 'thesis.blg'
-[39] biber:275> INFO - === on. nov. 16, 2016, 01:03:24
-[39] Biber.pm:333> INFO - Reading 'thesis.bcf'
-[77] Biber.pm:630> INFO - Found 46 citekeys in bib section 0
-[86] Biber.pm:3053> INFO - Processing section 0
-[96] Biber.pm:3190> INFO - Looking for bibtex format file 'bibs/bibliography.bib' for section 0
-[104] bibtex.pm:933> INFO - Decoding LaTeX character macros into UTF-8
-[115] bibtex.pm:808> INFO - Found BibTeX data source 'bibs/bibliography.bib'
-[163] Utils.pm:169> WARN - I didn't find a database entry for 'documentation' (section 0)
-[269] Biber.pm:2939> INFO - Overriding locale 'en_US.UTF-8' default tailoring 'variable = shifted' with 'variable = non-ignorable'
-[269] Biber.pm:2945> INFO - Sorting 'entry' list 'nyt' keys
-[270] Biber.pm:2949> INFO - No sort tailoring available for locale 'en_US.UTF-8'
-[360] bbl.pm:482> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[368] bbl.pm:555> INFO - Output to thesis.bbl
-[368] Biber.pm:105> INFO - WARNINGS: 1
+[38] biber:275> INFO - === ti. jan. 10, 2017, 12:28:52
+[38] Biber.pm:333> INFO - Reading 'thesis.bcf'
+[76] Biber.pm:630> INFO - Found 46 citekeys in bib section 0
+[85] Biber.pm:3053> INFO - Processing section 0
+[95] Biber.pm:3190> INFO - Looking for bibtex format file 'bibs/bibliography.bib' for section 0
+[103] bibtex.pm:933> INFO - Decoding LaTeX character macros into UTF-8
+[114] bibtex.pm:808> INFO - Found BibTeX data source 'bibs/bibliography.bib'
+[162] Utils.pm:169> WARN - I didn't find a database entry for 'documentation' (section 0)
+[267] Biber.pm:2939> INFO - Overriding locale 'en_US.UTF-8' default tailoring 'variable = shifted' with 'variable = non-ignorable'
+[267] Biber.pm:2945> INFO - Sorting 'entry' list 'nyt' keys
+[267] Biber.pm:2949> INFO - No sort tailoring available for locale 'en_US.UTF-8'
+[358] bbl.pm:482> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[365] bbl.pm:555> INFO - Output to thesis.bbl
+[365] Biber.pm:105> INFO - WARNINGS: 1

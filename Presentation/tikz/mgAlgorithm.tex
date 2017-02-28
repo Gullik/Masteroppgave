@@ -1,0 +1,32 @@
+\tikzstyle{blank} = [circle,minimum size=10pt,inner sep=0pt]
+\tikzstyle{texting} = [circle,minimum size=10pt,inner sep=0pt]
+
+
+
+\begin{tikzpicture}[scale = 1.45, auto,swap]
+    \node[blank] (start) at (0,5) {};
+    \node[blank] (bot_start) at (2,0) {};
+    \node[blank] (bot_end) at (8,0) {};
+    \node[blank] (end) at (10,5) {};
+    %Draw lines
+    \draw[*->] (start) -- (bot_start);
+    \draw[*->] (bot_start) -- (bot_end);
+    \draw[*->] (bot_end) -- (end);
+    %Put in Algorithm steps
+    %Downwards
+    \node[texting] (haloDown)       at (1.2,4.5) {HaloBnd($\phi$)};
+    \node[texting] (smoothDown)     at (1.7,3.5) {Smooth($\phi, \rho$)};
+    \node[texting] (haloDown2)      at (1.7,2.5) {Halo($\rho$)};
+    \node[texting] (resDown)        at (2.7,1.5) {Residual($\text{res},\phi,\rho$)};
+    \node[texting] (restrict)       at (2.9,0.5) {Restrict($\text{res},\rho$)};
+    %Bottom
+    \node[texting] (halo1)      at (2.5,-0.5) {Halo($\rho$)};
+    \node[texting] (smooth1)    at (4.3,-0.5) {Smooth($\phi,\rho$)};
+    \node[texting] (halobnd)    at (6.1,-0.5) {HaloBnd($\phi$)};
+    \node[texting] (prol)       at (7.6,-0.5) {Prol($\rho$)};
+    %Upwards
+    \node[texting] (sub)        at (7.4,1.0) {Sub($\phi,\text{res}$)};
+    \node[texting] (halobndUp)  at (7.8,2.0) {HaloBnd($\phi$)};
+    \node[texting] (smoothUp)   at (8.2,3.0) {Smooth($\phi$)};
+    \node[texting] (prolongate) at (8.2,4.0) {Prolongate($\text{res},\phi$)};
+\end{tikzpicture}

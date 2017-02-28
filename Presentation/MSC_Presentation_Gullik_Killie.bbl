@@ -1,0 +1,76 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist{entry}{nyt}
+    \entry{chen_introduction_1984}{book}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=71a8df72129a67cf80d79c33f0a32c16}{Chen}{C\bibinitperiod}{Francis\bibnamedelima F.}{F\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=71a8df72129a67cf80d79c33f0a32c16}{Chen}{C\bibinitperiod}{Francis\bibnamedelima F.}{F\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {Boston, MA}%
+      }
+      \list{publisher}{1}{%
+        {Springer US}%
+      }
+      \strng{namehash}{71a8df72129a67cf80d79c33f0a32c16}
+      \strng{fullhash}{71a8df72129a67cf80d79c33f0a32c16}
+      \field{sortinit}{C}
+      \field{labelyear}{1984}
+      \field{datelabelsource}{}
+      \field{labeltitle}{Introduction to {Plasma} {Physics} and {Controlled} {Fusion}}
+      \field{isbn}{978-1-4419-3201-3 978-1-4757-5595-4}
+      \field{title}{Introduction to {Plasma} {Physics} and {Controlled} {Fusion}}
+      \field{urlday}{12}
+      \field{urlmonth}{07}
+      \field{urlyear}{2016}
+      \field{year}{1984}
+      \verb{url}
+      \verb http://link.springer.com/10.1007/978-1-4757-5595-4
+      \endverb
+    \endentry
+    \entry{_sun_????}{misc}{}
+      \field{sortinit}{T}
+      \field{labelyear}{2017}
+      \field{labelmonth}{01}
+      \field{labelday}{18}
+      \field{datelabelsource}{url}
+      \field{labeltitle}{The {Sun} imaged by {EIT} at 304 Å}
+      \field{abstract}{This image shows the solar disc as observed by SOHO's Extreme ultraviolet Imaging Telescope (EIT) at a wavelength of 304 Å, probing a spectral line emitted by ionised helium (He II). Corresponding to a temperature of about 60,000 Kelvin, emission in this line shows the upper chromosphere of the Sun. The features in the image trace the structure of the Sun's magnetic field. A huge prominence is visible on the upper right side. This snapshot was taken on 14 September 1999.}
+      \field{title}{The {Sun} imaged by {EIT} at 304 Å}
+      \field{urlday}{18}
+      \field{urlmonth}{01}
+      \field{urlyear}{2017}
+      \verb{file}
+      \verb Snapshot:/home/gullik/.zotero/zotero/ui33ctdv.default/zotero/storage/323WJ69C/The Sun imaged by EIT at 304 Å.html:text/html
+      \endverb
+      \verb{url}
+      \verb http://sci.esa.int/soho/43990-the-sun-imaged-by-eit-at-304-aring/
+      \endverb
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+
